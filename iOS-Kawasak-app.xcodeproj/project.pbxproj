@@ -14,6 +14,27 @@
 		1D7F86901B67FB1E001B6E1E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F868F1B67FB1E001B6E1E /* Images.xcassets */; };
 		1D7F86931B67FB1E001B6E1E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F86911B67FB1E001B6E1E /* LaunchScreen.xib */; };
 		1D7F869F1B67FB1E001B6E1E /* iOS_Kawasak_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F869E1B67FB1E001B6E1E /* iOS_Kawasak_appTests.swift */; };
+		1D7F86AB1B6806FE001B6E1E /* SectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86AA1B6806FE001B6E1E /* SectionList.swift */; };
+		1D7F86AD1B682C96001B6E1E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86AC1B682C96001B6E1E /* Login.swift */; };
+		1D7F86AF1B683F48001B6E1E /* RacingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86AE1B683F48001B6E1E /* RacingList.swift */; };
+		1D7F86B11B695418001B6E1E /* MyKawasakiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86B01B695418001B6E1E /* MyKawasakiList.swift */; };
+		1D7F86B31B695993001B6E1E /* MyKawasakiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86B21B695993001B6E1E /* MyKawasakiDetails.swift */; };
+		1D7F86B51B697E0F001B6E1E /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86B41B697E0F001B6E1E /* Dealer.swift */; };
+		1D853B651B716B7F002B325B /* notes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D853B641B716B7F002B325B /* notes.plist */; };
+		1D853B671B7180C5002B325B /* PlistRW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D853B661B7180C5002B325B /* PlistRW.swift */; };
+		1D8B6EDE1B7032AD00B0B71A /* RaceResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B6EDD1B7032AD00B0B71A /* RaceResults.swift */; };
+		1DA96F8E1B94FCC2009EE25D /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96F8D1B94FCC2009EE25D /* LandingPage.swift */; };
+		1DA96F901B9503CE009EE25D /* ScrollViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96F8F1B9503CE009EE25D /* ScrollViewContainer.swift */; };
+		1DA96F9C1B950D7D009EE25D /* PagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96F9B1B950D7D009EE25D /* PagedScrollViewController.swift */; };
+		1DA96FA11B961AAF009EE25D /* image3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DA96F9D1B961AAF009EE25D /* image3.png */; };
+		1DA96FA21B961AAF009EE25D /* image4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DA96F9E1B961AAF009EE25D /* image4.png */; };
+		1DA96FA31B961AAF009EE25D /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DA96F9F1B961AAF009EE25D /* image2.png */; };
+		1DA96FA41B961AAF009EE25D /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DA96FA01B961AAF009EE25D /* image1.png */; };
+		1DB65EBD1B6AA260003D350A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB65EBC1B6AA260003D350A /* LocationManager.swift */; };
+		1DB65EBF1B6AD53F003D350A /* Singlton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB65EBE1B6AD53F003D350A /* Singlton.swift */; };
+		1DDE3C621B73DD5E009506BA /* MyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDE3C611B73DD5E009506BA /* MyApi.swift */; };
+		1DE9B03C1B728ED8006C2556 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DE9B03B1B728ED8006C2556 /* data.plist */; };
+		1DE9B03E1B72B0BE006C2556 /* DownloadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +59,27 @@
 		1D7F86981B67FB1E001B6E1E /* iOS-Kawasak-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Kawasak-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7F869D1B67FB1E001B6E1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D7F869E1B67FB1E001B6E1E /* iOS_Kawasak_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Kawasak_appTests.swift; sourceTree = "<group>"; };
+		1D7F86AA1B6806FE001B6E1E /* SectionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionList.swift; sourceTree = "<group>"; };
+		1D7F86AC1B682C96001B6E1E /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		1D7F86AE1B683F48001B6E1E /* RacingList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacingList.swift; sourceTree = "<group>"; };
+		1D7F86B01B695418001B6E1E /* MyKawasakiList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyKawasakiList.swift; sourceTree = "<group>"; };
+		1D7F86B21B695993001B6E1E /* MyKawasakiDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyKawasakiDetails.swift; sourceTree = "<group>"; };
+		1D7F86B41B697E0F001B6E1E /* Dealer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
+		1D853B641B716B7F002B325B /* notes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = notes.plist; sourceTree = "<group>"; };
+		1D853B661B7180C5002B325B /* PlistRW.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistRW.swift; sourceTree = "<group>"; };
+		1D8B6EDD1B7032AD00B0B71A /* RaceResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceResults.swift; sourceTree = "<group>"; };
+		1DA96F8D1B94FCC2009EE25D /* LandingPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
+		1DA96F8F1B9503CE009EE25D /* ScrollViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewContainer.swift; sourceTree = "<group>"; };
+		1DA96F9B1B950D7D009EE25D /* PagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedScrollViewController.swift; sourceTree = "<group>"; };
+		1DA96F9D1B961AAF009EE25D /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image3.png; sourceTree = "<group>"; };
+		1DA96F9E1B961AAF009EE25D /* image4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image4.png; sourceTree = "<group>"; };
+		1DA96F9F1B961AAF009EE25D /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
+		1DA96FA01B961AAF009EE25D /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
+		1DB65EBC1B6AA260003D350A /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		1DB65EBE1B6AD53F003D350A /* Singlton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singlton.swift; sourceTree = "<group>"; };
+		1DDE3C611B73DD5E009506BA /* MyApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyApi.swift; sourceTree = "<group>"; };
+		1DE9B03B1B728ED8006C2556 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
+		1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +121,29 @@
 		1D7F86821B67FB1E001B6E1E /* iOS-Kawasak-app */ = {
 			isa = PBXGroup;
 			children = (
+				1DA96F9B1B950D7D009EE25D /* PagedScrollViewController.swift */,
+				1D7F868C1B67FB1E001B6E1E /* Main.storyboard */,
+				1DA96F8F1B9503CE009EE25D /* ScrollViewContainer.swift */,
+				1D853B641B716B7F002B325B /* notes.plist */,
+				1DB65EBC1B6AA260003D350A /* LocationManager.swift */,
+				1DA96F8D1B94FCC2009EE25D /* LandingPage.swift */,
 				1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */,
 				1D7F868A1B67FB1E001B6E1E /* ViewController.swift */,
-				1D7F868C1B67FB1E001B6E1E /* Main.storyboard */,
+				1DDE3C611B73DD5E009506BA /* MyApi.swift */,
+				1D7F86B41B697E0F001B6E1E /* Dealer.swift */,
+				1D7F86B21B695993001B6E1E /* MyKawasakiDetails.swift */,
+				1D7F86AC1B682C96001B6E1E /* Login.swift */,
+				1D7F86AA1B6806FE001B6E1E /* SectionList.swift */,
+				1D7F86AE1B683F48001B6E1E /* RacingList.swift */,
+				1D8B6EDD1B7032AD00B0B71A /* RaceResults.swift */,
+				1DB65EBE1B6AD53F003D350A /* Singlton.swift */,
+				1D7F86B01B695418001B6E1E /* MyKawasakiList.swift */,
+				1D853B661B7180C5002B325B /* PlistRW.swift */,
+				1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */,
 				1D7F868F1B67FB1E001B6E1E /* Images.xcassets */,
 				1D7F86911B67FB1E001B6E1E /* LaunchScreen.xib */,
 				1D7F86871B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld */,
+				1DE9B03B1B728ED8006C2556 /* data.plist */,
 				1D7F86831B67FB1E001B6E1E /* Supporting Files */,
 			);
 			path = "iOS-Kawasak-app";
@@ -93,6 +152,10 @@
 		1D7F86831B67FB1E001B6E1E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1DA96F9D1B961AAF009EE25D /* image3.png */,
+				1DA96F9E1B961AAF009EE25D /* image4.png */,
+				1DA96F9F1B961AAF009EE25D /* image2.png */,
+				1DA96FA01B961AAF009EE25D /* image1.png */,
 				1D7F86841B67FB1E001B6E1E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -164,6 +227,7 @@
 				TargetAttributes = {
 					1D7F867F1B67FB1E001B6E1E = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = DEUXYYQUBY;
 					};
 					1D7F86971B67FB1E001B6E1E = {
 						CreatedOnToolsVersion = 6.4;
@@ -195,8 +259,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DA96FA21B961AAF009EE25D /* image4.png in Resources */,
+				1DA96FA31B961AAF009EE25D /* image2.png in Resources */,
 				1D7F868E1B67FB1E001B6E1E /* Main.storyboard in Resources */,
+				1DA96FA41B961AAF009EE25D /* image1.png in Resources */,
+				1DA96FA11B961AAF009EE25D /* image3.png in Resources */,
 				1D7F86931B67FB1E001B6E1E /* LaunchScreen.xib in Resources */,
+				1D853B651B716B7F002B325B /* notes.plist in Resources */,
+				1DE9B03C1B728ED8006C2556 /* data.plist in Resources */,
 				1D7F86901B67FB1E001B6E1E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,8 +286,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D7F868B1B67FB1E001B6E1E /* ViewController.swift in Sources */,
+				1D853B671B7180C5002B325B /* PlistRW.swift in Sources */,
+				1D7F86AD1B682C96001B6E1E /* Login.swift in Sources */,
+				1DE9B03E1B72B0BE006C2556 /* DownloadFile.swift in Sources */,
+				1D7F86AB1B6806FE001B6E1E /* SectionList.swift in Sources */,
+				1DB65EBD1B6AA260003D350A /* LocationManager.swift in Sources */,
+				1DA96F8E1B94FCC2009EE25D /* LandingPage.swift in Sources */,
+				1DA96F9C1B950D7D009EE25D /* PagedScrollViewController.swift in Sources */,
 				1D7F86861B67FB1E001B6E1E /* AppDelegate.swift in Sources */,
+				1D7F86B11B695418001B6E1E /* MyKawasakiList.swift in Sources */,
+				1D7F86B31B695993001B6E1E /* MyKawasakiDetails.swift in Sources */,
+				1D7F86B51B697E0F001B6E1E /* Dealer.swift in Sources */,
 				1D7F86891B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld in Sources */,
+				1D8B6EDE1B7032AD00B0B71A /* RaceResults.swift in Sources */,
+				1DDE3C621B73DD5E009506BA /* MyApi.swift in Sources */,
+				1D7F86AF1B683F48001B6E1E /* RacingList.swift in Sources */,
+				1DA96F901B9503CE009EE25D /* ScrollViewContainer.swift in Sources */,
+				1DB65EBF1B6AD53F003D350A /* Singlton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,9 +429,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "iOS-Kawasak-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -354,9 +442,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "iOS-Kawasak-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -413,6 +504,7 @@
 				1D7F86A41B67FB1E001B6E1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D7F86A51B67FB1E001B6E1E /* Build configuration list for PBXNativeTarget "iOS-Kawasak-appTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +513,7 @@
 				1D7F86A71B67FB1E001B6E1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

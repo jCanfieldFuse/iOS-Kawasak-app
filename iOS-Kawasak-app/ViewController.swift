@@ -9,10 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let s: Singleton = Singleton.sharedInstance
+    @IBOutlet weak var menuButton: UIButton!
+
+ 
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+         var nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.Black
+        nav?.tintColor = UIColor.blackColor()
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
+      //  s.locationManager
     }
 
     override func didReceiveMemoryWarning() {
