@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>966609F2-4657-47D1-A3D6-66DEFB5B45E6</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>iOS-Kawasak-app</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>6F51E1393063A0F13EE31C3DD598896458B0E856</key>
 		<string>https://github.com/jCanfieldFuse/iOS-Kawasak-app.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iOS-Kawasak-app.xcodeproj/project.xcworkspace</string>
+	<string>iOS-Kawasak-app.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>6F51E1393063A0F13EE31C3DD598896458B0E856</key>

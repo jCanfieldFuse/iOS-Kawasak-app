@@ -1,5 +1,5 @@
 //
-//  raceResults.swift
+//  moreInfo.swift
 //  iOS-Kawasak-app
 //
 //  Created by jon.canfield on 9/1/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RaceResults: UIViewController, UIWebViewDelegate {
+class MoreInfo: UIViewController, UIWebViewDelegate {
 	
 	
 	override func viewDidLoad() {
@@ -19,7 +19,5 @@ class RaceResults: UIViewController, UIWebViewDelegate {
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
-	}
 }
-
-
+}

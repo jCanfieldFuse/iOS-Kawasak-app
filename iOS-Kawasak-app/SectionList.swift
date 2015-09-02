@@ -30,7 +30,7 @@ class SectionList: UIViewController, UITableViewDataSource, UITableViewDelegate,
         tableListItems.registerClass(tableCell.classForCoder(), forCellReuseIdentifier: "MyTableCell")
         tableListItems.tableFooterView = UIView()
         plist.getPlist()
-        downloader.downloadFile("http://pcwallart.com/images/kawasaki-logo-png-wallpaper-2.jpg", delegate: self)
+        downloader.downloadFile("http://3.bp.blogspot.com/-y8ea6zGNIkE/UOoT_QXMygI/AAAAAAAC39c/Sp9r-2xzIIo/s1600/kawasaki_logo13.png", delegate: self)
         mainImage.image = UIImage(named: imagePicker.getImagefromFolder("kawasaki-logo-png-wallpaper-2.jpg"))
                
         

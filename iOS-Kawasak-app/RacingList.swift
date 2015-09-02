@@ -10,7 +10,7 @@ import UIKit
 
 class RacingList: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
-    var items: [String] = ["Schedule", "News", "Race Results","More"]
+    var items: [String] = ["Supercross", "Team Green", "Road Racing","Watercraft"]
     var dataPassed: String = ""
     
     @IBOutlet weak var tableListItems: UITableView!
@@ -20,7 +20,7 @@ class RacingList: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         tableListItems.delegate = self
         tableListItems.dataSource = self
-        tableListItems.registerClass(tableCellRacing.classForCoder(), forCellReuseIdentifier: "MyTableCell")
+        tableListItems.registerClass(tableCellRacingFiltered.classForCoder(), forCellReuseIdentifier: "MyTableCell")
         tableListItems.tableFooterView = UIView()
         /****************************************************************************************************************************************************************************
         go to view for which does not have a stoyboard segue
@@ -35,7 +35,7 @@ class RacingList: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: tableCellRacing = tableView.dequeueReusableCellWithIdentifier("MyTableCell") as! tableCellRacing
+        let cell: tableCellRacingFiltered = tableView.dequeueReusableCellWithIdentifier("MyTableCell") as! tableCellRacingFiltered
         // do whatever with the class
         cell.textLabel?.text = self.items[indexPath.row]
       
@@ -55,7 +55,7 @@ class RacingList: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-         self.performSegueWithIdentifier("raceResultDetials", sender: self)
+         self.performSegueWithIdentifier("RaceResultsFiltered", sender: self)
      /*   switch (indexPath.row){
         case 0:
             self.performSegueWithIdentifier("raceResultDetials", sender: self)
@@ -84,7 +84,7 @@ class RacingList: UIViewController, UITableViewDataSource, UITableViewDelegate {
 }
 
 
-class tableCellRacing: UITableViewCell {
+class tableCellRacingFiltered: UITableViewCell {
     var thing: Int = 0
     var delegate: AnyObject?
 }

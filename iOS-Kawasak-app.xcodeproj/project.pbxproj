@@ -18,11 +18,10 @@
 		1D7F86AD1B682C96001B6E1E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86AC1B682C96001B6E1E /* Login.swift */; };
 		1D7F86AF1B683F48001B6E1E /* RacingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86AE1B683F48001B6E1E /* RacingList.swift */; };
 		1D7F86B11B695418001B6E1E /* MyKawasakiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86B01B695418001B6E1E /* MyKawasakiList.swift */; };
-		1D7F86B31B695993001B6E1E /* MyKawasakiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86B21B695993001B6E1E /* MyKawasakiDetails.swift */; };
+		1D7F86B31B695993001B6E1E /* MyKawasakiOwned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86B21B695993001B6E1E /* MyKawasakiOwned.swift */; };
 		1D7F86B51B697E0F001B6E1E /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86B41B697E0F001B6E1E /* Dealer.swift */; };
 		1D853B651B716B7F002B325B /* notes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D853B641B716B7F002B325B /* notes.plist */; };
 		1D853B671B7180C5002B325B /* PlistRW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D853B661B7180C5002B325B /* PlistRW.swift */; };
-		1D8B6EDE1B7032AD00B0B71A /* RaceResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B6EDD1B7032AD00B0B71A /* RaceResults.swift */; };
 		1DA96F8E1B94FCC2009EE25D /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96F8D1B94FCC2009EE25D /* LandingPage.swift */; };
 		1DA96F901B9503CE009EE25D /* ScrollViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96F8F1B9503CE009EE25D /* ScrollViewContainer.swift */; };
 		1DA96F9C1B950D7D009EE25D /* PagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96F9B1B950D7D009EE25D /* PagedScrollViewController.swift */; };
@@ -30,6 +29,14 @@
 		1DA96FA21B961AAF009EE25D /* image4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DA96F9E1B961AAF009EE25D /* image4.png */; };
 		1DA96FA31B961AAF009EE25D /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DA96F9F1B961AAF009EE25D /* image2.png */; };
 		1DA96FA41B961AAF009EE25D /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DA96FA01B961AAF009EE25D /* image1.png */; };
+		1DA96FA61B965C75009EE25D /* MyKawasakiFav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96FA51B965C75009EE25D /* MyKawasakiFav.swift */; };
+		1DA96FA81B965CF7009EE25D /* MyKawasakiDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96FA71B965CF7009EE25D /* MyKawasakiDealer.swift */; };
+		1DA96FAA1B966CE9009EE25D /* RaceResultsFiltered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96FA91B966CE9009EE25D /* RaceResultsFiltered.swift */; };
+		1DA96FAC1B96712D009EE25D /* MyKawasakiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96FAB1B96712D009EE25D /* MyKawasakiDetails.swift */; };
+		1DA96FAE1B9672EB009EE25D /* RacingNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96FAD1B9672EB009EE25D /* RacingNews.swift */; };
+		1DA96FB01B967309009EE25D /* RaceResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96FAF1B967309009EE25D /* RaceResults.swift */; };
+		1DA96FB21B967323009EE25D /* MoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96FB11B967323009EE25D /* MoreInfo.swift */; };
+		1DA96FB41B979F1E009EE25D /* DealerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96FB31B979F1E009EE25D /* DealerInformation.swift */; };
 		1DB65EBD1B6AA260003D350A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB65EBC1B6AA260003D350A /* LocationManager.swift */; };
 		1DB65EBF1B6AD53F003D350A /* Singlton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB65EBE1B6AD53F003D350A /* Singlton.swift */; };
 		1DDE3C621B73DD5E009506BA /* MyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDE3C611B73DD5E009506BA /* MyApi.swift */; };
@@ -63,11 +70,10 @@
 		1D7F86AC1B682C96001B6E1E /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		1D7F86AE1B683F48001B6E1E /* RacingList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacingList.swift; sourceTree = "<group>"; };
 		1D7F86B01B695418001B6E1E /* MyKawasakiList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyKawasakiList.swift; sourceTree = "<group>"; };
-		1D7F86B21B695993001B6E1E /* MyKawasakiDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyKawasakiDetails.swift; sourceTree = "<group>"; };
+		1D7F86B21B695993001B6E1E /* MyKawasakiOwned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyKawasakiOwned.swift; sourceTree = "<group>"; };
 		1D7F86B41B697E0F001B6E1E /* Dealer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		1D853B641B716B7F002B325B /* notes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = notes.plist; sourceTree = "<group>"; };
 		1D853B661B7180C5002B325B /* PlistRW.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistRW.swift; sourceTree = "<group>"; };
-		1D8B6EDD1B7032AD00B0B71A /* RaceResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceResults.swift; sourceTree = "<group>"; };
 		1DA96F8D1B94FCC2009EE25D /* LandingPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
 		1DA96F8F1B9503CE009EE25D /* ScrollViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewContainer.swift; sourceTree = "<group>"; };
 		1DA96F9B1B950D7D009EE25D /* PagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedScrollViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +81,14 @@
 		1DA96F9E1B961AAF009EE25D /* image4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image4.png; sourceTree = "<group>"; };
 		1DA96F9F1B961AAF009EE25D /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
 		1DA96FA01B961AAF009EE25D /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
+		1DA96FA51B965C75009EE25D /* MyKawasakiFav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyKawasakiFav.swift; sourceTree = "<group>"; };
+		1DA96FA71B965CF7009EE25D /* MyKawasakiDealer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyKawasakiDealer.swift; sourceTree = "<group>"; };
+		1DA96FA91B966CE9009EE25D /* RaceResultsFiltered.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceResultsFiltered.swift; sourceTree = "<group>"; };
+		1DA96FAB1B96712D009EE25D /* MyKawasakiDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyKawasakiDetails.swift; sourceTree = "<group>"; };
+		1DA96FAD1B9672EB009EE25D /* RacingNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacingNews.swift; sourceTree = "<group>"; };
+		1DA96FAF1B967309009EE25D /* RaceResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceResults.swift; sourceTree = "<group>"; };
+		1DA96FB11B967323009EE25D /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
+		1DA96FB31B979F1E009EE25D /* DealerInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealerInformation.swift; sourceTree = "<group>"; };
 		1DB65EBC1B6AA260003D350A /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1DB65EBE1B6AD53F003D350A /* Singlton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singlton.swift; sourceTree = "<group>"; };
 		1DDE3C611B73DD5E009506BA /* MyApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyApi.swift; sourceTree = "<group>"; };
@@ -121,8 +135,8 @@
 		1D7F86821B67FB1E001B6E1E /* iOS-Kawasak-app */ = {
 			isa = PBXGroup;
 			children = (
-				1DA96F9B1B950D7D009EE25D /* PagedScrollViewController.swift */,
 				1D7F868C1B67FB1E001B6E1E /* Main.storyboard */,
+				1DA96F9B1B950D7D009EE25D /* PagedScrollViewController.swift */,
 				1DA96F8F1B9503CE009EE25D /* ScrollViewContainer.swift */,
 				1D853B641B716B7F002B325B /* notes.plist */,
 				1DB65EBC1B6AA260003D350A /* LocationManager.swift */,
@@ -130,14 +144,21 @@
 				1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */,
 				1D7F868A1B67FB1E001B6E1E /* ViewController.swift */,
 				1DDE3C611B73DD5E009506BA /* MyApi.swift */,
-				1D7F86B41B697E0F001B6E1E /* Dealer.swift */,
-				1D7F86B21B695993001B6E1E /* MyKawasakiDetails.swift */,
+				1DA96FAB1B96712D009EE25D /* MyKawasakiDetails.swift */,
+				1DA96FA51B965C75009EE25D /* MyKawasakiFav.swift */,
+				1DA96FA71B965CF7009EE25D /* MyKawasakiDealer.swift */,
+				1D7F86B21B695993001B6E1E /* MyKawasakiOwned.swift */,
+				1D7F86B01B695418001B6E1E /* MyKawasakiList.swift */,
 				1D7F86AC1B682C96001B6E1E /* Login.swift */,
+				1D7F86B41B697E0F001B6E1E /* Dealer.swift */,
+				1DA96FB31B979F1E009EE25D /* DealerInformation.swift */,
 				1D7F86AA1B6806FE001B6E1E /* SectionList.swift */,
 				1D7F86AE1B683F48001B6E1E /* RacingList.swift */,
-				1D8B6EDD1B7032AD00B0B71A /* RaceResults.swift */,
+				1DA96FAD1B9672EB009EE25D /* RacingNews.swift */,
+				1DA96FAF1B967309009EE25D /* RaceResults.swift */,
+				1DA96FB11B967323009EE25D /* MoreInfo.swift */,
+				1DA96FA91B966CE9009EE25D /* RaceResultsFiltered.swift */,
 				1DB65EBE1B6AD53F003D350A /* Singlton.swift */,
-				1D7F86B01B695418001B6E1E /* MyKawasakiList.swift */,
 				1D853B661B7180C5002B325B /* PlistRW.swift */,
 				1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */,
 				1D7F868F1B67FB1E001B6E1E /* Images.xcassets */,
@@ -289,20 +310,27 @@
 				1D853B671B7180C5002B325B /* PlistRW.swift in Sources */,
 				1D7F86AD1B682C96001B6E1E /* Login.swift in Sources */,
 				1DE9B03E1B72B0BE006C2556 /* DownloadFile.swift in Sources */,
+				1DA96FA81B965CF7009EE25D /* MyKawasakiDealer.swift in Sources */,
 				1D7F86AB1B6806FE001B6E1E /* SectionList.swift in Sources */,
 				1DB65EBD1B6AA260003D350A /* LocationManager.swift in Sources */,
 				1DA96F8E1B94FCC2009EE25D /* LandingPage.swift in Sources */,
 				1DA96F9C1B950D7D009EE25D /* PagedScrollViewController.swift in Sources */,
 				1D7F86861B67FB1E001B6E1E /* AppDelegate.swift in Sources */,
 				1D7F86B11B695418001B6E1E /* MyKawasakiList.swift in Sources */,
-				1D7F86B31B695993001B6E1E /* MyKawasakiDetails.swift in Sources */,
+				1DA96FB41B979F1E009EE25D /* DealerInformation.swift in Sources */,
+				1DA96FAE1B9672EB009EE25D /* RacingNews.swift in Sources */,
+				1D7F86B31B695993001B6E1E /* MyKawasakiOwned.swift in Sources */,
+				1DA96FA61B965C75009EE25D /* MyKawasakiFav.swift in Sources */,
 				1D7F86B51B697E0F001B6E1E /* Dealer.swift in Sources */,
 				1D7F86891B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld in Sources */,
-				1D8B6EDE1B7032AD00B0B71A /* RaceResults.swift in Sources */,
+				1DA96FB21B967323009EE25D /* MoreInfo.swift in Sources */,
+				1DA96FAC1B96712D009EE25D /* MyKawasakiDetails.swift in Sources */,
 				1DDE3C621B73DD5E009506BA /* MyApi.swift in Sources */,
 				1D7F86AF1B683F48001B6E1E /* RacingList.swift in Sources */,
+				1DA96FB01B967309009EE25D /* RaceResults.swift in Sources */,
 				1DA96F901B9503CE009EE25D /* ScrollViewContainer.swift in Sources */,
 				1DB65EBF1B6AD53F003D350A /* Singlton.swift in Sources */,
+				1DA96FAA1B966CE9009EE25D /* RaceResultsFiltered.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

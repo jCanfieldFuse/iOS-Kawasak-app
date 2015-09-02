@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
-class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource{
+class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate{
 	
 	let locationManager = CLLocationManager()
 	let initialLocation = CLLocation(latitude: 33.549121, longitude: -117.780374)
@@ -18,6 +18,7 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 	@IBOutlet weak var zipcode: UITextField!
 	@IBOutlet weak var mapView: MKMapView!
 	var nearBy: [nearByDealer] = []
+	var passedInfo:String = ""
 	var currentLocation:String = ""
 	//  var locDealers: [String] = []
 	@IBOutlet weak var tableList: UITableView!
@@ -39,8 +40,8 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 		locationManager.requestAlwaysAuthorization()
 		var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
 		view.addGestureRecognizer(tap)
-	 addDoneButtonOnKeyboard()
-		
+	  addDoneButtonOnKeyboard()
+		getStore(currentLocation)
 	}
 	
 	
@@ -61,6 +62,7 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 		self.zipcode.inputAccessoryView = doneToolbar
 	
 	}
+	
 	
 	//Calls this function when the tap is recognized.
 	func DismissKeyboard(){
@@ -123,6 +125,7 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 			for item in items {
 				
 				if let lat = item["Latitude"] as? CLLocationDegrees, long = item["Longitude"] as? CLLocationDegrees, store = item["Name"] as? String, postalCode =  item["PostalCode"] as? String{
+  			
 					if (firstLoc){
 						nearBy = []
 						let initialLocation = CLLocation(latitude: lat, longitude: long)
@@ -145,6 +148,7 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 				}
 				
 			}
+	
 			tableList.reloadData()
 		}
 		
@@ -163,12 +167,24 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 		return self.nearBy.count;
 	}
 	func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-		getStore(nearBy[indexPath.row].zip)
-		
+		self.passedInfo = self.nearBy[indexPath.row].name
+		//println(self.nearBy[indexPath.row].name)
+		self.performSegueWithIdentifier("moreDealerInfo", sender: self)
+}
+
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if (segue.identifier == "moreDealerInfo") {
+			var svc = segue.destinationViewController as! DealerInformation
+			       svc.dataPassed = passedInfo
+			//  svc.secondDataPassed = fieldB.text
+		}
 	}
+	
+	
 	
 }
 
+	
 class tableCellDealer: UITableViewCell {
 	var thing: Int = 0
 	var delegate: AnyObject?

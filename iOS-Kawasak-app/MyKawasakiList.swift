@@ -10,7 +10,7 @@ import UIKit
 
 class MyKawasakiList: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //  var color = colors()
-    var items: [String] = ["My Owened", "DEALER", "PRODUCTS","golf"]
+    var items: [String] = ["My Owned", "Dealer Favorites", "My Dealer"]
     //  @IBOutlet weak var tableListItems: UITableView!
     var selectedCell: String = ""
     
@@ -59,12 +59,15 @@ class MyKawasakiList: UIViewController, UITableViewDataSource, UITableViewDelega
            switch (indexPath.row){
         case 0:
             selectedCell = items[indexPath.row]
+						self.performSegueWithIdentifier("MyKawasakiOwned", sender: self)
             break
         case 1:
             selectedCell = items[indexPath.row]
+						self.performSegueWithIdentifier("MyKawasakiFav", sender: self)
             break
         case 2:
             selectedCell = items[indexPath.row]
+						self.performSegueWithIdentifier("MyKawasakiDealer", sender: self)
             break
         case 3:
             selectedCell = items[indexPath.row]
@@ -72,12 +75,12 @@ class MyKawasakiList: UIViewController, UITableViewDataSource, UITableViewDelega
         default:
         break;
         }
-        self.performSegueWithIdentifier("MyKawasakiDetails", sender: self)
+//        self.performSegueWithIdentifier("MyKawasakiOwned", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "MyKawasakiDetails") {
-            var svc = segue.destinationViewController as! MyKawasakiDetails
+        if (segue.identifier == "MyKawasakiOwned") {
+            var svc = segue.destinationViewController as! MyKawasakiOwned
      //       svc.dataPassed = selectedCell
           //  svc.secondDataPassed = fieldB.text
         }
