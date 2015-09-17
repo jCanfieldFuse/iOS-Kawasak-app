@@ -19,7 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound |
             UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
-        return true
+			
+			if(UIApplication.instancesRespondToSelector(Selector("registerUserNotificationSettings:"))) {
+				UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Badge, categories: nil))
+			}
+			
+			return true
     }
 
     func applicationWillResignActive(application: UIApplication) {

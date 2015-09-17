@@ -20,8 +20,12 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 	var nearBy: [nearByDealer] = []
 	var passedInfo:String = ""
 	var currentLocation:String = ""
+	var firstRun = true
 	//  var locDealers: [String] = []
 	@IBOutlet weak var tableList: UITableView!
+	
+	@IBOutlet weak var loadingLable: UILabel!
+	@IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -34,14 +38,16 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 		self.locationManager.delegate = self
 		self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		self.locationManager.requestWhenInUseAuthorization()
-		self.locationManager.startUpdatingLocation()
-		
 		locationManager.delegate = self
 		locationManager.requestAlwaysAuthorization()
+		self.locationManager.startUpdatingLocation()
+		
+
+
 		var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
 		view.addGestureRecognizer(tap)
 	  addDoneButtonOnKeyboard()
-		getStore(currentLocation)
+		loadingSpinner.startAnimating()
 	}
 	
 	
@@ -76,26 +82,30 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 	func centerMapOnLocation(location: CLLocation) {
 		
 		let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-			regionRadius * 2.0, regionRadius * 2.0)
-		
+	  regionRadius * 2.0, regionRadius * 2.0)
 		mapView.setRegion(coordinateRegion, animated: true)
+		fadeOut()
 	}
 	
 	func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-		
 		CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
-			
 			if (error != nil) {
 				return
 			}
 			
 			if placemarks.count > 0 {
 				let pm = placemarks[0] as! CLPlacemark
-				self.currentLocation = pm.postalCode
-				self.displayLocationInfo(pm)
-			} else {
+//				self.currentLocation = pm.postalCode
+			self.getStore(pm.postalCode)
+//				count(self.currentLocation) != 0 && self.firstRun ?	self.getStore(self.currentLocation) : print("empty")
+//				self.firstRun = true
+//				self.displayLocationInfo(pm)
+//			}else {
+			
 			}
+			
 		})
+		self.locationManager.stopUpdatingLocation()
 	}
 	
 	func displayLocationInfo(placemark: CLPlacemark) {
@@ -117,19 +127,22 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 	}
 	
 	func getStore(zipcode: String){
+		fadeIn()
+
+		dispatch_async(dispatch_get_main_queue(),{
 
 		var endpoint = NSURL(string: "http://www.fuse-review-kawasaki.com/mobileappjsonapi/GetDealerByZip?zipCode=\(zipcode)")
-		var data = NSData(contentsOfURL: endpoint!)
+			if let data = NSData(contentsOfURL: endpoint!){
 		var firstLoc = true
-		if let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary, let items = json["Dealerships"] as? NSArray {
+		if let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary, let items = json["Dealerships"] as? NSArray {
 			for item in items {
 				
 				if let lat = item["Latitude"] as? CLLocationDegrees, long = item["Longitude"] as? CLLocationDegrees, store = item["Name"] as? String, postalCode =  item["PostalCode"] as? String{
   			
 					if (firstLoc){
-						nearBy = []
+						self.nearBy = []
 						let initialLocation = CLLocation(latitude: lat, longitude: long)
-						centerMapOnLocation(initialLocation)
+						self.centerMapOnLocation(initialLocation)
 						firstLoc = false
 					}
 					else{
@@ -138,19 +151,21 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 						nbd.long = long
 						nbd.lat = lat
 						nbd.zip = postalCode
-						nearBy.append(nbd)
+						self.nearBy.append(nbd)
 					}
 					let dropPin = MKPointAnnotation()
 					dropPin.coordinate = CLLocationCoordinate2DMake(lat,long)
 					dropPin.title = store
-					mapView.addAnnotation(dropPin)
+					self.mapView.addAnnotation(dropPin)
 					
 				}
 				
 			}
 	
-			tableList.reloadData()
+			self.tableList.reloadData()
 		}
+			}
+			});
 		
 	}
 	
@@ -179,6 +194,25 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 			//  svc.secondDataPassed = fieldB.text
 		}
 	}
+	
+	
+	func fadeOut(){
+		UIView.animateWithDuration(0.5, animations: {
+
+			self.loadingLable.alpha = 0
+			self.loadingSpinner.alpha = 0
+		})
+	}
+
+	func fadeIn(){
+		
+		UIView.animateWithDuration(0.5, animations: {
+			self.loadingLable.alpha = 1
+			self.loadingSpinner.alpha = 1
+
+		})
+	}
+	
 	
 	
 	

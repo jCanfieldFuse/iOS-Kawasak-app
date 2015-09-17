@@ -8,11 +8,23 @@
 
 import Foundation
 import CoreLocation
-
+import UIKit
 class LocManager: NSObject, CLLocationManagerDelegate {
 	//var locMan: CLLocationManager = CLLocationManager()
     //let s: Singleton! = Singleton.sharedInstance
-    var locMan: CLLocationManager = CLLocationManager()
+  //var locMan: CLLocationManager = CLLocationManager()
+//	let manager = CLLocationManager()
+	
+	lazy var locMan: CLLocationManager! = {
+  let manager = CLLocationManager()
+  manager.desiredAccuracy = kCLLocationAccuracyBest
+  manager.delegate = self
+  manager.requestAlwaysAuthorization()
+		
+  return manager
+		}()
+	//var timer = NSTimer()
+	
 	let distance: CLLocationDistance = 20  // distance in meters
 	var locations: Dictionary<String, CLLocationCoordinate2D> = [
 		"Fuse Interactive": CLLocationCoordinate2D(latitude: 33.5496793, longitude: -117.7799548),
@@ -25,7 +37,7 @@ class LocManager: NSObject, CLLocationManagerDelegate {
 	override init(){
 		super.init()
 		locMan.delegate = self
-        locMan.delegate = self;
+			//	timer = NSTimer(timeInterval: 1.0, target: self, selector: "countUp", userInfo: nil, repeats: true)
         if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse) {
             locMan.requestWhenInUseAuthorization()
         }
@@ -34,13 +46,24 @@ class LocManager: NSObject, CLLocationManagerDelegate {
         region.notifyOnExit = true
         region.notifyEntryStateOnDisplay = true
         locMan.startRangingBeaconsInRegion(region)
+		
+		
+
+		//		self.locationManager.delegate = self
+		locMan.desiredAccuracy = kCLLocationAccuracyBest
+		locMan.requestWhenInUseAuthorization()
+		
+		locMan.requestAlwaysAuthorization()
+		locMan.startUpdatingLocation()
+
+		
 		// make sure the user has allowed location services
 		checkLocationAuthorization()
 		
 		// set up your regions for notifications
 		// apps can only monitor 20 regions at a time
 		for locationName: String in locations.keys {
-			
+		//	println(locationName)
 			if locMan.monitoredRegions.count >= 20 {
 				// we're full up on regiuons to monitor.
 				
@@ -60,23 +83,98 @@ class LocManager: NSObject, CLLocationManagerDelegate {
 		
 		
 	}
-
+	var isClosed = false
+	var	beaconList:NSNumber?
     func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: [AnyObject]!, inRegion region: CLBeaconRegion!) {
-        let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
+			for test in beacons {
+				beaconList = test.minor
+			
+				if isClosed {
+						println("here are the beacons \(test.major)")
+					if (test.major == 7181 || test.major == 30516){
+						sendAlert(test.major)
+					}
+				}
+			}
+			let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
         if (knownBeacons.count > 0) {
-            let closestBeacon = knownBeacons[0] as! CLBeacon
-         //   print(closestBeacon.minor.integerValue)
-            // beaconButton.setTitle("\(String(closestBeacon.minor.integerValue)) distannce \(String(closestBeacon.proximity.rawValue)) " , forState: .Normal)
-        }
-        
-    }
 
+           // let closestBeacon = knownBeacons[0] as! CLBeacon
+           // println(closestBeacon)
+				
+				
+
+						// beaconButton.setTitle("\(String(closestBeacon.minor.integerValue)) distannce \(String(closestBeacon.proximity.rawValue)) " , forState: .Normal)
+        }
+			if UIApplication.sharedApplication().applicationState == .Active {
+								isClosed = false
+  //  mapView.showAnnotations(locations, animated: true)
+			} else {
+				println("App is backgrounded. New location is \(beaconList) ")
+				isClosed = true
+				println("hello")
+				locMan.startUpdatingLocation()
+				//NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
+			 
+			}
+    }
+	}
+
+func countUp() {
+	println("counting soon")
+	//binaryCount += 0b0001
+	
+//	if (binaryCount == 0b10000) { binaryCount = 0b0000 }
+	
+//	updateText()
+	
+}
+
+
+	func sendAlert(value: NSNumber){
+
+
+		println("whats up!!!!")
+		var localNotification = UILocalNotification()
+		localNotification.fireDate = NSDate(timeIntervalSinceNow: 5)
+		localNotification.alertBody = "KAWASAKI APP beacon \(value)"
+		localNotification.timeZone = NSTimeZone.defaultTimeZone()
+		localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+		
+		UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+
+	}
+	func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+		CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
+			if (error != nil) {
+				return
+			}
+			
+			if placemarks.count > 0 {
+				let pm = placemarks[0] as! CLPlacemark
+				println(pm.postalCode)
+				//				self.currentLocation = pm.postalCode
+//				self.getStore(pm.postalCode)
+				//				count(self.currentLocation) != 0 && self.firstRun ?	self.getStore(self.currentLocation) : print("empty")
+				//				self.firstRun = true
+				//				self.displayLocationInfo(pm)
+				//			}else {
+				
+			}
+			
+		})
+
+	}
+
+	
 	// an app can expect to receive the appropriate region entered or region exited notification within 3 to 5 minutes on average, if not sooner.
 	func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
 		// called when we entered a region
+		println("You've entered \(region)")
 	}
 	
 	func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
+		println("You've excited \(region)")
 		// called when we exit a region
 	}
 	
@@ -114,4 +212,5 @@ class LocManager: NSObject, CLLocationManagerDelegate {
 		}
 	}
 	
-}
+
+

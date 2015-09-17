@@ -5,19 +5,20 @@
 //
 
 import UIKit
+import CoreData
 
 class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
-
+    var people = [NSManagedObject]()
     var pageImages: [UIImage] = []
     var pageViews: [UIImageView?] = []
-
-    override func viewDidLoad() {
+  	var aa:[String] = ["dasdasd","aaaaaaa","zzzzzzzzz","dasdasd","aaaaaaa","zzzzzzzzz","dasdasd","aaaaaaa","zzzzzzzzz","dasdasd","aaaaaaa","zzzzzzzzz","dasdasd","aaaaaaa","zzzzzzzzz","dasdasd","aaaaaaa","zzzzzzzzz"]
+		let s: Singleton = Singleton.sharedInstance
+	override func viewDidLoad() {
         super.viewDidLoad()
-
-        // 1
+				// needs to be download
         pageImages = [UIImage(named:"image1.png")!,
 											UIImage(named:"image2.png")!,
 											UIImage(named:"image3.png")!,
@@ -25,45 +26,133 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
 
        let pageCount = pageImages.count
 
-        // 2
-        pageControl.currentPage = 0
+  			pageControl.currentPage = 0
         pageControl.numberOfPages = pageCount
 				pageControl.currentPageIndicatorTintColor = UIColor.greenColor()
-        // 3
+			
         for _ in 0..<pageCount {
             pageViews.append(nil)
         }
         
-        // 4
-        let pagesScrollViewSize = scrollView.frame.size
+       let pagesScrollViewSize = scrollView.frame.size
         scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * CGFloat(pageImages.count), pagesScrollViewSize.height)
 				scrollView.frame = CGRectMake(30, 0, pagesScrollViewSize.width, pagesScrollViewSize.height)
         loadVisiblePages()
-    }
+		/*	var alert = UIAlertController(title: "V. 1", message: "Jason download", preferredStyle: UIAlertControllerStyle.Alert)
+			alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+			self.presentViewController(alert, animated: true, completion: nil)
+		*/
 
-    func loadPage(page: Int) {
-        
+			/**************************************************************************************************************
+			* check for beacon V. number if out os sync update. 														
+			***************************************************************************************************************/
+			savaDataTest()
+			loadDataTest()
+
+    }
+	func savaDataTest(){
+
+			
+			var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+			
+			defaults.setObject("self.firstNameTextField.text", forKey: "firstName")
+			defaults.setObject("self.lastNameTextField.text", forKey: "lastName")
+			defaults.setObject("self.emailTextField.text", forKey: "email")
+			defaults.setObject(aa, forKey: "phoneNumber")
+			print(aa)
+			defaults.synchronize()
+			
+
+	}
+	
+	
+	func loadDataTest(){
+	
+			
+			var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+			
+			if let firstNameIsNotNill = defaults.objectForKey("firstName") as? String {
+			//	self.firstNameTextField.text = defaults.objectForKey("firstName") as String
+			}
+			
+			if let lastNameIsNotNill = defaults.objectForKey("lastName") as? String {
+			//	self.lastNameTextField.text = defaults.objectForKey("lastName") as String
+			}
+			
+			if let emailIsNotNill = defaults.objectForKey("email") as? String {
+		//		self.emailTextField.text = defaults.objectForKey("email") as String
+			}
+			
+			if let phoneNumberIsNotNill = defaults.objectForKey("phoneNumber") as? String {
+				var a  = defaults.objectForKey("phoneNumber") as! String
+				println("dasdas")
+				println(a)
+			}
+			
+
+	}
+	
+	func addBeacon(id: Int){
+		let appDelegate =	UIApplication.sharedApplication().delegate as! AppDelegate
+		let managedContext = appDelegate.managedObjectContext!
+		let entity =  NSEntityDescription.entityForName("Beacons", inManagedObjectContext: managedContext)
+		let person = NSManagedObject(entity: entity!,	insertIntoManagedObjectContext:managedContext)
+		person.setValue(id, forKey: "beaconID")
+		var error: NSError?
+		if !managedContext.save(&error) {
+			println("Could not save \(error), \(error?.userInfo)")
+		}
+	}
+
+	func getBeacons(){
+
+		let appDelegate =	UIApplication.sharedApplication().delegate as! AppDelegate
+		let managedContext = appDelegate.managedObjectContext!
+		let fetchRequest = NSFetchRequest(entityName:"Beacons")
+		var error: NSError?
+		let fetchedResults =
+		managedContext.executeFetchRequest(fetchRequest,
+			error: &error) as? [NSManagedObject]
+		if let results = fetchedResults {
+			people = results
+			for i in people{
+				let person = i
+				println("++_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_")
+				print(person.valueForKey("beaconID")
+				)
+				println("++_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_")
+			}
+		} else {
+			println("Could not fetch \(error), \(error!.userInfo)")
+		}
+		
+	}
+
+	func deleteBeacons(){
+		var a = 1
+		let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+		let context:NSManagedObjectContext = appDel.managedObjectContext!
+//		context.delete(a as NSManagedObject)
+//			.deleteObject("1")
+	//	myData.removeAtIndex(indexPath.row)
+		context.save(nil)
+	}
+	
+	func loadPage(page: Int) {
         if page < 0 || page >= pageImages.count {
-            // If it's outside the range of what you have to display, then do nothing
             return
         }
 
-        // 1
         if let pageView = pageViews[page] {
-            // Do nothing. The view is already loaded.
         } else {
-            // 2
+
             var frame = scrollView.bounds
             frame.origin.x = frame.size.width * CGFloat(page)
             frame.origin.y = 0.0
-            
-            // 3
             let newPageView = UIImageView(image: pageImages[page])
             newPageView.contentMode = .ScaleAspectFit
             newPageView.frame = frame
             scrollView.addSubview(newPageView)
-            
-            // 4
             pageViews[page] = newPageView
         }
     }
@@ -71,11 +160,8 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
     func purgePage(page: Int) {
 
         if page < 0 || page >= pageImages.count {
-            // If it's outside the range of what you have to display, then do nothing
             return
         }
-        
-        // Remove a page from the scroll view and reset the container array
         if let pageView = pageViews[page] {
             pageView.removeFromSuperview()
             pageViews[page] = nil
@@ -85,29 +171,20 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
     
     func loadVisiblePages() {
         
-        // First, determine which page is currently visible
         let pageWidth = scrollView.frame.size.width
         let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
-        
-        // Update the page control
         pageControl.currentPage = page
-        
-        // Work out which pages you want to load
         let firstPage = page - 1
         let lastPage = page + 1
         
-        
-        // Purge anything before the first page
         for var index = 0; index < firstPage; ++index {
             purgePage(index)
         }
         
-        // Load pages in our range
         for var index = firstPage; index <= lastPage; ++index {
             loadPage(index)
         }
         
-        // Purge anything after the last page
         for var index = lastPage+1; index < pageImages.count; ++index {
             purgePage(index)
         }
@@ -115,7 +192,6 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
         
 
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        // Load the pages that are now on screen
         loadVisiblePages()
     }
     
@@ -123,6 +199,52 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+	/*
+	// test for beacon version and beacon list.
+	func getStore(){
+	
+		var endpoint = NSURL(string: http://www.fuse-review-kawasaki.com/mobileappjsonapi/GetDealerByZip?zipCode=92656)
+
+		var data = NSData(contentsOfURL: endpoint!)
+	
+		var firstLoc = true
+		if let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary, let items = json["Dealerships"] as? NSArray {
+			for item in items {
+				println(item)
+				if let store = item["Name"] as? String, postalCode =  item["PostalCode"] as? String{
+  			
+				/*	if (firstLoc){
+						nearBy = []
+						let initialLocation = CLLocation(latitude: lat, longitude: long)
+						centerMapOnLocation(initialLocation)
+						firstLoc = false
+					}
+					else{
+						var nbd: nearByDealer = nearByDealer()
+						nbd.name = store
+						nbd.long = long
+						nbd.lat = lat
+						nbd.zip = postalCode
+						nearBy.append(nbd)
+					}
+					let dropPin = MKPointAnnotation()
+					dropPin.coordinate = CLLocationCoordinate2DMake(lat,long)
+					dropPin.title = store
+					mapView.addAnnotation(dropPin)
+					
+				}
+				
+			}
+			
+			tableList.reloadData()
+		*/
+//}
+				}
+			}
+		}
+	}
+//	}
+*/
 
 }

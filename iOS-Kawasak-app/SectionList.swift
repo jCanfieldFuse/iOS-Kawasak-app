@@ -15,7 +15,7 @@ class SectionList: UIViewController, UITableViewDataSource, UITableViewDelegate,
     @IBOutlet weak var mainImage: UIImageView!
     
     
-    var items: [String] = ["My Kawasaki", "Racing", "Dealer","Something else"]
+    var items: [String] = ["My Kawasaki", "Racing", "Dealer","History"]
     let s: Singleton = Singleton.sharedInstance
     var plist: PlistRW = PlistRW()
     let downloader: DownloadFile = DownloadFile()
@@ -31,7 +31,7 @@ class SectionList: UIViewController, UITableViewDataSource, UITableViewDelegate,
         tableListItems.tableFooterView = UIView()
         plist.getPlist()
         downloader.downloadFile("http://3.bp.blogspot.com/-y8ea6zGNIkE/UOoT_QXMygI/AAAAAAAC39c/Sp9r-2xzIIo/s1600/kawasaki_logo13.png", delegate: self)
-        mainImage.image = UIImage(named: imagePicker.getImagefromFolder("kawasaki-logo-png-wallpaper-2.jpg"))
+        mainImage.image = UIImage(named: imagePicker.getImagefromFolder("kawasaki_logo13.png"))
                
         
     }
@@ -71,7 +71,7 @@ class SectionList: UIViewController, UITableViewDataSource, UITableViewDelegate,
             self.performSegueWithIdentifier("dealer", sender: self)
         break
         case 3:
-            self.performSegueWithIdentifier("somethingElse", sender: self)
+            self.performSegueWithIdentifier("history", sender: self)
         break
         default:
         break;

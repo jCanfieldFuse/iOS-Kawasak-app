@@ -139,7 +139,6 @@
 				1DA96F9B1B950D7D009EE25D /* PagedScrollViewController.swift */,
 				1DA96F8F1B9503CE009EE25D /* ScrollViewContainer.swift */,
 				1D853B641B716B7F002B325B /* notes.plist */,
-				1DB65EBC1B6AA260003D350A /* LocationManager.swift */,
 				1DA96F8D1B94FCC2009EE25D /* LandingPage.swift */,
 				1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */,
 				1D7F868A1B67FB1E001B6E1E /* ViewController.swift */,
@@ -158,9 +157,10 @@
 				1DA96FAF1B967309009EE25D /* RaceResults.swift */,
 				1DA96FB11B967323009EE25D /* MoreInfo.swift */,
 				1DA96FA91B966CE9009EE25D /* RaceResultsFiltered.swift */,
-				1DB65EBE1B6AD53F003D350A /* Singlton.swift */,
 				1D853B661B7180C5002B325B /* PlistRW.swift */,
 				1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */,
+				1DB65EBC1B6AA260003D350A /* LocationManager.swift */,
+				1DB65EBE1B6AD53F003D350A /* Singlton.swift */,
 				1D7F868F1B67FB1E001B6E1E /* Images.xcassets */,
 				1D7F86911B67FB1E001B6E1E /* LaunchScreen.xib */,
 				1D7F86871B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld */,
@@ -243,12 +243,18 @@
 		1D7F86781B67FB1E001B6E1E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = jon.canfield;
 				TargetAttributes = {
 					1D7F867F1B67FB1E001B6E1E = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = DEUXYYQUBY;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					1D7F86971B67FB1E001B6E1E = {
 						CreatedOnToolsVersion = 6.4;
