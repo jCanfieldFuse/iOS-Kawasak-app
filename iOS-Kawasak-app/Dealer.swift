@@ -41,41 +41,36 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 		locationManager.delegate = self
 		locationManager.requestAlwaysAuthorization()
 		self.locationManager.startUpdatingLocation()
-		
 
-
-		var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+		NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillAppear:", name: UIKeyboardWillShowNotification, object: nil)
+		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
 		view.addGestureRecognizer(tap)
 	  addDoneButtonOnKeyboard()
+		
 		loadingSpinner.startAnimating()
 	}
 	
 	
 	func addDoneButtonOnKeyboard(){
-		var doneToolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 50))
+		let doneToolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 50))
 		doneToolbar.barStyle = UIBarStyle.BlackTranslucent
-		
-		var flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-		var done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: Selector("keyboardDone"))
-		
-		var items = NSMutableArray()
-		items.addObject(flexSpace)
-		items.addObject(done)
-		
-		doneToolbar.items = items as [AnyObject]
+		let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+		let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: Selector("keyboardDone"))
+		var items = [UIBarButtonItem]()
+		items.append(flexSpace)
+		items.append(done)
+		doneToolbar.items = items as [UIBarButtonItem]
 		doneToolbar.sizeToFit()
-		
 		self.zipcode.inputAccessoryView = doneToolbar
 	
 	}
-	
 	
 	//Calls this function when the tap is recognized.
 	func DismissKeyboard(){
 		view.endEditing(true)
 	}
 	
-	func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+	func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
 		mapView.showsUserLocation = (status == .AuthorizedAlways)
 	}
 	
@@ -87,21 +82,16 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 		fadeOut()
 	}
 	
-	func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-		CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
+	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
 			if (error != nil) {
 				return
 			}
-			
-			if placemarks.count > 0 {
-				let pm = placemarks[0] as! CLPlacemark
-//				self.currentLocation = pm.postalCode
-			self.getStore(pm.postalCode)
-//				count(self.currentLocation) != 0 && self.firstRun ?	self.getStore(self.currentLocation) : print("empty")
-//				self.firstRun = true
-//				self.displayLocationInfo(pm)
-//			}else {
-			
+			if placemarks!.count > 0 {
+				if let pm = placemarks?.first {
+					self.displayLocationInfo(pm)
+					self.getStore(pm.postalCode!)
+				}
 			}
 			
 		})
@@ -114,7 +104,7 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 		
 	}
 	
-	func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+	func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
 		//  println("Error: " + error.localizedDescription)
 	}
  
@@ -122,51 +112,53 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 		getStore(currentLocation)
 	}
 	func keyboardDone(){
-		getStore(zipcode.text)
+		getStore(zipcode.text!)
+		self.view.frame.origin.y = 00
 		self.view.endEditing(true)
+	}
+
+	func keyboardWillAppear(notification: NSNotification){
+
+			self.view.frame.origin.y = -50
 	}
 	
 	func getStore(zipcode: String){
 		fadeIn()
-
 		dispatch_async(dispatch_get_main_queue(),{
-
-		var endpoint = NSURL(string: "http://www.fuse-review-kawasaki.com/mobileappjsonapi/GetDealerByZip?zipCode=\(zipcode)")
-			if let data = NSData(contentsOfURL: endpoint!){
-		var firstLoc = true
-		if let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSDictionary, let items = json["Dealerships"] as? NSArray {
-			for item in items {
-				
-				if let lat = item["Latitude"] as? CLLocationDegrees, long = item["Longitude"] as? CLLocationDegrees, store = item["Name"] as? String, postalCode =  item["PostalCode"] as? String{
-  			
-					if (firstLoc){
-						self.nearBy = []
-						let initialLocation = CLLocation(latitude: lat, longitude: long)
-						self.centerMapOnLocation(initialLocation)
-						firstLoc = false
-					}
-					else{
-						var nbd: nearByDealer = nearByDealer()
-						nbd.name = store
-						nbd.long = long
-						nbd.lat = lat
-						nbd.zip = postalCode
-						self.nearBy.append(nbd)
-					}
-					let dropPin = MKPointAnnotation()
-					dropPin.coordinate = CLLocationCoordinate2DMake(lat,long)
-					dropPin.title = store
-					self.mapView.addAnnotation(dropPin)
-					
-				}
-				
-			}
-	
-			self.tableList.reloadData()
-		}
-			}
-			});
+		let url = "https://www.fuse-review-kawasaki.com/mobileappjsonapi/GetDealerByZip?zipCode=\(zipcode)"
+ 	  let endpoint = NSURL(string: url)
 		
+		if let data = NSData(contentsOfURL: endpoint!){
+			var firstLoc = true
+			if let json: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)) as? NSDictionary, let items = json["Dealerships"] as? NSArray {
+				for item in items {
+					if let lat = item["Latitude"] as? CLLocationDegrees, long = item["Longitude"] as? CLLocationDegrees, store = item["Name"] as? String, postalCode =  item["PostalCode"] as? String{
+						if (firstLoc){
+							self.nearBy = []
+							let initialLocation = CLLocation(latitude: lat, longitude: long)
+							self.centerMapOnLocation(initialLocation)
+							firstLoc = false
+						}
+						else{
+							let nbd: nearByDealer = nearByDealer()
+							nbd.name = store
+							nbd.long = long
+							nbd.lat = lat
+							nbd.zip = postalCode
+							self.nearBy.append(nbd)
+						}
+						let dropPin = MKPointAnnotation()
+						dropPin.coordinate = CLLocationCoordinate2DMake(lat,long)
+						dropPin.title = store
+						self.mapView.addAnnotation(dropPin)
+					}
+				}
+				self.tableList.reloadData()
+			}
+		}
+			
+	 });
+	
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -181,40 +173,33 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return self.nearBy.count;
 	}
+
 	func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
 		self.passedInfo = self.nearBy[indexPath.row].name
-		//println(self.nearBy[indexPath.row].name)
 		self.performSegueWithIdentifier("moreDealerInfo", sender: self)
-}
+	}
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if (segue.identifier == "moreDealerInfo") {
-			var svc = segue.destinationViewController as! DealerInformation
+			let svc = segue.destinationViewController as! DealerInformation
 			       svc.dataPassed = passedInfo
 			//  svc.secondDataPassed = fieldB.text
 		}
 	}
 	
-	
 	func fadeOut(){
 		UIView.animateWithDuration(0.5, animations: {
-
 			self.loadingLable.alpha = 0
 			self.loadingSpinner.alpha = 0
 		})
 	}
 
 	func fadeIn(){
-		
 		UIView.animateWithDuration(0.5, animations: {
 			self.loadingLable.alpha = 1
 			self.loadingSpinner.alpha = 1
-
 		})
 	}
-	
-	
-	
 	
 }
 

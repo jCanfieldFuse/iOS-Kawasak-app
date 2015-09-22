@@ -21,7 +21,7 @@ class Login: UIViewController, UIWebViewDelegate{
 		super.viewDidLoad()
 		
 		//Looks for single or multiple taps.
-		var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
 		view.addGestureRecognizer(tap)
 		
 		
@@ -41,12 +41,12 @@ class Login: UIViewController, UIWebViewDelegate{
 	@IBAction func submitButton(sender: AnyObject) {
 		//        let userNameInput = username.text
 		//       let passwordInput = password.text
-		var usernameVal:NSString = username.text
-		var passwordVal:NSString = password.text
+		let usernameVal:NSString = username.text!
+		let passwordVal:NSString = password.text!
 		
 		if ( usernameVal.isEqualToString("") || passwordVal.isEqualToString("") ) {
 			
-			var alertView:UIAlertView = UIAlertView()
+			let alertView:UIAlertView = UIAlertView()
 			alertView.title = "Sign in Failed!"
 			alertView.message = "Please enter Username and Password"
 			alertView.delegate = self
@@ -54,30 +54,36 @@ class Login: UIViewController, UIWebViewDelegate{
 			alertView.show()
 		} else {
 			
-			var post:NSString = "username=\(usernameVal)&password=\(passwordVal)"
+			let post:NSString = "username=\(usernameVal)&password=\(passwordVal)"
 			
 			NSLog("PostData: %@",post);
 			
-			var url:NSURL = NSURL(string: "http://www.fuse-review-kawasaki.com/mobileappjsonapi/logInApiRequest")!
+			let url:NSURL = NSURL(string: "http://www.fuse-review-kawasaki.com/mobileappjsonapi/logInApiRequest")!
 			//	var url:NSURL = NSURL(string: "https://dipinkrishna.com/jsonlogin2.php")!
-			var postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
+			let postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
 			
-			var postLength:NSString = String( postData.length )
+			let postLength:NSString = String( postData.length )
 			
-			var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+			let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
 			request.HTTPMethod = "POST"
-			println("POST DATA!!!!!! \(postData))")
+			print("POST DATA!!!!!! \(postData))")
 			request.HTTPBody = postData
 			request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
 			request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 			request.setValue("application/json", forHTTPHeaderField: "Accept")
 			
-			println("POST DATA!!!!!! \(postData))")
+			print("POST DATA!!!!!! \(postData))")
 			var reponseError: NSError?
 			var response: NSURLResponse?
 			
-			var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
-			println(" THE URL DATA\(urlData)")
+			var urlData: NSData?
+			do {
+				urlData = try NSURLConnection.sendSynchronousRequest(request, returningResponse:&response)
+			} catch let error as NSError {
+				reponseError = error
+				urlData = nil
+			}
+			print(" THE URL DATA\(urlData)")
 			if ( urlData != nil ) {
 				let res = response as! NSHTTPURLResponse!;
 				
@@ -85,13 +91,13 @@ class Login: UIViewController, UIWebViewDelegate{
 				
 				if (res.statusCode >= 200 && res.statusCode < 300)
 				{
-					var responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
+					let responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
 					
 					NSLog("Response ==> %@", responseData);
 					
 					var error: NSError?
 					
-					let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as! NSDictionary
+					let jsonData:NSDictionary = (try! NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers )) as! NSDictionary
 					
 					
 					let success:NSInteger = jsonData.valueForKey("success")as! NSInteger
@@ -102,7 +108,7 @@ class Login: UIViewController, UIWebViewDelegate{
 					
 					if(success == 1)
 					{
-						println(jsonData)
+						print(jsonData)
 						//							NSLog("Login SUCCESS");
 						//
 						//							var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -119,7 +125,7 @@ class Login: UIViewController, UIWebViewDelegate{
 						} else {
 							error_msg = "Unknown Error"
 						}
-						var alertView:UIAlertView = UIAlertView()
+						let alertView:UIAlertView = UIAlertView()
 						alertView.title = "Sign in Failed!"
 						alertView.message = error_msg as String
 						alertView.delegate = self
@@ -129,7 +135,7 @@ class Login: UIViewController, UIWebViewDelegate{
 					}
 					
 				} else {
-					var alertView:UIAlertView = UIAlertView()
+					let alertView:UIAlertView = UIAlertView()
 					alertView.title = "Sign in Failed!"
 					alertView.message = "Connection Failed"
 					alertView.delegate = self
@@ -137,7 +143,7 @@ class Login: UIViewController, UIWebViewDelegate{
 					alertView.show()
 				}
 			} else {
-				var alertView:UIAlertView = UIAlertView()
+				let alertView:UIAlertView = UIAlertView()
 				alertView.title = "Sign in Failed!"
 				alertView.message = "Connection Failure"
 				if let error = reponseError {

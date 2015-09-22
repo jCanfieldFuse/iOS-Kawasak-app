@@ -14,17 +14,17 @@ class MyApi: NSObject {
         var image: String = ""
         let nsDocumentDirectory = NSSearchPathDirectory.DocumentDirectory
         let nsUserDomainMask    = NSSearchPathDomainMask.UserDomainMask
-        if let paths            = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
-        {
+        let paths           = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+			
             if paths.count > 0
             {
                 if let dirPath = paths[0] as? String
                 {
-                    image = dirPath.stringByAppendingPathComponent(imageName)
-
+									let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+									image = String(documentsURL.URLByAppendingPathComponent(imageName))
                 }
             }
-        }
+			
         return image
     }
     

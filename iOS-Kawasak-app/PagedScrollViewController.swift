@@ -16,7 +16,8 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
     var pageViews: [UIImageView?] = []
   	var aa:[String] = ["dasdasd","aaaaaaa","zzzzzzzzz","dasdasd","aaaaaaa","zzzzzzzzz","dasdasd","aaaaaaa","zzzzzzzzz","dasdasd","aaaaaaa","zzzzzzzzz","dasdasd","aaaaaaa","zzzzzzzzz","dasdasd","aaaaaaa","zzzzzzzzz"]
 		let s: Singleton = Singleton.sharedInstance
-	override func viewDidLoad() {
+
+		override func viewDidLoad() {
         super.viewDidLoad()
 				// needs to be download
         pageImages = [UIImage(named:"image1.png")!,
@@ -35,8 +36,9 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
         }
         
        let pagesScrollViewSize = scrollView.frame.size
-        scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * CGFloat(pageImages.count), pagesScrollViewSize.height)
-				scrollView.frame = CGRectMake(30, 0, pagesScrollViewSize.width, pagesScrollViewSize.height)
+        scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * CGFloat(pageImages.count), pagesScrollViewSize.height / 2)
+				scrollView.frame = CGRectMake(0, 0, pagesScrollViewSize.width, pagesScrollViewSize.height / 2 )
+				scrollView.backgroundColor = UIColor.whiteColor()
         loadVisiblePages()
 		/*	var alert = UIAlertController(title: "V. 1", message: "Jason download", preferredStyle: UIAlertControllerStyle.Alert)
 			alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
@@ -53,13 +55,13 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
 	func savaDataTest(){
 
 			
-			var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+			let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 			
 			defaults.setObject("self.firstNameTextField.text", forKey: "firstName")
 			defaults.setObject("self.lastNameTextField.text", forKey: "lastName")
 			defaults.setObject("self.emailTextField.text", forKey: "email")
 			defaults.setObject(aa, forKey: "phoneNumber")
-			print(aa)
+			print(aa, terminator: "")
 			defaults.synchronize()
 			
 
@@ -69,7 +71,7 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
 	func loadDataTest(){
 	
 			
-			var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+			let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 			
 			if let firstNameIsNotNill = defaults.objectForKey("firstName") as? String {
 			//	self.firstNameTextField.text = defaults.objectForKey("firstName") as String
@@ -84,9 +86,9 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
 			}
 			
 			if let phoneNumberIsNotNill = defaults.objectForKey("phoneNumber") as? String {
-				var a  = defaults.objectForKey("phoneNumber") as! String
-				println("dasdas")
-				println(a)
+				let a  = defaults.objectForKey("phoneNumber") as! String
+				print("dasdas")
+				print(a)
 			}
 			
 
@@ -99,8 +101,11 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
 		let person = NSManagedObject(entity: entity!,	insertIntoManagedObjectContext:managedContext)
 		person.setValue(id, forKey: "beaconID")
 		var error: NSError?
-		if !managedContext.save(&error) {
-			println("Could not save \(error), \(error?.userInfo)")
+		do {
+			try managedContext.save()
+		} catch let error1 as NSError {
+			error = error1
+			print("Could not save \(error), \(error?.userInfo)")
 		}
 	}
 
@@ -109,33 +114,35 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
 		let appDelegate =	UIApplication.sharedApplication().delegate as! AppDelegate
 		let managedContext = appDelegate.managedObjectContext!
 		let fetchRequest = NSFetchRequest(entityName:"Beacons")
-		var error: NSError?
-		let fetchedResults =
-		managedContext.executeFetchRequest(fetchRequest,
-			error: &error) as? [NSManagedObject]
+		let error: NSError?
+		do{
+		let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
 		if let results = fetchedResults {
 			people = results
 			for i in people{
 				let person = i
-				println("++_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_")
-				print(person.valueForKey("beaconID")
+				print("++_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_")
+				print(person.valueForKey("beaconID"), terminator: ""
 				)
-				println("++_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_")
+				print("++_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_")
 			}
 		} else {
-			println("Could not fetch \(error), \(error!.userInfo)")
+			print("Could not fetch")
 		}
-		
+	}catch{}
 	}
 
 	func deleteBeacons(){
 		var a = 1
 		let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 		let context:NSManagedObjectContext = appDel.managedObjectContext!
-//		context.delete(a as NSManagedObject)
-//			.deleteObject("1")
-	//	myData.removeAtIndex(indexPath.row)
-		context.save(nil)
+		do {
+			//		context.delete(a as NSManagedObject)
+	//			.deleteObject("1")
+		//	myData.removeAtIndex(indexPath.row)
+			try context.save()
+		} catch _ {
+		}
 	}
 	
 	func loadPage(page: Int) {

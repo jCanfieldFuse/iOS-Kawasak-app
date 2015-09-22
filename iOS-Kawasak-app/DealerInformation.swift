@@ -20,7 +20,7 @@ class DealerInformation: UIViewController, UIWebViewDelegate,CLLocationManagerDe
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		println(dataPassed)
+		print(dataPassed)
 		getStore(dataPassed)
 	}
 	

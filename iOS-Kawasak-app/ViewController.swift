@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         var nav = self.navigationController?.navigationBar
+         let nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.Black
         nav?.tintColor = UIColor.blackColor()
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]

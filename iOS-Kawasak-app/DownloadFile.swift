@@ -53,19 +53,21 @@ class DownloadFile:NSObject, NSURLSessionDownloadDelegate {
     
     // this is the only required NSURLSessionDownloadDelegate method
       func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
-        let documentsDirectoryURL =  NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as! NSURL
+        let documentsDirectoryURL =  NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first 
         var err:NSError?
         
-        let toFile: NSURL = documentsDirectoryURL.URLByAppendingPathComponent(downloadTask.response!.suggestedFilename!)
+        let toFile: NSURL = documentsDirectoryURL!.URLByAppendingPathComponent(downloadTask.response!.suggestedFilename!)
         
-        if NSFileManager().moveItemAtURL(location, toURL: toFile, error: &err) {
+        do {
+            try NSFileManager().moveItemAtURL(location, toURL: toFile)
             if let originalURL: String = taskDict[downloadTask] {
         //     print("_+_+_+_+++_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_")
                 delegateDict[originalURL]?.didFinishDownloadingFileFromURL(originalURL, toFile: toFile)
                 
             }
-        } else {
-            if let err = err {
+        } catch let error as NSError {
+            err = error
+            if let _ = err {
             }
         }
         
