@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D7F25F71BB363C1003E94CE /* VideobgTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F25F61BB363C1003E94CE /* VideobgTest.swift */; settings = {ASSET_TAGS = (); }; };
+		1D7F25FA1BB36A47003E94CE /* sample_iPod.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F25F91BB36A47003E94CE /* sample_iPod.m4v */; };
+		1D7F25FD1BB36BA3003E94CE /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F25FC1BB36BA3003E94CE /* video.mp4 */; };
+		1D7F25FF1BB45FAA003E94CE /* hexagon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F25FE1BB45FAA003E94CE /* hexagon.png */; settings = {ASSET_TAGS = (); }; };
+		1D7F26011BB4B0D4003E94CE /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F26001BB4B0D4003E94CE /* close.png */; settings = {ASSET_TAGS = (); }; };
 		1D7F86861B67FB1E001B6E1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */; };
 		1D7F86891B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86871B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld */; };
 		1D7F868B1B67FB1E001B6E1E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F868A1B67FB1E001B6E1E /* ViewController.swift */; };
@@ -55,6 +60,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D7F25F61BB363C1003E94CE /* VideobgTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideobgTest.swift; sourceTree = "<group>"; };
+		1D7F25F81BB36736003E94CE /* sample_iPod.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample_iPod.m4v; sourceTree = "<group>"; };
+		1D7F25F91BB36A47003E94CE /* sample_iPod.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample_iPod.m4v; sourceTree = "<group>"; };
+		1D7F25FB1BB36B99003E94CE /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		1D7F25FC1BB36BA3003E94CE /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		1D7F25FE1BB45FAA003E94CE /* hexagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hexagon.png; sourceTree = "<group>"; };
+		1D7F26001BB4B0D4003E94CE /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		1D7F86801B67FB1E001B6E1E /* iOS-Kawasak-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Kawasak-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7F86841B67FB1E001B6E1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +129,8 @@
 		1D7F86771B67FB1E001B6E1E = {
 			isa = PBXGroup;
 			children = (
+				1D7F25FC1BB36BA3003E94CE /* video.mp4 */,
+				1D7F25F91BB36A47003E94CE /* sample_iPod.m4v */,
 				1D7F86821B67FB1E001B6E1E /* iOS-Kawasak-app */,
 				1D7F869B1B67FB1E001B6E1E /* iOS-Kawasak-appTests */,
 				1D7F86811B67FB1E001B6E1E /* Products */,
@@ -136,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				1D7F868C1B67FB1E001B6E1E /* Main.storyboard */,
+				1D7F25F61BB363C1003E94CE /* VideobgTest.swift */,
 				1DA96F9B1B950D7D009EE25D /* PagedScrollViewController.swift */,
 				1DA96F8F1B9503CE009EE25D /* ScrollViewContainer.swift */,
 				1D853B641B716B7F002B325B /* notes.plist */,
@@ -173,6 +188,10 @@
 		1D7F86831B67FB1E001B6E1E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1D7F26001BB4B0D4003E94CE /* close.png */,
+				1D7F25FB1BB36B99003E94CE /* video.mp4 */,
+				1D7F25FE1BB45FAA003E94CE /* hexagon.png */,
+				1D7F25F81BB36736003E94CE /* sample_iPod.m4v */,
 				1DA96F9D1B961AAF009EE25D /* image3.png */,
 				1DA96F9E1B961AAF009EE25D /* image4.png */,
 				1DA96F9F1B961AAF009EE25D /* image2.png */,
@@ -287,12 +306,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D7F25FF1BB45FAA003E94CE /* hexagon.png in Resources */,
 				1DA96FA21B961AAF009EE25D /* image4.png in Resources */,
 				1DA96FA31B961AAF009EE25D /* image2.png in Resources */,
 				1D7F868E1B67FB1E001B6E1E /* Main.storyboard in Resources */,
 				1DA96FA41B961AAF009EE25D /* image1.png in Resources */,
+				1D7F25FD1BB36BA3003E94CE /* video.mp4 in Resources */,
 				1DA96FA11B961AAF009EE25D /* image3.png in Resources */,
+				1D7F26011BB4B0D4003E94CE /* close.png in Resources */,
 				1D7F86931B67FB1E001B6E1E /* LaunchScreen.xib in Resources */,
+				1D7F25FA1BB36A47003E94CE /* sample_iPod.m4v in Resources */,
 				1D853B651B716B7F002B325B /* notes.plist in Resources */,
 				1DE9B03C1B728ED8006C2556 /* data.plist in Resources */,
 				1D7F86901B67FB1E001B6E1E /* Images.xcassets in Resources */,
@@ -325,6 +348,7 @@
 				1D7F86861B67FB1E001B6E1E /* AppDelegate.swift in Sources */,
 				1D7F86B11B695418001B6E1E /* MyKawasakiList.swift in Sources */,
 				1DA96FB41B979F1E009EE25D /* DealerInformation.swift in Sources */,
+				1D7F25F71BB363C1003E94CE /* VideobgTest.swift in Sources */,
 				1DA96FAE1B9672EB009EE25D /* RacingNews.swift in Sources */,
 				1D7F86B31B695993001B6E1E /* MyKawasakiOwned.swift in Sources */,
 				1DA96FA61B965C75009EE25D /* MyKawasakiFav.swift in Sources */,

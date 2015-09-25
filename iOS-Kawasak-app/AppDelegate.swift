@@ -41,14 +41,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				selector: "timerMethod:",
 				userInfo: nil,
 				repeats: true)
-			
+
 			backgroundTaskIdentifier =
 				application.beginBackgroundTaskWithName("task1",
 					expirationHandler: {[weak self] in
 						self!.endBackgroundTask()
 					})
 
-			
+
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
@@ -171,6 +171,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	
 	func endBackgroundTask(){
+
 		   		let mainQueue = dispatch_get_main_queue()
 		
 		dispatch_async(mainQueue, {[weak self] in

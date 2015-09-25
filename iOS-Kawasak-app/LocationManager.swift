@@ -11,7 +11,7 @@ import CoreLocation
 import UIKit
 
 var beaconAlertList: currentBeacon =	currentBeacon()
-class LocManager: NSObject, CLLocationManagerDelegate {
+class LocManager: NSObject, CLLocationManagerDelegate,  UIApplicationDelegate {
 	//var locMan: CLLocationManager = CLLocationManager()
     //let s: Singleton! = Singleton.sharedInstance
   //var locMan: CLLocationManager = CLLocationManager()
@@ -37,9 +37,12 @@ class LocManager: NSObject, CLLocationManagerDelegate {
 		"Seven Degrees": CLLocationCoordinate2D(latitude: 33.5502499, longitude: -117.7790292),
 		"Sawdust": CLLocationCoordinate2D(latitude: 33.5506119, longitude: -117.7787891)
 	]
-  let region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "F7826DA6-4FA2-4E98-8024-BC5B71E0893E")!, identifier: "Estimotes")
-    
+  var region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "F7826DA6-4FA2-4E98-8024-BC5B71E0893E")!, identifier: "Estimotes")
+
 	override init(){
+	region.notifyEntryStateOnDisplay = true
+
+
 		super.init()
 		locMan.delegate = self
 			//	timer = NSTimer(timeInterval: 1.0, target: self, selector: "countUp", userInfo: nil, repeats: true)
@@ -51,7 +54,8 @@ class LocManager: NSObject, CLLocationManagerDelegate {
         region.notifyOnExit = true
         region.notifyEntryStateOnDisplay = true
         locMan.startRangingBeaconsInRegion(region)
-		
+
+		//			  locMan.startMonitoringForRegion(region)
 
 
 		//		self.locationManager.delegate = self
@@ -115,15 +119,16 @@ class LocManager: NSObject, CLLocationManagerDelegate {
 			} else {
 				print("App is backgrounded. New location is \(beaconList) ")
 				isClosed = true
-				print("hello")
 				if runclosed{
 					print("runclosed")
-					locMan.startUpdatingLocation()
+//					locMan.startUpdatingLocation()
 					runclosed = false
 				}
 			}
     }
 	}
+
+
 
 	func sendAlert(value: NSNumber){
 		print(value)
@@ -132,8 +137,7 @@ class LocManager: NSObject, CLLocationManagerDelegate {
 			beaconAlertList.currentBeaconTimer++
 		}
 		else{
-	
-			print("dif")
+				print("dif")
 		}
 
 
