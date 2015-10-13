@@ -23,7 +23,11 @@ class Singleton {
     }
     //put shit here
     var locationManager: LocManager = LocManager()
-   
-    
+//		var leftPanel: BurgerMenu = BurgerMenu()
+	
+	func setUpToolbar(){
+		
+		
+	}
 }
 

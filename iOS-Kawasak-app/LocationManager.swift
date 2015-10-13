@@ -16,7 +16,7 @@ class LocManager: NSObject, CLLocationManagerDelegate,  UIApplicationDelegate {
     //let s: Singleton! = Singleton.sharedInstance
   //var locMan: CLLocationManager = CLLocationManager()
 //	let manager = CLLocationManager()
-	
+	var parentView:UIViewController!
 	lazy var locMan: CLLocationManager! = {
   let manager = CLLocationManager()
   manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -45,6 +45,8 @@ class LocManager: NSObject, CLLocationManagerDelegate,  UIApplicationDelegate {
 
 		super.init()
 		locMan.delegate = self
+		
+		print("SINGLE")
 			//	timer = NSTimer(timeInterval: 1.0, target: self, selector: "countUp", userInfo: nil, repeats: true)
         if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse) {
             locMan.requestWhenInUseAuthorization()
@@ -94,13 +96,29 @@ class LocManager: NSObject, CLLocationManagerDelegate,  UIApplicationDelegate {
 	}
 	var isClosed = false
 	var runclosed = false
+	var test1 = true
 	var	beaconList:NSNumber?
+	
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
 			for test in beacons {
-				beaconList = test.minor
+				if (test.minor == 8489){
 
+				}
+				beaconList = test.minor
+				if test.minor == 8489 && test1{
+				//	let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("DealerWelcome") as! UIViewController
+				//	parentView.presentViewController(viewController, animated: true, completion: nil)
+
+					//let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LandingPageNew") as! UIViewController
+					//parentView.presentViewController(viewController, animated: true, completion: nil)
+					test1 = false
+				}
 				if isClosed {
-					print("its closed \(test)")
+					let date = NSDate()
+					let formatter = NSDateFormatter()
+					formatter.timeStyle = .ShortStyle
+					formatter.stringFromDate(date)
+					print("app closed \(date) :: \(test)")
 					if (test.major == 7181 || test.major == 30516){
 						sendAlert(test.major)
 					}

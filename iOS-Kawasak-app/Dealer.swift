@@ -10,7 +10,8 @@ import UIKit
 import MapKit
 import CoreLocation
 class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate{
-	
+	var screen = UIScreen.mainScreen().bounds
+
 	let locationManager = CLLocationManager()
 	let initialLocation = CLLocation(latitude: 33.549121, longitude: -117.780374)
 	let regionRadius: CLLocationDistance = 1000
@@ -29,6 +30,39 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		var footer = UIView()
+		footer.frame = CGRectMake(0, screen.height, screen.width, -40)
+		footer.backgroundColor = UIColor.blackColor()
+		self.view.addSubview(footer)
+
+		var kawFooterLabel = UILabel()
+		kawFooterLabel.frame = CGRectMake(10, 0 ,70, footer.frame.height)
+		kawFooterLabel.text = "Kawasaki"
+		kawFooterLabel.numberOfLines = 0
+		kawFooterLabel.font = UIFont(name: kawFooterLabel.font.fontName, size: 15)
+		kawFooterLabel.textColor = UIColor.whiteColor()
+		footer.addSubview(kawFooterLabel)
+		
+		var ConnectFooterLabel = UILabel()
+		ConnectFooterLabel.frame = CGRectMake(kawFooterLabel.frame.width + 10 , 0 ,70, footer.frame.height)
+		ConnectFooterLabel.text = "/ connect"
+		ConnectFooterLabel.numberOfLines = 0
+		ConnectFooterLabel.font = UIFont(name: kawFooterLabel.font.fontName, size: 15)
+		ConnectFooterLabel.textColor = UIColor.grayColor()
+		footer.addSubview(ConnectFooterLabel)
+		
+		var helpIcon = UIImageView()
+		helpIcon.image = UIImage(named: "helpIcon")
+		helpIcon.frame = CGRectMake((footer.frame.width - 10) - 15, footer.frame.height - 30, 15, 15)
+		helpIcon.backgroundColor = UIColor.redColor()
+		footer.addSubview(helpIcon)
+		
+		var settingsIcon = UIImageView()
+		settingsIcon.image = UIImage(named: "settings-icon")
+		settingsIcon.backgroundColor = UIColor.blueColor()
+		print(helpIcon.frame.origin.x)
+		settingsIcon.frame = CGRectMake( helpIcon.frame.origin.x - 25  , footer.frame.height - 30, 15, 15)
+		footer.addSubview(settingsIcon)
 		
 		tableList.delegate = self
 		tableList.dataSource = self
@@ -204,12 +238,12 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 }
 
 	
-class tableCellDealer: UITableViewCell {
+class tableCellDealer1: UITableViewCell {
 	var thing: Int = 0
 	var delegate: AnyObject?
 }
 
-class nearByDealer: NSObject {
+class nearByDealer1: NSObject {
 	
 	var name: String = ""
 	var zip: String = ""

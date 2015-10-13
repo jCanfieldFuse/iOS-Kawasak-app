@@ -7,16 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D0413CC1BC32A5300971B0A /* LoadingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0413CB1BC32A5300971B0A /* LoadingPage.swift */; settings = {ASSET_TAGS = (); }; };
+		1D2452FC1BCC657A00C57061 /* Cancel_Button_Overlays_Iddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452E81BCC657A00C57061 /* Cancel_Button_Overlays_Iddle.png */; settings = {ASSET_TAGS = (); }; };
+		1D2452FD1BCC657A00C57061 /* CLOSE_BUTTON_AllInstances.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452E91BCC657A00C57061 /* CLOSE_BUTTON_AllInstances.png */; settings = {ASSET_TAGS = (); }; };
+		1D2452FE1BCC657A00C57061 /* CloseFindDealerOverlay_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452EA1BCC657A00C57061 /* CloseFindDealerOverlay_Button.png */; settings = {ASSET_TAGS = (); }; };
+		1D2452FF1BCC657A00C57061 /* Delaer_Map_Marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452EB1BCC657A00C57061 /* Delaer_Map_Marker.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453001BCC657A00C57061 /* Details_ReadMore_SeeMore_Button_Pages.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452EC1BCC657A00C57061 /* Details_ReadMore_SeeMore_Button_Pages.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453011BCC657A00C57061 /* FavoriteThis_Icon_Active.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452ED1BCC657A00C57061 /* FavoriteThis_Icon_Active.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453021BCC657A00C57061 /* FavoriteThis_Icon_Iddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452EE1BCC657A00C57061 /* FavoriteThis_Icon_Iddle.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453031BCC657A00C57061 /* FindDealerOverlay_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452EF1BCC657A00C57061 /* FindDealerOverlay_Button.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453041BCC657A00C57061 /* Forgot-Password_Button_KawasakiConnect_LogIn.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452F01BCC657A00C57061 /* Forgot-Password_Button_KawasakiConnect_LogIn.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453051BCC657A00C57061 /* GoBackToMainNavArrow_HexButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452F11BCC657A00C57061 /* GoBackToMainNavArrow_HexButton.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453061BCC657A00C57061 /* HamburgerMenu_Button_Top.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452F21BCC657A00C57061 /* HamburgerMenu_Button_Top.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453071BCC657A00C57061 /* ICON-HAND_TargetTotLookFor.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452F31BCC657A00C57061 /* ICON-HAND_TargetTotLookFor.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453081BCC657A00C57061 /* InstructionsIcon_Footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452F41BCC657A00C57061 /* InstructionsIcon_Footer.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453091BCC657A00C57061 /* InstructionsScreen_Step1_Find.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452F51BCC657A00C57061 /* InstructionsScreen_Step1_Find.png */; settings = {ASSET_TAGS = (); }; };
+		1D24530A1BCC657A00C57061 /* InstructionsScreen_Step2_Scan.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452F61BCC657A00C57061 /* InstructionsScreen_Step2_Scan.png */; settings = {ASSET_TAGS = (); }; };
+		1D24530B1BCC657A00C57061 /* InstructionsScreen_Step3_Buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452F71BCC657A00C57061 /* InstructionsScreen_Step3_Buy.png */; settings = {ASSET_TAGS = (); }; };
+		1D24530C1BCC657A00C57061 /* KawasakiConnectLockUp_Footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452F81BCC657A00C57061 /* KawasakiConnectLockUp_Footer.png */; settings = {ASSET_TAGS = (); }; };
+		1D24530D1BCC657A00C57061 /* KC_SplashPage_LogoHex_.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452F91BCC657A00C57061 /* KC_SplashPage_LogoHex_.png */; settings = {ASSET_TAGS = (); }; };
+		1D24530E1BCC657A00C57061 /* KC_SplashPage_MainHexes_Iddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452FA1BCC657A00C57061 /* KC_SplashPage_MainHexes_Iddle.png */; settings = {ASSET_TAGS = (); }; };
+		1D24530F1BCC657A00C57061 /* KC_SplashPage_MainHexes_Pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2452FB1BCC657A00C57061 /* KC_SplashPage_MainHexes_Pressed.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453241BCC658800C57061 /* LocateDealerIcon_TopLeft_Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453101BCC658800C57061 /* LocateDealerIcon_TopLeft_Splash.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453251BCC658800C57061 /* LOG-OUT_Button_FlyOutMenuOpen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453111BCC658800C57061 /* LOG-OUT_Button_FlyOutMenuOpen.jpg */; settings = {ASSET_TAGS = (); }; };
+		1D2453261BCC658800C57061 /* OK_Button_Overlays_Iddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453121BCC658800C57061 /* OK_Button_Overlays_Iddle.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453271BCC658800C57061 /* Overall_GradientBar_OverflowPages_ONLY-IF_NEEDED.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453131BCC658800C57061 /* Overall_GradientBar_OverflowPages_ONLY-IF_NEEDED.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453281BCC658800C57061 /* PrivacyPolicy_Accept_Button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453141BCC658800C57061 /* PrivacyPolicy_Accept_Button.jpg */; settings = {ASSET_TAGS = (); }; };
+		1D2453291BCC658800C57061 /* PrivacyPolicy_EXit_Button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453151BCC658800C57061 /* PrivacyPolicy_EXit_Button.jpg */; settings = {ASSET_TAGS = (); }; };
+		1D24532A1BCC658800C57061 /* SecondaryNavHex_Iddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453161BCC658800C57061 /* SecondaryNavHex_Iddle.png */; settings = {ASSET_TAGS = (); }; };
+		1D24532B1BCC658800C57061 /* SeparationLines_SecondaryNav.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453171BCC658800C57061 /* SeparationLines_SecondaryNav.png */; settings = {ASSET_TAGS = (); }; };
+		1D24532C1BCC658800C57061 /* SettingsIcon_Footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453181BCC658800C57061 /* SettingsIcon_Footer.png */; settings = {ASSET_TAGS = (); }; };
+		1D24532D1BCC658800C57061 /* SettingsPage_ButtonBackDrop_Buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453191BCC658800C57061 /* SettingsPage_ButtonBackDrop_Buttons.png */; settings = {ASSET_TAGS = (); }; };
+		1D24532E1BCC658800C57061 /* SettingsPage_DivisoryLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D24531A1BCC658800C57061 /* SettingsPage_DivisoryLine.png */; settings = {ASSET_TAGS = (); }; };
+		1D24532F1BCC658800C57061 /* SettingsPage_OFF_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D24531B1BCC658800C57061 /* SettingsPage_OFF_Button.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453301BCC658800C57061 /* SettingsPage_OK_Button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D24531C1BCC658800C57061 /* SettingsPage_OK_Button.jpg */; settings = {ASSET_TAGS = (); }; };
+		1D2453311BCC658800C57061 /* SettingsPage_ON_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D24531D1BCC658800C57061 /* SettingsPage_ON_Button.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453321BCC658800C57061 /* SPLASHPAGES_VIGNETTE-OVER_VIDEO.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D24531E1BCC658800C57061 /* SPLASHPAGES_VIGNETTE-OVER_VIDEO.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453331BCC658800C57061 /* TargetToLookFor_Glow1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D24531F1BCC658800C57061 /* TargetToLookFor_Glow1.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453341BCC658800C57061 /* TargetToLookFor_Glow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453201BCC658800C57061 /* TargetToLookFor_Glow2.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453351BCC658800C57061 /* YouHaveActivityRedDot_HistorySectionpsb.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453211BCC658800C57061 /* YouHaveActivityRedDot_HistorySectionpsb.png */; settings = {ASSET_TAGS = (); }; };
+		1D2453361BCC658800C57061 /* ZoomIn_Map_Icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453221BCC658800C57061 /* ZoomIn_Map_Icon.jpg */; settings = {ASSET_TAGS = (); }; };
+		1D2453371BCC658800C57061 /* ZoomOut_MapIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453231BCC658800C57061 /* ZoomOut_MapIcon.jpg */; settings = {ASSET_TAGS = (); }; };
 		1D7F25F71BB363C1003E94CE /* VideobgTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F25F61BB363C1003E94CE /* VideobgTest.swift */; settings = {ASSET_TAGS = (); }; };
 		1D7F25FA1BB36A47003E94CE /* sample_iPod.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F25F91BB36A47003E94CE /* sample_iPod.m4v */; };
 		1D7F25FD1BB36BA3003E94CE /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F25FC1BB36BA3003E94CE /* video.mp4 */; };
-		1D7F25FF1BB45FAA003E94CE /* hexagon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F25FE1BB45FAA003E94CE /* hexagon.png */; settings = {ASSET_TAGS = (); }; };
-		1D7F26011BB4B0D4003E94CE /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F26001BB4B0D4003E94CE /* close.png */; settings = {ASSET_TAGS = (); }; };
 		1D7F86861B67FB1E001B6E1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */; };
 		1D7F86891B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86871B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld */; };
 		1D7F868B1B67FB1E001B6E1E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F868A1B67FB1E001B6E1E /* ViewController.swift */; };
-		1D7F868E1B67FB1E001B6E1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F868C1B67FB1E001B6E1E /* Main.storyboard */; };
-		1D7F86901B67FB1E001B6E1E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F868F1B67FB1E001B6E1E /* Images.xcassets */; };
 		1D7F86931B67FB1E001B6E1E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F86911B67FB1E001B6E1E /* LaunchScreen.xib */; };
 		1D7F869F1B67FB1E001B6E1E /* iOS_Kawasak_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F869E1B67FB1E001B6E1E /* iOS_Kawasak_appTests.swift */; };
 		1D7F86AB1B6806FE001B6E1E /* SectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86AA1B6806FE001B6E1E /* SectionList.swift */; };
@@ -47,6 +84,20 @@
 		1DDE3C621B73DD5E009506BA /* MyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDE3C611B73DD5E009506BA /* MyApi.swift */; };
 		1DE9B03C1B728ED8006C2556 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DE9B03B1B728ED8006C2556 /* data.plist */; };
 		1DE9B03E1B72B0BE006C2556 /* DownloadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */; };
+		1DF0DFD81BB5C631001E33DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF0DFD71BB5C631001E33DD /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		1DF0DFDC1BB5F2C5001E33DD /* hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFDB1BB5F2C5001E33DD /* hexColor.swift */; settings = {ASSET_TAGS = (); }; };
+		1DF0DFDE1BB9ABCC001E33DD /* LandingPageNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFDD1BB9ABCC001E33DD /* LandingPageNew.swift */; settings = {ASSET_TAGS = (); }; };
+		1DF0DFE01BB9B093001E33DD /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFDF1BB9B093001E33DD /* VideoPlayer.swift */; settings = {ASSET_TAGS = (); }; };
+		1DF0DFF01BBC5043001E33DD /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFEF1BBC5043001E33DD /* Footer.swift */; settings = {ASSET_TAGS = (); }; };
+		1DF0DFF21BBC622D001E33DD /* DealerWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFF11BBC622D001E33DD /* DealerWelcome.swift */; settings = {ASSET_TAGS = (); }; };
+		1DF0DFF41BBC6328001E33DD /* LocateDealerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFF31BBC6328001E33DD /* LocateDealerHeader.swift */; settings = {ASSET_TAGS = (); }; };
+		1DF0DFFA1BC2F6AA001E33DD /* BurgerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFF91BC2F6AA001E33DD /* BurgerMenu.swift */; settings = {ASSET_TAGS = (); }; };
+		1DFE00491BC485000055A3F7 /* YourHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE00481BC485000055A3F7 /* YourHistory.swift */; settings = {ASSET_TAGS = (); }; };
+		1DFE004D1BC59D940055A3F7 /* MyConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE004C1BC59D940055A3F7 /* MyConnect.swift */; settings = {ASSET_TAGS = (); }; };
+		1DFE00511BC5D8A30055A3F7 /* Legal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE00501BC5D8A30055A3F7 /* Legal.swift */; settings = {ASSET_TAGS = (); }; };
+		1DFE00591BC7220B0055A3F7 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE00581BC7220B0055A3F7 /* CoreDataModel.swift */; settings = {ASSET_TAGS = (); }; };
+		1DFE005C1BC72E1B0055A3F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DFE005A1BC72E1B0055A3F7 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		1DFE005F1BC739EE0055A3F7 /* FindDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE005E1BC739EE0055A3F7 /* FindDealer.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,20 +111,57 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D0413CB1BC32A5300971B0A /* LoadingPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingPage.swift; sourceTree = "<group>"; };
+		1D2452E81BCC657A00C57061 /* Cancel_Button_Overlays_Iddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cancel_Button_Overlays_Iddle.png; sourceTree = "<group>"; };
+		1D2452E91BCC657A00C57061 /* CLOSE_BUTTON_AllInstances.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CLOSE_BUTTON_AllInstances.png; sourceTree = "<group>"; };
+		1D2452EA1BCC657A00C57061 /* CloseFindDealerOverlay_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseFindDealerOverlay_Button.png; sourceTree = "<group>"; };
+		1D2452EB1BCC657A00C57061 /* Delaer_Map_Marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Delaer_Map_Marker.png; sourceTree = "<group>"; };
+		1D2452EC1BCC657A00C57061 /* Details_ReadMore_SeeMore_Button_Pages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Details_ReadMore_SeeMore_Button_Pages.png; sourceTree = "<group>"; };
+		1D2452ED1BCC657A00C57061 /* FavoriteThis_Icon_Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FavoriteThis_Icon_Active.png; sourceTree = "<group>"; };
+		1D2452EE1BCC657A00C57061 /* FavoriteThis_Icon_Iddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FavoriteThis_Icon_Iddle.png; sourceTree = "<group>"; };
+		1D2452EF1BCC657A00C57061 /* FindDealerOverlay_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FindDealerOverlay_Button.png; sourceTree = "<group>"; };
+		1D2452F01BCC657A00C57061 /* Forgot-Password_Button_KawasakiConnect_LogIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Forgot-Password_Button_KawasakiConnect_LogIn.png"; sourceTree = "<group>"; };
+		1D2452F11BCC657A00C57061 /* GoBackToMainNavArrow_HexButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoBackToMainNavArrow_HexButton.png; sourceTree = "<group>"; };
+		1D2452F21BCC657A00C57061 /* HamburgerMenu_Button_Top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamburgerMenu_Button_Top.png; sourceTree = "<group>"; };
+		1D2452F31BCC657A00C57061 /* ICON-HAND_TargetTotLookFor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-HAND_TargetTotLookFor.png"; sourceTree = "<group>"; };
+		1D2452F41BCC657A00C57061 /* InstructionsIcon_Footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InstructionsIcon_Footer.png; sourceTree = "<group>"; };
+		1D2452F51BCC657A00C57061 /* InstructionsScreen_Step1_Find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InstructionsScreen_Step1_Find.png; sourceTree = "<group>"; };
+		1D2452F61BCC657A00C57061 /* InstructionsScreen_Step2_Scan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InstructionsScreen_Step2_Scan.png; sourceTree = "<group>"; };
+		1D2452F71BCC657A00C57061 /* InstructionsScreen_Step3_Buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InstructionsScreen_Step3_Buy.png; sourceTree = "<group>"; };
+		1D2452F81BCC657A00C57061 /* KawasakiConnectLockUp_Footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KawasakiConnectLockUp_Footer.png; sourceTree = "<group>"; };
+		1D2452F91BCC657A00C57061 /* KC_SplashPage_LogoHex_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KC_SplashPage_LogoHex_.png; sourceTree = "<group>"; };
+		1D2452FA1BCC657A00C57061 /* KC_SplashPage_MainHexes_Iddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KC_SplashPage_MainHexes_Iddle.png; sourceTree = "<group>"; };
+		1D2452FB1BCC657A00C57061 /* KC_SplashPage_MainHexes_Pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KC_SplashPage_MainHexes_Pressed.png; sourceTree = "<group>"; };
+		1D2453101BCC658800C57061 /* LocateDealerIcon_TopLeft_Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocateDealerIcon_TopLeft_Splash.png; sourceTree = "<group>"; };
+		1D2453111BCC658800C57061 /* LOG-OUT_Button_FlyOutMenuOpen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "LOG-OUT_Button_FlyOutMenuOpen.jpg"; sourceTree = "<group>"; };
+		1D2453121BCC658800C57061 /* OK_Button_Overlays_Iddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OK_Button_Overlays_Iddle.png; sourceTree = "<group>"; };
+		1D2453131BCC658800C57061 /* Overall_GradientBar_OverflowPages_ONLY-IF_NEEDED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overall_GradientBar_OverflowPages_ONLY-IF_NEEDED.png"; sourceTree = "<group>"; };
+		1D2453141BCC658800C57061 /* PrivacyPolicy_Accept_Button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PrivacyPolicy_Accept_Button.jpg; sourceTree = "<group>"; };
+		1D2453151BCC658800C57061 /* PrivacyPolicy_EXit_Button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PrivacyPolicy_EXit_Button.jpg; sourceTree = "<group>"; };
+		1D2453161BCC658800C57061 /* SecondaryNavHex_Iddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SecondaryNavHex_Iddle.png; sourceTree = "<group>"; };
+		1D2453171BCC658800C57061 /* SeparationLines_SecondaryNav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SeparationLines_SecondaryNav.png; sourceTree = "<group>"; };
+		1D2453181BCC658800C57061 /* SettingsIcon_Footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsIcon_Footer.png; sourceTree = "<group>"; };
+		1D2453191BCC658800C57061 /* SettingsPage_ButtonBackDrop_Buttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsPage_ButtonBackDrop_Buttons.png; sourceTree = "<group>"; };
+		1D24531A1BCC658800C57061 /* SettingsPage_DivisoryLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsPage_DivisoryLine.png; sourceTree = "<group>"; };
+		1D24531B1BCC658800C57061 /* SettingsPage_OFF_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsPage_OFF_Button.png; sourceTree = "<group>"; };
+		1D24531C1BCC658800C57061 /* SettingsPage_OK_Button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SettingsPage_OK_Button.jpg; sourceTree = "<group>"; };
+		1D24531D1BCC658800C57061 /* SettingsPage_ON_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsPage_ON_Button.png; sourceTree = "<group>"; };
+		1D24531E1BCC658800C57061 /* SPLASHPAGES_VIGNETTE-OVER_VIDEO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SPLASHPAGES_VIGNETTE-OVER_VIDEO.png"; sourceTree = "<group>"; };
+		1D24531F1BCC658800C57061 /* TargetToLookFor_Glow1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TargetToLookFor_Glow1.png; sourceTree = "<group>"; };
+		1D2453201BCC658800C57061 /* TargetToLookFor_Glow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TargetToLookFor_Glow2.png; sourceTree = "<group>"; };
+		1D2453211BCC658800C57061 /* YouHaveActivityRedDot_HistorySectionpsb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YouHaveActivityRedDot_HistorySectionpsb.png; sourceTree = "<group>"; };
+		1D2453221BCC658800C57061 /* ZoomIn_Map_Icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ZoomIn_Map_Icon.jpg; sourceTree = "<group>"; };
+		1D2453231BCC658800C57061 /* ZoomOut_MapIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ZoomOut_MapIcon.jpg; sourceTree = "<group>"; };
 		1D7F25F61BB363C1003E94CE /* VideobgTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideobgTest.swift; sourceTree = "<group>"; };
 		1D7F25F81BB36736003E94CE /* sample_iPod.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample_iPod.m4v; sourceTree = "<group>"; };
 		1D7F25F91BB36A47003E94CE /* sample_iPod.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample_iPod.m4v; sourceTree = "<group>"; };
 		1D7F25FB1BB36B99003E94CE /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		1D7F25FC1BB36BA3003E94CE /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
-		1D7F25FE1BB45FAA003E94CE /* hexagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hexagon.png; sourceTree = "<group>"; };
-		1D7F26001BB4B0D4003E94CE /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		1D7F86801B67FB1E001B6E1E /* iOS-Kawasak-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Kawasak-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7F86841B67FB1E001B6E1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D7F86881B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOS_Kawasak_app.xcdatamodel; sourceTree = "<group>"; };
 		1D7F868A1B67FB1E001B6E1E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1D7F868D1B67FB1E001B6E1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1D7F868F1B67FB1E001B6E1E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1D7F86921B67FB1E001B6E1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1D7F86981B67FB1E001B6E1E /* iOS-Kawasak-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Kawasak-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7F869D1B67FB1E001B6E1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,6 +194,20 @@
 		1DDE3C611B73DD5E009506BA /* MyApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyApi.swift; sourceTree = "<group>"; };
 		1DE9B03B1B728ED8006C2556 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 		1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFile.swift; sourceTree = "<group>"; };
+		1DF0DFD71BB5C631001E33DD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1DF0DFDB1BB5F2C5001E33DD /* hexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hexColor.swift; sourceTree = "<group>"; };
+		1DF0DFDD1BB9ABCC001E33DD /* LandingPageNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageNew.swift; sourceTree = "<group>"; };
+		1DF0DFDF1BB9B093001E33DD /* VideoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		1DF0DFEF1BBC5043001E33DD /* Footer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
+		1DF0DFF11BBC622D001E33DD /* DealerWelcome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealerWelcome.swift; sourceTree = "<group>"; };
+		1DF0DFF31BBC6328001E33DD /* LocateDealerHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocateDealerHeader.swift; sourceTree = "<group>"; };
+		1DF0DFF91BC2F6AA001E33DD /* BurgerMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BurgerMenu.swift; sourceTree = "<group>"; };
+		1DFE00481BC485000055A3F7 /* YourHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourHistory.swift; sourceTree = "<group>"; };
+		1DFE004C1BC59D940055A3F7 /* MyConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyConnect.swift; sourceTree = "<group>"; };
+		1DFE00501BC5D8A30055A3F7 /* Legal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legal.swift; sourceTree = "<group>"; };
+		1DFE00581BC7220B0055A3F7 /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		1DFE005B1BC72E1B0055A3F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1DFE005E1BC739EE0055A3F7 /* FindDealer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDealer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +228,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D2452E61BCC5BCE00C57061 /* old files */ = {
+			isa = PBXGroup;
+			children = (
+				1D7F25F61BB363C1003E94CE /* VideobgTest.swift */,
+				1DA96F9B1B950D7D009EE25D /* PagedScrollViewController.swift */,
+				1DA96F8D1B94FCC2009EE25D /* LandingPage.swift */,
+				1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */,
+				1D7F868A1B67FB1E001B6E1E /* ViewController.swift */,
+				1DA96FAB1B96712D009EE25D /* MyKawasakiDetails.swift */,
+				1DA96FA51B965C75009EE25D /* MyKawasakiFav.swift */,
+				1DA96FA71B965CF7009EE25D /* MyKawasakiDealer.swift */,
+				1D7F86B21B695993001B6E1E /* MyKawasakiOwned.swift */,
+				1D7F86B01B695418001B6E1E /* MyKawasakiList.swift */,
+			);
+			name = "old files";
+			sourceTree = "<group>";
+		};
+		1D2452E71BCC5C1E00C57061 /* class views */ = {
+			isa = PBXGroup;
+			children = (
+				1DF0DFEF1BBC5043001E33DD /* Footer.swift */,
+				1DF0DFF91BC2F6AA001E33DD /* BurgerMenu.swift */,
+				1DF0DFF31BBC6328001E33DD /* LocateDealerHeader.swift */,
+			);
+			name = "class views";
+			sourceTree = "<group>";
+		};
 		1D7F86771B67FB1E001B6E1E = {
 			isa = PBXGroup;
 			children = (
@@ -149,36 +278,39 @@
 		1D7F86821B67FB1E001B6E1E /* iOS-Kawasak-app */ = {
 			isa = PBXGroup;
 			children = (
-				1D7F868C1B67FB1E001B6E1E /* Main.storyboard */,
-				1D7F25F61BB363C1003E94CE /* VideobgTest.swift */,
-				1DA96F9B1B950D7D009EE25D /* PagedScrollViewController.swift */,
+				1DFE005D1BC739860055A3F7 /* new Kawasaki */,
+				1DFE005A1BC72E1B0055A3F7 /* Main.storyboard */,
+				1DF0DFD71BB5C631001E33DD /* Images.xcassets */,
+				1DF0DFDB1BB5F2C5001E33DD /* hexColor.swift */,
 				1DA96F8F1B9503CE009EE25D /* ScrollViewContainer.swift */,
 				1D853B641B716B7F002B325B /* notes.plist */,
-				1DA96F8D1B94FCC2009EE25D /* LandingPage.swift */,
-				1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */,
-				1D7F868A1B67FB1E001B6E1E /* ViewController.swift */,
 				1DDE3C611B73DD5E009506BA /* MyApi.swift */,
-				1DA96FAB1B96712D009EE25D /* MyKawasakiDetails.swift */,
-				1DA96FA51B965C75009EE25D /* MyKawasakiFav.swift */,
-				1DA96FA71B965CF7009EE25D /* MyKawasakiDealer.swift */,
-				1D7F86B21B695993001B6E1E /* MyKawasakiOwned.swift */,
-				1D7F86B01B695418001B6E1E /* MyKawasakiList.swift */,
 				1D7F86AC1B682C96001B6E1E /* Login.swift */,
+				1D2452E61BCC5BCE00C57061 /* old files */,
 				1D7F86B41B697E0F001B6E1E /* Dealer.swift */,
 				1DA96FB31B979F1E009EE25D /* DealerInformation.swift */,
 				1D7F86AA1B6806FE001B6E1E /* SectionList.swift */,
 				1D7F86AE1B683F48001B6E1E /* RacingList.swift */,
 				1DA96FAD1B9672EB009EE25D /* RacingNews.swift */,
-				1DA96FAF1B967309009EE25D /* RaceResults.swift */,
 				1DA96FB11B967323009EE25D /* MoreInfo.swift */,
 				1DA96FA91B966CE9009EE25D /* RaceResultsFiltered.swift */,
+				1D2452E71BCC5C1E00C57061 /* class views */,
 				1D853B661B7180C5002B325B /* PlistRW.swift */,
 				1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */,
 				1DB65EBC1B6AA260003D350A /* LocationManager.swift */,
 				1DB65EBE1B6AD53F003D350A /* Singlton.swift */,
-				1D7F868F1B67FB1E001B6E1E /* Images.xcassets */,
+				1DF0DFDF1BB9B093001E33DD /* VideoPlayer.swift */,
+				1D0413CB1BC32A5300971B0A /* LoadingPage.swift */,
+				1DF0DFDD1BB9ABCC001E33DD /* LandingPageNew.swift */,
+				1DF0DFF11BBC622D001E33DD /* DealerWelcome.swift */,
+				1DFE00481BC485000055A3F7 /* YourHistory.swift */,
+				1DA96FAF1B967309009EE25D /* RaceResults.swift */,
+				1DFE004C1BC59D940055A3F7 /* MyConnect.swift */,
+				1DFE00501BC5D8A30055A3F7 /* Legal.swift */,
+				1DFE005E1BC739EE0055A3F7 /* FindDealer.swift */,
 				1D7F86911B67FB1E001B6E1E /* LaunchScreen.xib */,
 				1D7F86871B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld */,
+				1DFE00581BC7220B0055A3F7 /* CoreDataModel.swift */,
 				1DE9B03B1B728ED8006C2556 /* data.plist */,
 				1D7F86831B67FB1E001B6E1E /* Supporting Files */,
 			);
@@ -188,9 +320,7 @@
 		1D7F86831B67FB1E001B6E1E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1D7F26001BB4B0D4003E94CE /* close.png */,
 				1D7F25FB1BB36B99003E94CE /* video.mp4 */,
-				1D7F25FE1BB45FAA003E94CE /* hexagon.png */,
 				1D7F25F81BB36736003E94CE /* sample_iPod.m4v */,
 				1DA96F9D1B961AAF009EE25D /* image3.png */,
 				1DA96F9E1B961AAF009EE25D /* image4.png */,
@@ -213,9 +343,56 @@
 		1D7F869C1B67FB1E001B6E1E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1D2453101BCC658800C57061 /* LocateDealerIcon_TopLeft_Splash.png */,
+				1D2453111BCC658800C57061 /* LOG-OUT_Button_FlyOutMenuOpen.jpg */,
+				1D2453121BCC658800C57061 /* OK_Button_Overlays_Iddle.png */,
+				1D2453131BCC658800C57061 /* Overall_GradientBar_OverflowPages_ONLY-IF_NEEDED.png */,
+				1D2453141BCC658800C57061 /* PrivacyPolicy_Accept_Button.jpg */,
+				1D2453151BCC658800C57061 /* PrivacyPolicy_EXit_Button.jpg */,
+				1D2453161BCC658800C57061 /* SecondaryNavHex_Iddle.png */,
+				1D2453171BCC658800C57061 /* SeparationLines_SecondaryNav.png */,
+				1D2453181BCC658800C57061 /* SettingsIcon_Footer.png */,
+				1D2453191BCC658800C57061 /* SettingsPage_ButtonBackDrop_Buttons.png */,
+				1D24531A1BCC658800C57061 /* SettingsPage_DivisoryLine.png */,
+				1D24531B1BCC658800C57061 /* SettingsPage_OFF_Button.png */,
+				1D24531C1BCC658800C57061 /* SettingsPage_OK_Button.jpg */,
+				1D24531D1BCC658800C57061 /* SettingsPage_ON_Button.png */,
+				1D24531E1BCC658800C57061 /* SPLASHPAGES_VIGNETTE-OVER_VIDEO.png */,
+				1D24531F1BCC658800C57061 /* TargetToLookFor_Glow1.png */,
+				1D2453201BCC658800C57061 /* TargetToLookFor_Glow2.png */,
+				1D2453211BCC658800C57061 /* YouHaveActivityRedDot_HistorySectionpsb.png */,
+				1D2453221BCC658800C57061 /* ZoomIn_Map_Icon.jpg */,
+				1D2453231BCC658800C57061 /* ZoomOut_MapIcon.jpg */,
+				1D2452E81BCC657A00C57061 /* Cancel_Button_Overlays_Iddle.png */,
+				1D2452E91BCC657A00C57061 /* CLOSE_BUTTON_AllInstances.png */,
+				1D2452EA1BCC657A00C57061 /* CloseFindDealerOverlay_Button.png */,
+				1D2452EB1BCC657A00C57061 /* Delaer_Map_Marker.png */,
+				1D2452EC1BCC657A00C57061 /* Details_ReadMore_SeeMore_Button_Pages.png */,
+				1D2452ED1BCC657A00C57061 /* FavoriteThis_Icon_Active.png */,
+				1D2452EE1BCC657A00C57061 /* FavoriteThis_Icon_Iddle.png */,
+				1D2452EF1BCC657A00C57061 /* FindDealerOverlay_Button.png */,
+				1D2452F01BCC657A00C57061 /* Forgot-Password_Button_KawasakiConnect_LogIn.png */,
+				1D2452F11BCC657A00C57061 /* GoBackToMainNavArrow_HexButton.png */,
+				1D2452F21BCC657A00C57061 /* HamburgerMenu_Button_Top.png */,
+				1D2452F31BCC657A00C57061 /* ICON-HAND_TargetTotLookFor.png */,
+				1D2452F41BCC657A00C57061 /* InstructionsIcon_Footer.png */,
+				1D2452F51BCC657A00C57061 /* InstructionsScreen_Step1_Find.png */,
+				1D2452F61BCC657A00C57061 /* InstructionsScreen_Step2_Scan.png */,
+				1D2452F71BCC657A00C57061 /* InstructionsScreen_Step3_Buy.png */,
+				1D2452F81BCC657A00C57061 /* KawasakiConnectLockUp_Footer.png */,
+				1D2452F91BCC657A00C57061 /* KC_SplashPage_LogoHex_.png */,
+				1D2452FA1BCC657A00C57061 /* KC_SplashPage_MainHexes_Iddle.png */,
+				1D2452FB1BCC657A00C57061 /* KC_SplashPage_MainHexes_Pressed.png */,
 				1D7F869D1B67FB1E001B6E1E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DFE005D1BC739860055A3F7 /* new Kawasaki */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "new Kawasaki";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,19 +483,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D7F25FF1BB45FAA003E94CE /* hexagon.png in Resources */,
 				1DA96FA21B961AAF009EE25D /* image4.png in Resources */,
+				1DFE005C1BC72E1B0055A3F7 /* Main.storyboard in Resources */,
 				1DA96FA31B961AAF009EE25D /* image2.png in Resources */,
-				1D7F868E1B67FB1E001B6E1E /* Main.storyboard in Resources */,
 				1DA96FA41B961AAF009EE25D /* image1.png in Resources */,
 				1D7F25FD1BB36BA3003E94CE /* video.mp4 in Resources */,
 				1DA96FA11B961AAF009EE25D /* image3.png in Resources */,
-				1D7F26011BB4B0D4003E94CE /* close.png in Resources */,
 				1D7F86931B67FB1E001B6E1E /* LaunchScreen.xib in Resources */,
+				1DF0DFD81BB5C631001E33DD /* Images.xcassets in Resources */,
 				1D7F25FA1BB36A47003E94CE /* sample_iPod.m4v in Resources */,
 				1D853B651B716B7F002B325B /* notes.plist in Resources */,
 				1DE9B03C1B728ED8006C2556 /* data.plist in Resources */,
-				1D7F86901B67FB1E001B6E1E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +501,46 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D2453341BCC658800C57061 /* TargetToLookFor_Glow2.png in Resources */,
+				1D2453311BCC658800C57061 /* SettingsPage_ON_Button.png in Resources */,
+				1D24532B1BCC658800C57061 /* SeparationLines_SecondaryNav.png in Resources */,
+				1D2453051BCC657A00C57061 /* GoBackToMainNavArrow_HexButton.png in Resources */,
+				1D2453251BCC658800C57061 /* LOG-OUT_Button_FlyOutMenuOpen.jpg in Resources */,
+				1D2453241BCC658800C57061 /* LocateDealerIcon_TopLeft_Splash.png in Resources */,
+				1D2453261BCC658800C57061 /* OK_Button_Overlays_Iddle.png in Resources */,
+				1D2453081BCC657A00C57061 /* InstructionsIcon_Footer.png in Resources */,
+				1D24530C1BCC657A00C57061 /* KawasakiConnectLockUp_Footer.png in Resources */,
+				1D2453301BCC658800C57061 /* SettingsPage_OK_Button.jpg in Resources */,
+				1D2453291BCC658800C57061 /* PrivacyPolicy_EXit_Button.jpg in Resources */,
+				1D2452FC1BCC657A00C57061 /* Cancel_Button_Overlays_Iddle.png in Resources */,
+				1D2453021BCC657A00C57061 /* FavoriteThis_Icon_Iddle.png in Resources */,
+				1D24530F1BCC657A00C57061 /* KC_SplashPage_MainHexes_Pressed.png in Resources */,
+				1D2453031BCC657A00C57061 /* FindDealerOverlay_Button.png in Resources */,
+				1D2453351BCC658800C57061 /* YouHaveActivityRedDot_HistorySectionpsb.png in Resources */,
+				1D2453041BCC657A00C57061 /* Forgot-Password_Button_KawasakiConnect_LogIn.png in Resources */,
+				1D2452FD1BCC657A00C57061 /* CLOSE_BUTTON_AllInstances.png in Resources */,
+				1D24530E1BCC657A00C57061 /* KC_SplashPage_MainHexes_Iddle.png in Resources */,
+				1D24530D1BCC657A00C57061 /* KC_SplashPage_LogoHex_.png in Resources */,
+				1D24532A1BCC658800C57061 /* SecondaryNavHex_Iddle.png in Resources */,
+				1D2453371BCC658800C57061 /* ZoomOut_MapIcon.jpg in Resources */,
+				1D24532F1BCC658800C57061 /* SettingsPage_OFF_Button.png in Resources */,
+				1D2453001BCC657A00C57061 /* Details_ReadMore_SeeMore_Button_Pages.png in Resources */,
+				1D2453071BCC657A00C57061 /* ICON-HAND_TargetTotLookFor.png in Resources */,
+				1D24532D1BCC658800C57061 /* SettingsPage_ButtonBackDrop_Buttons.png in Resources */,
+				1D24532E1BCC658800C57061 /* SettingsPage_DivisoryLine.png in Resources */,
+				1D2453061BCC657A00C57061 /* HamburgerMenu_Button_Top.png in Resources */,
+				1D24532C1BCC658800C57061 /* SettingsIcon_Footer.png in Resources */,
+				1D2453281BCC658800C57061 /* PrivacyPolicy_Accept_Button.jpg in Resources */,
+				1D2453331BCC658800C57061 /* TargetToLookFor_Glow1.png in Resources */,
+				1D24530B1BCC657A00C57061 /* InstructionsScreen_Step3_Buy.png in Resources */,
+				1D2453271BCC658800C57061 /* Overall_GradientBar_OverflowPages_ONLY-IF_NEEDED.png in Resources */,
+				1D2452FE1BCC657A00C57061 /* CloseFindDealerOverlay_Button.png in Resources */,
+				1D2453011BCC657A00C57061 /* FavoriteThis_Icon_Active.png in Resources */,
+				1D24530A1BCC657A00C57061 /* InstructionsScreen_Step2_Scan.png in Resources */,
+				1D2452FF1BCC657A00C57061 /* Delaer_Map_Marker.png in Resources */,
+				1D2453091BCC657A00C57061 /* InstructionsScreen_Step1_Find.png in Resources */,
+				1D2453361BCC658800C57061 /* ZoomIn_Map_Icon.jpg in Resources */,
+				1D2453321BCC658800C57061 /* SPLASHPAGES_VIGNETTE-OVER_VIDEO.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,25 +552,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D7F868B1B67FB1E001B6E1E /* ViewController.swift in Sources */,
+				1DF0DFF41BBC6328001E33DD /* LocateDealerHeader.swift in Sources */,
 				1D853B671B7180C5002B325B /* PlistRW.swift in Sources */,
 				1D7F86AD1B682C96001B6E1E /* Login.swift in Sources */,
 				1DE9B03E1B72B0BE006C2556 /* DownloadFile.swift in Sources */,
 				1DA96FA81B965CF7009EE25D /* MyKawasakiDealer.swift in Sources */,
+				1DFE004D1BC59D940055A3F7 /* MyConnect.swift in Sources */,
 				1D7F86AB1B6806FE001B6E1E /* SectionList.swift in Sources */,
+				1DFE00591BC7220B0055A3F7 /* CoreDataModel.swift in Sources */,
+				1DF0DFDC1BB5F2C5001E33DD /* hexColor.swift in Sources */,
 				1DB65EBD1B6AA260003D350A /* LocationManager.swift in Sources */,
+				1DF0DFE01BB9B093001E33DD /* VideoPlayer.swift in Sources */,
 				1DA96F8E1B94FCC2009EE25D /* LandingPage.swift in Sources */,
+				1D0413CC1BC32A5300971B0A /* LoadingPage.swift in Sources */,
 				1DA96F9C1B950D7D009EE25D /* PagedScrollViewController.swift in Sources */,
 				1D7F86861B67FB1E001B6E1E /* AppDelegate.swift in Sources */,
+				1DF0DFDE1BB9ABCC001E33DD /* LandingPageNew.swift in Sources */,
 				1D7F86B11B695418001B6E1E /* MyKawasakiList.swift in Sources */,
 				1DA96FB41B979F1E009EE25D /* DealerInformation.swift in Sources */,
+				1DF0DFF21BBC622D001E33DD /* DealerWelcome.swift in Sources */,
+				1DFE00511BC5D8A30055A3F7 /* Legal.swift in Sources */,
 				1D7F25F71BB363C1003E94CE /* VideobgTest.swift in Sources */,
+				1DFE00491BC485000055A3F7 /* YourHistory.swift in Sources */,
 				1DA96FAE1B9672EB009EE25D /* RacingNews.swift in Sources */,
 				1D7F86B31B695993001B6E1E /* MyKawasakiOwned.swift in Sources */,
 				1DA96FA61B965C75009EE25D /* MyKawasakiFav.swift in Sources */,
 				1D7F86B51B697E0F001B6E1E /* Dealer.swift in Sources */,
+				1DF0DFF01BBC5043001E33DD /* Footer.swift in Sources */,
 				1D7F86891B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld in Sources */,
 				1DA96FB21B967323009EE25D /* MoreInfo.swift in Sources */,
 				1DA96FAC1B96712D009EE25D /* MyKawasakiDetails.swift in Sources */,
+				1DFE005F1BC739EE0055A3F7 /* FindDealer.swift in Sources */,
+				1DF0DFFA1BC2F6AA001E33DD /* BurgerMenu.swift in Sources */,
 				1DDE3C621B73DD5E009506BA /* MyApi.swift in Sources */,
 				1D7F86AF1B683F48001B6E1E /* RacingList.swift in Sources */,
 				1DA96FB01B967309009EE25D /* RaceResults.swift in Sources */,
@@ -384,20 +612,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1D7F868C1B67FB1E001B6E1E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1D7F868D1B67FB1E001B6E1E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1D7F86911B67FB1E001B6E1E /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1D7F86921B67FB1E001B6E1E /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		1DFE005A1BC72E1B0055A3F7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DFE005B1BC72E1B0055A3F7 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
