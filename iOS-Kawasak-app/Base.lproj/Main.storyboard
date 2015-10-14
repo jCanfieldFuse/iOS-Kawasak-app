@@ -4,19 +4,19 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Nav Controller-->
         <scene sceneID="9kw-KW-lfq">
             <objects>
-                <navigationController id="1Rk-r4-v4Y" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="1Rk-r4-v4Y" customClass="NavController" customModule="iOS_Kawasak_app" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="CSF-jv-JJF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" id="k9w-B6-xmF">
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" id="k9w-B6-xmF">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.086274509799999996" green="0.63921568630000003" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                     </toolbar>
                     <connections>
                         <segue destination="O3B-JV-2H2" kind="relationship" relationship="rootViewController" id="sh4-sJ-C5m"/>
@@ -108,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAo-21-GqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="146" y="3242"/>
+            <point key="canvasLocation" x="40" y="3263"/>
         </scene>
         <!--Find Dealer-->
         <scene sceneID="lEa-3W-9ab">
@@ -926,8 +926,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3qe-dL-Eu7"/>
         <segue reference="a82-Bh-XAY"/>
+        <segue reference="3qe-dL-Eu7"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.086274509799999996" green="0.63921568630000003" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>

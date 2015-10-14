@@ -48,6 +48,7 @@
 		1D2453351BCC658800C57061 /* YouHaveActivityRedDot_HistorySectionpsb.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453211BCC658800C57061 /* YouHaveActivityRedDot_HistorySectionpsb.png */; settings = {ASSET_TAGS = (); }; };
 		1D2453361BCC658800C57061 /* ZoomIn_Map_Icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453221BCC658800C57061 /* ZoomIn_Map_Icon.jpg */; settings = {ASSET_TAGS = (); }; };
 		1D2453371BCC658800C57061 /* ZoomOut_MapIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D2453231BCC658800C57061 /* ZoomOut_MapIcon.jpg */; settings = {ASSET_TAGS = (); }; };
+		1D323AC41BCD866600251A6B /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323AC31BCD866600251A6B /* NavController.swift */; settings = {ASSET_TAGS = (); }; };
 		1D7F25F71BB363C1003E94CE /* VideobgTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F25F61BB363C1003E94CE /* VideobgTest.swift */; settings = {ASSET_TAGS = (); }; };
 		1D7F25FA1BB36A47003E94CE /* sample_iPod.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F25F91BB36A47003E94CE /* sample_iPod.m4v */; };
 		1D7F25FD1BB36BA3003E94CE /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F25FC1BB36BA3003E94CE /* video.mp4 */; };
@@ -152,6 +153,7 @@
 		1D2453211BCC658800C57061 /* YouHaveActivityRedDot_HistorySectionpsb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YouHaveActivityRedDot_HistorySectionpsb.png; sourceTree = "<group>"; };
 		1D2453221BCC658800C57061 /* ZoomIn_Map_Icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ZoomIn_Map_Icon.jpg; sourceTree = "<group>"; };
 		1D2453231BCC658800C57061 /* ZoomOut_MapIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ZoomOut_MapIcon.jpg; sourceTree = "<group>"; };
+		1D323AC31BCD866600251A6B /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
 		1D7F25F61BB363C1003E94CE /* VideobgTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideobgTest.swift; sourceTree = "<group>"; };
 		1D7F25F81BB36736003E94CE /* sample_iPod.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample_iPod.m4v; sourceTree = "<group>"; };
 		1D7F25F91BB36A47003E94CE /* sample_iPod.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample_iPod.m4v; sourceTree = "<group>"; };
@@ -234,7 +236,6 @@
 				1D7F25F61BB363C1003E94CE /* VideobgTest.swift */,
 				1DA96F9B1B950D7D009EE25D /* PagedScrollViewController.swift */,
 				1DA96F8D1B94FCC2009EE25D /* LandingPage.swift */,
-				1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */,
 				1D7F868A1B67FB1E001B6E1E /* ViewController.swift */,
 				1DA96FAB1B96712D009EE25D /* MyKawasakiDetails.swift */,
 				1DA96FA51B965C75009EE25D /* MyKawasakiFav.swift */,
@@ -298,6 +299,7 @@
 				1D853B661B7180C5002B325B /* PlistRW.swift */,
 				1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */,
 				1DB65EBC1B6AA260003D350A /* LocationManager.swift */,
+				1D323AC31BCD866600251A6B /* NavController.swift */,
 				1DB65EBE1B6AD53F003D350A /* Singlton.swift */,
 				1DF0DFDF1BB9B093001E33DD /* VideoPlayer.swift */,
 				1D0413CB1BC32A5300971B0A /* LoadingPage.swift */,
@@ -391,6 +393,7 @@
 		1DFE005D1BC739860055A3F7 /* new Kawasaki */ = {
 			isa = PBXGroup;
 			children = (
+				1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */,
 			);
 			name = "new Kawasaki";
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				1D7F86AB1B6806FE001B6E1E /* SectionList.swift in Sources */,
 				1DFE00591BC7220B0055A3F7 /* CoreDataModel.swift in Sources */,
 				1DF0DFDC1BB5F2C5001E33DD /* hexColor.swift in Sources */,
+				1D323AC41BCD866600251A6B /* NavController.swift in Sources */,
 				1DB65EBD1B6AA260003D350A /* LocationManager.swift in Sources */,
 				1DF0DFE01BB9B093001E33DD /* VideoPlayer.swift in Sources */,
 				1DA96F8E1B94FCC2009EE25D /* LandingPage.swift in Sources */,

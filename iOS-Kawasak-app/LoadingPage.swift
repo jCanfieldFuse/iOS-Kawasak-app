@@ -14,14 +14,16 @@ class LoadingPage: UIViewController  {
 	var s:Singleton = Singleton.sharedInstance
 	let legalAccept: CoreDataModel = CoreDataModel()
 	override func viewDidLoad() {
+		self.navigationController?.navigationBarHidden = true
 
 		self.view.backgroundColor = UIColor.blackColor()
-		let mainText = UILabel()
-		mainText.frame = CGRectMake(0, screen.width * 0.5, screen.width, 40)
-		mainText.text = "LOADING PLEASE WAIT"
-		mainText.textColor = UIColor.whiteColor()
-		mainText.textAlignment = NSTextAlignment.Center
-		self.view.addSubview(mainText)
+	
+  	let mainImage =  UIImage(named: "KawasakiConnectLockUp_Footer")
+		let centerImage:UIImageView = UIImageView(image:mainImage)
+		centerImage.frame = CGRectMake(20, (screen.height * 0.5) - 10, (mainImage?.size.width)!	, (mainImage?.size.height)!)
+		centerImage.center = self.view.center
+		self.view.addSubview(centerImage)
+		
 		s.locationManager.parentView = self
 		let legalAcc = legalAccept.getLegal() as! Int
 		print(legalAcc)
@@ -30,5 +32,8 @@ class LoadingPage: UIViewController  {
 		}else{
 					performSegueWithIdentifier("toLegal", sender: self)
 		}
+	}
+	override func prefersStatusBarHidden() -> Bool {
+		return true
 	}
 }

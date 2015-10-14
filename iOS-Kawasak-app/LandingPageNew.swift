@@ -59,8 +59,6 @@ class LandingPageNew: UIViewController  {
 		let tmpPath = NSURL(fileURLWithPath: path!)
 		let player = AVPlayer(URL:  tmpPath)
 
-		
-		
 		player.muted = true
 		player.allowsExternalPlayback = false
 		player.appliesMediaSelectionCriteriaAutomatically = false
@@ -92,6 +90,7 @@ class LandingPageNew: UIViewController  {
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		footer.parentView = self
 		//let checkLegalApprove = legalCheck.getLegal()
 		//print(checkLegalApprove)
 		//if checkLegalApprove as! NSObject == 0{
@@ -99,6 +98,7 @@ class LandingPageNew: UIViewController  {
 		//	self.presentViewController(viewController, animated: true, completion: nil)
 
 	//	}
+		footer.landingPage = true
 		locDealer.locate = true
 		locDealer.parentView = self
 		s.locationManager.parentView = self
@@ -118,11 +118,7 @@ class LandingPageNew: UIViewController  {
 		//buttons
 		kawasakiButton.frame = CGRectMake((screen.width * 0.5) - (halfButton! + 9), (screen.height * 0.5) - (halfButton! + 15), bButtonWidth  , bButtonHeight )
 		kawasakiButton.setBackgroundImage(UIImage(named: "KC_SplashPage_LogoHex_"), forState: .Normal)
-		kawasakiButton.setTitle("", forState: UIControlState.Normal)
-		kawasakiButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-		kawasakiButton.titleEdgeInsets =  UIEdgeInsets(top:0 , left: 0, bottom: 0, right: 0)
-	  kawasakiButton.contentHorizontalAlignment = .Center
-		kawasakiButton.titleLabel?.font = UIFont(name: (kawasakiButton.titleLabel?.font.fontName)!, size: fontSize)
+		kawasakiButton.setBackgroundImage(UIImage(named: "KC_SplashPage_LogoHex_"), forState: UIControlState.Highlighted)
 		//kawasakiButton.addTarget(self, action: "buttonsTop:", forControlEvents: UIControlEvents.TouchUpInside)
 		mainContainer.addSubview(kawasakiButton)
 
@@ -219,8 +215,7 @@ class LandingPageNew: UIViewController  {
 		
 		buttonBottom.frame = CGRectMake(buttonTop.frame.origin.x, buttonMiddle.frame.origin.y + 43, smButtonWidth, smButtonHeight)
 		buttonBottom.setBackgroundImage(UIImage(named: "KC_SplashPage_MainHexes_Iddle"), forState: .Normal)
-		buttonTop.setBackgroundImage(UIImage(named: "KC_SplashPage_MainHexes_Pressed"), forState: UIControlState.Highlighted)
-		
+		buttonBottom.setBackgroundImage(UIImage(named: "KC_SplashPage_MainHexes_Pressed"), forState: UIControlState.Highlighted)
 		buttonBottom.addTarget(self, action: "sequeButtom:", forControlEvents: UIControlEvents.TouchUpInside)
 		topRightContainer.addSubview(buttonBottom)
 		
@@ -250,10 +245,15 @@ class LandingPageNew: UIViewController  {
 		self.view.addSubview(locDealer)
 		self.view.addSubview(footer)
 		
+
 	}
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
 		NSNotificationCenter.defaultCenter().removeObserver(self)
+	}
+
+	override func viewDidAppear(animated: Bool) {
+				goBack()
 	}
 
 	override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
@@ -278,6 +278,7 @@ class LandingPageNew: UIViewController  {
 			UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
 				self.topRightContainer.frame.origin.x = self.kawasakiButton.frame.width * 0.5
   					self.kawasakiButton.setBackgroundImage(UIImage(named: "GoBackToMainNavArrow_HexButton"), forState: .Normal)
+				  					self.kawasakiButton.setBackgroundImage(UIImage(named: "GoBackToMainNavArrow_HexButton"), forState: .Highlighted)
 				}, completion: { finished in
 					UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
 						self.textTop.alpha = 1
@@ -286,8 +287,8 @@ class LandingPageNew: UIViewController  {
 					//	self.kawasakiButton.setTitle("<", forState: UIControlState.Normal)
 					//	self.kawasakiButton.titleLabel?.font = UIFont(name: (self.kawasakiButton.titleLabel?.font.fontName)!, size: self.fontSize + 5)
 					//	self.kawasakiButton.contentHorizontalAlignment = .Right
-						self.kawasakiButton.removeTarget(self, action: "buttonTop:", forControlEvents: UIControlEvents.TouchUpInside)
-						self.kawasakiButton.addTarget(self, action: "goBack:", forControlEvents: UIControlEvents.TouchUpInside)
+						//self.kawasakiButton.removeTarget(self, action: "buttonTop:", forControlEvents: UIControlEvents.TouchUpInside)
+						self.kawasakiButton.addTarget(self, action: "callGoBack:", forControlEvents: UIControlEvents.TouchUpInside)
 					//	self.kawasakiButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (self.buttonWidth - 60) * 0.5)
 						}, completion: { finished in
 							print("done")
@@ -299,7 +300,7 @@ class LandingPageNew: UIViewController  {
 		
 		}
 	
-	func goBack(sender: UIButton!) {
+	func goBack() {
 		UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
 					self.topRightContainer.frame.origin.x = self.screen.width
 			}, completion: { finished in
@@ -307,15 +308,17 @@ class LandingPageNew: UIViewController  {
 					self.kawasakiButton.frame = CGRectMake((self.screen.width * 0.5) - (self.halfButton! + 9), (self.screen.height * 0.5) - (self.halfButton! + 15), self.bButtonWidth  , self.bButtonHeight )
 					self.racingButton.frame = CGRectMake((self.screen.width * 0.5) + (self.offset - 27) - self.leftOffset, ((self.screen.height * 0.5) - self.buttonWidth) - (self.offset + 11) - self.yOffest, self.buttonWidth, self.buttonHeight)
 			  	self.exploreButton.frame = CGRectMake((self.screen.width * 0.5) + (self.halfButton! ) - self.leftOffset, (self.screen.height * 0.5) - (self.halfButton! + 3) - self.yOffest, self.buttonWidth, self.buttonHeight)
-					self.MyKawButton.frame = CGRectMake((self.screen.width * 0.5) + (self.offset - 27) - self.leftOffset, ((self.screen.height * 0.5) + (self.halfButton!)) - (self.offset ) - self.yOffest, self.buttonWidth, self.buttonHeight)
-					self.kawasakiButton.setBackgroundImage(UIImage(named: "KC_SplashPage_LogoHex_"), forState: .Normal)
-					self.kawasakiButton.contentHorizontalAlignment = .Center
-					self.kawasakiButton.titleLabel?.font = UIFont(name: (self.kawasakiButton.titleLabel?.font.fontName)!, size: self.fontSize)
-					self.kawasakiButton.removeTarget(self, action: "goBack:", forControlEvents: UIControlEvents.TouchUpInside)
-					self.kawasakiButton.addTarget(self, action: "buttonTop:", forControlEvents: UIControlEvents.TouchUpInside)
-					self.kawasakiButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+					self.MyKawButton.frame = CGRectMake((self.screen.width * 0.5) + (self.offset - 27) - self.leftOffset, ((self.screen.height * 0.5) + (self.halfButton!)) - (self.offset - 2 ) - self.yOffest, self.buttonWidth, self.buttonHeight)
+							self.kawasakiButton.setBackgroundImage(UIImage(named: "KC_SplashPage_LogoHex_"), forState: .Normal)
+												self.kawasakiButton.setBackgroundImage(UIImage(named: "KC_SplashPage_LogoHex_"), forState: .Highlighted)
+			//		self.kawasakiButton.contentHorizontalAlignment = .Center
+			//		self.kawasakiButton.titleLabel?.font = UIFont(name: (self.kawasakiButton.titleLabel?.font.fontName)!, size: self.fontSize)
+				//	self.kawasakiButton.removeTarget(self, action: "callGoBack:", forControlEvents: UIControlEvents.TouchUpInside)
+				//	self.kawasakiButton.addTarget(self, action: "buttonTop:", forControlEvents: UIControlEvents.TouchUpInside)
+				//	self.kawasakiButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 					}, completion: { finished in
 						UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
+
 							self.textTop.alpha = 1
 							self.textMiddle.alpha = 1
 							self.textBottom.alpha = 1
@@ -332,7 +335,9 @@ class LandingPageNew: UIViewController  {
 		self.presentViewController(viewController, animated: true, completion: nil)
 	}
 	
-	
+	func callGoBack(sender: UIButton!){
+		goBack()
+	}
 		
 	func racingText(sender: UIButton!){
 		currentSelectState = "racing"
@@ -397,11 +402,9 @@ class LandingPageNew: UIViewController  {
 		print("middle")
 		switch currentSelectState {
 		case "racing":
-			let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RaceResults")
-			self.presentViewController(viewController, animated: true, completion: nil)
+	self.performSegueWithIdentifier("toRaceResults", sender: self)
 		case "explore":
-			let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("PagedScrollViewController")
-			self.presentViewController(viewController, animated: true, completion: nil)
+				self.performSegueWithIdentifier("toRaceResults", sender: self)
 		case "myKawasaki":
 		self.performSegueWithIdentifier("toRaceResults", sender: self)
 		default: print("32")
@@ -411,8 +414,7 @@ class LandingPageNew: UIViewController  {
 	func sequeButtom(sender: UIButton!){
 		switch currentSelectState {
 		case "racing":
-			let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RaceResults")
-			self.presentViewController(viewController, animated: true, completion: nil)
+				self.performSegueWithIdentifier("toRaceResults", sender: self)
 		case "explore":
 			self.performSegueWithIdentifier("toHistory", sender: self)
 		case "myKawasaki":

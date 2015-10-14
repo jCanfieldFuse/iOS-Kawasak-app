@@ -82,4 +82,7 @@ class Legal: UIViewController  {
 	//	self.presentViewController(viewController, animated: true, completion: nil)
 
 	}
+	override func prefersStatusBarHidden() -> Bool {
+		return true
+	}
 }

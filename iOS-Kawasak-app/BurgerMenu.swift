@@ -109,15 +109,33 @@ class BurgerMenu: UIView {
 		topRightContainer.addSubview(textBottom)
 		
 		let logoutButton = UIButton()
-		logoutButton.frame = CGRectMake((self.frame.width - rightMargin) - 80	, topRightContainer.frame.origin.y + topRightContainer.frame.width - 60, 80, 24)
+		let logoutImage = UIImage(named: "LOG-OUT_Button_FlyOutMenuOpen")
+		logoutButton.frame = CGRectMake((self.frame.width - rightMargin) - ((logoutImage?.size.width)! * 0.5)	, topRightContainer.frame.origin.y + topRightContainer.frame.width - 60, (logoutImage?.size.width)! * 0.5, (logoutImage?.size.height)! * 0.5)
 		//logoutButton.backgroundColor = UIColor.grayColor()
 		//logoutButton.titleLabel?.textColor = UIColor.whiteColor()
 		logoutButton.setImage(UIImage(named: "LOG-OUT_Button_FlyOutMenuOpen"), forState: .Normal)
 		logoutButton.setTitle("Logout", forState: UIControlState.Normal)
 		self.addSubview(logoutButton)
 		
+		
+		let locateDealerView = UIView()
+		locateDealerView.frame = CGRect(x: (self.frame.width - rightMargin) - screen.width * 0.5 , y: logoutButton.frame.origin.y + logoutButton.frame.height + 10, width: screen.width * 0.5, height: 40)
+		locateDealerView.userInteractionEnabled = true
+		self.addSubview(locateDealerView)
+		
+		let dealCopy = UILabel()
+		dealCopy.text = "Locate Dealer"
+		dealCopy.frame = CGRectMake(locateDealerView.frame.width - dealCopy.intrinsicContentSize().width, 0, dealCopy.intrinsicContentSize().width, dealCopy.intrinsicContentSize().height)
+		dealCopy.textColor = UIColor.whiteColor()
+		locateDealerView.addSubview(dealCopy)
+		
+		let dealerIcon = UIImageView()
+		let dealImage = UIImage(named: "Delaer_Map_Marker")
+		dealerIcon.frame = CGRectMake(dealCopy.frame.origin.x - ((dealImage?.size.width)! * 0.4) - 5, 0, (dealImage?.size.width)! * 0.4, (dealImage?.size.height)! * 0.4)
+		locateDealerView.addSubview(dealerIcon)
+		
 		let subText = UILabel()
-		subText.frame =  CGRectMake(self.frame.width - rightMargin - (textWidth + 10) , topRightContainer.frame.origin.y + topRightContainer.frame.height + 20, textWidth + 10, textHeight + 10)
+		subText.frame =  CGRectMake(self.frame.width - rightMargin - (textWidth + 10) , locateDealerView.frame.origin.y + locateDealerView.frame.height - 10, textWidth + 10, textHeight + 10)
 		subText.text = "Get Savings Get Savings Get Savings Get Savings Get Savings Get Savings"
 		subText.numberOfLines = 0
 		subText.font =  UIFont(name: (subText.font.fontName), size: 10)
@@ -134,29 +152,7 @@ class BurgerMenu: UIView {
 		self.addSubview(subKawasaki)
 		
 		
-		let locateDealerView = UIView()
-		locateDealerView.frame = CGRectMake(self.frame.width - rightMargin - (50), subKawasaki.frame.origin.y + 40, 50, 50)
-		self.addSubview(locateDealerView)
 		
-		let locateDealerButton = UIButton()
-		locateDealerButton.frame = CGRectMake(0, 0, locateDealerView.frame.width, locateDealerView.frame.height)
-		locateDealerButton.setImage(UIImage(named: "hexagonG"), forState: .Normal)
-		locateDealerView.addSubview(locateDealerButton)
-		
-		let searchImage = UIImageView()
-		searchImage.frame = CGRectMake((locateDealerView.frame.width * 0.5) - 5, 5, 10, 10)
-		searchImage.image = UIImage(named: "search_icon")
-		locateDealerView.addSubview(searchImage)
-		
-		let searchText = UILabel()
-		searchText.frame = CGRectMake(10, 10, 40, 40)
-		searchText.text = "LOCATE DEALER"
-		searchText.numberOfLines = 0
-		searchText.textColor = UIColor.whiteColor()
-		searchText.font =  UIFont(name: (subText.font.fontName), size: 8)
-		
-		locateDealerView.addSubview(searchText)
-
 	}
 	func openMenu(){
 		UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
@@ -180,9 +176,8 @@ class BurgerMenu: UIView {
 	}
 	
 	func goHome(sender: UITapGestureRecognizer){
-		print("GO HOME")
-		let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LandingPageNew") as! UIViewController
-		parentView.presentViewController(viewController, animated: true, completion: nil)
+		print("going home")
+			parentView?.navigationController?.popViewControllerAnimated(true)
 		
 	}
 	

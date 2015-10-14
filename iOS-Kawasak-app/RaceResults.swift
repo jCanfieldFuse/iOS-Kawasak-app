@@ -29,16 +29,17 @@ class RaceResults: UIViewController {
 		
 		racingHeader.frame = CGRectMake(0, 0, screen.width, 60)
 		racingHeader.backgroundColor = UIColor.blackColor()
-
-		hamburger.frame = CGRectMake(20, 15, 30,30)
-		hamburger.setBackgroundImage(UIImage(named: "HamburgerMenu_Button_Top"), forState: .Normal)
+		let imageBurger = UIImage(named: "HamburgerMenu_Button_Top")
+		hamburger.frame = CGRectMake(20, 15, (imageBurger?.size.width)! * 0.3, (imageBurger?.size.height)! * 0.3)
+		hamburger.setBackgroundImage(imageBurger, forState: .Normal)
+		hamburger.setBackgroundImage(imageBurger, forState: .Highlighted)
 		hamburger.contentHorizontalAlignment = .Center
 		hamburger.addTarget(self, action: "openMenu:", forControlEvents: UIControlEvents.TouchUpInside)
 		
-		var headerText = UILabel()
-		var myText  = "Racing News"
+		let headerText = UILabel()
+		let myText  = "Racing News"
 		headerText.textColor = UIColor.whiteColor()
-		var	myMutableString = NSMutableAttributedString(string: myText, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 22.0)!])
+		let	myMutableString = NSMutableAttributedString(string: myText, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 22.0)!])
 		myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.grayColor(), range: NSRange(location:6,length:5))
 		headerText.attributedText = myMutableString
 		headerText.frame = CGRectMake(hamburger.frame.width + 30, 15, screen.width - hamburger.frame.width, 30)
@@ -69,9 +70,7 @@ class RaceResults: UIViewController {
 	
 	}
 	
-	func closeMenu(sender: UIButton!){
-		
-	}
+
 	
 	func goHome(sender:UITapGestureRecognizer){
 		let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LandingPageNew") as! UIViewController
