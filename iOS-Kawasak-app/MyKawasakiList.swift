@@ -13,7 +13,7 @@ class MyKawasakiList: UIViewController, UITableViewDataSource, UITableViewDelega
     var items: [String] = ["My Owned", "Dealer Favorites", "My Dealer"]
     //  @IBOutlet weak var tableListItems: UITableView!
     var selectedCell: String = ""
-    
+    	let color:hexColor = hexColor()
 	@IBOutlet weak var userInfo: UILabel!
     @IBOutlet weak var tableListItems: UITableView!
     
@@ -41,7 +41,7 @@ class MyKawasakiList: UIViewController, UITableViewDataSource, UITableViewDelega
         // do whatever with the class
         cell.textLabel?.text = self.items[indexPath.row]
         
-        cell.textLabel?.textColor = UIColor.greenColor()
+        cell.textLabel?.textColor = color.rgbColor(0x02c102)
         // cell.te
         if ( indexPath.row % 2 == 0 ){
             cell.backgroundColor = UIColor.blackColor()

@@ -12,7 +12,7 @@ class RaceResultsFiltered: UIViewController, UITableViewDataSource, UITableViewD
 	
 	var items: [String] = ["Schedule", "News", "Race Results","More"]
 	var dataPassed: String = ""
-	
+	let color:hexColor = hexColor()
 	@IBOutlet weak var tableListItems: UITableView!
 	
 	override func viewDidLoad() {
@@ -39,7 +39,7 @@ class RaceResultsFiltered: UIViewController, UITableViewDataSource, UITableViewD
 		// do whatever with the class
 		cell.textLabel?.text = self.items[indexPath.row]
 		
-		cell.textLabel?.textColor = UIColor.greenColor()
+		cell.textLabel?.textColor = color.rgbColor(0x02c102)
 		// cell.te
 		//   if ( indexPath.row % 2 == 0 ){
 		//   cell.backgroundColor = UIColor.blackColor()

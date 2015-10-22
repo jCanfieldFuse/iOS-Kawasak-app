@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate{
 	var screen = UIScreen.mainScreen().bounds
-
+	let color:hexColor = hexColor()
 	let locationManager = CLLocationManager()
 	let initialLocation = CLLocation(latitude: 33.549121, longitude: -117.780374)
 	let regionRadius: CLLocationDistance = 1000
@@ -199,7 +199,7 @@ class Dealer: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, 
 		
 		let cell: tableCellDealer = tableView.dequeueReusableCellWithIdentifier("TableCell") as! tableCellDealer
 		cell.textLabel?.text = self.nearBy[indexPath.row].name
-		cell.textLabel?.textColor = UIColor.greenColor()
+		cell.textLabel?.textColor = color.rgbColor(0x02c102)
 		cell.backgroundColor = UIColor.grayColor()
 		return cell
 	}

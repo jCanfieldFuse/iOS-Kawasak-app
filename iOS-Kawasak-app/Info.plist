@@ -19,11 +19,17 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>10</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Detect beacons</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Signika-Light.otf</string>
+		<string>Roboto-Light.ttf</string>
+		<string>Signika-Bold.otf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>

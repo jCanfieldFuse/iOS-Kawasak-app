@@ -93,14 +93,14 @@ class VideobgTest: UIViewController  {
 		let headerLabel = UILabel()
 		headerLabel.frame =  CGRectMake(10, 0, screen.width, 50)
 		headerLabel.text = "KAWASAKI APP HEADER"
-		headerLabel.textColor = UIColor.greenColor()
+		headerLabel.textColor = color.rgbColor(0x02c102)
 		headerLabel.textAlignment = NSTextAlignment.Center
 		header.addSubview(headerLabel)
 		
 		let footerLabel = UILabel()
 		footerLabel.frame =  CGRectMake(10, 0, screen.width, 50)
 		footerLabel.text = "KAWASAKI FOOTER"
-		footerLabel.textColor = UIColor.greenColor()
+		footerLabel.textColor = color.rgbColor(0x02c102)
 		footerLabel.textAlignment = NSTextAlignment.Center
 		footer.addSubview(footerLabel)
 		
@@ -138,7 +138,7 @@ class VideobgTest: UIViewController  {
 		
 		textTop.frame =  CGRectMake((buttonTop.frame.origin.x - buttonTop.frame.width) - 20, 100, 50, 50)
 		textTop.text = "testy"
-		textTop.textColor = UIColor.greenColor()
+		textTop.textColor = color.rgbColor(0x02c102)
 		textTop.textAlignment = NSTextAlignment.Right
 		topRightContainer.addSubview(textTop)
 		
@@ -150,7 +150,7 @@ class VideobgTest: UIViewController  {
 		
 		textMiddle.frame =  CGRectMake((buttonMiddle.frame.origin.x - buttonMiddle.frame.width) - 20, 155, 50, 50)
 		textMiddle.text = "testy2"
-		textMiddle.textColor = UIColor.greenColor()
+		textMiddle.textColor = color.rgbColor(0x02c102)
 		textMiddle.textAlignment = NSTextAlignment.Right
 		topRightContainer.addSubview(textMiddle)
 		
@@ -164,7 +164,7 @@ class VideobgTest: UIViewController  {
 	
 		textBottom.frame =  CGRectMake((buttonTop.frame.origin.x - buttonTop.frame.width) - 20, 210, 50, 50)
 		textBottom.text = "testy3"
-		textBottom.textColor = UIColor.greenColor()
+		textBottom.textColor = color.rgbColor(0x02c102)
 		textBottom.textAlignment = NSTextAlignment.Right
 		topRightContainer.addSubview(textBottom)
 
@@ -207,7 +207,7 @@ class VideobgTest: UIViewController  {
 		
 		var loginSubmit = UIButton()
 		loginSubmit.frame = CGRectMake(centerItem, password.frame.origin.y + 40, loginSlider.frame.width * 0.5, 40)
-		loginSubmit.backgroundColor = UIColor.greenColor()
+		loginSubmit.backgroundColor = color.rgbColor(0x02c102)
 		loginSubmit.setTitle("Submit", forState: .Normal)
 		loginSubmit.addTarget(self, action: "topButton:", forControlEvents: UIControlEvents.TouchUpInside)
 		loginSlider.addSubview(loginSubmit)
@@ -349,11 +349,11 @@ class VideobgTest: UIViewController  {
 			buttonMiddle.setImage(UIImage(named: "hexagon"), forState: .Normal)
 			buttonBottom.setImage(UIImage(named: "hexagon"), forState: .Normal)
 			self.textTop.text = "green"
-			self.textTop.textColor = UIColor.greenColor()
+			self.textTop.textColor = color.rgbColor(0x02c102)
 			self.textMiddle.text = "green"
-			self.textMiddle.textColor = UIColor.greenColor()
+			self.textMiddle.textColor = color.rgbColor(0x02c102)
 			self.textBottom.text = "green"
-			self.textBottom.textColor = UIColor.greenColor()
+			self.textBottom.textColor = color.rgbColor(0x02c102)
 
 		}else{
 			buttonTop.setImage(UIImage(named: "hexagonB"), forState: .Normal)

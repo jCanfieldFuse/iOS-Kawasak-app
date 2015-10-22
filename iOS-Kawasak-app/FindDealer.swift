@@ -1,3 +1,4 @@
+
 //
 //  FindDealer.swift
 //  iOS-Kawasak-app
@@ -19,7 +20,7 @@ import MapKit
 import CoreLocation
 class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
 	var screen = UIScreen.mainScreen().bounds
-	
+	let color:hexColor = hexColor()
 	let locationManager = CLLocationManager()
 	let initialLocation = CLLocation(latitude: 33.549121, longitude: -117.780374)
 	let regionRadius: CLLocationDistance = 1000
@@ -38,64 +39,81 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 	var detailsButton = UIButton()
 	var loadingLable =  UILabel()
 	var loadingSpinner = UIActivityIndicatorView()
-	
+	var	latitude:CLLocationDegrees!
+	var longitude:CLLocationDegrees!
+	var dealerName:String!
+	let background = UIView()
+	let c:hexColor = hexColor()
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		locDealer.parentView = self
 		locDealer.locate = false
-		self.navigationController?.navigationBarHidden = true
-		self.view.backgroundColor = UIColor.blackColor()
+	//	self.navigationController?.navigationBarHidden = true
+	//	self.view.backgroundColor =  c.rgbColor(0x161719)
 
-		mapView.frame	= CGRectMake(1, 0, screen.width - 2, screen.height * 0.5)
+		mapView.frame	= CGRectMake(0, 0, screen.width , screen.height * 0.51 + 4)
 		self.view.addSubview(mapView)
 		
 		let bottomView = UIView()
-		bottomView.frame = CGRectMake(0, mapView.frame.height, screen.width - 2, mapView.frame.height)
+		bottomView.frame = CGRectMake(0, mapView.frame.height, screen.width, 75)
 		bottomView.backgroundColor = UIColor.blackColor()
 		self.view.addSubview(bottomView)
 		
-		zipcode.frame = CGRectMake(5,  10, screen.width - 40, 30)
+		zipcode.frame = CGRectMake(10,  15, screen.width - 65, 42)
+		zipcode.placeholder = "Enter zip code"
+		zipcode.font = UIFont(name: "Signika-Light", size: 25)
 		zipcode.backgroundColor = UIColor.whiteColor()
 		
 		let zipCodeSearch = UIButton()
 		zipCodeSearch.frame = CGRectMake(zipcode.frame.origin.x + zipcode.frame.width, zipcode.frame.origin.y, zipcode.frame.height, zipcode.frame.height)
-		zipCodeSearch.setImage(UIImage(named: "textfiledSearch.png"), forState: .Normal)
+		zipCodeSearch.setImage(UIImage(named: "search-icon"), forState: .Normal)
 		zipCodeSearch.setTitle("Button", forState: UIControlState.Normal)
-		zipCodeSearch.addTarget(self, action: "dealerInfo:", forControlEvents: UIControlEvents.TouchUpInside)
-		zipCodeSearch.backgroundColor = UIColor.redColor()
-
+		zipCodeSearch.addTarget(self, action: "zipCodeSearch:", forControlEvents: UIControlEvents.TouchUpInside)
+	
 		bottomView.addSubview(zipCodeSearch)
 		bottomView.addSubview(zipcode)
 		
+		
 
-		storeName.frame = CGRectMake(20, zipCodeSearch.frame.origin.y + zipCodeSearch.frame.height + 20, zipcode.frame.width + 10, 20)
+		background.frame = CGRectMake(0, bottomView.frame.origin.y + 75, screen.width, screen.height - bottomView.frame.height)
+		background.backgroundColor = c.rgbColor(0x5b5c5a)
+		self.view.addSubview(background)
+
+		storeName.frame = CGRectMake(40,  10, zipcode.frame.width + 15, 30)
 		storeName.textColor = UIColor.whiteColor()
-		bottomView.addSubview(storeName)
+		storeName.font = UIFont(name: "Signika-Light", size: 25)
+		background.addSubview(storeName)
 		
-		storeAddy.frame = CGRectMake(storeName.frame.origin.x, storeName.frame.origin.y + storeName.frame.height + 10, zipcode.frame.width + 10, 60)
-		storeAddy.textColor = UIColor.whiteColor()
+		storeAddy.frame = CGRectMake(storeName.frame.origin.x, storeName.frame.origin.y + storeName.frame.height - 20, zipcode.frame.width + 10, 60)
+		storeAddy.textColor = color.rgbColor(0x02c102)
+		storeAddy.font = UIFont(name: "Signika-Light", size: 15)
 		storeAddy.numberOfLines = 0
-		bottomView.addSubview(storeAddy)
+		storeAddy.userInteractionEnabled = true
+		let MiddleRecognizer = UITapGestureRecognizer(target: self, action:"goToMap:")
+		storeAddy.addGestureRecognizer(MiddleRecognizer)
+		background.addSubview(storeAddy)
 		
-		detailsButton.frame = CGRectMake(20, bottomView.frame.height - 80, screen.width - 40, 60)
+		detailsButton.frame = CGRectMake(20, screen.height - 100, screen.width - 40, 40)
 		detailsButton.setTitle("See Details", forState: .Normal)
-		detailsButton.backgroundColor = UIColor.greenColor()
-		bottomView.addSubview(detailsButton)
+		detailsButton.addTarget(self, action: "moreDetails:", forControlEvents: UIControlEvents.TouchUpInside)
+		detailsButton.backgroundColor = color.rgbColor(0x02c102)
+		self.view.addSubview(detailsButton)
+		detailsButton.alpha = 0
 		
 		self.locationManager.delegate = self
 		self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		self.locationManager.requestWhenInUseAuthorization()
 		locationManager.delegate = self
 		locationManager.requestAlwaysAuthorization()
-		self.locationManager.startUpdatingLocation()
+	//	self.locationManager.startUpdatingLocation()
 		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillAppear:", name: UIKeyboardWillShowNotification, object: nil)
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
 		view.addGestureRecognizer(tap)
 		addDoneButtonOnKeyboard()
 		
-		loadingSpinner.startAnimating()
+		//loadingSpinner.startAnimating()
 		self.view.addSubview(locDealer)
 	}
 	
@@ -137,9 +155,10 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 				return
 			}
 			if placemarks!.count > 0 {
+
 				if let pm = placemarks?.first {
 					self.displayLocationInfo(pm)
-					self.getStore(pm.postalCode!)
+				//	self.getStore(pm.postalCode!)
 				}
 			}
 			
@@ -162,6 +181,7 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 	}
 	func keyboardDone(){
 		//getStore(zipcode.text!)
+		
 		self.view.frame.origin.y = 00
 		self.view.endEditing(true)
 	}
@@ -172,7 +192,9 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 	}
 	
 	func getStore(zipcode: String){
-		fadeIn()
+	//	print("1212")
+		self.locationManager.startUpdatingLocation()
+//		fadeIn()
 		dispatch_async(dispatch_get_main_queue(),{
 			let url = "https://www.fuse-review-kawasaki.com/mobileappjsonapi/GetDealerByZip?zipCode=\(zipcode)"
 			let endpoint = NSURL(string: url)
@@ -181,13 +203,18 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 				var firstLoc = true
 				if let json: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)) as? NSDictionary, let items = json["Dealerships"] as? NSArray {
 					for item in items {
+					//	print(item)
 						if let lat = item["Latitude"] as? CLLocationDegrees, long = item["Longitude"] as? CLLocationDegrees, store = item["Name"] as? String, postalCode = item["PostalCode"] as? String, addy = item["Address"] as? String{
 							if (firstLoc){
 								self.nearBy = []
 								let initialLocation = CLLocation(latitude: lat, longitude: long)
 								self.centerMapOnLocation(initialLocation)
 								self.storeName.text = store
-								self.storeAddy.text = addy
+								let	text = addy
+								let kText:NSMutableAttributedString = NSMutableAttributedString(string: text)
+								kText.addAttribute(NSUnderlineStyleAttributeName, value: 1, range: NSRange(location: 0, length: text.characters.count))
+								self.storeAddy.attributedText = kText
+							
 								let nbd: nearByDealer = nearByDealer()
 								nbd.name = store
 								nbd.long = long
@@ -195,12 +222,17 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 								nbd.zip = postalCode
 								self.nearBy.append(nbd)
 								firstLoc = false
+								self.detailsButton.alpha = 1
+								self.latitude = lat
+								self.longitude = long
+								self.dealerName = store
 							}
 
 							let dropPin = MKPointAnnotation()
 							dropPin.coordinate = CLLocationCoordinate2DMake(lat,long)
 							dropPin.title = store
 							self.mapView.addAnnotation(dropPin)
+							self.removeGray()
 						}
 					}
 			//		self.tableList.reloadData()
@@ -216,26 +248,27 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 		self.performSegueWithIdentifier("moreDealerInfo", sender: self)
 
 	}
-	/*
-	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		
-		let cell: tableCellDealer = tableView.dequeueReusableCellWithIdentifier("TableCell") as! tableCellDealer
-		cell.textLabel?.text = self.nearBy[indexPath.row].name
-		cell.textLabel?.textColor = UIColor.greenColor()
-		cell.backgroundColor = UIColor.grayColor()
-		return cell
+	
+	func goToMap(sender: AnyObject){
+		print("go to map")
+		let regionDistance:CLLocationDistance = 10000
+		let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+		let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+		let options = [
+			MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
+			MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+		]
+		let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+		let mapItem = MKMapItem(placemark: placemark)
+		mapItem.name = "\(self.dealerName)"
+		mapItem.openInMapsWithLaunchOptions(options)
+	
 	}
 	
-	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.nearBy.count;
-	}
-	
-	func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-		self.passedInfo = self.nearBy[indexPath.row].name
-		self.performSegueWithIdentifier("moreDealerInfo", sender: self)
-	}
-	*/
-	
+	func moreDetails(sender: UIButton!){
+		//	self.performSegueWithIdentifier("moreDealerInfo", sender: self)
+			}
+
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if (segue.identifier == "moreDealerInfo") {
 			let svc = segue.destinationViewController as! DealerInformation
@@ -258,8 +291,21 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 		})
 	}
 	
-}
+	func removeGray(){
+		UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
+			self.background.alpha = 0
+			}, completion: { finished in
+				self.background.alpha = 1
+				self.background.backgroundColor = UIColor.blackColor()
+	
+//				UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
+	//						self.background.alpha = 1
+		//		})
+	
+		})
+	}
 
+}
 
 class tableCellDealer: UITableViewCell {
 	var thing: Int = 0

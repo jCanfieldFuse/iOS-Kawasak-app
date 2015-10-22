@@ -18,20 +18,26 @@ class MyConnect: UIViewController  {
 		self.navigationController?.navigationBarHidden = true
 		self.view.backgroundColor = UIColor.blackColor()
 		glowImage()
-		var racingHeader = UIView()
+		let racingHeader = UIView()
 		racingHeader.frame = CGRectMake(0, 0, screen.width, 60)
 		racingHeader.backgroundColor = UIColor.blackColor()
 		self.view.addSubview(racingHeader)
-		
-		var hamburger = UIButton()
+		let hamburgerV = UIView()
+		hamburgerV.frame = CGRectMake(20, 15, 40,40)
+		hamburgerV.backgroundColor = UIColor.blackColor()
+		let topRecognizer = UITapGestureRecognizer(target: self, action:"openMenu:")
+		hamburgerV.addGestureRecognizer(topRecognizer)
+		hamburgerV.userInteractionEnabled = true
+		racingHeader.addSubview(hamburgerV)
+		let hamburger = UIButton()
 		hamburger.frame = CGRectMake(20, 15, 30,30)
 		hamburger.setBackgroundImage(UIImage(named: "hexagon"), forState: .Normal)
 		hamburger.contentHorizontalAlignment = .Center
 		hamburger.addTarget(self, action: "openMenu:", forControlEvents: UIControlEvents.TouchUpInside)
 		racingHeader.addSubview(hamburger)
 		
-		var headerText = UILabel()
-		var myText  = "Explore"
+		let headerText = UILabel()
+		_  = "Explore"
 		headerText.text = "Explore"
 		headerText.textColor = UIColor.whiteColor()
 	//	var	myMutableString = NSMutableAttributedString(string: myText, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 18.0)!])
@@ -41,18 +47,18 @@ class MyConnect: UIViewController  {
 		racingHeader.addSubview(headerText)
 		
 		
-		var copyContainer = UIView()
+		let copyContainer = UIView()
 		copyContainer.frame = CGRectMake(marginLeft, screen.width * 0.3, screen.width - (marginRight * 2), screen.height * 0.2)
 		self.view.addSubview(copyContainer)
 		
-		var yourHistory = UILabel()
+		let yourHistory = UILabel()
 		yourHistory.text = "Connect!"
 		yourHistory.frame = CGRectMake(0, 0, yourHistory.intrinsicContentSize().width, yourHistory.intrinsicContentSize().height)
 		yourHistory.textAlignment = NSTextAlignment.Left
 		yourHistory.textColor = UIColor.whiteColor()
 		copyContainer.addSubview(yourHistory)
 		
-		var copyBody = UILabel()
+		let copyBody = UILabel()
 		copyBody.text = "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah "
 		copyBody.numberOfLines = 4
 		copyBody.textColor = UIColor.grayColor()
@@ -66,7 +72,7 @@ class MyConnect: UIViewController  {
 		
 		self.view.addSubview(mainImage)
 		
-		var bottomCopy = UILabel()
+		let bottomCopy = UILabel()
 		bottomCopy.frame = CGRectMake(marginLeft, mainImage.frame.origin.y + mainImage.frame.height - 80, screen.width - (marginRight * 2), screen.height * 0.4)
 		bottomCopy.text = "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"
 		bottomCopy.textColor = UIColor.grayColor()

@@ -11,6 +11,7 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
+		let color:hexColor = hexColor()
     var people = [NSManagedObject]()
     var pageImages: [UIImage] = []
     var pageViews: [UIImageView?] = []
@@ -29,7 +30,7 @@ class PagedScrollViewController: UIViewController, UIScrollViewDelegate {
 
   			pageControl.currentPage = 0
         pageControl.numberOfPages = pageCount
-				pageControl.currentPageIndicatorTintColor = UIColor.greenColor()
+				pageControl.currentPageIndicatorTintColor = color.rgbColor(0x02c102)
 			
         for _ in 0..<pageCount {
             pageViews.append(nil)

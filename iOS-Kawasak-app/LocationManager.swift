@@ -138,7 +138,9 @@ class LocManager: NSObject, CLLocationManagerDelegate,  UIApplicationDelegate {
 				print("App is backgrounded. New location is \(beaconList) ")
 				isClosed = true
 				if runclosed{
+	
 					print("runclosed")
+					locMan.startMonitoringForRegion(CLBeaconRegion.init())
 //					locMan.startUpdatingLocation()
 					runclosed = false
 				}

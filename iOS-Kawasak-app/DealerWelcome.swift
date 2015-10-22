@@ -23,49 +23,11 @@ class DealerWelcome: UIViewController  {
 	var textHeight:CGFloat = 50
 	var footer:Footer = Footer()
 	
-	var playerLayer:AVPlayerLayer = {
-		
-		let path = NSBundle.mainBundle().pathForResource("video", ofType: "mp4")
-		let tmpPath = NSURL(fileURLWithPath: path!)
-		let player = AVPlayer(URL:  tmpPath)
-		
-		player.muted = true
-		player.allowsExternalPlayback = false
-		player.appliesMediaSelectionCriteriaAutomatically = false
-		var error:NSError?
-		
-		// This is needed so it would not cut off users audio (if listening to music etc.
-		do {
-			try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
-		} catch var error1 as NSError {
-			error = error1
-		} catch {
-			fatalError()
-		}
-		if error != nil {
-			print(error)
-		}
-		
-		var playerLayer = AVPlayerLayer(player: player)
-		
-		playerLayer.videoGravity = "AVLayerVideoGravityResizeAspectFill"
-		playerLayer.backgroundColor = UIColor.blackColor().CGColor
-		player.play()
-		
-		return playerLayer
-		}()
 	
-	override func prefersStatusBarHidden() -> Bool {
-		return true;
-	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.navigationController?.navigationBarHidden = true
-		playerLayer.frame = self.view.frame
-		NSNotificationCenter.defaultCenter().addObserver(self, selector:"playerDidReachEnd", name:AVPlayerItemDidPlayToEndTimeNotification, object:nil)
-		print("dasdas")
-		locDealer.parentView = self
-		self.view.layer.addSublayer(self.playerLayer)
+	
 		
 		centerView.frame = CGRectMake(0, screen.height * 0.5 - (screen.width * 0.3) , screen.width, screen.width * 0.4)
 		self.view.addSubview(centerView)
@@ -98,7 +60,7 @@ class DealerWelcome: UIViewController  {
 		//kawasakiButton.addTarget(self, action: "buttonsTop:", forControlEvents: UIControlEvents.TouchUpInside)
 		self.centerView.addSubview(kawasakiButton)
 
-		var buttonTop = UIButton()
+		let buttonTop = UIButton()
 		buttonTop.frame = CGRectMake(0, threeButtonXpos, 50, 50)
 		buttonTop.setImage(UIImage(named: "hexagon"), forState: .Normal)
 		buttonTop.setTitle("Button", forState: UIControlState.Normal)
@@ -106,7 +68,7 @@ class DealerWelcome: UIViewController  {
 		buttonTop.alpha = 1
 		topRightContainer.addSubview(buttonTop)
 
-		var textTop = UILabel()
+		let textTop = UILabel()
 		textTop.frame =  CGRectMake(buttonTop.frame.width + 25, threeButtonXpos, textWidth, textHeight)
 		textTop.text = "Get Savings"
 		let recognizer = UITapGestureRecognizer(target: self, action:"test:")
@@ -116,67 +78,57 @@ class DealerWelcome: UIViewController  {
 		textTop.textAlignment = NSTextAlignment.Right
 		topRightContainer.addSubview(textTop)
 		
-		var lineTop = UIView()
+		let lineTop = UIView()
 		lineTop.frame = CGRectMake(0, textTop.frame.height - 10, textTop.frame.width, 1)
 		lineTop.backgroundColor = UIColor.grayColor()
 		textTop.addSubview(lineTop)
 		
 		
-		var buttonMiddle = UIButton()
+		let buttonMiddle = UIButton()
 		buttonMiddle.frame = CGRectMake(buttonTop.frame.origin.x + (buttonTop.frame.width * 0.5) - 3, threeButtonXpos + 39, 50, 50)
 		buttonMiddle.setImage(UIImage(named: "hexagon"), forState: .Normal)
 		buttonMiddle.setTitle("Button", forState: UIControlState.Normal)
 		buttonMiddle.addTarget(self, action: "Racing:", forControlEvents: UIControlEvents.TouchUpInside)
 		topRightContainer.addSubview(buttonMiddle)
 		
-		var textMiddle = UILabel()
+		let textMiddle = UILabel()
 		textMiddle.frame =  CGRectMake(textTop.frame.origin.x, threeButtonXpos + 39, textWidth, 50)
 		textMiddle.text = "Racing"
 		textMiddle.textColor = UIColor.whiteColor()
 		textMiddle.textAlignment = NSTextAlignment.Right
 		topRightContainer.addSubview(textMiddle)
 		
-		var lineMiddle = UIView()
+		let lineMiddle = UIView()
 		lineMiddle.frame = CGRectMake(0, textMiddle.frame.height - 10, textMiddle.frame.width, 1)
 		lineMiddle.backgroundColor = UIColor.grayColor()
 		textMiddle.addSubview(lineMiddle)
 		
-		var buttonBottom = UIButton()
+		let buttonBottom = UIButton()
 		buttonBottom.frame = CGRectMake(buttonTop.frame.origin.x, buttonMiddle.frame.origin.y + 39, 50, textHeight)
 		buttonBottom.setImage(UIImage(named: "hexagon"), forState: .Normal)
 		buttonBottom.setTitle("Button", forState: UIControlState.Normal)
 		buttonBottom.addTarget(self, action: "myKawasaki:", forControlEvents: UIControlEvents.TouchUpInside)
 		topRightContainer.addSubview(buttonBottom)
 		
-		var textBottom = UILabel()
+		let textBottom = UILabel()
 		textBottom.frame =  CGRectMake(textTop.frame.origin.x, buttonMiddle.frame.origin.y + 39, textWidth, textHeight)
 		textBottom.text = "My Kawasaki"
 		textBottom.textColor = UIColor.whiteColor()
 		textBottom.textAlignment = NSTextAlignment.Right
 		topRightContainer.addSubview(textBottom)
 		
-		var lineBottom = UIView()
+		let lineBottom = UIView()
 		lineBottom.frame = CGRectMake(0, textBottom.frame.height - 10, textMiddle.frame.width, 1)
 		lineBottom.backgroundColor = UIColor.grayColor()
 		textBottom.addSubview(lineBottom)
 
 
 		self.view.addSubview(footer)
-self.view.addSubview(topRightContainer)
+  self.view.addSubview(topRightContainer)
 		
 	}
 	
-	
-	override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-		super.willAnimateRotationToInterfaceOrientation(toInterfaceOrientation, duration: duration)
-		playerLayer.frame = self.view.frame
-	}
-	func playerDidReachEnd(){
-		self.playerLayer.player!.seekToTime(kCMTimeZero)
-		self.playerLayer.player!.play()
-		
-	}
-	
+	/*
 	func getSavings(sender: UIButton!){
 		let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RaceResults") as! UIViewController
 		self.presentViewController(viewController, animated: true, completion: nil)
@@ -190,6 +142,6 @@ self.view.addSubview(topRightContainer)
 	func myKawasaki(sender: UIButton!){
 		let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RaceResults") as! UIViewController
 		self.presentViewController(viewController, animated: true, completion: nil)
-	}
+	}*/
 	
 }

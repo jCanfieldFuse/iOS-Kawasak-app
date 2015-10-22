@@ -78,8 +78,8 @@ class Footer: UIView {
 	
 	
 	func legal(recognizer: AnyObject){
-		let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Legal")
-		parentView.presentViewController(viewController, animated: true, completion: nil)
+	//	let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Legal")
+	//	parentView.presentViewController(viewController, animated: true, completion: nil)
 	}
 
 }

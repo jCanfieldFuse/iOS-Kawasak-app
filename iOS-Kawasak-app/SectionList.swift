@@ -11,7 +11,7 @@ import UIKit
 class SectionList: UIViewController, UITableViewDataSource, UITableViewDelegate, DownloadResponderDelegate {
     @IBOutlet weak var tableListItems: UITableView!
     
-    
+    	let color:hexColor = hexColor()
     @IBOutlet weak var mainImage: UIImageView!
     
     
@@ -45,7 +45,7 @@ class SectionList: UIViewController, UITableViewDataSource, UITableViewDelegate,
         let cell: tableCell = tableView.dequeueReusableCellWithIdentifier("MyTableCell") as! tableCell
    
         cell.textLabel?.text = self.items[indexPath.row]
-        cell.textLabel?.textColor = UIColor.greenColor()
+        cell.textLabel?.textColor = color.rgbColor(0x02c102)
    
       //  if ( indexPath.row % 2 == 0 ){
       //      cell.backgroundColor = UIColor.blackColor()
