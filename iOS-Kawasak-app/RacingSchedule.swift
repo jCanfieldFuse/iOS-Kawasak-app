@@ -14,7 +14,7 @@ class RacingSchedule: UIViewController {
 	var racingHeader = UIView()
 	var hamburger = UIButton()
 	var racingWebView = UIWebView()
-	var footer:Footer = Footer()
+//	var footer:Footer = Footer()
 	var burger: BurgerMenu = BurgerMenu()
 	var fadeView = UIView()
 	override func viewDidLoad() {
@@ -60,7 +60,7 @@ class RacingSchedule: UIViewController {
 		self.view.addSubview(racingWebView)
 		self.view.addSubview(fadeView)
 		self.view.addSubview(burger)
-		self.view.addSubview(footer)
+		//self.view.addSubview(footer)
 		
 	}
 	

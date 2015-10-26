@@ -34,7 +34,7 @@ class BurgerMenu: UIView {
 	override func didMoveToSuperview() {
 		super.didMoveToSuperview()
 		
-		print(s.currentStateOfV)
+
 		s.prefs.loadlogInfo()
 		
 	}
@@ -148,7 +148,7 @@ class BurgerMenu: UIView {
 		textBottom.addGestureRecognizer(topRecognizerB)
 		textBottom.userInteractionEnabled = true
 		textBottom.frame =  CGRectMake(textTop.frame.origin.x, buttonMiddle.frame.origin.y + 39, textTop.intrinsicContentSize().width , textHeight)
-		textBottom.text = "My Kawasaki"
+		textBottom.text = "My Kawasaki™"
 		textBottom.font = UIFont(name: "Signika-Light", size: fontSize)
 		textBottom.textColor = UIColor.whiteColor()
 		textBottom.textAlignment = NSTextAlignment.Right
@@ -159,9 +159,8 @@ class BurgerMenu: UIView {
 		let logoutButton = UIButton()
 		let logoutImage = UIImage(named: "LOG-OUT_Button_FlyOutMenuOpen")
 		logoutButton.frame = CGRectMake((self.frame.width - rightMargin) - ((logoutImage?.size.width)! * 0.5)	, topRightContainer.frame.origin.y + topRightContainer.frame.height - 45 , (logoutImage?.size.width)! * 0.5, (logoutImage?.size.height)! * 0.5)
-
 		//logoutButton.titleLabel?.textColor = UIColor.whiteColor()
-		logoutButton.addTarget(self, action: "logIn:", forControlEvents: UIControlEvents.TouchUpInside)
+		logoutButton.addTarget(self, action: "logOut:", forControlEvents: UIControlEvents.TouchUpInside)
 		logoutButton.setImage(UIImage(named: "LOG-OUT_Button_FlyOutMenuOpen"), forState: .Normal)
 		logoutButton.setTitle("Logout", forState: UIControlState.Normal)
 		self.addSubview(logoutButton)
@@ -205,6 +204,10 @@ class BurgerMenu: UIView {
 		subKawasaki.textColor = UIColor.whiteColor()
 		subKawasaki.textAlignment = NSTextAlignment.Right
 		self.addSubview(subKawasaki)
+		
+		if !s.prefs.getValidUser(){
+			logoutButton.alpha = 0
+		}
 	}
 	
 	func openMenu(){
@@ -231,10 +234,16 @@ class BurgerMenu: UIView {
 		
 	}
 	
+	func logOut(sender: AnyObject){
+		s.prefs.setValidUser(false)
+		parentView?.navigationController?.popViewControllerAnimated(true)
+	}
+	
 	func toKawasaki(sender:AnyObject){
 						UIApplication.sharedApplication().openURL(NSURL(string:"https://www.kawasaki.com")!)
 	}
 	func goHome(sender: UITapGestureRecognizer){
+		s.currentStateOfV = 0
 			parentView?.navigationController?.popViewControllerAnimated(true)
 		
 	}
@@ -242,31 +251,56 @@ class BurgerMenu: UIView {
 		//parentView?.navigationController?.popViewControllerAnimated(false)
 		if pickView == 0{
 		(parentView as? YourHistory)?.passIn = 1
-		}else{
-		(parentView as? RaceResults)?.passIn = 1
+			s.currentStateOfV = 2
 		}
-		parentView?.performSegueWithIdentifier("toLanding", sender: self)
+		if pickView == 1{
+		(parentView as? RaceResults)?.passIn = 1
+			s.currentStateOfV = 2
+		}else{
+			(parentView as? ShowMyConnect)?.passIn = 1
+			s.currentStateOfV = 2
+		}
+		parentView?.navigationController?.popViewControllerAnimated(true)
+		
+//		parentView?.navigationController?.popViewControllerAnimated(true)
+//		parentView.navigationController?.topViewController
 
 	}
 
 	func racing(sender: AnyObject){
 		//parentView?.navigationController?.popViewControllerAnimated(false)
 		if pickView == 0{
-		(parentView as? YourHistory)?.passIn = 2
-		}else{
+			(parentView as? YourHistory)?.passIn = 2
+			s.currentStateOfV = 1
+		}
+		if pickView == 1{
 			(parentView as? RaceResults)?.passIn = 1
+			s.currentStateOfV = 1
 	}
-		parentView?.performSegueWithIdentifier("toLanding", sender: self)
+		else{
+			(parentView as? ShowMyConnect)?.passIn = 1
+			s.currentStateOfV = 1
+		}
+		parentView?.navigationController?.popViewControllerAnimated(true)
+
 		
 	}
 	func myKawasaki(sender: AnyObject){
 		//parentView?.navigationController?.popViewControllerAnimated(false)
 		if pickView == 0{
-		(parentView as? YourHistory)?.passIn = 3
-		}else{
-					(parentView as? RaceResults)?.passIn = 1
+			(parentView as? YourHistory)?.passIn = 3
+			s.currentStateOfV = 3
 		}
-		parentView?.performSegueWithIdentifier("toLanding", sender: self)
+		if pickView == 1{
+			(parentView as? RaceResults)?.passIn = 1
+			s.currentStateOfV = 3
+		}
+		else{
+			(parentView as? ShowMyConnect)?.passIn = 1
+			s.currentStateOfV = 3
+		}
+		parentView?.navigationController?.popViewControllerAnimated(true)
+
 		
 	}
 	

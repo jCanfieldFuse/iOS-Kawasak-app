@@ -34,7 +34,7 @@ class DownloadFile:NSObject, NSURLSessionDownloadDelegate {
         let task: NSURLSessionDownloadTask = self.session.downloadTaskWithRequest(req)
         taskDict[task] = filePath
         self.task = task
-       // print("_+_+_+_+_+_+_+_+_+_")
+       // //print("_+_+_+_+_+_+_+_+_+_")
         task.resume()
         
     }
@@ -61,7 +61,7 @@ class DownloadFile:NSObject, NSURLSessionDownloadDelegate {
         do {
             try NSFileManager().moveItemAtURL(location, toURL: toFile)
             if let originalURL: String = taskDict[downloadTask] {
-        //     print("_+_+_+_+++_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_")
+        //     //print("_+_+_+_+++_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_")
                 delegateDict[originalURL]?.didFinishDownloadingFileFromURL(originalURL, toFile: toFile)
                 
             }

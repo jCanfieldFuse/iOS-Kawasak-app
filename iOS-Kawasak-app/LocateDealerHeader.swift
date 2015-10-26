@@ -51,13 +51,13 @@ class LocateDealerHeader: UIView {
 	}
 	
 	func dealer(sender: AnyObject!){
-		print(locate)
+		//print(locate)
 		//	if let sup = 	self.superview as? UIViewController{
 		if locate {
 		parentView?.performSegueWithIdentifier("toFindDealer", sender: self)
 		//	}
 		}else{
-			print("dasdas")
+			//print("dasdas")
 		parentView?.navigationController?.popViewControllerAnimated(true)
 //		parentView?.performSegueWithIdentifier("toFindDealer", sender: self)
 		}

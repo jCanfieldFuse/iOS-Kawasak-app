@@ -40,7 +40,7 @@ class OopsFavVehicles: UIView {
 		mainCountainer.addSubview(title)
 		
 		let body = UILabel()
-		body.text = "You do no have any favorite vehicles \nin your account. Do you want to go to \nMyKawasaki.com to browse vehicles?"
+		body.text = "You do no have any favorite vehicles \nfor this account. Do you want to go to \nMyKawasaki.com to browse vehicles?"
 		body.numberOfLines = 3
 		body.textAlignment = NSTextAlignment.Center
 		body.font = UIFont(name: "Signika-Light", size: 15)
@@ -50,15 +50,15 @@ class OopsFavVehicles: UIView {
 		
 		
 		let exitButton = UIButton()
-		exitButton.frame = CGRectMake(marginRight, mainCountainer.frame.height - 70, (mainCountainer.frame.width * 0.5) - (10 + marginRight), 50)
+		exitButton.frame = CGRectMake(marginRight, mainCountainer.frame.height - 90, 127,60)
 		exitButton.addTarget(self, action: "exit:", forControlEvents: UIControlEvents.TouchUpInside)
-		exitButton.setImage(UIImage(named: "PrivacyPolicy_EXit_Button"), forState: .Normal)
+		exitButton.setImage(UIImage(named: "cancel"), forState: .Normal)
 		mainCountainer.addSubview(exitButton)
 		
 		let acceptButton = UIButton()
-		acceptButton.frame = CGRectMake(mainCountainer.frame.width - (exitButton.frame.width + marginRight), mainCountainer.frame.height - 70, (mainCountainer.frame.width * 0.5) - (10 + marginRight ), 50)
+		acceptButton.frame = CGRectMake(mainCountainer.frame.width - (exitButton.frame.width + marginRight), mainCountainer.frame.height - 90, 127,60)
 		acceptButton.addTarget(self, action: "accept:", forControlEvents: UIControlEvents.TouchUpInside)
-		acceptButton.setImage(UIImage(named: "PrivacyPolicy_Accept_Button"), forState: .Normal)
+		acceptButton.setImage(UIImage(named: "ok-button"), forState: .Normal)
 		mainCountainer.addSubview(acceptButton)
 		mainCountainer.alpha = 0
 		self.alpha = 0
@@ -95,7 +95,7 @@ class OopsFavVehicles: UIView {
 			self.alpha = 1
 			self.fadeCountainer.alpha = 1
 			}, completion: { finished in
-				UIApplication.sharedApplication().openURL(NSURL(string:"http://www.apple.com")!)
+				UIApplication.sharedApplication().openURL(NSURL(string:"http://www.kawasaki.com")!)
 				self.mainCountainer.alpha = 0
 				self.alpha = 0
 				self.fadeCountainer.alpha = 0

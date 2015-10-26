@@ -1,0 +1,765 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D0413CC1BC32A5300971B0A /* LoadingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0413CB1BC32A5300971B0A /* LoadingPage.swift */; settings = {ASSET_TAGS = (); }; };
+		1D15EA811BDDDD5800120857 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D15EA7F1BDDDD5800120857 /* cancel.png */; settings = {ASSET_TAGS = (); }; };
+		1D15EA821BDDDD5800120857 /* ok-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D15EA801BDDDD5800120857 /* ok-button.png */; settings = {ASSET_TAGS = (); }; };
+		1D15EA8B1BDDE81400120857 /* Beacons+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA831BDDE81400120857 /* Beacons+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		1D15EA8C1BDDE81400120857 /* Beacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA841BDDE81400120857 /* Beacons.swift */; settings = {ASSET_TAGS = (); }; };
+		1D15EA8D1BDDE81400120857 /* DealerHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA851BDDE81400120857 /* DealerHistory+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		1D15EA8E1BDDE81400120857 /* DealerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA861BDDE81400120857 /* DealerHistory.swift */; settings = {ASSET_TAGS = (); }; };
+		1D15EA8F1BDDE81400120857 /* Usage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA871BDDE81400120857 /* Usage+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		1D15EA901BDDE81400120857 /* Usage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA881BDDE81400120857 /* Usage.swift */; settings = {ASSET_TAGS = (); }; };
+		1D15EA911BDDE81400120857 /* VehiclesExplored+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA891BDDE81400120857 /* VehiclesExplored+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		1D15EA921BDDE81400120857 /* VehiclesExplored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA8A1BDDE81400120857 /* VehiclesExplored.swift */; settings = {ASSET_TAGS = (); }; };
+		1D15EA941BDE71BD00120857 /* FoundBeaconProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA931BDE71BC00120857 /* FoundBeaconProduct.swift */; settings = {ASSET_TAGS = (); }; };
+		1D15EA961BDE83E300120857 /* VisitedDealers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA951BDE83E300120857 /* VisitedDealers.swift */; settings = {ASSET_TAGS = (); }; };
+		1D15EA981BDE847100120857 /* VisitedProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA971BDE847100120857 /* VisitedProducts.swift */; settings = {ASSET_TAGS = (); }; };
+		1D15EA9A1BDED94100120857 /* Promo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA991BDED94100120857 /* Promo.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323AC41BCD866600251A6B /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323AC31BCD866600251A6B /* NavController.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323AC61BCED3F400251A6B /* MyLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323AC51BCED3F400251A6B /* MyLogin.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323B061BCF1B7100251A6B /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AF11BCF1B7100251A6B /* Roboto-ThinItalic.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B071BCF1B7100251A6B /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AF21BCF1B7100251A6B /* Roboto-Thin.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B081BCF1B7100251A6B /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AF31BCF1B7100251A6B /* Roboto-Black.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B091BCF1B7100251A6B /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AF41BCF1B7100251A6B /* Roboto-BlackItalic.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B0A1BCF1B7100251A6B /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AF51BCF1B7100251A6B /* Roboto-Bold.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B0B1BCF1B7100251A6B /* Roboto-BoldCondensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AF61BCF1B7100251A6B /* Roboto-BoldCondensed.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B0C1BCF1B7100251A6B /* Roboto-BoldCondensedItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AF71BCF1B7100251A6B /* Roboto-BoldCondensedItalic.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B0D1BCF1B7100251A6B /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AF81BCF1B7100251A6B /* Roboto-BoldItalic.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B0E1BCF1B7100251A6B /* Roboto-Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AF91BCF1B7100251A6B /* Roboto-Condensed.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B0F1BCF1B7100251A6B /* Roboto-CondensedItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AFA1BCF1B7100251A6B /* Roboto-CondensedItalic.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B101BCF1B7100251A6B /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AFB1BCF1B7100251A6B /* Roboto-Italic.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B111BCF1B7100251A6B /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AFC1BCF1B7100251A6B /* Roboto-Light.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B121BCF1B7100251A6B /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AFD1BCF1B7100251A6B /* Roboto-LightItalic.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B131BCF1B7100251A6B /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AFE1BCF1B7100251A6B /* Roboto-Medium.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B141BCF1B7100251A6B /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323AFF1BCF1B7100251A6B /* Roboto-MediumItalic.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B151BCF1B7100251A6B /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B001BCF1B7100251A6B /* Roboto-Regular.ttf */; settings = {ASSET_TAGS = (); }; };
+		1D323B161BCF1B7100251A6B /* Roboto_Specimen_Book.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B011BCF1B7100251A6B /* Roboto_Specimen_Book.pdf */; settings = {ASSET_TAGS = (); }; };
+		1D323B171BCF1B7100251A6B /* Signika-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B021BCF1B7100251A6B /* Signika-Bold.otf */; settings = {ASSET_TAGS = (); }; };
+		1D323B181BCF1B7100251A6B /* Signika-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B031BCF1B7100251A6B /* Signika-Light.otf */; settings = {ASSET_TAGS = (); }; };
+		1D323B191BCF1B7100251A6B /* Signika-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B041BCF1B7100251A6B /* Signika-Regular.otf */; settings = {ASSET_TAGS = (); }; };
+		1D323B1A1BCF1B7100251A6B /* Signika-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B051BCF1B7100251A6B /* Signika-Semibold.otf */; settings = {ASSET_TAGS = (); }; };
+		1D323B2D1BD5A39E00251A6B /* OopsDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B2C1BD5A39E00251A6B /* OopsDealer.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323B2F1BD6AD9F00251A6B /* OopsVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B2E1BD6AD9F00251A6B /* OopsVehicles.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323B311BD6B35700251A6B /* OopsOwned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B301BD6B35700251A6B /* OopsOwned.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323B361BD6E3B700251A6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B341BD6E3B700251A6B /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		1D323B381BD6E59000251A6B /* RacingSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B371BD6E59000251A6B /* RacingSchedule.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323B3B1BD6E6ED00251A6B /* ExploreVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B3A1BD6E6ED00251A6B /* ExploreVehicles.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323B3D1BD6E81400251A6B /* MyOwned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B3C1BD6E81400251A6B /* MyOwned.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323B3F1BD6E83700251A6B /* MyFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B3E1BD6E83700251A6B /* MyFavorites.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323B431BD6FC6A00251A6B /* DealersVisited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B421BD6FC6A00251A6B /* DealersVisited.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323B451BD7197D00251A6B /* OopsFavVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B441BD7197D00251A6B /* OopsFavVehicles.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323B4B1BD807A200251A6B /* LoginPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B4A1BD807A200251A6B /* LoginPopUp.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323B4D1BD81A3500251A6B /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B4C1BD819EF00251A6B /* video.mp4 */; };
+		1D323B4F1BD82DBB00251A6B /* StateVaule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B4E1BD82DBB00251A6B /* StateVaule.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323B611BD9424A00251A6B /* Pref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B601BD9424A00251A6B /* Pref.swift */; settings = {ASSET_TAGS = (); }; };
+		1D323B631BD9902800251A6B /* video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B621BD9900C00251A6B /* video1.mp4 */; };
+		1D40A34A1BD9D07400598B26 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D40A3491BD9D07400598B26 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
+		1D40A34C1BD9DF4500598B26 /* GetBeacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D40A34B1BD9DF4500598B26 /* GetBeacons.swift */; settings = {ASSET_TAGS = (); }; };
+		1D40A34E1BDAABB900598B26 /* ShowMyConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D40A34D1BDAABB900598B26 /* ShowMyConnect.swift */; settings = {ASSET_TAGS = (); }; };
+		1D40A3501BDACFF800598B26 /* Phone_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D40A34F1BDACFF800598B26 /* Phone_Icon.png */; settings = {ASSET_TAGS = (); }; };
+		1D7F86861B67FB1E001B6E1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */; };
+		1D7F86891B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86871B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld */; };
+		1D7F86931B67FB1E001B6E1E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F86911B67FB1E001B6E1E /* LaunchScreen.xib */; };
+		1D7F86AD1B682C96001B6E1E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86AC1B682C96001B6E1E /* Login.swift */; };
+		1D853B651B716B7F002B325B /* notes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D853B641B716B7F002B325B /* notes.plist */; };
+		1D853B671B7180C5002B325B /* PlistRW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D853B661B7180C5002B325B /* PlistRW.swift */; };
+		1DA96F901B9503CE009EE25D /* ScrollViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96F8F1B9503CE009EE25D /* ScrollViewContainer.swift */; };
+		1DA96FB01B967309009EE25D /* RaceResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA96FAF1B967309009EE25D /* RaceResults.swift */; };
+		1DB65EBD1B6AA260003D350A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB65EBC1B6AA260003D350A /* LocationManager.swift */; };
+		1DB65EBF1B6AD53F003D350A /* Singlton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB65EBE1B6AD53F003D350A /* Singlton.swift */; };
+		1DDE3C621B73DD5E009506BA /* MyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDE3C611B73DD5E009506BA /* MyApi.swift */; };
+		1DE9B03C1B728ED8006C2556 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DE9B03B1B728ED8006C2556 /* data.plist */; };
+		1DE9B03E1B72B0BE006C2556 /* DownloadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */; };
+		1DF0DFD81BB5C631001E33DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF0DFD71BB5C631001E33DD /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		1DF0DFDC1BB5F2C5001E33DD /* hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFDB1BB5F2C5001E33DD /* hexColor.swift */; settings = {ASSET_TAGS = (); }; };
+		1DF0DFDE1BB9ABCC001E33DD /* LandingPageNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFDD1BB9ABCC001E33DD /* LandingPageNew.swift */; settings = {ASSET_TAGS = (); }; };
+		1DF0DFF21BBC622D001E33DD /* DealerWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFF11BBC622D001E33DD /* DealerWelcome.swift */; settings = {ASSET_TAGS = (); }; };
+		1DF0DFF41BBC6328001E33DD /* LocateDealerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFF31BBC6328001E33DD /* LocateDealerHeader.swift */; settings = {ASSET_TAGS = (); }; };
+		1DF0DFFA1BC2F6AA001E33DD /* BurgerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFF91BC2F6AA001E33DD /* BurgerMenu.swift */; settings = {ASSET_TAGS = (); }; };
+		1DFE00491BC485000055A3F7 /* YourHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE00481BC485000055A3F7 /* YourHistory.swift */; settings = {ASSET_TAGS = (); }; };
+		1DFE004D1BC59D940055A3F7 /* MyConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE004C1BC59D940055A3F7 /* MyConnect.swift */; settings = {ASSET_TAGS = (); }; };
+		1DFE00511BC5D8A30055A3F7 /* Legal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE00501BC5D8A30055A3F7 /* Legal.swift */; settings = {ASSET_TAGS = (); }; };
+		1DFE00591BC7220B0055A3F7 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE00581BC7220B0055A3F7 /* CoreDataModel.swift */; settings = {ASSET_TAGS = (); }; };
+		1DFE005F1BC739EE0055A3F7 /* FindDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE005E1BC739EE0055A3F7 /* FindDealer.swift */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1D40A3441BD9AB7300598B26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D7F86781B67FB1E001B6E1E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D7F867F1B67FB1E001B6E1E;
+			remoteInfo = "iOS-Kawasak-app";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D0413CB1BC32A5300971B0A /* LoadingPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingPage.swift; sourceTree = "<group>"; };
+		1D15EA7F1BDDDD5800120857 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
+		1D15EA801BDDDD5800120857 /* ok-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ok-button.png"; sourceTree = "<group>"; };
+		1D15EA831BDDE81400120857 /* Beacons+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Beacons+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1D15EA841BDDE81400120857 /* Beacons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacons.swift; sourceTree = "<group>"; };
+		1D15EA851BDDE81400120857 /* DealerHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DealerHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1D15EA861BDDE81400120857 /* DealerHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealerHistory.swift; sourceTree = "<group>"; };
+		1D15EA871BDDE81400120857 /* Usage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Usage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1D15EA881BDDE81400120857 /* Usage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usage.swift; sourceTree = "<group>"; };
+		1D15EA891BDDE81400120857 /* VehiclesExplored+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VehiclesExplored+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1D15EA8A1BDDE81400120857 /* VehiclesExplored.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesExplored.swift; sourceTree = "<group>"; };
+		1D15EA931BDE71BC00120857 /* FoundBeaconProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundBeaconProduct.swift; sourceTree = "<group>"; };
+		1D15EA951BDE83E300120857 /* VisitedDealers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitedDealers.swift; sourceTree = "<group>"; };
+		1D15EA971BDE847100120857 /* VisitedProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitedProducts.swift; sourceTree = "<group>"; };
+		1D15EA991BDED94100120857 /* Promo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promo.swift; sourceTree = "<group>"; };
+		1D323AC31BCD866600251A6B /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
+		1D323AC51BCED3F400251A6B /* MyLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyLogin.swift; sourceTree = "<group>"; };
+		1D323AF11BCF1B7100251A6B /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		1D323AF21BCF1B7100251A6B /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		1D323AF31BCF1B7100251A6B /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		1D323AF41BCF1B7100251A6B /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		1D323AF51BCF1B7100251A6B /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		1D323AF61BCF1B7100251A6B /* Roboto-BoldCondensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldCondensed.ttf"; sourceTree = "<group>"; };
+		1D323AF71BCF1B7100251A6B /* Roboto-BoldCondensedItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldCondensedItalic.ttf"; sourceTree = "<group>"; };
+		1D323AF81BCF1B7100251A6B /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		1D323AF91BCF1B7100251A6B /* Roboto-Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Condensed.ttf"; sourceTree = "<group>"; };
+		1D323AFA1BCF1B7100251A6B /* Roboto-CondensedItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-CondensedItalic.ttf"; sourceTree = "<group>"; };
+		1D323AFB1BCF1B7100251A6B /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		1D323AFC1BCF1B7100251A6B /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		1D323AFD1BCF1B7100251A6B /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		1D323AFE1BCF1B7100251A6B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		1D323AFF1BCF1B7100251A6B /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		1D323B001BCF1B7100251A6B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		1D323B011BCF1B7100251A6B /* Roboto_Specimen_Book.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Roboto_Specimen_Book.pdf; sourceTree = "<group>"; };
+		1D323B021BCF1B7100251A6B /* Signika-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Bold.otf"; sourceTree = "<group>"; };
+		1D323B031BCF1B7100251A6B /* Signika-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Light.otf"; sourceTree = "<group>"; };
+		1D323B041BCF1B7100251A6B /* Signika-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Regular.otf"; sourceTree = "<group>"; };
+		1D323B051BCF1B7100251A6B /* Signika-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Semibold.otf"; sourceTree = "<group>"; };
+		1D323B1B1BCF1BFA00251A6B /* signika.negative-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "signika.negative-light.ttf"; sourceTree = "<group>"; };
+		1D323B2C1BD5A39E00251A6B /* OopsDealer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OopsDealer.swift; sourceTree = "<group>"; };
+		1D323B2E1BD6AD9F00251A6B /* OopsVehicles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OopsVehicles.swift; sourceTree = "<group>"; };
+		1D323B301BD6B35700251A6B /* OopsOwned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OopsOwned.swift; sourceTree = "<group>"; };
+		1D323B351BD6E3B700251A6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1D323B371BD6E59000251A6B /* RacingSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacingSchedule.swift; sourceTree = "<group>"; };
+		1D323B3A1BD6E6ED00251A6B /* ExploreVehicles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreVehicles.swift; sourceTree = "<group>"; };
+		1D323B3C1BD6E81400251A6B /* MyOwned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOwned.swift; sourceTree = "<group>"; };
+		1D323B3E1BD6E83700251A6B /* MyFavorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFavorites.swift; sourceTree = "<group>"; };
+		1D323B421BD6FC6A00251A6B /* DealersVisited.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealersVisited.swift; sourceTree = "<group>"; };
+		1D323B441BD7197D00251A6B /* OopsFavVehicles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OopsFavVehicles.swift; sourceTree = "<group>"; };
+		1D323B4A1BD807A200251A6B /* LoginPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPopUp.swift; sourceTree = "<group>"; };
+		1D323B4C1BD819EF00251A6B /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		1D323B4E1BD82DBB00251A6B /* StateVaule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateVaule.swift; sourceTree = "<group>"; };
+		1D323B601BD9424A00251A6B /* Pref.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pref.swift; sourceTree = "<group>"; };
+		1D323B621BD9900C00251A6B /* video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.mp4; sourceTree = "<group>"; };
+		1D40A33F1BD9AB7300598B26 /* Kawasaki Connect.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kawasaki Connect.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D40A3491BD9D07400598B26 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D40A34B1BD9DF4500598B26 /* GetBeacons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBeacons.swift; sourceTree = "<group>"; };
+		1D40A34D1BDAABB900598B26 /* ShowMyConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMyConnect.swift; sourceTree = "<group>"; };
+		1D40A34F1BDACFF800598B26 /* Phone_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phone_Icon.png; sourceTree = "<group>"; };
+		1D7F86801B67FB1E001B6E1E /* Kawasaki Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kawasaki Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1D7F86881B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOS_Kawasak_app.xcdatamodel; sourceTree = "<group>"; };
+		1D7F86921B67FB1E001B6E1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1D7F86AC1B682C96001B6E1E /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		1D853B641B716B7F002B325B /* notes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = notes.plist; sourceTree = "<group>"; };
+		1D853B661B7180C5002B325B /* PlistRW.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistRW.swift; sourceTree = "<group>"; };
+		1DA96F8F1B9503CE009EE25D /* ScrollViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewContainer.swift; sourceTree = "<group>"; };
+		1DA96FAF1B967309009EE25D /* RaceResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceResults.swift; sourceTree = "<group>"; };
+		1DB65EBC1B6AA260003D350A /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		1DB65EBE1B6AD53F003D350A /* Singlton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singlton.swift; sourceTree = "<group>"; };
+		1DDE3C611B73DD5E009506BA /* MyApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyApi.swift; sourceTree = "<group>"; };
+		1DE9B03B1B728ED8006C2556 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
+		1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFile.swift; sourceTree = "<group>"; };
+		1DF0DFD71BB5C631001E33DD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1DF0DFDB1BB5F2C5001E33DD /* hexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hexColor.swift; sourceTree = "<group>"; };
+		1DF0DFDD1BB9ABCC001E33DD /* LandingPageNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageNew.swift; sourceTree = "<group>"; };
+		1DF0DFF11BBC622D001E33DD /* DealerWelcome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealerWelcome.swift; sourceTree = "<group>"; };
+		1DF0DFF31BBC6328001E33DD /* LocateDealerHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocateDealerHeader.swift; sourceTree = "<group>"; };
+		1DF0DFF91BC2F6AA001E33DD /* BurgerMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BurgerMenu.swift; sourceTree = "<group>"; };
+		1DFE00481BC485000055A3F7 /* YourHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YourHistory.swift; sourceTree = "<group>"; };
+		1DFE004C1BC59D940055A3F7 /* MyConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyConnect.swift; sourceTree = "<group>"; };
+		1DFE00501BC5D8A30055A3F7 /* Legal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legal.swift; sourceTree = "<group>"; };
+		1DFE00581BC7220B0055A3F7 /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		1DFE005E1BC739EE0055A3F7 /* FindDealer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDealer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D40A33C1BD9AB7300598B26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D7F867D1B67FB1E001B6E1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D2452E71BCC5C1E00C57061 /* class views */ = {
+			isa = PBXGroup;
+			children = (
+				1DF0DFF91BC2F6AA001E33DD /* BurgerMenu.swift */,
+				1DF0DFF31BBC6328001E33DD /* LocateDealerHeader.swift */,
+				1D323B2C1BD5A39E00251A6B /* OopsDealer.swift */,
+				1D323B4A1BD807A200251A6B /* LoginPopUp.swift */,
+				1D323B441BD7197D00251A6B /* OopsFavVehicles.swift */,
+				1D323B2E1BD6AD9F00251A6B /* OopsVehicles.swift */,
+				1D323B301BD6B35700251A6B /* OopsOwned.swift */,
+				1D323B601BD9424A00251A6B /* Pref.swift */,
+			);
+			name = "class views";
+			sourceTree = "<group>";
+		};
+		1D323AC91BCEFF9300251A6B /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1D323B1B1BCF1BFA00251A6B /* signika.negative-light.ttf */,
+				1D323AF11BCF1B7100251A6B /* Roboto-ThinItalic.ttf */,
+				1D323AF21BCF1B7100251A6B /* Roboto-Thin.ttf */,
+				1D323AF31BCF1B7100251A6B /* Roboto-Black.ttf */,
+				1D323AF41BCF1B7100251A6B /* Roboto-BlackItalic.ttf */,
+				1D323AF51BCF1B7100251A6B /* Roboto-Bold.ttf */,
+				1D323AF61BCF1B7100251A6B /* Roboto-BoldCondensed.ttf */,
+				1D323AF71BCF1B7100251A6B /* Roboto-BoldCondensedItalic.ttf */,
+				1D323AF81BCF1B7100251A6B /* Roboto-BoldItalic.ttf */,
+				1D323AF91BCF1B7100251A6B /* Roboto-Condensed.ttf */,
+				1D323AFA1BCF1B7100251A6B /* Roboto-CondensedItalic.ttf */,
+				1D323AFB1BCF1B7100251A6B /* Roboto-Italic.ttf */,
+				1D323AFC1BCF1B7100251A6B /* Roboto-Light.ttf */,
+				1D323AFD1BCF1B7100251A6B /* Roboto-LightItalic.ttf */,
+				1D323AFE1BCF1B7100251A6B /* Roboto-Medium.ttf */,
+				1D323AFF1BCF1B7100251A6B /* Roboto-MediumItalic.ttf */,
+				1D323B001BCF1B7100251A6B /* Roboto-Regular.ttf */,
+				1D323B011BCF1B7100251A6B /* Roboto_Specimen_Book.pdf */,
+				1D323B021BCF1B7100251A6B /* Signika-Bold.otf */,
+				1D323B031BCF1B7100251A6B /* Signika-Light.otf */,
+				1D323B041BCF1B7100251A6B /* Signika-Regular.otf */,
+				1D323B051BCF1B7100251A6B /* Signika-Semibold.otf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
+		1D323B391BD6E59A00251A6B /* webViews */ = {
+			isa = PBXGroup;
+			children = (
+				1D323B371BD6E59000251A6B /* RacingSchedule.swift */,
+				1DA96FAF1B967309009EE25D /* RaceResults.swift */,
+				1D15EA951BDE83E300120857 /* VisitedDealers.swift */,
+				1D15EA971BDE847100120857 /* VisitedProducts.swift */,
+				1D15EA931BDE71BC00120857 /* FoundBeaconProduct.swift */,
+				1D15EA991BDED94100120857 /* Promo.swift */,
+				1D323B3A1BD6E6ED00251A6B /* ExploreVehicles.swift */,
+				1D323B3C1BD6E81400251A6B /* MyOwned.swift */,
+				1D323B421BD6FC6A00251A6B /* DealersVisited.swift */,
+				1D323B3E1BD6E83700251A6B /* MyFavorites.swift */,
+			);
+			name = webViews;
+			sourceTree = "<group>";
+		};
+		1D7F86771B67FB1E001B6E1E = {
+			isa = PBXGroup;
+			children = (
+				1D15EA831BDDE81400120857 /* Beacons+CoreDataProperties.swift */,
+				1D15EA841BDDE81400120857 /* Beacons.swift */,
+				1D15EA851BDDE81400120857 /* DealerHistory+CoreDataProperties.swift */,
+				1D15EA861BDDE81400120857 /* DealerHistory.swift */,
+				1D15EA871BDDE81400120857 /* Usage+CoreDataProperties.swift */,
+				1D15EA881BDDE81400120857 /* Usage.swift */,
+				1D15EA891BDDE81400120857 /* VehiclesExplored+CoreDataProperties.swift */,
+				1D15EA8A1BDDE81400120857 /* VehiclesExplored.swift */,
+				1D323B4C1BD819EF00251A6B /* video.mp4 */,
+				1D323B621BD9900C00251A6B /* video1.mp4 */,
+				1D7F86821B67FB1E001B6E1E /* iOS-Kawasak-app */,
+				1D7F86811B67FB1E001B6E1E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1D7F86811B67FB1E001B6E1E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D7F86801B67FB1E001B6E1E /* Kawasaki Connect.app */,
+				1D40A33F1BD9AB7300598B26 /* Kawasaki Connect.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1D7F86821B67FB1E001B6E1E /* iOS-Kawasak-app */ = {
+			isa = PBXGroup;
+			children = (
+				1D40A3491BD9D07400598B26 /* Info.plist */,
+				1D323AC91BCEFF9300251A6B /* fonts */,
+				1DFE005D1BC739860055A3F7 /* new Kawasaki */,
+				1DF0DFD71BB5C631001E33DD /* Images.xcassets */,
+				1DA96F8F1B9503CE009EE25D /* ScrollViewContainer.swift */,
+				1D853B641B716B7F002B325B /* notes.plist */,
+				1DDE3C611B73DD5E009506BA /* MyApi.swift */,
+				1D7F86AC1B682C96001B6E1E /* Login.swift */,
+				1D2452E71BCC5C1E00C57061 /* class views */,
+				1D853B661B7180C5002B325B /* PlistRW.swift */,
+				1D323B391BD6E59A00251A6B /* webViews */,
+				1DF0DFDB1BB5F2C5001E33DD /* hexColor.swift */,
+				1D323B4E1BD82DBB00251A6B /* StateVaule.swift */,
+				1D40A34B1BD9DF4500598B26 /* GetBeacons.swift */,
+				1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */,
+				1D40A34D1BDAABB900598B26 /* ShowMyConnect.swift */,
+				1DB65EBC1B6AA260003D350A /* LocationManager.swift */,
+				1D323AC31BCD866600251A6B /* NavController.swift */,
+				1DB65EBE1B6AD53F003D350A /* Singlton.swift */,
+				1D0413CB1BC32A5300971B0A /* LoadingPage.swift */,
+				1DF0DFDD1BB9ABCC001E33DD /* LandingPageNew.swift */,
+				1DF0DFF11BBC622D001E33DD /* DealerWelcome.swift */,
+				1DFE00481BC485000055A3F7 /* YourHistory.swift */,
+				1DFE004C1BC59D940055A3F7 /* MyConnect.swift */,
+				1DFE00501BC5D8A30055A3F7 /* Legal.swift */,
+				1DFE005E1BC739EE0055A3F7 /* FindDealer.swift */,
+				1D323AC51BCED3F400251A6B /* MyLogin.swift */,
+				1D7F86911B67FB1E001B6E1E /* LaunchScreen.xib */,
+				1D7F86871B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld */,
+				1DFE00581BC7220B0055A3F7 /* CoreDataModel.swift */,
+				1DE9B03B1B728ED8006C2556 /* data.plist */,
+				1D7F86831B67FB1E001B6E1E /* Supporting Files */,
+			);
+			path = "iOS-Kawasak-app";
+			sourceTree = "<group>";
+		};
+		1D7F86831B67FB1E001B6E1E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D15EA7F1BDDDD5800120857 /* cancel.png */,
+				1D15EA801BDDDD5800120857 /* ok-button.png */,
+				1D40A34F1BDACFF800598B26 /* Phone_Icon.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DFE005D1BC739860055A3F7 /* new Kawasaki */ = {
+			isa = PBXGroup;
+			children = (
+				1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */,
+				1D323B341BD6E3B700251A6B /* Main.storyboard */,
+			);
+			name = "new Kawasaki";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D40A33E1BD9AB7300598B26 /* Kawasaki ConnectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D40A3461BD9AB7300598B26 /* Build configuration list for PBXNativeTarget "Kawasaki ConnectTests" */;
+			buildPhases = (
+				1D40A33B1BD9AB7300598B26 /* Sources */,
+				1D40A33C1BD9AB7300598B26 /* Frameworks */,
+				1D40A33D1BD9AB7300598B26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1D40A3451BD9AB7300598B26 /* PBXTargetDependency */,
+			);
+			name = "Kawasaki ConnectTests";
+			productName = "iOS-Kawasak-appTests";
+			productReference = 1D40A33F1BD9AB7300598B26 /* Kawasaki Connect.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1D7F867F1B67FB1E001B6E1E /* Kawasaki Connect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D7F86A21B67FB1E001B6E1E /* Build configuration list for PBXNativeTarget "Kawasaki Connect" */;
+			buildPhases = (
+				1D7F867C1B67FB1E001B6E1E /* Sources */,
+				1D7F867D1B67FB1E001B6E1E /* Frameworks */,
+				1D7F867E1B67FB1E001B6E1E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Kawasaki Connect";
+			productName = "iOS-Kawasak-app";
+			productReference = 1D7F86801B67FB1E001B6E1E /* Kawasaki Connect.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D7F86781B67FB1E001B6E1E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = jon.canfield;
+				TargetAttributes = {
+					1D40A33E1BD9AB7300598B26 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 1D7F867F1B67FB1E001B6E1E;
+					};
+					1D7F867F1B67FB1E001B6E1E = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = DEUXYYQUBY;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 1D7F867B1B67FB1E001B6E1E /* Build configuration list for PBXProject "Kawasaki Connect" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1D7F86771B67FB1E001B6E1E;
+			productRefGroup = 1D7F86811B67FB1E001B6E1E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D7F867F1B67FB1E001B6E1E /* Kawasaki Connect */,
+				1D40A33E1BD9AB7300598B26 /* Kawasaki ConnectTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D40A33D1BD9AB7300598B26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D7F867E1B67FB1E001B6E1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D323B171BCF1B7100251A6B /* Signika-Bold.otf in Resources */,
+				1D323B061BCF1B7100251A6B /* Roboto-ThinItalic.ttf in Resources */,
+				1D323B141BCF1B7100251A6B /* Roboto-MediumItalic.ttf in Resources */,
+				1D15EA821BDDDD5800120857 /* ok-button.png in Resources */,
+				1D323B121BCF1B7100251A6B /* Roboto-LightItalic.ttf in Resources */,
+				1D15EA811BDDDD5800120857 /* cancel.png in Resources */,
+				1D323B111BCF1B7100251A6B /* Roboto-Light.ttf in Resources */,
+				1D323B161BCF1B7100251A6B /* Roboto_Specimen_Book.pdf in Resources */,
+				1D323B151BCF1B7100251A6B /* Roboto-Regular.ttf in Resources */,
+				1D323B631BD9902800251A6B /* video1.mp4 in Resources */,
+				1D323B4D1BD81A3500251A6B /* video.mp4 in Resources */,
+				1D323B131BCF1B7100251A6B /* Roboto-Medium.ttf in Resources */,
+				1D40A3501BDACFF800598B26 /* Phone_Icon.png in Resources */,
+				1D323B361BD6E3B700251A6B /* Main.storyboard in Resources */,
+				1D323B181BCF1B7100251A6B /* Signika-Light.otf in Resources */,
+				1D323B0B1BCF1B7100251A6B /* Roboto-BoldCondensed.ttf in Resources */,
+				1D323B1A1BCF1B7100251A6B /* Signika-Semibold.otf in Resources */,
+				1D323B0C1BCF1B7100251A6B /* Roboto-BoldCondensedItalic.ttf in Resources */,
+				1D323B101BCF1B7100251A6B /* Roboto-Italic.ttf in Resources */,
+				1D40A34A1BD9D07400598B26 /* Info.plist in Resources */,
+				1D323B091BCF1B7100251A6B /* Roboto-BlackItalic.ttf in Resources */,
+				1D7F86931B67FB1E001B6E1E /* LaunchScreen.xib in Resources */,
+				1DF0DFD81BB5C631001E33DD /* Images.xcassets in Resources */,
+				1D323B0D1BCF1B7100251A6B /* Roboto-BoldItalic.ttf in Resources */,
+				1D323B0E1BCF1B7100251A6B /* Roboto-Condensed.ttf in Resources */,
+				1D853B651B716B7F002B325B /* notes.plist in Resources */,
+				1D323B0F1BCF1B7100251A6B /* Roboto-CondensedItalic.ttf in Resources */,
+				1D323B081BCF1B7100251A6B /* Roboto-Black.ttf in Resources */,
+				1D323B191BCF1B7100251A6B /* Signika-Regular.otf in Resources */,
+				1D323B071BCF1B7100251A6B /* Roboto-Thin.ttf in Resources */,
+				1D323B0A1BCF1B7100251A6B /* Roboto-Bold.ttf in Resources */,
+				1DE9B03C1B728ED8006C2556 /* data.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D40A33B1BD9AB7300598B26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D7F867C1B67FB1E001B6E1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DF0DFF41BBC6328001E33DD /* LocateDealerHeader.swift in Sources */,
+				1D853B671B7180C5002B325B /* PlistRW.swift in Sources */,
+				1D15EA921BDDE81400120857 /* VehiclesExplored.swift in Sources */,
+				1D7F86AD1B682C96001B6E1E /* Login.swift in Sources */,
+				1D323B3D1BD6E81400251A6B /* MyOwned.swift in Sources */,
+				1D323B381BD6E59000251A6B /* RacingSchedule.swift in Sources */,
+				1DE9B03E1B72B0BE006C2556 /* DownloadFile.swift in Sources */,
+				1D323B451BD7197D00251A6B /* OopsFavVehicles.swift in Sources */,
+				1DFE004D1BC59D940055A3F7 /* MyConnect.swift in Sources */,
+				1D15EA901BDDE81400120857 /* Usage.swift in Sources */,
+				1D40A34E1BDAABB900598B26 /* ShowMyConnect.swift in Sources */,
+				1D323B611BD9424A00251A6B /* Pref.swift in Sources */,
+				1DFE00591BC7220B0055A3F7 /* CoreDataModel.swift in Sources */,
+				1DF0DFDC1BB5F2C5001E33DD /* hexColor.swift in Sources */,
+				1D323AC41BCD866600251A6B /* NavController.swift in Sources */,
+				1D15EA941BDE71BD00120857 /* FoundBeaconProduct.swift in Sources */,
+				1DB65EBD1B6AA260003D350A /* LocationManager.swift in Sources */,
+				1D323B311BD6B35700251A6B /* OopsOwned.swift in Sources */,
+				1D15EA911BDDE81400120857 /* VehiclesExplored+CoreDataProperties.swift in Sources */,
+				1D0413CC1BC32A5300971B0A /* LoadingPage.swift in Sources */,
+				1D323B4B1BD807A200251A6B /* LoginPopUp.swift in Sources */,
+				1D7F86861B67FB1E001B6E1E /* AppDelegate.swift in Sources */,
+				1D15EA9A1BDED94100120857 /* Promo.swift in Sources */,
+				1D15EA8B1BDDE81400120857 /* Beacons+CoreDataProperties.swift in Sources */,
+				1DF0DFDE1BB9ABCC001E33DD /* LandingPageNew.swift in Sources */,
+				1D40A34C1BD9DF4500598B26 /* GetBeacons.swift in Sources */,
+				1D323B3F1BD6E83700251A6B /* MyFavorites.swift in Sources */,
+				1DF0DFF21BBC622D001E33DD /* DealerWelcome.swift in Sources */,
+				1D323AC61BCED3F400251A6B /* MyLogin.swift in Sources */,
+				1D323B2F1BD6AD9F00251A6B /* OopsVehicles.swift in Sources */,
+				1D323B431BD6FC6A00251A6B /* DealersVisited.swift in Sources */,
+				1DFE00511BC5D8A30055A3F7 /* Legal.swift in Sources */,
+				1D15EA8C1BDDE81400120857 /* Beacons.swift in Sources */,
+				1D15EA961BDE83E300120857 /* VisitedDealers.swift in Sources */,
+				1D323B3B1BD6E6ED00251A6B /* ExploreVehicles.swift in Sources */,
+				1D15EA981BDE847100120857 /* VisitedProducts.swift in Sources */,
+				1D15EA8F1BDDE81400120857 /* Usage+CoreDataProperties.swift in Sources */,
+				1DFE00491BC485000055A3F7 /* YourHistory.swift in Sources */,
+				1D15EA8D1BDDE81400120857 /* DealerHistory+CoreDataProperties.swift in Sources */,
+				1D7F86891B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld in Sources */,
+				1D323B2D1BD5A39E00251A6B /* OopsDealer.swift in Sources */,
+				1DFE005F1BC739EE0055A3F7 /* FindDealer.swift in Sources */,
+				1DF0DFFA1BC2F6AA001E33DD /* BurgerMenu.swift in Sources */,
+				1DDE3C621B73DD5E009506BA /* MyApi.swift in Sources */,
+				1DA96FB01B967309009EE25D /* RaceResults.swift in Sources */,
+				1DA96F901B9503CE009EE25D /* ScrollViewContainer.swift in Sources */,
+				1D323B4F1BD82DBB00251A6B /* StateVaule.swift in Sources */,
+				1DB65EBF1B6AD53F003D350A /* Singlton.swift in Sources */,
+				1D15EA8E1BDDE81400120857 /* DealerHistory.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1D40A3451BD9AB7300598B26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D7F867F1B67FB1E001B6E1E /* Kawasaki Connect */;
+			targetProxy = 1D40A3441BD9AB7300598B26 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1D323B341BD6E3B700251A6B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D323B351BD6E3B700251A6B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1D7F86911B67FB1E001B6E1E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D7F86921B67FB1E001B6E1E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1D40A3471BD9AB7300598B26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "iOS-Kawasak-appTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iOS-Kawasak-appTests";
+				PRODUCT_NAME = "Kawasaki Connect";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kawasaki Connect.app/Kawasaki Connect";
+			};
+			name = Debug;
+		};
+		1D40A3481BD9AB7300598B26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "iOS-Kawasak-appTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iOS-Kawasak-appTests";
+				PRODUCT_NAME = "Kawasaki Connect";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kawasaki Connect.app/Kawasaki Connect";
+			};
+			name = Release;
+		};
+		1D7F86A01B67FB1E001B6E1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1D7F86A11B67FB1E001B6E1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1D7F86A31B67FB1E001B6E1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "iOS-Kawasak-app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kawasaki.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "Kawasaki Connect";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		1D7F86A41B67FB1E001B6E1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "iOS-Kawasak-app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kawasaki.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "Kawasaki Connect";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D40A3461BD9AB7300598B26 /* Build configuration list for PBXNativeTarget "Kawasaki ConnectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D40A3471BD9AB7300598B26 /* Debug */,
+				1D40A3481BD9AB7300598B26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D7F867B1B67FB1E001B6E1E /* Build configuration list for PBXProject "Kawasaki Connect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D7F86A01B67FB1E001B6E1E /* Debug */,
+				1D7F86A11B67FB1E001B6E1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D7F86A21B67FB1E001B6E1E /* Build configuration list for PBXNativeTarget "Kawasaki Connect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D7F86A31B67FB1E001B6E1E /* Debug */,
+				1D7F86A41B67FB1E001B6E1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1D7F86871B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1D7F86881B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodel */,
+			);
+			currentVersion = 1D7F86881B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodel */;
+			path = iOS_Kawasak_app.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1D7F86781B67FB1E001B6E1E /* Project object */;
+}

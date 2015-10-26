@@ -10,196 +10,322 @@ import Foundation
 import CoreLocation
 import UIKit
 
-var beaconAlertList: currentBeacon =	currentBeacon()
-class LocManager: NSObject, CLLocationManagerDelegate,  UIApplicationDelegate {
-	//var locMan: CLLocationManager = CLLocationManager()
-    //let s: Singleton! = Singleton.sharedInstance
-  //var locMan: CLLocationManager = CLLocationManager()
-//	let manager = CLLocationManager()
-	var parentView:UIViewController!
-	lazy var locMan: CLLocationManager! = {
-  let manager = CLLocationManager()
-  manager.desiredAccuracy = kCLLocationAccuracyBest
-  manager.delegate = self
-  manager.requestAlwaysAuthorization()
-		
-  return manager
-		}()
-	//var timer = NSTimer()
+func == (lhs: Beacon, rhs: Beacon) -> Bool {
+	return lhs.major == rhs.major && lhs.minor == rhs.minor
+}
+
+class Beacon: Equatable {
+	var major: Int = 0
+	var minor: Int = 0
+	var name: String = ""
+	var dealer: String = ""
+	var range: Float = 0.0
+	var idbeac: String = ""
+	var uniqueIdentifier: String { get { return ""+name+"::\(major)::\(minor)" } }
 	
-	let distance: CLLocationDistance = 20  // distance in meters
-	var tmpBeaconTimer = 0
-	var tmpCurrentBeacon = 0
-
-	var locations: Dictionary<String, CLLocationCoordinate2D> = [
-		"Fuse Interactive": CLLocationCoordinate2D(latitude: 33.5496793, longitude: -117.7799548),
-		"Tivoli": CLLocationCoordinate2D(latitude: 33.5482667, longitude: -117.7821278),
-		"Seven Degrees": CLLocationCoordinate2D(latitude: 33.5502499, longitude: -117.7790292),
-		"Sawdust": CLLocationCoordinate2D(latitude: 33.5506119, longitude: -117.7787891)
-	]
-  var region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "F7826DA6-4FA2-4E98-8024-BC5B71E0893E")!, identifier: "Estimotes")
-
+	init(maj: Int, min: Int, name: String, deal: String, rang: Float, idbeac: String  ){
+		self.major = maj
+		self.minor = min
+		self.name = name
+		self.dealer = deal
+		self.range = rang
+		self.idbeac = idbeac
+		//	s.locationManager.beaconTimeCheck[self.uniqueIdentifier] = NSDate(timeIntervalSince1970: 0)
+	}
+}
+let s:Singleton = Singleton.sharedInstance
+let coreData: CoreDataModel = CoreDataModel()
+var allowPush = false
+class LocManager: NSObject, CLLocationManagerDelegate {
+	var parentView:UIViewController!
+	
+	lazy var locMan: CLLocationManager! = {
+		let manager = CLLocationManager()
+		manager.desiredAccuracy = kCLLocationAccuracyBest
+		manager.delegate = self
+		manager.requestAlwaysAuthorization()
+		
+		return manager
+		}()
+	
+	var productBeacons: Array<Beacon> = []
+	var dealerBeacons: Array<Beacon> = []
+	var enteredRegion = false
+	let uniqueId: String = "F7826DA6-4FA2-4E98-8024-BC5B71E0893E"
+	private var reg: CLBeaconRegion?
+	var region: CLBeaconRegion {
+		get {
+			return CLBeaconRegion(proximityUUID: NSUUID(UUIDString: self.uniqueId)!, identifier: "Estimotes")
+		}
+	}
+	
+	
 	override init(){
-	region.notifyEntryStateOnDisplay = true
-
-
 		super.init()
+		dealerBeacons.append(Beacon(maj: 61190, min: 482, name: "Dealer", deal: "8FA6A833-2470-4F2E-B00E-5E6341D1670F", rang: 3, idbeac: "Rj8Q"))
+		productBeacons.append(Beacon(maj: 35782, min: 37246, name: "2015-KFX50", deal: "8FA6A833-2470-4F2E-B00E-5E6341D1670F", rang: 0.5,idbeac: "9XOE"))
+		
+		
 		locMan.delegate = self
 		
-		print("SINGLE")
-			//	timer = NSTimer(timeInterval: 1.0, target: self, selector: "countUp", userInfo: nil, repeats: true)
-        if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse) {
-            locMan.requestWhenInUseAuthorization()
-        }
-        
-        region.notifyOnEntry = true
-        region.notifyOnExit = true
-        region.notifyEntryStateOnDisplay = true
-        locMan.startRangingBeaconsInRegion(region)
-
-		//			  locMan.startMonitoringForRegion(region)
-
-
-		//		self.locationManager.delegate = self
+		if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse) {
+			locMan.requestWhenInUseAuthorization()
+		}
+		
+		region.notifyOnEntry = true
+		region.notifyOnExit = true
+		region.notifyEntryStateOnDisplay = true // show notifications if the device's display is on
+		
 		locMan.desiredAccuracy = kCLLocationAccuracyBest
 		locMan.requestWhenInUseAuthorization()
 		
 		locMan.requestAlwaysAuthorization()
+		
+		locMan.startRangingBeaconsInRegion(region)
 		locMan.startUpdatingLocation()
-
+		
 		
 		// make sure the user has allowed location services
 		checkLocationAuthorization()
+	}
+	
+	func turnOffgeo(){
 		
-		// set up your regions for notifications
-		// apps can only monitor 20 regions at a time
-		for locationName: String in locations.keys {
-		//	println(locationName)
-			if locMan.monitoredRegions.count >= 20 {
-				// we're full up on regiuons to monitor.
-				
-				
-			} else {
-				let location: CLLocationCoordinate2D = locations[locationName]!
-				let region: CLCircularRegion = CLCircularRegion(center: location, radius: distance, identifier: locationName)
-				
-				// tell the system when you want notifications
-				region.notifyOnEntry = true
-				region.notifyOnExit = true
-				
-				// add the region to the location manager
-				locMan.startMonitoringForRegion(region)
-			}
-		}
+		locMan.stopRangingBeaconsInRegion(region)
+		locMan.stopMonitoringForRegion(region)
+	}
+	
+	func turnOngeo(){
 		
+		locMan.startRangingBeaconsInRegion(region)
+		locMan.startMonitoringForRegion(region)
+	}
+	
+	
+	func turnOffpush(){
+		allowPush = false
+	}
+	
+	func turnOnpush(){
+		allowPush = true
 		
 	}
+	
+	func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+		
+		switch status{
+			
+		case .AuthorizedAlways:
+			
+			locMan.startMonitoringForRegion(region)
+			locMan.startRangingBeaconsInRegion(region)
+			locMan.requestStateForRegion(region)
+			
+		case .Denied:
+			
+			let alert = UIAlertController(title: "Warning", message: "You've disabled location update which is required for Kawasaki Connect.", preferredStyle: UIAlertControllerStyle.Alert)
+			let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in }
+			alert.addAction(alertAction)
+			
+			s.didGoTOBg()
+			
+			//display error message if location updates are declined
+			
+		default:
+			print("default case")
+			
+		}
+		
+	}
+	
+	
+	func getDealerName(dealer:String) {
+		print("Getting DealerName")
+		dispatch_async(dispatch_get_main_queue(),{
+			let url = "https://mobileapp.fuse-review-kawasaki.com/MobileAppAPI/GetDealerInfo/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(dealer)"
+			print(url)
+			let endpoint = NSURL(string: url)
+		
+			if let data = NSData(contentsOfURL: endpoint!){
+				//	var firstLoc = true
+				if let json: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)) as? //
+					NSDictionary {
+						if let items = json["Dealer"] as? NSArray {
+							for item in items {
+								print(item)
+								if let dName = item["DealerName"] as? String {
+									s.dealerName = dName
+									print(dName)
+									}
+							}}
+				}
+			}
+			}
+		)
+	}
+	/*
+	func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
+	
+	switch state {
+	
+	case .Unknown:
+	print("unknown")
+	
+	case .Inside:
+	
+	var text = "Tap here to start coding."
+	
+	if enteredRegion {
+	text = "Welcome to the best co-working space on the planet."
+	}
+	
+	let notification: UILocalNotification = UILocalNotification()
+	notification.timeZone = NSTimeZone.defaultTimeZone()
+	
+	let dateTime = NSDate()
+	notification.fireDate = dateTime
+	notification.alertBody = text
+	UIApplication.sharedApplication().scheduleLocalNotification(notification)
+	print(text)
+	case .Outside:
+	
+	var text = "Why aren't you here? :("
+	
+	if !enteredRegion {
+	text = "Wait! Don't go into the light."
+	}
+	print(text)
+	let notification: UILocalNotification = UILocalNotification()
+	notification.timeZone = NSTimeZone.defaultTimeZone()
+	
+	let dateTime = NSDate()
+	notification.fireDate = dateTime
+	notification.alertBody = text
+	UIApplication.sharedApplication().scheduleLocalNotification(notification)
+	
+	}
+	}
+	*/
+	
 	var isClosed = false
 	var runclosed = false
 	var test1 = true
 	var	beaconList:NSNumber?
+	private var beaconTimeCheck: Dictionary<String, NSDate> = [:]
+	private var dealerBeaconTimeCheck: Dictionary<String, NSDate> = [:]
+	private var beaconTimeout: NSTimeInterval = 6 // 10 mins in seconds
 	
-    func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
-			for test in beacons {
-				if (test.minor == 8489){
-
-				}
-				beaconList = test.minor
-				if test.minor == 8489 && test1{
-				//	let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("DealerWelcome") as! UIViewController
-				//	parentView.presentViewController(viewController, animated: true, completion: nil)
-
-					//let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LandingPageNew") as! UIViewController
-					//parentView.presentViewController(viewController, animated: true, completion: nil)
-					test1 = false
-				}
-				if isClosed {
-					let date = NSDate()
-					let formatter = NSDateFormatter()
-					formatter.timeStyle = .ShortStyle
-					formatter.stringFromDate(date)
-					print("app closed \(date) :: \(test)")
-					if (test.major == 7181 || test.major == 30516){
-						sendAlert(test.major)
+	func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
+		if beacons.isEmpty { return }
+		var foundProductBeacons: Array<Beacon> = []
+		var foundDealerBeacons: Array<Beacon> = []
+		for b: CLBeacon in beacons {
+			
+			// find product beacons
+			for knownBeacon in self.productBeacons {
+				
+				if b.major == knownBeacon.major && b.minor == knownBeacon.minor && (b.proximity == .Immediate) { // immediate is within 6 inches
+					// only add to the list if we haven't seen this beacon within the time interval
+					if let timeLastSeen: NSDate = beaconTimeCheck[knownBeacon.uniqueIdentifier] {
+						let interval: NSTimeInterval = NSDate().timeIntervalSinceDate(timeLastSeen) // # seconds since we last saw the beacon
+						if interval > beaconTimeout {
+							foundProductBeacons.append(knownBeacon)
+							s.prefs.foundDealerBeacon(false)
+							beaconTimeCheck[knownBeacon.uniqueIdentifier] = NSDate()
+						}
+					} else {
+						foundProductBeacons.append(knownBeacon)
 					}
 				}
 			}
-			let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
-        if (knownBeacons.count > 0) {
-          // let closestBeacon = knownBeacons[0] as! CLBeacon
-          // println(closestBeacon)
-					// beaconButton.setTitle("\(String(closestBeacon.minor.integerValue)) distannce \(String(closestBeacon.proximity.rawValue)) " , forState: .Normal)
-        }
-			if UIApplication.sharedApplication().applicationState == .Active {
-				isClosed = false
-				runclosed = true
-				//  mapView.showAnnotations(locations, animated: true)
+			
+			// find dealer beacons
+			for dealerBeacon in self.dealerBeacons {
+				if b.major == dealerBeacon.major && b.minor == dealerBeacon.minor {
+				//	if let _: NSDate = dealerBeaconTimeCheck[dealerBeacon.uniqueIdentifier] {
+						// only report the dealer beacon if we haven't seen it before in this app launch
+				//	} else {
+						foundDealerBeacons.append(dealerBeacon)
+						dealerBeaconTimeCheck[dealerBeacon.uniqueIdentifier] = NSDate()
+					//}
+				}
+			}
+		}
+		
+		// foundProductBeacons is the list of beacons that the phone is basically sitting on
+		// foundDealerBeacons is the list of beacons found that belong to the dealer
+		let viewController = FoundBeaconProduct()
+		
+		if foundDealerBeacons.count > 0 {
+		
+			if s.navCheck && !s.prefs.hasSeenDealerBeacon() {
+
+				getDealerName(foundDealerBeacons[0].dealer)
+				s.prefs.foundDealerBeacon(true)
+				s.prefs.dealerID(foundDealerBeacons[0].idbeac)
+				s.dealerID = foundDealerBeacons[0].dealer
+				print(foundDealerBeacons[0].dealer)
+				coreData.setDealersVisited(foundDealerBeacons[0].dealer)
+				let url = NSURL(string: "https://kawasakimobileapp.gofuse.com/api/BeaconMetric/\(s.prefs.getPhID())/\(foundDealerBeacons[0].idbeac)/start")!
+				let request = NSURLRequest(URL: url)
+				NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
+					//		//print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+				}
+				if allowPush{
+					
+					let localNotification = UILocalNotification()
+					localNotification.fireDate = NSDate(timeIntervalSinceNow: 15)
+					localNotification.alertBody = "Welcome to \(s.dealerName)"
+					localNotification.timeZone = NSTimeZone.defaultTimeZone()
+					localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+					UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+				}
+				viewController.passedURL = "https://mobileapp.fuse-review-kawasaki.com/mobileDealer/DealerDetails/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(foundDealerBeacons[0].dealer)*/\(s.prefs.getPhID())/\(foundDealerBeacons[0].idbeac)/stop"
+				parentView.presentViewController(viewController, animated: true, completion: nil)
 			} else {
-				print("App is backgrounded. New location is \(beaconList) ")
-				isClosed = true
-				if runclosed{
-	
-					print("runclosed")
-					locMan.startMonitoringForRegion(CLBeaconRegion.init())
-//					locMan.startUpdatingLocation()
-					runclosed = false
+				if foundProductBeacons.count > 0 {
+					let url = NSURL(string: "https://kawasakimobileapp.gofuse.com/api/BeaconMetric/\(s.prefs.getPhID())/\(productBeacons[0].idbeac)/start")!
+					let request = NSURLRequest(URL: url)
+					NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
+						//	//print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+					}
+					viewController.passedURL = "https://mobileapp.fuse-review-kawasaki.com/mobileProduct/ProductDetailByURLKey/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(foundProductBeacons[0].name)/true*/\(s.prefs.getPhID())/\(foundProductBeacons[0].idbeac)/stop"
+					coreData.setVehiclesExplored(foundProductBeacons[0].name)
+					parentView.presentViewController(viewController, animated: true, completion: nil)
 				}
 			}
-    }
+		}
+		if UIApplication.sharedApplication().applicationState == .Active {
+			
+		}else{
+			
+		}
 	}
-
-
-
+	
+	
+	
+	func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
+		enteredRegion = true
+	}
+	
+	func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
+		enteredRegion = false
+	}
+	
+	
 	func sendAlert(value: NSNumber){
-		print(value)
-		if value == beaconAlertList.currentBeacon && beaconAlertList.currentBeaconTimer < 20{
-			print("same")
-			beaconAlertList.currentBeaconTimer++
-		}
-		else{
-				print("dif")
-		}
-
-
-	}
-
-	func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-		CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
-			if (error != nil) {
-				return
-			}
-			
-			if placemarks!.count > 0 {
-				if let pm = placemarks?.first {
-				print(pm.postalCode)
-				//				self.currentLocation = pm.postalCode
-				//				self.getStore(pm.postalCode)
-				//				count(self.currentLocation) != 0 && self.firstRun ?	self.getStore(self.currentLocation) : print("empty")
-				//				self.firstRun = true
-				//				self.displayLocationInfo(pm)
-				//			}else {
-				}
-			}
-			
-		})
-
-	}
-
-	
-	// an app can expect to receive the appropriate region entered or region exited notification within 3 to 5 minutes on average, if not sooner.
-	func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
-		// called when we entered a region
-		print("You've entered \(region)")
+		//	//print(value)
+		//	if value == beaconAlertList.currentBeacon && beaconAlertList.currentBeaconTimer < 20{
+		//		//print("same")
+		//		beaconAlertList.currentBeaconTimer++
+		//	}
+		//	else{
+		//		//print("dif")
+		//	}
+		//
+		//
 	}
 	
-	func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
-		print("You've excited \(region)")
-		// called when we exit a region
-	}
-	
-	func locationManager(manager: CLLocationManager!, monitoringDidFailForRegion region: CLRegion!, withError error: NSError!) {
-		// called when some error happens
-	}
 	
 	func checkLocationAuthorization(){
 		switch (CLLocationManager.authorizationStatus()){
@@ -225,13 +351,8 @@ class LocManager: NSObject, CLLocationManagerDelegate,  UIApplicationDelegate {
 			
 		case .AuthorizedWhenInUse:
 			// This app is authorized to start most location services while running in the foreground. This authorization does not allow you to use APIs that could launch your app in response to an event, such as region monitoring and the significant location change services.
-				break
-			}
+			break
+		}
 		
 	}
-	
-
-class currentBeacon: NSObject {
-	var currentBeacon: NSNumber?
-	var currentBeaconTimer: Int = 0
 }

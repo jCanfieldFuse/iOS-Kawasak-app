@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
-    <entity name="Beacons" syncable="YES">
+    <entity name="Beacons" representedClassName=".Beacons" syncable="YES">
         <attribute name="beaconID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="DealerHistory" syncable="YES">
-        <attribute name="dealersVisited" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    <entity name="DealerHistory" representedClassName=".DealerHistory" syncable="YES">
+        <attribute name="dealersVisited" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Usage" syncable="YES">
+    <entity name="Usage" representedClassName=".Usage" syncable="YES">
         <attribute name="legalAccept" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
-    <entity name="VehiclesExplored" syncable="YES">
-        <attribute name="exploredVehicles" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    <entity name="VehiclesExplored" representedClassName=".VehiclesExplored" syncable="YES">
+        <attribute name="exploredVehicles" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Beacons" positionX="81" positionY="-0" width="128" height="60"/>
+        <element name="DealerHistory" positionX="-74" positionY="-138" width="128" height="60"/>
         <element name="Usage" positionX="-63" positionY="-9" width="128" height="60"/>
-        <element name="DealerHistory" positionX="-74" positionY="-138" width="128" height="58"/>
         <element name="VehiclesExplored" positionX="9" positionY="-54" width="128" height="60"/>
     </elements>
 </model>

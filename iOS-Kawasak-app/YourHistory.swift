@@ -28,8 +28,8 @@ class YourHistory: UIViewController  {
 		racingHeader.frame = CGRectMake(0, 0, screen.width, 60)
 		racingHeader.backgroundColor = UIColor.blackColor()
 		self.view.addSubview(racingHeader)
-		coreData.setDealersVisited(11 as Int)
-		coreData.setVehiclesExplored(1 as Int)
+	//	coreData.setDealersVisited(11 as Int)
+	//	coreData.setVehiclesExplored(1 as Int)
 
 		let hamburgerV = UIView()
 		hamburgerV.frame = CGRectMake(20, 15, 40,40)
@@ -105,8 +105,8 @@ class YourHistory: UIViewController  {
 		textTop.textAlignment = NSTextAlignment.Right
 		topRightContainer.addSubview(textTop)
 		
-		
-		
+		let vehicles = coreData.getVehiclesExplored()
+		//print(vehicles.values)
 		let lineTop = UIImageView()
 		lineTop.frame = CGRectMake(0, textTop.frame.height + 5 , textTop.frame.width, 1)
 		lineTop.image = UIImage(named: "line2")
@@ -125,7 +125,7 @@ class YourHistory: UIViewController  {
 		redCountTop.frame = CGRectMake(0, 0, 20, 20)
 		redCountTop.font = UIFont(name: "Signika-Light", size: 12)
 		redCountTop.textColor = UIColor.whiteColor()
-		redCountTop.text = "\(coreData.getDealersExploredCount())"
+		redCountTop.text = "\(vehicles.count)"
 		redCountTop.textAlignment = NSTextAlignment.Center
 		redTopView.addSubview(redCountTop)
 		
@@ -144,6 +144,7 @@ class YourHistory: UIViewController  {
 		textMiddle.textAlignment = NSTextAlignment.Right
 		topRightContainer.addSubview(textMiddle)
 		
+		let dealers = coreData.getDealersExploredCount()
 		let lineMiddle = UIImageView()
 		lineMiddle.frame = CGRectMake(0, textMiddle.frame.height + 5, textMiddle.frame.width, 1)
 		lineMiddle.image = UIImage(named: "line2")
@@ -158,11 +159,13 @@ class YourHistory: UIViewController  {
 		redBottom.image = UIImage(named: "YouHaveActivityRedDot_HistorySectionpsb")
 		redBottomView.addSubview(redBottom)
 		
+		
+		
 		let redCountBottom = UILabel()
 		redCountBottom.frame = CGRectMake(0, 0, 20, 20)
 		redCountBottom.textColor = UIColor.whiteColor()
 		redCountBottom.font = UIFont(name: "Signika-Light", size: 12)
-		redCountBottom.text = "\(coreData.getVehiclesExploredCount())"
+		redCountBottom.text =  "\(dealers.count)"
 		redCountBottom.textAlignment = NSTextAlignment.Center
 		redBottomView.addSubview(redCountBottom
 		)
@@ -170,15 +173,16 @@ class YourHistory: UIViewController  {
 		//	self.view.addSubview(burger)
 		
 	}
+	/*
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		print("dasdsa")
+		//print("dasdsa")
 		if (segue.identifier == "toLanding") {
 			let svc = segue.destinationViewController as! LandingPageNew
 			svc.dataPassed = passIn
 			
-			print("passing data\(passIn)")
+			//print("passing data\(passIn)")
 		}
-	}
+	}*/
 
 	
 	override func viewWillAppear(animated: Bool) {
@@ -191,11 +195,19 @@ class YourHistory: UIViewController  {
 	
 	
 	func vehiclesVisited(sender: AnyObject){
-			self.performSegueWithIdentifier("toExploreVehicles", sender: self)
+		let vehicles = coreData.getVehiclesExplored()
+		let viewController = VisitedProducts()
+		viewController.passedURL = "https://mobileapp.fuse-review-kawasaki.com/mobileproduct/productslist/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(vehicles.values)"
+		self.presentViewController(viewController, animated: true, completion: nil)
 	}
 	
 	func dealersVisited(sender: AnyObject){
-			self.performSegueWithIdentifier("toDealersVisited", sender: self)
+		let dealers = coreData.getDealersExploredCount()
+		let viewController = VisitedDealers()
+		print(dealers.values)
+		print("https://mobileapp.fuse-review-kawasaki.com/userinfo/dealersVisited/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(dealers.values)")
+		viewController.passedURL = "https://mobileapp.fuse-review-kawasaki.com/userinfo/dealersVisited/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(dealers.values)"
+		self.presentViewController(viewController, animated: true, completion: nil)
 	}
 	
 	

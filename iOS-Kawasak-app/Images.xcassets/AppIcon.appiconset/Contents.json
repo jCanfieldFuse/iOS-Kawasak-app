@@ -3,37 +3,37 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Kawasaki120.png",
+      "filename" : "60x60_KawasakiConnect.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Kawasaki180.png",
+      "filename" : "120x120_KawasakiConnect.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Kawasaki120-1.png",
+      "filename" : "76x76_KawasakiConnect.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Kawasaki180-1.png",
+      "filename" : "152x152-KawasakiConnect.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Kawasaki120-2.png",
+      "filename" : "120x120_KawasakiConnect-1.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Kawasaki180-2.png",
+      "filename" : "180x180-KawasakiConnect.png",
       "scale" : "3x"
     }
   ],

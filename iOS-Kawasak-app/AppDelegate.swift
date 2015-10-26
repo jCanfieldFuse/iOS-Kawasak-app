@@ -33,23 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-			if isMultitaskingSupported() == false{
-				return
-			}
-			
-		/*	myTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
-				target: self,
-				selector: "timerMethod:",
-				userInfo: nil,
-				repeats: true)
+			Singleton.sharedInstance.didGoTOBg()
+//			if isMultitaskingSupported() == false{
+//				return
+//			}
+		
 
-			backgroundTaskIdentifier =
-				application.beginBackgroundTaskWithName("task1",
-					expirationHandler: {[weak self] in
-						self!.endBackgroundTask()
-					})
-
-*/
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
@@ -156,19 +145,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return UIDevice.currentDevice().multitaskingSupported
 	}
 	
-	func timerMethod(sender: NSTimer){
-  
-		let backgroundTimeRemaining =
-		UIApplication.sharedApplication().backgroundTimeRemaining
-		
-		if backgroundTimeRemaining == DBL_MAX{
-			print("Background Time Remaining = Undetermined")
-		} else {
-			print("Background Time Remaining = " +
-				"\(backgroundTimeRemaining) Seconds")
-		}
-  
-	}
 	
 	
 	func endBackgroundTask(){

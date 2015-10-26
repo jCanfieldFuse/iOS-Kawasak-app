@@ -14,26 +14,12 @@ class RaceResults: UIViewController, UIWebViewDelegate {
 	var racingHeader = UIView()
 	var hamburger = UIButton()
 	var racingWebView = UIWebView()
-	var footer:Footer = Footer()
+//	var footer:Footer = Footer()
 	var burger: BurgerMenu = BurgerMenu()
 	var fadeView = UIView()
 	var passedURL: String = ""
 	var passIn:Int = 0
-
-	
-	let images = [
-		UIImage(named: "2")!,
-		UIImage(named: "2")!,
-		UIImage(named: "3"),
-		UIImage(named: "4")!,
-		UIImage(named: "5")!,
-		UIImage(named: "6")!]
-	var index = 0
-	let animationDuration: NSTimeInterval = 0.5
-	let switchingInterval: NSTimeInterval = 3
-	let imageTest = UIImageView()
-	let imageView = UIImageView()
-	
+	var spinner = UIActivityIndicatorView()
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		burger.pickView = 1
@@ -75,65 +61,36 @@ class RaceResults: UIViewController, UIWebViewDelegate {
 		headerText.frame = CGRectMake(hamburger.frame.width + 35, 15, screen.width - hamburger.frame.width, 30)
 		racingHeader.addSubview(headerText)
 
-		let url = NSURL (string: "https://www.google.com/");
-		print(passedURL)
+		let url = NSURL (string: passedURL)
+		//print("passed url \(passedURL)")
 
-		let requestObj = NSURLRequest(URL: url!);
+		let requestObj = NSURLRequest(URL: url!)
 		racingWebView.frame = CGRectMake(0, racingHeader.frame.height, screen.width, screen.height)
 		racingWebView.loadRequest(requestObj);
 		racingWebView.backgroundColor = UIColor.blackColor()
-
+		
+		spinner.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+		spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+		spinner.contentMode = .Center
+		spinner.startAnimating()
+//		self.view.addSubview(spinner)
+		
 		self.view.addSubview(racingHeader)
 		racingHeader.addSubview(hamburger)
 		racingHeader.addSubview(headerText)
 		self.view.addSubview(racingWebView)
 		self.view.addSubview(fadeView)
 		self.view.addSubview(burger)
-		self.view.addSubview(footer)
-
-	
-		imageView.frame = CGRectMake(0, 0, screen.width * 0.5, screen.width * 0.5)
-		imageView.center = self.view.center
-		imageView.backgroundColor = UIColor.blackColor()
-		view.addSubview(imageView)
-		
-		imageView.image = images[index++]
-
 		
 	}
-	func animateImageView() {
-		CATransaction.begin()
-		
-		CATransaction.setAnimationDuration(animationDuration)
-		CATransaction.setCompletionBlock {
-			let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0))
-			dispatch_after(delay, dispatch_get_main_queue()) {
-				self.animateImageView()
-			}
-		}
-		
-		let transition = CATransition()
-		transition.type = kCATransitionFade
-		/*
-		transition.type = kCATransitionPush
-		transition.subtype = kCATransitionFromRight
-		*/
-		imageView.layer.addAnimation(transition, forKey: kCATransition)
-		imageView.image = images[index]
-		
-		CATransaction.commit()
-		
-		index = index < images.count - 1 ? index + 1 : 0
-	}
-
 	func webViewDidStartLoad(webView: UIWebView) {
 
-		animateImageView()
+	//	animateImageView()
 		
 	}
 	
 	func webViewDidFinishLoad(webView: UIWebView) {
-			imageView.removeFromSuperview()
+	//		imageView.removeFromSuperview()
 		UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
 			self.fadeView.alpha = 0
 			}, completion: { finished in

@@ -13,7 +13,7 @@ class CoreDataModel: NSObject {
 	
 	
 	func setLegal(name: Bool) {
-		print("setting legal \(name)")
+
  	let appDelegate =	UIApplication.sharedApplication().delegate as! AppDelegate
 		let managedContext = appDelegate.managedObjectContext!
 		let entity =  NSEntityDescription.entityForName("Usage", inManagedObjectContext: managedContext)
@@ -24,7 +24,7 @@ class CoreDataModel: NSObject {
 			try managedContext.save()
 		} catch let error1 as NSError {
 			error = error1
-			print("Could not save \(error), \(error?.userInfo)")
+			//print("Could not save \(error), \(error?.userInfo)")
 		}
 	}
 
@@ -41,14 +41,14 @@ class CoreDataModel: NSObject {
 			let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
 			if let results = fetchedResults {
 			//	people = results
-				print(results.count)
+
 				for i in results{
 					let person = i
-					print(person.valueForKey("legalAccept"))
+
 		  		returnValue = person.valueForKey("legalAccept")
 		  		}
 			} else {
-				print("Could not fetch")
+				//print("Could not fetch")
 			}
 		}catch{}
 
@@ -69,7 +69,7 @@ class CoreDataModel: NSObject {
 	//	}
 	}
 	
-	func setVehiclesExplored(id: Int){
+	func setVehiclesExplored(id: String){
 		let appDelegate =	UIApplication.sharedApplication().delegate as! AppDelegate
 		let managedContext = appDelegate.managedObjectContext!
 		let entity =  NSEntityDescription.entityForName("VehiclesExplored", inManagedObjectContext: managedContext)
@@ -80,11 +80,11 @@ class CoreDataModel: NSObject {
 			try managedContext.save()
 		} catch let error1 as NSError {
 			error = error1
-			print("Could not save \(error), \(error?.userInfo)")
+			//print("Could not save \(error), \(error?.userInfo)")
 		}
 	}
 	
-	func setDealersVisited(id: Int){
+	func setDealersVisited(id: String){
 		let appDelegate =	UIApplication.sharedApplication().delegate as! AppDelegate
 		let managedContext = appDelegate.managedObjectContext!
 		let entity =  NSEntityDescription.entityForName("DealerHistory", inManagedObjectContext: managedContext)
@@ -95,52 +95,63 @@ class CoreDataModel: NSObject {
 			try managedContext.save()
 		} catch let error1 as NSError {
 			error = error1
-			print("Could not save \(error), \(error?.userInfo)")
+			//print("Could not save \(error), \(error?.userInfo)")
 		}
 	}
 	
 	
-	func getVehiclesExploredCount() -> Int{
+	func getVehiclesExplored() -> (count: Int, values: String) {
 		
 		let appDelegate =	UIApplication.sharedApplication().delegate as! AppDelegate
 		let managedContext = appDelegate.managedObjectContext!
 		let fetchRequest = NSFetchRequest(entityName:"VehiclesExplored")
+		fetchRequest.returnsDistinctResults = true
 		let _: NSError?
-		var returnValue = 0
+		var returnArr: Array<String> = []
+		var dict: Dictionary<String, Bool> = [:]
 		
 		do{
-			let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
-			if let results = fetchedResults {
-				returnValue = results.count
-			
+			if let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject] {
+				for v in fetchedResults {
+					let vehicle: VehiclesExplored = v as! VehiclesExplored
+					dict[vehicle.exploredVehicles!] = true
+				}
+				for veh in dict.keys {
+					returnArr.append(veh)
+				}
 			} else {
-				print("Could not fetch")
+				//print("Could not fetch")
 			}
 		}catch{}
-		
-		return returnValue
-		
+	
+		return (returnArr.count, returnArr.joinWithSeparator(","))
 	}
 
-	func getDealersExploredCount() -> Int{
+	func getDealersExploredCount()  -> (count: Int, values: String) {
 		
 		let appDelegate =	UIApplication.sharedApplication().delegate as! AppDelegate
 		let managedContext = appDelegate.managedObjectContext!
 		let fetchRequest = NSFetchRequest(entityName:"DealerHistory")
+		fetchRequest.returnsDistinctResults = true
 		let _: NSError?
-		var returnValue = 0
+		var returnArr: Array<String> = []
+		var dict: Dictionary<String, Bool> = [:]
 		
 		do{
-			let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
-			if let results = fetchedResults {
-				returnValue = results.count
-				} else {
-				print("Could not fetch")
+			if let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject] {
+				for v in fetchedResults {
+					let vehicle: DealerHistory = v as! DealerHistory
+					dict[vehicle.dealersVisited!] = true
+				}
+				for veh in dict.keys {
+					returnArr.append(veh)
+				}
+			} else {
+				//print("Could not fetch")
 			}
 		}catch{}
-		
-		return returnValue
-		
+		//print(returnArr.joinWithSeparator(","))
+		return (returnArr.count, returnArr.joinWithSeparator(","))
 	}
 
 	

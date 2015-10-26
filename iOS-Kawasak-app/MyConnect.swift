@@ -13,7 +13,7 @@ class MyConnect: UIViewController  {
 	let marginRight:CGFloat = 40
 	let marginLeft:CGFloat = 40
 	var mainImage = UIImageView()
-	var footer:Footer = Footer()
+//	var footer:Footer = Footer()
 	override func viewDidLoad() {
 		self.navigationController?.navigationBarHidden = true
 		self.view.backgroundColor = UIColor.blackColor()
@@ -80,7 +80,7 @@ class MyConnect: UIViewController  {
 		bottomCopy.numberOfLines = 0
 		self.view.addSubview(bottomCopy)
 
-		self.view.addSubview(footer)
+		//self.view.addSubview(footer)
 
 	}
 

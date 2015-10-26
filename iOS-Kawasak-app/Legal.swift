@@ -13,13 +13,14 @@ class Legal: UIViewController  {
 	let marginRight:CGFloat = 20
 	let marginLeft:CGFloat = 20
 	let legalAccept: CoreDataModel = CoreDataModel()
+	let s:Singleton = Singleton.sharedInstance
 	var	bodyCopy = UIScrollView()
-	
+	let color:hexColor = hexColor()
 	override func viewDidLoad() {
 		
-	//	self.navigationController?.navigationBarHidden = true
+		//	self.navigationController?.navigationBarHidden = true
 		self.view.backgroundColor = UIColor.blackColor()
-		self.navigationController?.toolbarHidden = true
+		
 		
 		let racingHeader = UIView()
 		racingHeader.frame = CGRectMake(0, 0, screen.width, 60)
@@ -35,9 +36,9 @@ class Legal: UIViewController  {
 		//	headerText.attributedText = myMutableString
 		headerText.frame = CGRectMake(marginLeft, 15, screen.width , 30)
 		racingHeader.addSubview(headerText)
-	
+		
 		let racingWebView = UIWebView()
-		let url = NSURL (string: "https://m.kawasaki.com/home/privacy");
+		let url = NSURL (string: s.privacy);
 		let requestObj = NSURLRequest(URL: url!);
 		racingWebView.frame = CGRectMake(0, racingHeader.frame.height, screen.width, screen.height)
 		racingWebView.loadRequest(requestObj);
@@ -49,39 +50,48 @@ class Legal: UIViewController  {
 		bottomButtonContainer.backgroundColor = UIColor.blackColor()
 		self.view.addSubview(bottomButtonContainer)
 		
+		/*
 		let exitButton = UIButton()
 		exitButton.frame = CGRectMake(marginRight, 10, (bottomButtonContainer.frame.width * 0.5) - (10 + marginRight), 50)
 		exitButton.addTarget(self, action: "exit:", forControlEvents: UIControlEvents.TouchUpInside)
 		exitButton.setImage(UIImage(named: "PrivacyPolicy_EXit_Button"), forState: .Normal)
 		bottomButtonContainer.addSubview(exitButton)
 		exitButton.backgroundColor = UIColor.redColor()
-		
-		
+		*/
 		
 		let acceptButton = UIButton()
-		acceptButton.frame = CGRectMake(bottomButtonContainer.frame.width - (exitButton.frame.width + marginRight), 10, (bottomButtonContainer.frame.width * 0.5) - (10 + marginRight ), 50)
+		acceptButton.frame = CGRectMake(20, 15, screen.width - 40, 50)
+		acceptButton.setTitle("Accept", forState: UIControlState.Normal)
 		acceptButton.addTarget(self, action: "accept:", forControlEvents: UIControlEvents.TouchUpInside)
-		acceptButton.setImage(UIImage(named: "PrivacyPolicy_Accept_Button"), forState: .Normal)
+		acceptButton.titleLabel?.font = UIFont(name:"Signika-Light" , size: 18)
+		
+		acceptButton.backgroundColor = color.rgbColor(0x02c102)
 		bottomButtonContainer.addSubview(acceptButton)
-				acceptButton.backgroundColor = UIColor.redColor()
 		
 		let fadeBL = UIView()
 		fadeBL.frame = CGRectMake(0, bottomButtonContainer.frame.origin.y - 20
 			, screen.width, 20)
 		fadeBL.alpha = 0.5
 		fadeBL.backgroundColor = UIColor.blackColor()
-	//	self.view.addSubview(fadeBL)
+		//	self.view.addSubview(fadeBL)
 	}
 	
 	func exit(sender: UIButton!){
-		UIApplication.sharedApplication().openURL(NSURL(string:"https://www.Kawasaki.com")!)
+		//	UIApplication.sharedApplication().openURL(NSURL(string:"https://www.Kawasaki.com")!)
 		
+	}
+	override func viewDidAppear(animated: Bool) {
+	self.navigationController?.toolbarHidden = true
 	}
 	
 	func accept(sender: UIButton!){
 		legalAccept.setLegal(true)
+		NSUserDefaults.standardUserDefaults().setBool(true, forKey: "GoeSwitchState")
+//		s.prefs.setGeoTracking(true)
+		s.locationManager.turnOnpush()
+		s.locationManager.turnOngeo()
 		performSegueWithIdentifier("toNonDealerLanding", sender: self)
-
+		
 	}
 	override func prefersStatusBarHidden() -> Bool {
 		return true

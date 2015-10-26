@@ -11,7 +11,7 @@ import UIKit
 class OopsDealer: UIView {
 	var screen = UIScreen.mainScreen().bounds
 	var padding:CGFloat = 20
-	var marginRight:CGFloat = 25
+	var marginRight:CGFloat = 45
 	let mainCountainer = UIView()
 	var parentView:UIViewController!
 	var fadeCountainer = UIView()
@@ -39,7 +39,7 @@ class OopsDealer: UIView {
 		mainCountainer.addSubview(title)
 		
 		let body = UILabel()
-		body.text = "You do no have a preferred dealer \nset up in your account. \nDo you want to create one now?"
+		body.text = "You do no have a preferred dealer \nset up for this account. \nDo you want to create one now?"
 		body.numberOfLines = 3
 		body.textAlignment = NSTextAlignment.Center
    	body.font = UIFont(name: "Signika-Light", size: 15)
@@ -49,15 +49,15 @@ class OopsDealer: UIView {
 
 
 		let exitButton = UIButton()
-		exitButton.frame = CGRectMake(marginRight, mainCountainer.frame.height - 70, (mainCountainer.frame.width * 0.5) - (10 + marginRight), 50)
+		exitButton.frame = CGRectMake(marginRight, mainCountainer.frame.height - 90, 127,60)
 		exitButton.addTarget(self, action: "exit:", forControlEvents: UIControlEvents.TouchUpInside)
-		exitButton.setImage(UIImage(named: "PrivacyPolicy_EXit_Button"), forState: .Normal)
+		exitButton.setImage(UIImage(named: "cancel"), forState: .Normal)
 		mainCountainer.addSubview(exitButton)
 		
 		let acceptButton = UIButton()
-		acceptButton.frame = CGRectMake(mainCountainer.frame.width - (exitButton.frame.width + marginRight), mainCountainer.frame.height - 70, (mainCountainer.frame.width * 0.5) - (10 + marginRight ), 50)
+		acceptButton.frame = CGRectMake(mainCountainer.frame.width - (exitButton.frame.width + marginRight), mainCountainer.frame.height - 90, 127,60)
 		acceptButton.addTarget(self, action: "accept:", forControlEvents: UIControlEvents.TouchUpInside)
-		acceptButton.setImage(UIImage(named: "PrivacyPolicy_Accept_Button"), forState: .Normal)
+		acceptButton.setImage(UIImage(named: "ok-button"), forState: .Normal)
 		mainCountainer.addSubview(acceptButton)
 		mainCountainer.alpha = 0
 		self.alpha = 0
@@ -89,7 +89,7 @@ class OopsDealer: UIView {
 	}
 	
 	func accept(sender: AnyObject){
-		UIApplication.sharedApplication().openURL(NSURL(string:"http://www.myKawasaki.com")!)
+		UIApplication.sharedApplication().openURL(NSURL(string:"http://www.Kawasaki.com")!)
 		// 	self.parentView?.performSegueWithIdentifier("toFindDealer", sender: self)
 		UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
 			self.alpha = 1

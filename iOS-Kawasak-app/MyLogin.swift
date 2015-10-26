@@ -55,7 +55,6 @@ class MyLogin: UIViewController,UITextFieldDelegate  {
 
 
 		mainContainer.addSubview(titleLable)
-		
 		let subTitle = UILabel()
 		subTitle.text = "Please Log in to continue"
 		subTitle.frame = CGRectMake(titleLable.frame.origin.x ,titleLable.frame.origin.y + (titleLable.intrinsicContentSize().height + 12), subTitle.intrinsicContentSize().width, subTitle.intrinsicContentSize().height)
@@ -104,9 +103,7 @@ class MyLogin: UIViewController,UITextFieldDelegate  {
 		forgot.frame = CGRectMake((screen.width * 0.5) - 60, createAccount.frame.origin.y + (createAccount.frame.height + 20), 120, 30 )
 		forgot.setBackgroundImage(myImage, forState: .Normal)
 		mainContainer.addSubview(forgot)
-
-
-			self.view.addSubview(burger)
+		self.view.addSubview(burger)
 	}
 	
 

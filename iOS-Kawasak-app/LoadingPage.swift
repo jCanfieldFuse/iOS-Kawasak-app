@@ -13,35 +13,53 @@ class LoadingPage: UIViewController  {
 	var screen = UIScreen.mainScreen().bounds
 	var s:Singleton = Singleton.sharedInstance
 	let legalAccept: CoreDataModel = CoreDataModel()
+	var beacon: GetBeacons = GetBeacons()
 	var segueView = "no"
 	
 	override func viewDidLoad() {
 		self.navigationController?.navigationBarHidden = true
-
+		UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+		beacon.getList()
+		print("loading page")
 		self.view.backgroundColor = UIColor.blackColor()
-	/*
-  	let mainImage =  UIImage(named: "")
-		let centerImage:UIImageView = UIImageView(image:mainImage)
-		centerImage.frame = CGRectMake(20, (screen.height * 0.5) - 10, (mainImage?.size.width)!	, (mainImage?.size.height)!)
-		centerImage.center = self.view.center
-		self.view.addSubview(centerImage)
-		*/
-		s.locationManager.parentView = self
-		let legalAcc = legalAccept.getLegal() as! Int
-		print(legalAcc)
-		if legalAcc == 1 {
-					performSegueWithIdentifier("toGenericDealer", sender: self)
-		}else{
-					performSegueWithIdentifier("toLegal", sender: self)
+		if !s.prefs.isReg(){
+			print("first run")
+			s.prefs.setPushNotif(true)
+			s.prefs.setGeoTracking(true)
+			s.prefs.registerID(UIDevice.currentDevice().identifierForVendor!.UUIDString)
+			s.prefs.saveAppID()
+			
+			let url = NSURL(string: "https://kawasakimobileapp.gofuse.com/api/MobileAppInstall/\(UIDevice.currentDevice().identifierForVendor!.UUIDString)/v2")
+			let request = NSURLRequest(URL: url!)
+			NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
+				
+			}
 		}
+		
+		if !s.prefs.isGeoTrak(){
+			s.locationManager.turnOffgeo()
+		}else{
+			s.locationManager.turnOngeo()
+		}
+		if !s.prefs.isPush(){
+			s.locationManager.turnOffpush()
+		}else{
+			s.locationManager.turnOnpush()
+		}
+		
 	}
 	
 	override func viewDidAppear(animated: Bool) {
-		print(segueView)
+		let legalAcc = legalAccept.getLegal() as! Int
+		if legalAcc == 1 {
+			performSegueWithIdentifier("toGenericDealer", sender: self)
+		}else{
+			performSegueWithIdentifier("toLegal", sender: self)
+		}
 		if segueView != "no"{
 			performSegueWithIdentifier(segueView, sender: self)
 		}
-
+		
 	}
 	override func prefersStatusBarHidden() -> Bool {
 		return true

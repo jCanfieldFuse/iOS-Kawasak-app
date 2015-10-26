@@ -19,7 +19,8 @@ class LoginPopUp: UIView,UITextFieldDelegate  {
 	var parentView:UIViewController!
 	let fadeCountainer = UIView()
 	let mainContainer = UIView()
-
+	let password = UITextField()
+	let s:Singleton = Singleton.sharedInstance
 	override func didMoveToSuperview() {
 		super.didMoveToSuperview()
 		
@@ -53,13 +54,13 @@ class LoginPopUp: UIView,UITextFieldDelegate  {
 		close.addGestureRecognizer(tap1)
 		close.frame = CGRectMake((screen.width * 0.5) - 20, 10, 20, 20)
 		mainContainer.addSubview(close)
-
+		
 		
 		let titleLable = UILabel()
-		let myText = "My Kawasaki"
+		let myText = "My Kawasaki™"
 		titleLable.textColor = UIColor.whiteColor()
 		let	myMutableString = NSMutableAttributedString(string: myText, attributes: [NSFontAttributeName:UIFont(name: "Signika-Light", size: 30.0)!])
-		myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.grayColor(), range: NSRange(location:3,length:8))
+		myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.grayColor(), range: NSRange(location:3,length:9))
 		titleLable.attributedText = myMutableString
 		titleLable.frame = CGRectMake(mainContainer.frame.origin.x + 20 , mainContainer.frame.origin.y + topPadding - 20, titleLable.intrinsicContentSize().width, titleLable.intrinsicContentSize().height)
 		
@@ -81,9 +82,10 @@ class LoginPopUp: UIView,UITextFieldDelegate  {
 		mainContainer.addSubview(username)
 		
 		
-		let password = UITextField()
+		
 		password.frame = CGRectMake(titleLable.frame.origin.x, username.frame.origin.y + (username.frame.height + 20), mainContainer.frame.width - (padding * 2), 25 )
-		password.placeholder = "password"
+		password.placeholder = "Password"
+		password.secureTextEntry = true
 		password.font = UIFont(name: "Signika-Light", size: fontSize)
 		password.backgroundColor = UIColor.whiteColor()
 		mainContainer.addSubview(password)
@@ -93,13 +95,13 @@ class LoginPopUp: UIView,UITextFieldDelegate  {
 		myContinue.contentHorizontalAlignment = .Center
 		myContinue.titleLabel?.font = UIFont(name:"Signika-Light" , size: fontSize)
 		myContinue.setTitle("Continue", forState: UIControlState.Normal)
-		myContinue.addTarget(self, action: "exit:", forControlEvents: UIControlEvents.TouchUpInside)
+		myContinue.addTarget(self, action: "continueLoged:", forControlEvents: UIControlEvents.TouchUpInside)
 		myContinue.backgroundColor = color.rgbColor(0x02c102)
 		
 		mainContainer.addSubview(myContinue)
 		
 		let createAccount = UILabel()
-		let text = "Don't have a My Kawasaki account yet? \nCreate one"
+		let text = "Don't have a My Kawasaki account yet? \nCClick here to create one"
 		createAccount.numberOfLines = 2
 		let kText:NSMutableAttributedString = NSMutableAttributedString(string: text)
 		createAccount.userInteractionEnabled = true
@@ -153,11 +155,11 @@ class LoginPopUp: UIView,UITextFieldDelegate  {
 	
 	
 	func forgotPassword(sender: AnyObject){
-				UIApplication.sharedApplication().openURL(NSURL(string:"https://m.kawasaki.com/account/forgotPassword")!)
+		UIApplication.sharedApplication().openURL(NSURL(string:"https://m.kawasaki.com/account/forgotPassword")!)
 	}
 	
 	func creatPassword(sender: AnyObject){
-				UIApplication.sharedApplication().openURL(NSURL(string:"https://m.kawasaki.com/account/register")!)
+		UIApplication.sharedApplication().openURL(NSURL(string:"https://m.kawasaki.com/account/register")!)
 	}
 	
 	func showMessage(){
@@ -172,10 +174,43 @@ class LoginPopUp: UIView,UITextFieldDelegate  {
 		
 	}
 	
-	func continueLoged (sender: UIButton){
+	func continueLoged(sender: UIButton){
+		
+		if let user = username.text, passwd = password.text {
+			let url = "https://mobileapp.fuse-review-kawasaki.com/mobileappapi/AuthenticateAppUser/\(user)/\(passwd)/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
+			//print(url)
+			let endpoint = NSURL(string: url)
+			if let data = NSData(contentsOfURL: endpoint!){
+				if let json: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)) as? NSDictionary, let items = json["Login"] as? NSArray {
+					for item in items {
+						if let valid = item["isValidUser"] as? Bool, hasFav = item["hasFavorites"] as? Bool, hasOwned = item["hasOwned"] as? Bool, hasPref = item["hasPreferredDealer"] as? Bool{
+							self.s.prefs.setValidUser(valid)
+							self.s.prefs.setHasFavorites(hasFav)
+							self.s.prefs.sethasOwned(hasOwned)
+							self.s.prefs.setprefDealer(hasPref)
+							//print(item)
+							if valid{
+								login()
+								s.prefs.username(user)
+								s.prefs.password(passwd)
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
-
-//				self.parentView.myKawasakiText()
+	func login(){
+		s.prefs.setValidUser(true)
+		//print("faking login")
+		UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
+			self.alpha = 0
+			self.endEditing(true)
+			self.fadeCountainer.alpha = 0
+			}, completion: { finished in
+				self.mainContainer.alpha = 0
+		})
 	}
 	
 	
@@ -196,7 +231,7 @@ class LoginPopUp: UIView,UITextFieldDelegate  {
 			self.alpha = 1
 			self.fadeCountainer.alpha = 1
 			}, completion: { finished in
-				UIApplication.sharedApplication().openURL(NSURL(string:"http://www.apple.com")!)
+				UIApplication.sharedApplication().openURL(NSURL(string:"http://www.kawasak.com")!)
 				self.mainContainer.alpha = 0
 				self.alpha = 0
 				self.fadeCountainer.alpha = 0

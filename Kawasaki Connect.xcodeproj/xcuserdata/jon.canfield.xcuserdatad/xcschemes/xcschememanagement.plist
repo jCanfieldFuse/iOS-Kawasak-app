@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>iOS-Kawasak-app.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1D323C091BD9A75600251A6B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1D323C171BD9AA0700251A6B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1D40A3301BD9AA9800598B26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1D40A33E1BD9AB7300598B26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1D7F867F1B67FB1E001B6E1E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1D7F86971B67FB1E001B6E1E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

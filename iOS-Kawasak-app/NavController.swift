@@ -20,6 +20,9 @@ var screen = UIScreen.mainScreen().bounds
 	let fontSizeTitle:CGFloat = 25
 	var landingPage = false
 	var segueName:String!
+	let geoSwitch = UISwitch()
+	let pushSwitch = UISwitch()
+	let si:Singleton = Singleton.sharedInstance
 	//self.navigationController.interactivePopGestureRecognizer.delegate = self
 
 //	[self.navigationController.interactivePopGestureRecognizer setDelegate:nil];
@@ -27,17 +30,17 @@ var screen = UIScreen.mainScreen().bounds
 		return true;
 	}
 	func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
-		print(viewController.stringName)
-		
-//		segueName = viewController.stringName
-		segueName = "text      "
-	//	self.navigationBar.hidden = false
-		self.toolbar.hidden = false
 
+		segueName = "text      "
+
+		self.toolbar.hidden = false
+		s.navCheck = true
   	landingPage = false
 		switch viewController.stringName{
-
+		case "Legal":
+			s.navCheck = false
 		case "LoadingPage", "Legal", "FindDealer":
+			//	self.navigationController?.toolbarHidden = true
 				self.toolbar.hidden = true
 		case "LandingPageNew":
 			landingPage = true
@@ -52,6 +55,7 @@ var screen = UIScreen.mainScreen().bounds
  let howToContainer = UIView()
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
 		//self.navigationController?.interactivePopGestureRecognizer!.delegate = self
 		self.delegate = self
 		bgView.frame = CGRectMake(0, 0, screen.width, screen.height)
@@ -87,9 +91,10 @@ var screen = UIScreen.mainScreen().bounds
 		lineMiddle.image = UIImage(named: "line2")
 		mainContainer.addSubview(lineMiddle)
 
-		let pushSwitch = UISwitch()
+
 		pushSwitch.frame = CGRectMake(mainContainer.frame.width - (padding + 20) , titleLable.frame.origin.y + BottomPadding, 40, pushSwitch.intrinsicContentSize().height)
 		pushSwitch.onTintColor = color.rgbColor(0x02c102)
+		pushSwitch.setOn(true, animated: false)
 		pushSwitch.addTarget(self, action: "pushSwitchValue:", forControlEvents: .ValueChanged);
 		mainContainer.addSubview(pushSwitch)
 		
@@ -106,10 +111,11 @@ var screen = UIScreen.mainScreen().bounds
 		lineBottom.image = UIImage(named: "line2")
 		mainContainer.addSubview(lineBottom)
 		
-		let geoSwitch = UISwitch()
+
 		geoSwitch.frame = CGRectMake(mainContainer.frame.width - (padding + 20)  , pushLable.frame.origin.y + BottomPadding, 40, pushLable.intrinsicContentSize().height)
 		geoSwitch.addTarget(self, action: "geoSwitchValue:", forControlEvents: .ValueChanged)
 		geoSwitch.onTintColor = color.rgbColor(0x02c102)
+		geoSwitch.setOn(true, animated: false)
 		mainContainer.addSubview(geoSwitch)
 		
 		let okButton = UIButton()
@@ -146,11 +152,33 @@ var screen = UIScreen.mainScreen().bounds
 	}
 
 	func pushSwitchValue(sender:UISwitch!){
-		print(sender.on)
+		var defaults = NSUserDefaults.standardUserDefaults()
+
+
+		if pushSwitch.on {
+			defaults.setBool(true, forKey: "PushSwitchState")
+			si.prefs.setPushNotif(true)
+			si.locationManager.turnOnpush()
+		} else {
+			defaults.setBool(false, forKey: "PushSwitchState")
+			si.prefs.setPushNotif(false)
+			si.locationManager.turnOffpush()
+		}
 		
 	}
 	func geoSwitchValue(sender:UISwitch!){
-		print(sender.on)
+		var defaults = NSUserDefaults.standardUserDefaults()
+		
+		if geoSwitch.on {
+			defaults.setBool(true, forKey: "GoeSwitchState")
+			si.prefs.setGeoTracking(true)
+			si.locationManager.turnOngeo()
+		} else {
+			defaults.setBool(false, forKey: "GeoSwitchState")
+			si.prefs.setGeoTracking(false)
+			si.locationManager.turnOffgeo()
+		}
+
 	}
 	func submitOK(sender:AnyObject){
 
@@ -168,6 +196,8 @@ var screen = UIScreen.mainScreen().bounds
 
 	}
 
+	
+	
 	func navGen(){
 	 clearSubViews()
 		let kawaskiConnect = UIImageView()
@@ -230,7 +260,7 @@ var screen = UIScreen.mainScreen().bounds
 		settingsIcon.userInteractionEnabled = true
 		let recognizerLegal = UITapGestureRecognizer(target: self, action:"settings:")
 		settingsIcon.addGestureRecognizer(recognizerLegal)
-		settingsIcon.frame = CGRectMake( helpIcon.frame.origin.x - 40  ,12,(settingsimage?.size.width)! * 0.45, (settingsimage?.size.height)! * 0.45)
+		settingsIcon.frame = CGRectMake( helpIcon.frame.origin.x - 50  ,12,(settingsimage?.size.width)! * 0.45, (settingsimage?.size.height)! * 0.45)
 		self.toolbar.addSubview(settingsIcon)
 
 	}
@@ -238,7 +268,7 @@ var screen = UIScreen.mainScreen().bounds
 		let subViews = self.toolbar.subviews
 		var count = 0
 		for subview in subViews{
-			print(subview)
+		//	//print(subview)
 			if count > 1{
 			subview.removeFromSuperview()
 			}
@@ -249,19 +279,23 @@ var screen = UIScreen.mainScreen().bounds
 	
 	
 	func legal(recognizer: AnyObject){
+		
 			self.popToRootViewControllerAnimated(false)
 		self.viewControllers[0].performSegueWithIdentifier("toLegal", sender: self)
 	}
 	
 	func settings(recognizer: AnyObject){
-	
+		print("push settings \(s.prefs.isPush())")
+			geoSwitch.setOn(s.prefs.isGeoTrak(), animated: false)
+			pushSwitch.setOn(s.prefs.isPush() , animated: false)
+
 		UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
 			self.bgView.frame.origin.y = 0
 			self.mainContainer.frame.origin.y = 0
 			}, completion: { finished in
 				
 		})
-		//	print("dasdas")
+		//	//print("dasdas")
 	//	self.popToRootViewControllerAnimated(false)
 	//	self.viewControllers[0].performSegueWithIdentifier("goToSettings", sender: self)
 	

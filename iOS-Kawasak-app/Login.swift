@@ -66,13 +66,13 @@ class Login: UIViewController, UIWebViewDelegate{
 			
 			let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
 			request.HTTPMethod = "POST"
-			print("POST DATA!!!!!! \(postData))")
+
 			request.HTTPBody = postData
 			request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
 			request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 			request.setValue("application/json", forHTTPHeaderField: "Accept")
 			
-			print("POST DATA!!!!!! \(postData))")
+
 			var reponseError: NSError?
 			var response: NSURLResponse?
 			
@@ -83,7 +83,7 @@ class Login: UIViewController, UIWebViewDelegate{
 				reponseError = error
 				urlData = nil
 			}
-			print(" THE URL DATA\(urlData)")
+
 			if ( urlData != nil ) {
 				let res = response as! NSHTTPURLResponse!;
 				
@@ -108,7 +108,7 @@ class Login: UIViewController, UIWebViewDelegate{
 					
 					if(success == 1)
 					{
-						print(jsonData)
+
 						//							NSLog("Login SUCCESS");
 						//
 						//							var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()

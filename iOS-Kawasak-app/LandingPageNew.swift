@@ -25,6 +25,7 @@ class LandingPageNew: UIViewController  {
 	let fontSize:CGFloat = 20
 	let fontSizeRight: CGFloat = 20
 	var mainContainer = UIView()
+	var mainContainerD = UIView()
 	var buttonTop = UIButton()
 	var buttonMiddle = UIButton()
 	var buttonBottom = UIButton()
@@ -33,7 +34,7 @@ class LandingPageNew: UIViewController  {
 	var racingButton = UIButton()
 	var exploreButton = UIButton()
 	var MyKawButton = UIButton()
-	
+
 	var textTop = UILabel()
 	var textMiddle = UILabel()
 	var textBottom = UILabel()
@@ -41,7 +42,7 @@ class LandingPageNew: UIViewController  {
 	var topRightContainer = UIView()
 	var lineTop = UIImageView()
 	var currentState = ""
-	
+	var dealerName = UILabel()
 	var currentSelectState:String = "none"
 	let leftOffset:CGFloat = 16
 	let yOffest:CGFloat = 5
@@ -49,9 +50,10 @@ class LandingPageNew: UIViewController  {
 	var textHeight:CGFloat = 50
 	var threeButtonXpos:CGFloat =  20
 	var buttonPos:CGFloat = 0
-	
-	var s:Singleton = Singleton.sharedInstance
-	var video:VideoPlayer = VideoPlayer()
+	var textTopOffer = UILabel()
+	var lineTopOffer = UIImageView()
+	let s:Singleton = Singleton.sharedInstance
+	var welcomeLabel = UILabel()
 	var sequeState:Int?
 	var locDealer:LocateDealerHeader = LocateDealerHeader()
 	var legalCheck: CoreDataModel = CoreDataModel()
@@ -61,13 +63,17 @@ class LandingPageNew: UIViewController  {
 	var oVehicle: OopsVehicles = OopsVehicles()
 	var oFav: OopsFavVehicles = OopsFavVehicles()
 	var logDel:LoginPopUp = LoginPopUp()
+	var offerButton = UIButton()
+	//let getBeaconsTest: GetBeacons = GetBeacons()
 	var testBool = false
 	var dataPassed = 0
 	var url = ""
+	var centerView = UIView()
 
+	var firstScreen = true
 	var playerLayer:AVPlayerLayer = {
 		
-		let path = NSBundle.mainBundle().pathForResource("video", ofType: "mp4")
+		let path = NSBundle.mainBundle().pathForResource("video1", ofType: "mp4")
 		let tmpPath = NSURL(fileURLWithPath: path!)
 		let player = AVPlayer(URL:  tmpPath)
 		
@@ -85,7 +91,7 @@ class LandingPageNew: UIViewController  {
 			fatalError()
 		}
 		if error != nil {
-			print(error)
+			//print(error)
 		}
 		
 		var playerLayer = AVPlayerLayer(player: player)
@@ -102,27 +108,25 @@ class LandingPageNew: UIViewController  {
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		s.mainScreen = self
 		
-		
-		if !s.prefs.isReg(){
-			s.prefs.registerID(UIDevice.currentDevice().identifierForVendor!.UUIDString)
-		}
-		//isReg()
+		//s.getListBeacon.getList()
 		locDealer.locate = true
 		locDealer.parentView = self
 		logDel.parentView = self
 		s.locationManager.parentView = self
-		//self.navigationController?.navigationBarHidden = true
+		//print("has seefdsafsdfdagsdfn dealer \(s.prefs.hasSeenDealerBeacon())")
+		
 		halfButton = buttonHeight * 0.5
 		self.view.layer.addSublayer(self.playerLayer)
 		playerLayer.frame = self.view.frame
-		NSNotificationCenter.defaultCenter().addObserver(self, selector:"playerDidReachEnd", name:AVPlayerItemDidPlayToEndTimeNotification, object:nil)
+		
 		
 		mainContainer.frame = CGRectMake(0, 0, screen.width, screen.height)
 		let overLay = UIImageView()
 		overLay.frame = CGRectMake(0, 0, screen.width, screen.height)
 		overLay.image = UIImage(named: "SPLASHPAGES_VIGNETTE-OVER_VIDEO")
-		self.view.addSubview(overLay)
+		//	self.view.addSubview(overLay)
 		self.view.addSubview(mainContainer)
 		//locate dealer view
 		topRightContainer = UIView()
@@ -169,10 +173,11 @@ class LandingPageNew: UIViewController  {
 		//	myMutableString.addAttribute(NSForegroundColorAttributeName, value: "™", range: NSRange(location:2,length:3))
 		//MyKawButton.titleLabel?.attributedText = myMutableString
 		
-		MyKawButton.setTitle("      My Kawasaki™", forState: UIControlState.Normal)
+		MyKawButton.setTitle("My Kawasaki™", forState: UIControlState.Normal)
 		MyKawButton.titleLabel!.numberOfLines = 0
 		MyKawButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-		MyKawButton.titleEdgeInsets =  UIEdgeInsets(top:0 , left: 10, bottom: 0, right: 10)
+		MyKawButton.titleEdgeInsets =  UIEdgeInsets(top:0 , left: 0, bottom: 0, right: 0)
+		MyKawButton.titleLabel?.textAlignment = .Center
 		MyKawButton.contentHorizontalAlignment = .Center
 		//	MyKawButton.titleLabel?.font = UIFont(name: "Signika-Light", size: fontSize)
 		MyKawButton.addTarget(self, action: "loginD:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -254,83 +259,184 @@ class LandingPageNew: UIViewController  {
 		lineBottom.image = UIImage(named: "line2")
 		textBottom.addSubview(lineBottom)
 		topRightContainer.frame = CGRectMake(screen.width + 50, (self.kawasakiButton.frame.origin.y + self.kawasakiButton.frame.width * 0.5)  + 10 - ((buttonBottom.frame.origin.y + buttonBottom.frame.height) * 0.5), screen.width, (buttonBottom.frame.origin.y + buttonBottom.frame.height))
-		/*
-		backButton.frame = CGRectMake(0, 25, 80,80)
-		backButton.setTitle("<", forState: UIControlState.Normal)
-		backButton.titleLabel!.numberOfLines = 0
-		backButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-		backButton.contentHorizontalAlignment = .Center
-		backButton.titleLabel?.font = UIFont(name: (kawasakiButton.titleLabel?.font.fontName)!, size: 25)
-		backButton.addTarget(self, action: "goBack:", forControlEvents: UIControlEvents.TouchUpInside)
-		topRightContainer.addSubview(backButton)
-		*/
+
+		welcomeLabel.text = "Welcome!"
+		welcomeLabel.font = UIFont(name: "Signika-Bold", size: fontSize + 2)
+		welcomeLabel.textColor = UIColor.whiteColor()
+		welcomeLabel.frame = CGRectMake(30, 25, welcomeLabel.intrinsicContentSize().width , welcomeLabel.intrinsicContentSize().height)
+		welcomeLabel.textAlignment = NSTextAlignment.Left
+		self.view.addSubview(welcomeLabel)
+		
+		
+		dealerName.text = ""
+		dealerName.font = UIFont(name: "Signika-light", size: fontSize)
+		dealerName.frame = CGRectMake(30, welcomeLabel.frame.origin.y + 10 ,  screen.width, dealerName.intrinsicContentSize().height + 25)
+		dealerName.numberOfLines = 0
+		dealerName.textColor = UIColor.whiteColor()
+		dealerName.textAlignment = NSTextAlignment.Left
+		self.view.addSubview(dealerName)
+		
+		offerButton.frame = CGRectMake(buttonMiddle.frame.origin.x + 70, screen.height - 160, smButtonWidth, smButtonHeight)
+		offerButton.setBackgroundImage(UIImage(named: "KC_SplashPage_MainHexes_Iddle"), forState: .Normal)
+		offerButton.setBackgroundImage(UIImage(named: "KC_SplashPage_MainHexes_Pressed"), forState: UIControlState.Highlighted)
+		offerButton.addTarget(self, action: "getOffers:", forControlEvents: UIControlEvents.TouchUpInside)
+		self.view.addSubview(offerButton)
+
+		textTopOffer.text = "See Offers"
+		textTopOffer.font = UIFont(name: "Signika-Light", size: fontSizeRight)
+	  textTopOffer.frame =  CGRectMake(offerButton.frame.origin.x + offerButton.frame.width + 10, offerButton.frame.origin.y + 2 , textTopOffer.intrinsicContentSize().width, textHeight)
+	  let topRecognizerOffer = UITapGestureRecognizer(target: self, action:"getOffers:")
+		textTopOffer.addGestureRecognizer(topRecognizerOffer)
+		textTopOffer.userInteractionEnabled = true
+		textTopOffer.textColor = UIColor.whiteColor()
+		textTopOffer.textAlignment = NSTextAlignment.Right
+		self.view.addSubview(textTopOffer)
+	
+		lineTopOffer.frame = CGRectMake(0, textTopOffer.frame.height - 10, textTopOffer.frame.width, 1)
+		lineTopOffer.image = UIImage(named: "line2")
+		textTopOffer.addSubview(lineTopOffer)
+
+		
+		
+		self.view.addSubview(offerButton)
+		
+		if s.prefs.hasSeenDealerBeacon(){
+			dealerName.text = s.dealerName
+			dealerName.alpha = 1
+			offerButton.alpha = 1
+			welcomeLabel.alpha = 1
+			lineTopOffer.alpha = 1
+			textTopOffer.alpha = 1
+			locDealer.alpha = 0
+		}else{
+			dealerName.alpha = 0
+			offerButton.alpha = 0
+			lineTopOffer.alpha = 0
+			textTopOffer.alpha = 0
+			welcomeLabel.alpha = 0
+			locDealer.alpha = 1
+		}
+
 		self.view.addSubview(locDealer)
 		self.view.addSubview(oDealer)
 		self.view.addSubview(oOwned)
 		self.view.addSubview(oFav)
 		self.view.addSubview(logDel)
 		oDealer.parentView = self
-		print("DATA PASSED\(dataPassed)")
 		
-		if(dataPassed == 1){
-		racingSetup()
+		if !s.prefs.hasSeenDealerBeacon(){
+			if(s.currentStateOfV  == 1){
+				racingSetup()
+			}
+			if(s.currentStateOfV == 2){
+				exploreSetup()
+			}
+			if(s.currentStateOfV == 3){
+				myKawasakiSetup()
+			}else{
+				
+				goBack()
+			}
 		}
-		if(dataPassed == 2){
-			exploreSetup()
-		}
-		if(dataPassed == 3){
-			myKawasakiSetup()
-		}
-	}
-	
-	override func viewWillAppear(animated: Bool) {
-		/*
-		if(dataPassed == 1){
-			racingSetup()
-		}
-		if(dataPassed == 2){
-			exploreSetup()
-		}
-		if(dataPassed == 3){
-			myKawasakiSetup()
-			
-		}
-		else{
-			goBack()
-		}*/
+		
 		self.playerLayer.player!.play()
-		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector:"playVideo", name:
+			UIApplicationWillEnterForegroundNotification, object: nil)
+
+/*
+		if !s.prefs.hasSeenDealerBeacon(){
+			loadGeneric()
+			firstScreen = true
+		}else{
+			loadDealer()
+		}
+*/
+	}
+
+	override func viewWillAppear(animated: Bool) {
+		self.navigationController?.toolbarHidden = false
+		NSNotificationCenter.defaultCenter().addObserver(self, selector:"playerDidReachEnd", name:AVPlayerItemDidPlayToEndTimeNotification, object:nil)
+		self.playerLayer.player!.play()
+		//print(s.prefs.hasSeenDealerBeacon())
+		if s.prefs.hasSeenDealerBeacon(){
+			dealerName.text = s.dealerName
+			dealerName.alpha = 1
+			offerButton.alpha = 1
+			welcomeLabel.alpha = 1
+			lineTopOffer.alpha = 1
+			textTopOffer.alpha = 1
+			locDealer.alpha = 0
+		}else{
+			dealerName.alpha = 0
+			offerButton.alpha = 0
+			lineTopOffer.alpha = 0
+			textTopOffer.alpha = 0
+			welcomeLabel.alpha = 0
+			locDealer.alpha = 1
+		}
+
+
 	}
 	
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
+		self.playerLayer.player!.pause()
+			if !s.prefs.hasSeenDealerBeacon(){
+		goBack()
+		}
 		NSNotificationCenter.defaultCenter().removeObserver(self)
 	}
 	
 	override func viewDidAppear(animated: Bool) {
-	/*	if(dataPassed == 1){
+		//print("the first screen bool \(firstScreen)")
+		//print(s.prefs.hasSeenDealerBeacon())
+		if s.prefs.hasSeenDealerBeacon(){
+			dealerName.alpha = 1
+			offerButton.alpha = 1
+			welcomeLabel.alpha = 1
+			locDealer.alpha = 0
+		}else{
+			dealerName.alpha = 0
+			offerButton.alpha = 0
+			welcomeLabel.alpha = 0
+			locDealer.alpha = 1
+		}
+		turnButtonsOn()
+		if(s.currentStateOfV  == 1){
 			racingSetup()
 		}
-		if(dataPassed == 2){
-		exploreSetup()
+		if(s.currentStateOfV == 2){
+			exploreSetup()
 		}
-		if(dataPassed == 3){
-			myKawasakiSetup()		}
-		else{
+		if(s.currentStateOfV == 3){
+			myKawasakiSetup()
+		}
+		if(s.currentStateOfV == 0){
+
 			goBack()
 		}
-		*/
-		self.playerLayer.player!.play()
 	}
-	
+
+
 	override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
 		//	super.willAnimateRotationToInterfaceOrientation(toInterfaceOrientation, duration: duration)
 		playerLayer.frame = self.view.frame
 	}
 	
+	func playVideo(){
+
+		self.playerLayer.player!.play()
+	}
 	func playerDidReachEnd(){
 		self.playerLayer.player!.seekToTime(kCMTimeZero)
 		self.playerLayer.player!.play()
+	}
+	
+	
+	func getOffers(sender: AnyObject){
+		let viewController = Promo()
+		viewController.passedURL = "https://mobileapp.fuse-review-kawasaki.com/mobileDealer/Offers//\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(s.dealerID)"
+		self.presentViewController(viewController, animated: true, completion: nil)
 	}
 	
 	func buttonsTop() {
@@ -358,7 +464,7 @@ class LandingPageNew: UIViewController  {
 							self.kawasakiButton.addTarget(self, action: "callGoBack:", forControlEvents: UIControlEvents.TouchUpInside)
 							//	self.kawasakiButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (self.buttonWidth - 60) * 0.5)
 							}, completion: { finished in
-								print("done")
+
 						})
 				})
 				
@@ -435,8 +541,11 @@ class LandingPageNew: UIViewController  {
 	func racingSetup(){
 		currentSelectState = "racing"
 		currentState = "racing"
-		textTop.text = "News"
-		textMiddle.text = "Results"
+  	textTop.alpha = 0
+  	lineTop.alpha = 0
+		buttonTop.alpha = 0
+		textTop.text = ""
+		textMiddle.text = "news"
 		textBottom.text = "Schedule"
 		buttonsTop()
 		
@@ -454,13 +563,15 @@ class LandingPageNew: UIViewController  {
 	}
 	
 	func turnButtonsOn(){
+		textTop.alpha = 1
+		textMiddle.alpha = 1
+		textBottom.alpha = 1
+		buttonTop.alpha = 1
+		buttonMiddle.alpha = 1
 		buttonBottom.alpha = 1
 		lineTop.alpha = 1
-		textBottom.alpha = 1
-		buttonMiddle.alpha = 1
-		textMiddle.alpha = 1
-		buttonTop.alpha = 1
-		textTop.alpha = 1
+
+
 	}
 	
 	func opendODealer(recognizer: AnyObject){
@@ -469,50 +580,58 @@ class LandingPageNew: UIViewController  {
 	}
 	
 	func loginD(sender: AnyObject){
-		if !testBool{
-			self.logDel.showMessage()
-			testBool = true
-		}
-		else{
-			currentSelectState = "myKawasaki"
-			currentState = "My \nKawasaki™"
-			textTop.text = ""
-			textTop.text = "Favorites"
-			textMiddle.text = "Owned"
-			textBottom.text = "Dealer"
-			buttonsTop()
+		if s.prefs.getValidUser(){
+			getLatest()
+		 myKawasakiSetup()
+		}else{
+				self.logDel.showMessage()
 		}
 	}
-	
+	let offers = "https://mobileapp.fuse-review-kawasaki.com/mobiledealer/offers/"
+	let myDealer = "https://mobileapp.fuse-review-kawasaki.com//mobiledealer/myDealer"
+	let myFav = "https://mobileapp.fuse-review-kawasaki.com/userinfo/myfavoritevehicles/1/1"
+	let myOwned = "https://mobileapp.fuse-review-kawasaki.com/userinfo/MyOwnedVehicles/1/1"
+	let exploreV = "https://mobileapp.fuse-review-kawasaki.com/mobileProduct/explorevehicles"
+	let prodDetail = "https://mobileapp.fuse-review-kawasaki.com/mobileProduct/ProductDetail/7300"
+	let news = "https://mobileapp.fuse-review-kawasaki.com/mobileracing/news/"
+	let schedule = "https://mobileapp.fuse-review-kawasaki.com/mobileracing/schedule"
+	let newsDetails = "https://mobileapp.fuse-review-kawasaki.com/MobileRacing/NewsDetails/33"
+	let privacy = "https://mobileapp.fuse-review-kawasaki.com/home/privacyPolicy"
+//	\(s.prefs.getAppID())/\(s.prefs.getPhID()
 	func sequeTop(sender: UIButton!){
-		
+
 		switch currentSelectState {
 		case "racing":
-			self.url = s.news
+			//self.url = "https://mobileapp.fuse-review-kawasaki.com/mobileracing/\(s.prefs.getAppID())/\(s.prefs.getPhID())/news"
 			self.performSegueWithIdentifier("toRaceResults", sender: self)
 		case "explore":
 			self.performSegueWithIdentifier("toRaceResults", sender: self)
 		case "myKawasaki":
-						self.url = s.myFav
-//			self.oFav.showMessage()
-			//	self.performSegueWithIdentifier("toMyFavorites", sender: self)
+			if s.prefs.getHasFavorites(){
+				self.url  = "https://mobileapp.fuse-review-kawasaki.com/userinfo/myfavoritevehicles/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
+				self.performSegueWithIdentifier("toRaceResults", sender: self)
+			}else{
+			self.oFav.showMessage()
+			}
 		default: print("32")
 		}
 	}
 	
 	func sequeMiddle(sender: UIButton!){
-		print("middle")
+
 		switch currentSelectState {
 		case "racing":
-			self.url = s.newsDetails
+			self.url = "https://mobileapp.fuse-review-kawasaki.com/mobileracing/news/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
 			self.performSegueWithIdentifier("toRaceResults", sender: self)
 		case "explore":
-			self.url = s.exploreV
-			self.performSegueWithIdentifier("toRaceResults", sender: self)
+			self.performSegueWithIdentifier("toConnect", sender: self)
 		case "myKawasaki":
-				self.url = s.myOwned
-//			self.oOwned.showMessage()
-			//	self.performSegueWithIdentifier("toMyOwned", sender: self)
+			if s.prefs.gethasOwned(){
+					self.url = "https://mobileapp.fuse-review-kawasaki.com/userinfo/myownedVehicles/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
+					self.performSegueWithIdentifier("toRaceResults", sender: self)
+			}else{
+				self.oOwned.showMessage()
+			}
 		default: print("32")
 		}
 	}
@@ -520,29 +639,50 @@ class LandingPageNew: UIViewController  {
 	func sequeButtom(sender: UIButton!){
 		switch currentSelectState {
 		case "racing":
-		self.url =	s.schedule
+			self.url = "https://mobileapp.fuse-review-kawasaki.com/mobileracing/schedule/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
 			self.performSegueWithIdentifier("toRaceResults", sender: self)
 		case "explore":
 			self.performSegueWithIdentifier("toHistory", sender: self)
 		case "myKawasaki":
+			if s.prefs.getprefDealer(){
+				self.url = "https://mobileapp.fuse-review-kawasaki.com/mobiledealer/myDealer/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
+				self.performSegueWithIdentifier("toRaceResults", sender: self)
+			}else{
 			self.oDealer.showMessage()
+			}
 			//	self.performSegueWithIdentifier("toRaceResults", sender: self)
 		default: print("32")
 		}
 	}
 	
-	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		print("dasdsa")
-		if (segue.identifier == "toRaceResults") {
-			let svc = segue.destinationViewController as! RaceResults
-				svc.passedURL = self.url
-			//	print("passing data\(passIn)")
-		}
-	}
 
 	
 	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if (segue.identifier == "toRaceResults") {
+			let svc = segue.destinationViewController as! RaceResults
+				svc.passedURL = self.url
+		}
+	}
+
+	func getLatest(){
+				let url = "https://mobileapp.fuse-review-kawasaki.com/mobileappapi/AuthenticateAppUser/\(s.prefs.getUsername())/\(s.prefs.getPassword())/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
+				//print(url)
+				let endpoint = NSURL(string: url)
+				if let data = NSData(contentsOfURL: endpoint!){
+					if let json: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)) as? NSDictionary, let items = json["Login"] as? NSArray {
+						for item in items {
+							if let valid = item["isValidUser"] as? Bool, hasFav = item["hasFavorites"] as? Bool, hasOwned = item["hasOwned"] as? Bool, hasPref = item["hasPreferredDealer"] as? Bool{
+								self.s.prefs.setValidUser(valid)
+								self.s.prefs.setHasFavorites(hasFav)
+								self.s.prefs.sethasOwned(hasOwned)
+								self.s.prefs.setprefDealer(hasPref)
+								
+								}
+							}
+						}
+					}
+	}
 	
 	
 }

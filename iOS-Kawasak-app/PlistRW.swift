@@ -23,7 +23,7 @@ class PlistRW: NSObject {
         myDict = NSDictionary(contentsOfFile: path)
     }
     if let dict = myDict as? Dictionary<String, AnyObject>  {
-           print(dict)
+           //print(dict)
         // Use your dict here
     }
     
@@ -48,10 +48,10 @@ class PlistRW: NSObject {
     //var error: NSError?
     do {
         try fileManager.removeItemAtPath(plistpath)
-      //  println("Remove successful")
+      //  //println("Remove successful")
     } catch _ as NSError {
      //   error = error1
-      //   println("Remove failed: \(error!.localizedDescription)")
+      //   //println("Remove failed: \(error!.localizedDescription)")
     }
 
         
@@ -60,11 +60,11 @@ class PlistRW: NSObject {
     myDictionary.writeToFile(plistpath, atomically: false)
     }
     else{            //Reading Plist file
-   // println("Plist file found")
-   // print(plistpath)
+   // //println("Plist file found")
+   // //print(plistpath)
     
    // let resultDictionary = NSMutableDictionary(contentsOfFile: plistpath)
-   // println(resultDictionary?.description)
+   // //println(resultDictionary?.description)
     }
     
     
@@ -83,11 +83,11 @@ class PlistRW: NSObject {
     } else{
     //Reading text file
     let reulttext  = try? String(contentsOfFile: textpath, encoding: NSUTF8StringEncoding)
-    print(reulttext)
+    //print(reulttext)
     }
     }
     else {
-  //  println("directory is empty")
+  //  //println("directory is empty")
     }
     
     
@@ -110,7 +110,7 @@ class PlistRW: NSObject {
                     error = error1
                 }
                 if let err = error {
-                    print(err)
+                    //print(err)
                 }
             }
         }
