@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyFavorites: UIViewController, UIWebViewDelegate {
+class MyDealer: UIViewController, UIWebViewDelegate {
 	
 	var screen = UIScreen.mainScreen().bounds
 	var racingHeader = UIView()
@@ -53,10 +53,10 @@ class MyFavorites: UIViewController, UIWebViewDelegate {
 		racingHeader.addSubview(hamburger)
 		let headerText = UILabel()
 		
-		let myText  = "My Favorites"
+		let myText  = "My Dealer"
 		headerText.textColor = UIColor.whiteColor()
 		let	myMutableString = NSMutableAttributedString(string: myText, attributes: [NSFontAttributeName:UIFont(name: "Signika-Light", size: 18.0)!])
-		myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.grayColor(), range: NSRange(location:2,length:10))
+		myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.grayColor(), range: NSRange(location:2,length:6))
 		headerText.attributedText = myMutableString
 		headerText.frame = CGRectMake(hamburger.frame.width + 35, 15, screen.width - hamburger.frame.width, 30)
 		racingHeader.addSubview(headerText)

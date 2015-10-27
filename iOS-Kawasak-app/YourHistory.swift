@@ -19,6 +19,7 @@ class YourHistory: UIViewController  {
 	var coreData: CoreDataModel = CoreDataModel()
 	let c:hexColor = hexColor()
 	var passIn = 0
+	var url = ""
 	override func viewDidLoad() {
 	//	self.navigationController?.navigationBarHidden = true
 		self.view.backgroundColor = c.rgbColor(0x161719)
@@ -193,22 +194,30 @@ class YourHistory: UIViewController  {
 		
 	}
 	
-	
 	func vehiclesVisited(sender: AnyObject){
 		let vehicles = coreData.getVehiclesExplored()
-		let viewController = VisitedProducts()
-		viewController.passedURL = "https://mobileapp.fuse-review-kawasaki.com/mobileproduct/productslist/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(vehicles.values)"
-		self.presentViewController(viewController, animated: true, completion: nil)
+	
+		self.url = "https://mobileapp.fuse-review-kawasaki.com/mobileproduct/productslist/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(vehicles.values)"
+		self.performSegueWithIdentifier("toExploredVehicles", sender: self)
 	}
 	
 	func dealersVisited(sender: AnyObject){
 		let dealers = coreData.getDealersExploredCount()
-		let viewController = VisitedDealers()
-		print(dealers.values)
-		print("https://mobileapp.fuse-review-kawasaki.com/userinfo/dealersVisited/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(dealers.values)")
-		viewController.passedURL = "https://mobileapp.fuse-review-kawasaki.com/userinfo/dealersVisited/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(dealers.values)"
-		self.presentViewController(viewController, animated: true, completion: nil)
+		self.url = "https://mobileapp.fuse-review-kawasaki.com/userinfo/dealersVisited/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(dealers.values)"
+  	self.performSegueWithIdentifier("toDealersVisited", sender: self)
 	}
-	
-	
+
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	if (segue.identifier == "toDealersVisited") {
+		let svc = segue.destinationViewController as! VisitedDealers
+		svc.passedURL = self.url
+	}
+	if (segue.identifier == "toExploredVehicles") {
+		let svc = segue.destinationViewController as! VisitedDealers
+		svc.passedURL = self.url
+	}
+}
+
+
+
 }

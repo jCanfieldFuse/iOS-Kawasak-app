@@ -609,7 +609,7 @@ class LandingPageNew: UIViewController  {
 		case "myKawasaki":
 			if s.prefs.getHasFavorites(){
 				self.url  = "https://mobileapp.fuse-review-kawasaki.com/userinfo/myfavoritevehicles/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
-				self.performSegueWithIdentifier("toRaceResults", sender: self)
+				self.performSegueWithIdentifier("toMyFav", sender: self)
 			}else{
 			self.oFav.showMessage()
 			}
@@ -628,7 +628,7 @@ class LandingPageNew: UIViewController  {
 		case "myKawasaki":
 			if s.prefs.gethasOwned(){
 					self.url = "https://mobileapp.fuse-review-kawasaki.com/userinfo/myownedVehicles/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
-					self.performSegueWithIdentifier("toRaceResults", sender: self)
+					self.performSegueWithIdentifier("toMyOwned", sender: self)
 			}else{
 				self.oOwned.showMessage()
 			}
@@ -646,7 +646,7 @@ class LandingPageNew: UIViewController  {
 		case "myKawasaki":
 			if s.prefs.getprefDealer(){
 				self.url = "https://mobileapp.fuse-review-kawasaki.com/mobiledealer/myDealer/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
-				self.performSegueWithIdentifier("toRaceResults", sender: self)
+				self.performSegueWithIdentifier("toMyDealer", sender: self)
 			}else{
 			self.oDealer.showMessage()
 			}
@@ -663,6 +663,21 @@ class LandingPageNew: UIViewController  {
 			let svc = segue.destinationViewController as! RaceResults
 				svc.passedURL = self.url
 		}
+		if (segue.identifier == "toMyFav") {
+			let svc = segue.destinationViewController as! MyFavorites
+			svc.passedURL = self.url
+		}
+
+		if (segue.identifier == "toMyOwned") {
+			let svc = segue.destinationViewController as! MyOwned
+			svc.passedURL = self.url
+		}
+
+		if (segue.identifier == "toMyDealer") {
+			let svc = segue.destinationViewController as! MyDealer
+			svc.passedURL = self.url
+		}
+
 	}
 
 	func getLatest(){

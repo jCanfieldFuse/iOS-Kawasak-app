@@ -222,7 +222,7 @@ var screen = UIScreen.mainScreen().bounds
 		settingsIcon.userInteractionEnabled = true
 		let recognizerLegal = UITapGestureRecognizer(target: self, action:"settings:")
 		settingsIcon.addGestureRecognizer(recognizerLegal)
-		settingsIcon.frame = CGRectMake( helpIcon.frame.origin.x - 40  ,12,(settingsimage?.size.width)! * 0.45, (settingsimage?.size.height)! * 0.45)
+		settingsIcon.frame = CGRectMake( helpIcon.frame.origin.x - 50  ,12,(settingsimage?.size.width)! * 0.45, (settingsimage?.size.height)! * 0.45)
 		self.toolbar.addSubview(settingsIcon)
 
 		
