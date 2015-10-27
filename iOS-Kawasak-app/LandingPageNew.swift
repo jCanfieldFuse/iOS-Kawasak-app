@@ -435,6 +435,7 @@ class LandingPageNew: UIViewController  {
 	
 	func getOffers(sender: AnyObject){
 		let viewController = Promo()
+		print("https://mobileapp.fuse-review-kawasaki.com/mobileDealer/Offers//\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(s.dealerID)")
 		viewController.passedURL = "https://mobileapp.fuse-review-kawasaki.com/mobileDealer/Offers//\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(s.dealerID)"
 		self.presentViewController(viewController, animated: true, completion: nil)
 	}
