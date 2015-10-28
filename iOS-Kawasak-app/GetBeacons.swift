@@ -19,7 +19,7 @@ class GetBeacons{
 			let endpoint = NSURL(string: url)
 			//self.s.locationManager.dealerBeacons.append(Beacon(maj: 61190, min: 482, name: "Dealer", deal: "1", rang: 0.5))
 			//	self.s.locationManager.productBeacons.append(Beacon(maj: 35782, min: 37246, name: "Product",deal: "1", rang: 0.5))
-		//	return
+			//	return
 			if let data = NSData(contentsOfURL: endpoint!){
 				//	var firstLoc = true
 				if let json: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)) as? //
@@ -32,18 +32,21 @@ class GetBeacons{
 									let range = item["Range"] as! Float
 									if let urlKey = item["UrlKey"] as? String {
 										if let beaconID = item["BeaconId"]as? String {
-											if let beaconType = item["BeaconType"] as? String {
-												let b = Beacon(maj: major, min: minor, name: urlKey, deal: dealID, rang: range, idbeac: beaconID)
-												if beaconType.lowercaseString == "dealer"{
+											if let dealerName = item["DealerName"]as? String {
+												if let beaconType = item["BeaconType"] as? String {
+													let b = Beacon(maj: major, min: minor, name: urlKey, deal: dealID, rang: range, idbeac: beaconID, nameDealer: dealerName)
+													if beaconType.lowercaseString == "dealer"{
 													self.s.locationManager.dealerBeacons.append(b)
-												}else{
-													self.s.locationManager.productBeacons.append(b)
+													}else{
+														self.s.locationManager.productBeacons.append(b)
+													}
 												}
 											}
 										}
 									}
 								}
-							}}
+							}
+						}
 				}
 			}
 			}

@@ -133,16 +133,16 @@ var screen = UIScreen.mainScreen().bounds
 
 		let closeButton = UIButton()
 		closeButton.frame = CGRectMake(0, 0, screen.width, 60)
-		closeButton.backgroundColor = UIColor.blackColor()
+		closeButton.backgroundColor = color.rgbColor(0x161719)
 		closeButton.setTitle("X", forState: UIControlState.Normal)
 		closeButton.contentHorizontalAlignment = .Center
-		closeButton.titleLabel?.font = UIFont(name:"Signika-Light" , size: fontSize)
+		closeButton.titleLabel?.font = UIFont(name:"Signika-Light" , size: fontSize + 4)
 		closeButton.addTarget(self, action: "close:", forControlEvents: UIControlEvents.TouchUpInside)
 		howToContainer.addSubview(closeButton)
 		
 		let helpImage = UIImageView()
 		helpImage.frame = CGRectMake(0, 60, howToContainer.frame.width, howToContainer.frame.height)
-		helpImage.image = UIImage(named: "howTO")
+		helpImage.image = UIImage(named: "how-to")
 		howToContainer.addSubview(helpImage)
 		
 		howToContainer.frame.origin.y = screen.height
@@ -212,7 +212,7 @@ var screen = UIScreen.mainScreen().bounds
 		let recognizerLegal1 = UITapGestureRecognizer(target: self, action:"help:")
 		helpIcon.addGestureRecognizer(recognizerLegal1)
 
-		helpIcon.frame = CGRectMake((self.toolbar.frame.width - 30) , 12, (helpImage?.size.width)! * 0.45, (helpImage?.size.height)! * 0.45)
+		helpIcon.frame = CGRectMake((self.toolbar.frame.width - 40) , 10,(helpImage?.size.width)! * 0.45 + 5, (helpImage?.size.height)! * 0.45 + 5)
 		
 		self.toolbar.addSubview(helpIcon)
 		
@@ -222,7 +222,7 @@ var screen = UIScreen.mainScreen().bounds
 		settingsIcon.userInteractionEnabled = true
 		let recognizerLegal = UITapGestureRecognizer(target: self, action:"settings:")
 		settingsIcon.addGestureRecognizer(recognizerLegal)
-		settingsIcon.frame = CGRectMake( helpIcon.frame.origin.x - 50  ,12,(settingsimage?.size.width)! * 0.45, (settingsimage?.size.height)! * 0.45)
+		settingsIcon.frame = CGRectMake( helpIcon.frame.origin.x - 60  ,10,(settingsimage?.size.width)! * 0.45 + 5, (settingsimage?.size.height)! * 0.45 + 5)
 		self.toolbar.addSubview(settingsIcon)
 
 		
@@ -248,7 +248,7 @@ var screen = UIScreen.mainScreen().bounds
 		let	helpImage = UIImage(named: "InstructionsIcon_Footer")
 		
 		helpIcon.image = helpImage
-		helpIcon.frame = CGRectMake((self.toolbar.frame.width - 30) , 12, (helpImage?.size.width)! * 0.45, (helpImage?.size.height)! * 0.45)
+		helpIcon.frame = CGRectMake((self.toolbar.frame.width - 40) , 10,(helpImage?.size.width)! * 0.45 + 5, (helpImage?.size.height)! * 0.45 + 5)
 		helpIcon.userInteractionEnabled = true
 		let recognizerLegal1 = UITapGestureRecognizer(target: self, action:"help:")
 		helpIcon.addGestureRecognizer(recognizerLegal1)
@@ -260,7 +260,7 @@ var screen = UIScreen.mainScreen().bounds
 		settingsIcon.userInteractionEnabled = true
 		let recognizerLegal = UITapGestureRecognizer(target: self, action:"settings:")
 		settingsIcon.addGestureRecognizer(recognizerLegal)
-		settingsIcon.frame = CGRectMake( helpIcon.frame.origin.x - 50  ,12,(settingsimage?.size.width)! * 0.45, (settingsimage?.size.height)! * 0.45)
+		settingsIcon.frame = CGRectMake( helpIcon.frame.origin.x - 60  ,10,(settingsimage?.size.width)! * 0.45 + 5, (settingsimage?.size.height)! * 0.45 + 5)
 		self.toolbar.addSubview(settingsIcon)
 
 	}
@@ -268,7 +268,6 @@ var screen = UIScreen.mainScreen().bounds
 		let subViews = self.toolbar.subviews
 		var count = 0
 		for subview in subViews{
-		//	//print(subview)
 			if count > 1{
 			subview.removeFromSuperview()
 			}
@@ -285,7 +284,6 @@ var screen = UIScreen.mainScreen().bounds
 	}
 	
 	func settings(recognizer: AnyObject){
-		print("push settings \(s.prefs.isPush())")
 			geoSwitch.setOn(s.prefs.isGeoTrak(), animated: false)
 			pushSwitch.setOn(s.prefs.isPush() , animated: false)
 
@@ -295,9 +293,6 @@ var screen = UIScreen.mainScreen().bounds
 			}, completion: { finished in
 				
 		})
-		//	//print("dasdas")
-	//	self.popToRootViewControllerAnimated(false)
-	//	self.viewControllers[0].performSegueWithIdentifier("goToSettings", sender: self)
 	
 	}
 	func help(sender:AnyObject){

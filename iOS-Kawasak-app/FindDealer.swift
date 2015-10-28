@@ -48,6 +48,7 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 	let phoneBG = UIView()
 	let phoneIcon = UIImageView()
 	var tableList =  UITableView()
+	var url = ""
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -142,9 +143,9 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
 		view.addGestureRecognizer(tap)
 		addDoneButtonOnKeyboard()
-		
+		*/
 		//loadingSpinner.startAnimating()
-		self.view.addSubview(locDealer)*/
+//		self.view.addSubview(locDealer)
 		let backgroundC = UIButton()
 		backgroundC.frame = CGRectMake(0, 0, screen.width * 0.5, screen.width * 0.3)
 		backgroundC.addTarget(self, action: "close:", forControlEvents: .TouchUpInside)
@@ -180,7 +181,7 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 	func centerMapOnLocation(location: CLLocation) {
 		
 		let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-	  regionRadius * 2.0, regionRadius * 2.0)
+	  regionRadius * 150.0, regionRadius * 150.0)
 		mapView.setRegion(coordinateRegion, animated: true)
 		fadeOut()
 	}
@@ -214,7 +215,7 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 	}
 	
 	func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-		//  //println("Error: " + error.localizedDescription)
+
 	}
  
 	@IBAction func zipCodeSearch(sender: AnyObject) {
@@ -233,19 +234,17 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 	}
 	
 	func getStore(zipcode: String){
-	//	//print("1212")
 
 		self.locationManager.startUpdatingLocation()
 //		fadeIn()
 		dispatch_async(dispatch_get_main_queue(),{
-			let url = "https://mobileapp.fuse-review-kawasaki.com/mobileappapi/GetDealerByZip?zipcode=\(zipcode)"
+			let url = "https://Kawasakimobileappapi.gofuse.com/mobileappapi/GetDealerByZip?zipcode=\(zipcode)"
 			let endpoint = NSURL(string: url)
 				self.nearBy = []
 			if let data = NSData(contentsOfURL: endpoint!){
 				var firstLoc = true
 				if let json: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)) as? NSDictionary, let items = json["Dealerships"] as? NSArray {
 					for item in items {
-					//	//print(item)
 						if let lat = item["Latitude"] as? CLLocationDegrees, long = item["Longitude"] as? CLLocationDegrees, store = item["Name"] as? String, postalCode = item["PostalCode"] as? String, addy = item["Address"] as? String, city = item["City"] as? String, state = item["State"] as? String, phone = item["Phone"] as? String, dealerID = item["Id"] as? String{
 
 							if (firstLoc){
@@ -273,7 +272,6 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 								nbd.lat = lat
 								nbd.zip = postalCode
 								nbd.IDdealer = dealerID
-								//print(nbd.name)
 								self.nearBy.append(nbd)
 								firstLoc = false
 								self.detailsButton.alpha = 1
@@ -327,15 +325,17 @@ class FindDealer: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 	
 
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		//print(self.nearBy[indexPath.row].IDdealer)
-		let viewController = ExploreVehicles()
-		viewController.passedURL = "https://mobileapp.fuse-review-kawasaki.com/mobiledealer/DealerDetails/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(self.nearBy[indexPath.row].IDdealer)"
-		self.presentViewController(viewController, animated: true, completion: nil)
-////print("yep")
-	//	self.passedInfo = self.nearBy[indexPath.row].name
-	//	self.performSegueWithIdentifier("moreDealerInfo", sender: self)
+		self.url = "https://Kawasakimobileappapi.gofuse.com/mobiledealer/DealerDetails/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(self.nearBy[indexPath.row].IDdealer)"
+		self.performSegueWithIdentifier("toDealerDetails", sender: self)
 	}
 	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if (segue.identifier == "toDealerDetails") {
+			let svc = segue.destinationViewController as! DealersDetail
+			svc.passedURL = self.url
+		}
+
+	}
 	
 	
 	func goToMap(sender: AnyObject){

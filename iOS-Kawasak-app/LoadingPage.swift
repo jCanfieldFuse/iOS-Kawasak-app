@@ -20,16 +20,14 @@ class LoadingPage: UIViewController  {
 		self.navigationController?.navigationBarHidden = true
 		UIApplication.sharedApplication().applicationIconBadgeNumber = 0
 		beacon.getList()
-		print("loading page")
 		self.view.backgroundColor = UIColor.blackColor()
 		if !s.prefs.isReg(){
-			print("first run")
 			s.prefs.setPushNotif(true)
 			s.prefs.setGeoTracking(true)
 			s.prefs.registerID(UIDevice.currentDevice().identifierForVendor!.UUIDString)
 			s.prefs.saveAppID()
 			
-			let url = NSURL(string: "https://kawasakimobileapp.gofuse.com/api/MobileAppInstall/\(UIDevice.currentDevice().identifierForVendor!.UUIDString)/v2")
+			let url = NSURL(string: "https://Kawasakimobileappapi.gofuse.com/api/MobileAppInstall/\(UIDevice.currentDevice().identifierForVendor!.UUIDString)/v2")
 			let request = NSURLRequest(URL: url!)
 			NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
 				
@@ -52,6 +50,7 @@ class LoadingPage: UIViewController  {
 	override func viewDidAppear(animated: Bool) {
 		let legalAcc = legalAccept.getLegal() as! Int
 		if legalAcc == 1 {
+			
 			performSegueWithIdentifier("toGenericDealer", sender: self)
 		}else{
 			performSegueWithIdentifier("toLegal", sender: self)

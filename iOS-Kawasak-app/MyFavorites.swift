@@ -20,6 +20,7 @@ class MyFavorites: UIViewController, UIWebViewDelegate {
 	var passedURL: String = ""
 	var passIn:Int = 0
 	var spinner = UIActivityIndicatorView()
+		var actInd: UIActivityIndicatorView = UIActivityIndicatorView()
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		burger.pickView = 1
@@ -62,7 +63,6 @@ class MyFavorites: UIViewController, UIWebViewDelegate {
 		racingHeader.addSubview(headerText)
 		
 		let url = NSURL (string: passedURL)
-		//print("passed url \(passedURL)")
 		
 		let requestObj = NSURLRequest(URL: url!)
 		racingWebView.frame = CGRectMake(0, racingHeader.frame.height, screen.width, screen.height)
@@ -82,15 +82,19 @@ class MyFavorites: UIViewController, UIWebViewDelegate {
 		self.view.addSubview(fadeView)
 		self.view.addSubview(burger)
 		
+		actInd.frame = CGRectMake((screen.width * 0.5) - 20, (screen.height * 0.5) - 20, 40.0, 40.0);
+		actInd.hidesWhenStopped = true
+		actInd.activityIndicatorViewStyle =	UIActivityIndicatorViewStyle.WhiteLarge
+		self.view.addSubview(actInd)
 	}
 	func webViewDidStartLoad(webView: UIWebView) {
 		
-		//	animateImageView()
-		
+
+				actInd.startAnimating()
 	}
 	
 	func webViewDidFinishLoad(webView: UIWebView) {
-		//		imageView.removeFromSuperview()
+			actInd.stopAnimating()
 		UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
 			self.fadeView.alpha = 0
 			}, completion: { finished in

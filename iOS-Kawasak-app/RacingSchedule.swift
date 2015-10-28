@@ -17,6 +17,7 @@ class RacingSchedule: UIViewController {
 //	var footer:Footer = Footer()
 	var burger: BurgerMenu = BurgerMenu()
 	var fadeView = UIView()
+		var actInd: UIActivityIndicatorView = UIActivityIndicatorView()
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -61,6 +62,10 @@ class RacingSchedule: UIViewController {
 		self.view.addSubview(fadeView)
 		self.view.addSubview(burger)
 		//self.view.addSubview(footer)
+		actInd.frame = CGRectMake((screen.width * 0.5) - 20, (screen.height * 0.5) - 20, 40.0, 40.0);
+		actInd.hidesWhenStopped = true
+		actInd.activityIndicatorViewStyle =	UIActivityIndicatorViewStyle.WhiteLarge
+		self.view.addSubview(actInd)
 		
 	}
 	

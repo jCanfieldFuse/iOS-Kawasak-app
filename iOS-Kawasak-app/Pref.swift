@@ -22,8 +22,6 @@ class Pref: AnyObject {
 	func isReg() -> Bool{
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		if let loggedInNotNil = defaults.objectForKey("uuid") as? String {
-			//print("isReg")
-			//print(loggedInNotNil)
 			return true
 		}else{
 			return false
@@ -47,7 +45,6 @@ class Pref: AnyObject {
 	}
 	
 	func logOut(sender: AnyObject){
-		//print("logging out")
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		defaults.setObject("false", forKey: "loggedIn")
 		defaults.synchronize()
@@ -63,8 +60,7 @@ class Pref: AnyObject {
 	func firstRun () -> Bool{
 			let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 			if let firstRun = defaults.objectForKey("phID") as? String {
-				//print("isReg")
-				//print(firstRun)
+
 				return true
 			}else{
 				return false
@@ -72,7 +68,7 @@ class Pref: AnyObject {
 	}
 	
 	func saveAppID(){
-		//print("saving app")
+
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		defaults.setObject("E7A9B1A8-241A-40DE-BAD1-330C7FF9C1A4", forKey: "appID")
 		defaults.synchronize()
@@ -81,7 +77,7 @@ class Pref: AnyObject {
 	func getAppID() -> String{
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		if let firstRun = defaults.objectForKey("appID") as? String {
-			//print(firstRun)
+
 			return firstRun
 		}else{
 		return	""
@@ -91,14 +87,14 @@ class Pref: AnyObject {
 	func loadlogInfo(){
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		if let loggedInNotNil = defaults.objectForKey("loggedIn") as? String {
-			//print(loggedInNotNil)
+
 			//	self.firstNameTextField.text = defaults.objectForKey("firstName") as String
 		}
 		
 	}
 	
 	func setValidUser(user:Bool){
-		//print("setting valid user \(user)")
+
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		defaults.setObject(user, forKey: "alidUser")
 		defaults.synchronize()
@@ -121,6 +117,21 @@ class Pref: AnyObject {
 		defaults.synchronize()
 	}
 	
+	func setDealerBeacon(dealer: String){
+		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+		defaults.setObject(dealer, forKey: "beaconDealer")
+		defaults.synchronize()
+	}
+	
+	func getBeaconDealer() -> String{
+		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+		if let firstRun = defaults.objectForKey("beaconDealer") as? String {
+			return firstRun
+		}else{
+			return ""
+		}
+
+	}
 	func getValidUser() ->Bool{
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		if let ret = defaults.objectForKey("alidUser") as? Bool {
@@ -147,7 +158,7 @@ class Pref: AnyObject {
 	}
 
 	func foundDealerBeacon(id:Bool){
-		//print("found dealer beacon \(id)")
+
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		defaults.setObject(id, forKey: "dealerBeacon")
 		defaults.synchronize()
@@ -156,15 +167,18 @@ class Pref: AnyObject {
 	func hasSeenDealerBeacon() -> Bool{
 
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+		
 		if let firstRun = defaults.objectForKey("dealerBeacon") as? Bool {
+			(s.mainScreen as! LandingPageNew).updateDealerStatus(firstRun)
 			return firstRun
 		}else{
+			(s.mainScreen as! LandingPageNew).updateDealerStatus(false)
 			return false
 		}
 	}
 	
 	func dealerID(id:String){
-		//print("found dealer beacon \(id)")
+
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		defaults.setObject(id, forKey: "dealerID")
 		defaults.synchronize()
@@ -180,23 +194,22 @@ class Pref: AnyObject {
 		}
 	}
 	func setGeoTracking(value: Bool){
-		//print("setting geo track \(value)")
+
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		defaults.setObject(value, forKey: "GeoTrack")
 		defaults.synchronize()
 	}
 	
 	func setPushNotif(value: Bool){
-		print(value)
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		defaults.setObject(value, forKey: "PushNot")
 		defaults.synchronize()
 	}
 	func isGeoTrak() -> Bool{
-		//print("checking to see is geo track okay")
+
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		if let firstRun = defaults.objectForKey("GeoTrack") as? Bool {
-			//print("from prefs geo \(firstRun)")
+
 			return firstRun
 		}else{
 			return false
@@ -204,13 +217,13 @@ class Pref: AnyObject {
 		
 	}
 	func isPush() -> Bool{
-		print("checking for push")
+
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		if let firstRun = defaults.objectForKey("PushNot") as? Bool {
-			print("bbb")
+
 			return firstRun
 		}else{
-			print("aaaa")
+
 			return false
 		}
 		
@@ -218,7 +231,6 @@ class Pref: AnyObject {
 	
 	
 	func username(value: String){
-		//print("setting geo track \(value)")
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		defaults.setObject(value, forKey: "username")
 		defaults.synchronize()
@@ -235,7 +247,7 @@ class Pref: AnyObject {
 	}
 
 	func password(value: String){
-		//print("setting geo track \(value)")
+
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		defaults.setObject(value, forKey: "password")
 		defaults.synchronize()
@@ -243,7 +255,7 @@ class Pref: AnyObject {
 	
 	func getPassword() -> String{
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-		if let firstRun = defaults.objectForKey("getPassowrd") as? String {
+		if let firstRun = defaults.objectForKey("password") as? String {
 			return firstRun
 		}else{
 			return ""

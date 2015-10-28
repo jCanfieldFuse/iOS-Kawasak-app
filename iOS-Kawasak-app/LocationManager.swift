@@ -21,15 +21,17 @@ class Beacon: Equatable {
 	var dealer: String = ""
 	var range: Float = 0.0
 	var idbeac: String = ""
+	var nameDealer: String = ""
 	var uniqueIdentifier: String { get { return ""+name+"::\(major)::\(minor)" } }
 	
-	init(maj: Int, min: Int, name: String, deal: String, rang: Float, idbeac: String  ){
+	init(maj: Int, min: Int, name: String, deal: String, rang: Float, idbeac: String , nameDealer: String ){
 		self.major = maj
 		self.minor = min
 		self.name = name
 		self.dealer = deal
 		self.range = rang
 		self.idbeac = idbeac
+		self.nameDealer = nameDealer
 		//	s.locationManager.beaconTimeCheck[self.uniqueIdentifier] = NSDate(timeIntervalSince1970: 0)
 	}
 }
@@ -62,8 +64,8 @@ class LocManager: NSObject, CLLocationManagerDelegate {
 	
 	override init(){
 		super.init()
-		dealerBeacons.append(Beacon(maj: 61190, min: 482, name: "Dealer", deal: "8FA6A833-2470-4F2E-B00E-5E6341D1670F", rang: 3, idbeac: "Rj8Q"))
-		productBeacons.append(Beacon(maj: 35782, min: 37246, name: "2015-KFX50", deal: "8FA6A833-2470-4F2E-B00E-5E6341D1670F", rang: 0.5,idbeac: "9XOE"))
+	//	dealerBeacons.append(Beacon(maj: 61190, min: 482, name: "Dealer", deal: "8FA6A833-2470-4F2E-B00E-5E6341D1670F", rang: 3, idbeac: "Rj8Q"))
+	//	productBeacons.append(Beacon(maj: 35782, min: 37246, name: "2015-KFX50", deal: "8FA6A833-2470-4F2E-B00E-5E6341D1670F", rang: 0.5,idbeac: "9XOE"))
 		
 		
 		locMan.delegate = self
@@ -138,11 +140,11 @@ class LocManager: NSObject, CLLocationManagerDelegate {
 		
 	}
 	
-	
+	/*
 	func getDealerName(dealer:String) {
 		print("Getting DealerName")
 		dispatch_async(dispatch_get_main_queue(),{
-			let url = "https://mobileapp.fuse-review-kawasaki.com/MobileAppAPI/GetDealerInfo/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(dealer)"
+			let url = "https://Kawasakimobileappapi.gofuse.com/MobileAppAPI/GetDealerInfo/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(dealer)"
 			print(url)
 			let endpoint = NSURL(string: url)
 		
@@ -163,6 +165,7 @@ class LocManager: NSObject, CLLocationManagerDelegate {
 			}
 		)
 	}
+	*/
 	/*
 	func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
 	
@@ -259,37 +262,33 @@ class LocManager: NSObject, CLLocationManagerDelegate {
 		if foundDealerBeacons.count > 0 {
 		
 			if s.navCheck && !s.prefs.hasSeenDealerBeacon() {
-
-				getDealerName(foundDealerBeacons[0].dealer)
 				s.prefs.foundDealerBeacon(true)
-				s.prefs.dealerID(foundDealerBeacons[0].idbeac)
-				s.dealerID = foundDealerBeacons[0].dealer
-				print(foundDealerBeacons[0].dealer)
+				s.prefs.dealerID(foundDealerBeacons[0].dealer)
+  			s.prefs.setDealerBeacon(foundDealerBeacons[0].nameDealer)
 				coreData.setDealersVisited(foundDealerBeacons[0].dealer)
-				let url = NSURL(string: "https://kawasakimobileapp.gofuse.com/api/BeaconMetric/\(s.prefs.getPhID())/\(foundDealerBeacons[0].idbeac)/start")!
+				let url = NSURL(string: "https://Kawasakimobileappapi.gofuse.com/api/BeaconMetric/\(s.prefs.getPhID())/\(foundDealerBeacons[0].idbeac)/start")!
 				let request = NSURLRequest(URL: url)
 				NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
-					//		//print(NSString(data: data!, encoding: NSUTF8StringEncoding))
 				}
 				if allowPush{
 					
 					let localNotification = UILocalNotification()
 					localNotification.fireDate = NSDate(timeIntervalSinceNow: 15)
-					localNotification.alertBody = "Welcome to \(s.dealerName)"
+					localNotification.alertBody = "Welcome to \(s.prefs.getBeaconDealer())"
 					localNotification.timeZone = NSTimeZone.defaultTimeZone()
 					localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
 					UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
 				}
-				viewController.passedURL = "https://mobileapp.fuse-review-kawasaki.com/mobileDealer/DealerDetails/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(foundDealerBeacons[0].dealer)*/\(s.prefs.getPhID())/\(foundDealerBeacons[0].idbeac)/stop"
-				parentView.presentViewController(viewController, animated: true, completion: nil)
+			//	viewController.passedURL = "https://Kawasakimobileappapi.gofuse.com/mobileDealer/DealerDetails/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(foundDealerBeacons[0].dealer)*/\(s.prefs.getPhID())/\(foundDealerBeacons[0].idbeac)/stop"
+		//		parentView.presentViewController(viewController, animated: true, completion: nil)
 			} else {
 				if foundProductBeacons.count > 0 {
-					let url = NSURL(string: "https://kawasakimobileapp.gofuse.com/api/BeaconMetric/\(s.prefs.getPhID())/\(productBeacons[0].idbeac)/start")!
+					
+					let url = NSURL(string: "https://Kawasakimobileappapi.gofuse.com/api/BeaconMetric/\(s.prefs.getPhID())/\(productBeacons[0].idbeac)/start")!
 					let request = NSURLRequest(URL: url)
 					NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
-						//	//print(NSString(data: data!, encoding: NSUTF8StringEncoding))
 					}
-					viewController.passedURL = "https://mobileapp.fuse-review-kawasaki.com/mobileProduct/ProductDetailByURLKey/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(foundProductBeacons[0].name)/true*/\(s.prefs.getPhID())/\(foundProductBeacons[0].idbeac)/stop"
+					viewController.passedURL = "https://Kawasakimobileappapi.gofuse.com/mobileProduct/ProductDetailByURLKey/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(foundProductBeacons[0].name)/true*/\(s.prefs.getPhID())/\(foundProductBeacons[0].idbeac)/stop"
 					coreData.setVehiclesExplored(foundProductBeacons[0].name)
 					parentView.presentViewController(viewController, animated: true, completion: nil)
 				}
@@ -301,7 +300,44 @@ class LocManager: NSObject, CLLocationManagerDelegate {
 			
 		}
 	}
-	
+	func locationManager(manager: CLLocationManager, didDetermineState state: CLRegionState, forRegion region: CLRegion) {
+		
+		switch state {
+			
+		case .Unknown:
+			print("unknown")
+			
+		case .Inside:
+			
+		//	var text = "Tap here to start coding."
+			
+			if enteredRegion {
+				let localNotification = UILocalNotification()
+				localNotification.fireDate = NSDate(timeIntervalSinceNow: 15)
+				localNotification.alertBody = "Welcome to \(s.prefs.getBeaconDealer())"
+				localNotification.timeZone = NSTimeZone.defaultTimeZone()
+				localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+				UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+
+			}
+			
+		case .Outside:
+			
+		//	var text = "Why aren't you here? :("
+			
+			if !enteredRegion {
+				let localNotification = UILocalNotification()
+				localNotification.fireDate = NSDate(timeIntervalSinceNow: 15)
+				localNotification.alertBody = "Welcome to \(s.prefs.getBeaconDealer())"
+				localNotification.timeZone = NSTimeZone.defaultTimeZone()
+				localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+				UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+			}
+		//	Notifications.display(text)
+			
+		}
+	}
+
 	
 	
 	func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
@@ -314,16 +350,7 @@ class LocManager: NSObject, CLLocationManagerDelegate {
 	
 	
 	func sendAlert(value: NSNumber){
-		//	//print(value)
-		//	if value == beaconAlertList.currentBeacon && beaconAlertList.currentBeaconTimer < 20{
-		//		//print("same")
-		//		beaconAlertList.currentBeaconTimer++
-		//	}
-		//	else{
-		//		//print("dif")
-		//	}
-		//
-		//
+
 	}
 	
 	

@@ -49,7 +49,7 @@ class DealerWelcome: UIViewController  {
 		
 		centerView.frame = CGRectMake(0, screen.height * 0.5 - (bButtonHeight * 0.5) , screen.width, screen.width * 0.4)
 		self.view.addSubview(centerView)
-		var topRightContainer = UIView()
+		let topRightContainer = UIView()
 		
 		self.view.addSubview(topRightContainer)
 		
@@ -158,22 +158,22 @@ class DealerWelcome: UIViewController  {
 	}
 	
 	func explore(sender: UIButton!){
-		//print("seg top")
+	
 		
 	}
 	
 	func sequeTop(sender: UIButton!){
-		//print("seg top")
+	
 		
 	}
 	
 	func sequeMiddle(sender: UIButton!){
-		//print("seg middle")
+	
 		
 	}
 	
 	func sequeButtom(sender: UIButton!){
-		//print("seg botton")
+	
 	}
 	
 	

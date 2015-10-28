@@ -17,6 +17,7 @@ class DealersVisited: UIViewController {
 //	var footer:Footer = Footer()
 	var burger: BurgerMenu = BurgerMenu()
 	var fadeView = UIView()
+		var actInd: UIActivityIndicatorView = UIActivityIndicatorView()
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		

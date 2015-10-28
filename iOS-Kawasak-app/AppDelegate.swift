@@ -146,23 +146,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	
-	
-	func endBackgroundTask(){
-
-		   		let mainQueue = dispatch_get_main_queue()
-		
-		dispatch_async(mainQueue, {[weak self] in
-			if let timer = self!.myTimer{
-				timer.invalidate()
-				self!.myTimer = nil
-				UIApplication.sharedApplication().endBackgroundTask(
-					self!.backgroundTaskIdentifier)
-				self!.backgroundTaskIdentifier = UIBackgroundTaskInvalid
-			}
-			})
-	}
-	
-
-	
 }
 

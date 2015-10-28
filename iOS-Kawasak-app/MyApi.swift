@@ -9,7 +9,7 @@
 import Foundation
 
 class MyApi: NSObject {
-
+/*
     func getImagefromFolder(imageName: String) -> String{
         var image: String = ""
         let nsDocumentDirectory = NSSearchPathDirectory.DocumentDirectory
@@ -27,5 +27,5 @@ class MyApi: NSObject {
 			
         return image
     }
-    
+    */
 }

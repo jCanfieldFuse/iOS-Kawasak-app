@@ -64,7 +64,6 @@ class LandingPageNew: UIViewController  {
 	var oFav: OopsFavVehicles = OopsFavVehicles()
 	var logDel:LoginPopUp = LoginPopUp()
 	var offerButton = UIButton()
-	//let getBeaconsTest: GetBeacons = GetBeacons()
 	var testBool = false
 	var dataPassed = 0
 	var url = ""
@@ -91,7 +90,7 @@ class LandingPageNew: UIViewController  {
 			fatalError()
 		}
 		if error != nil {
-			//print(error)
+
 		}
 		
 		var playerLayer = AVPlayerLayer(player: player)
@@ -115,8 +114,7 @@ class LandingPageNew: UIViewController  {
 		locDealer.parentView = self
 		logDel.parentView = self
 		s.locationManager.parentView = self
-		//print("has seefdsafsdfdagsdfn dealer \(s.prefs.hasSeenDealerBeacon())")
-		
+	
 		halfButton = buttonHeight * 0.5
 		self.view.layer.addSublayer(self.playerLayer)
 		playerLayer.frame = self.view.frame
@@ -258,19 +256,19 @@ class LandingPageNew: UIViewController  {
 		lineBottom.frame = CGRectMake(0, textBottom.frame.height - 10, textBottom.frame.width, 1)
 		lineBottom.image = UIImage(named: "line2")
 		textBottom.addSubview(lineBottom)
-		topRightContainer.frame = CGRectMake(screen.width + 50, (self.kawasakiButton.frame.origin.y + self.kawasakiButton.frame.width * 0.5)  + 10 - ((buttonBottom.frame.origin.y + buttonBottom.frame.height) * 0.5), screen.width, (buttonBottom.frame.origin.y + buttonBottom.frame.height))
+		topRightContainer.frame = CGRectMake(screen.width + 50, (self.kawasakiButton.frame.origin.y + self.kawasakiButton.frame.width * 0.5)  + 15 - ((buttonBottom.frame.origin.y + buttonBottom.frame.height) * 0.5), screen.width, (buttonBottom.frame.origin.y + buttonBottom.frame.height))
 
 		welcomeLabel.text = "Welcome!"
 		welcomeLabel.font = UIFont(name: "Signika-Bold", size: fontSize + 2)
 		welcomeLabel.textColor = UIColor.whiteColor()
-		welcomeLabel.frame = CGRectMake(30, 25, welcomeLabel.intrinsicContentSize().width , welcomeLabel.intrinsicContentSize().height)
+		welcomeLabel.frame = CGRectMake(30, 25, welcomeLabel.intrinsicContentSize().width , welcomeLabel.intrinsicContentSize().height )
 		welcomeLabel.textAlignment = NSTextAlignment.Left
 		self.view.addSubview(welcomeLabel)
 		
 		
 		dealerName.text = ""
 		dealerName.font = UIFont(name: "Signika-light", size: fontSize)
-		dealerName.frame = CGRectMake(30, welcomeLabel.frame.origin.y + 10 ,  screen.width, dealerName.intrinsicContentSize().height + 25)
+		dealerName.frame = CGRectMake(30, welcomeLabel.frame.origin.y + welcomeLabel.frame.height ,  screen.width, welcomeLabel.intrinsicContentSize().height )
 		dealerName.numberOfLines = 0
 		dealerName.textColor = UIColor.whiteColor()
 		dealerName.textAlignment = NSTextAlignment.Left
@@ -300,22 +298,6 @@ class LandingPageNew: UIViewController  {
 		
 		self.view.addSubview(offerButton)
 		
-		if s.prefs.hasSeenDealerBeacon(){
-			dealerName.text = s.dealerName
-			dealerName.alpha = 1
-			offerButton.alpha = 1
-			welcomeLabel.alpha = 1
-			lineTopOffer.alpha = 1
-			textTopOffer.alpha = 1
-			locDealer.alpha = 0
-		}else{
-			dealerName.alpha = 0
-			offerButton.alpha = 0
-			lineTopOffer.alpha = 0
-			textTopOffer.alpha = 0
-			welcomeLabel.alpha = 0
-			locDealer.alpha = 1
-		}
 
 		self.view.addSubview(locDealer)
 		self.view.addSubview(oDealer)
@@ -334,8 +316,8 @@ class LandingPageNew: UIViewController  {
 			if(s.currentStateOfV == 3){
 				myKawasakiSetup()
 			}else{
-				
-				goBack()
+
+		//goBack()
 			}
 		}
 		
@@ -343,37 +325,41 @@ class LandingPageNew: UIViewController  {
 		NSNotificationCenter.defaultCenter().addObserver(self, selector:"playVideo", name:
 			UIApplicationWillEnterForegroundNotification, object: nil)
 
-/*
-		if !s.prefs.hasSeenDealerBeacon(){
-			loadGeneric()
-			firstScreen = true
-		}else{
-			loadDealer()
-		}
-*/
 	}
 
+	func updateDealerStatus(foundDealer: Bool){
+		if foundDealer {
+			UIView.animateWithDuration(0.4, delay: 0.0, options: .CurveEaseOut, animations: {
+				
+				self.dealerName.text = self.s.prefs.getBeaconDealer()
+				self.dealerName.alpha = 1
+				self.offerButton.alpha = 1
+				self.welcomeLabel.alpha = 1
+				self.lineTopOffer.alpha = 1
+				self.textTopOffer.alpha = 1
+				self.locDealer.alpha = 0
+				}, completion: { finished in
+			})
+			
+		}else{
+			UIView.animateWithDuration(0.4, delay: 0.0, options: .CurveEaseOut, animations: {
+				
+				self.dealerName.alpha = 0
+				self.offerButton.alpha = 0
+				self.welcomeLabel.alpha = 0
+				self.lineTopOffer.alpha = 0
+				self.textTopOffer.alpha = 0
+				self.locDealer.alpha = 1
+				}, completion: { finished in
+			})
+		}
+	}
+	
 	override func viewWillAppear(animated: Bool) {
 		self.navigationController?.toolbarHidden = false
 		NSNotificationCenter.defaultCenter().addObserver(self, selector:"playerDidReachEnd", name:AVPlayerItemDidPlayToEndTimeNotification, object:nil)
 		self.playerLayer.player!.play()
-		//print(s.prefs.hasSeenDealerBeacon())
-		if s.prefs.hasSeenDealerBeacon(){
-			dealerName.text = s.dealerName
-			dealerName.alpha = 1
-			offerButton.alpha = 1
-			welcomeLabel.alpha = 1
-			lineTopOffer.alpha = 1
-			textTopOffer.alpha = 1
-			locDealer.alpha = 0
-		}else{
-			dealerName.alpha = 0
-			offerButton.alpha = 0
-			lineTopOffer.alpha = 0
-			textTopOffer.alpha = 0
-			welcomeLabel.alpha = 0
-			locDealer.alpha = 1
-		}
+		updateDealerStatus(s.prefs.hasSeenDealerBeacon())
 
 
 	}
@@ -381,6 +367,7 @@ class LandingPageNew: UIViewController  {
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
 		self.playerLayer.player!.pause()
+
 			if !s.prefs.hasSeenDealerBeacon(){
 		goBack()
 		}
@@ -388,8 +375,7 @@ class LandingPageNew: UIViewController  {
 	}
 	
 	override func viewDidAppear(animated: Bool) {
-		//print("the first screen bool \(firstScreen)")
-		//print(s.prefs.hasSeenDealerBeacon())
+	
 		if s.prefs.hasSeenDealerBeacon(){
 			dealerName.alpha = 1
 			offerButton.alpha = 1
@@ -411,9 +397,13 @@ class LandingPageNew: UIViewController  {
 		if(s.currentStateOfV == 3){
 			myKawasakiSetup()
 		}
+		if s.currentStateOfV == 5{
+			goBack()
+			locDealer.openDealerFinder()
+		}
 		if(s.currentStateOfV == 0){
 
-			goBack()
+
 		}
 	}
 
@@ -433,12 +423,7 @@ class LandingPageNew: UIViewController  {
 	}
 	
 	
-	func getOffers(sender: AnyObject){
-		let viewController = Promo()
-		print("https://mobileapp.fuse-review-kawasaki.com/mobileDealer/Offers//\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(s.dealerID)")
-		viewController.passedURL = "https://mobileapp.fuse-review-kawasaki.com/mobileDealer/Offers//\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(s.dealerID)"
-		self.presentViewController(viewController, animated: true, completion: nil)
-	}
+	
 	
 	func buttonsTop() {
 		UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
@@ -540,13 +525,13 @@ class LandingPageNew: UIViewController  {
 
 	}
 	func racingSetup(){
-		currentSelectState = "racing"
-		currentState = "racing"
+		currentSelectState = "Racing"
+		currentState = "Racing"
   	textTop.alpha = 0
   	lineTop.alpha = 0
 		buttonTop.alpha = 0
 		textTop.text = ""
-		textMiddle.text = "news"
+		textMiddle.text = "News"
 		textBottom.text = "Schedule"
 		buttonsTop()
 		
@@ -588,74 +573,78 @@ class LandingPageNew: UIViewController  {
 				self.logDel.showMessage()
 		}
 	}
-	let offers = "https://mobileapp.fuse-review-kawasaki.com/mobiledealer/offers/"
-	let myDealer = "https://mobileapp.fuse-review-kawasaki.com//mobiledealer/myDealer"
-	let myFav = "https://mobileapp.fuse-review-kawasaki.com/userinfo/myfavoritevehicles/1/1"
-	let myOwned = "https://mobileapp.fuse-review-kawasaki.com/userinfo/MyOwnedVehicles/1/1"
-	let exploreV = "https://mobileapp.fuse-review-kawasaki.com/mobileProduct/explorevehicles"
-	let prodDetail = "https://mobileapp.fuse-review-kawasaki.com/mobileProduct/ProductDetail/7300"
-	let news = "https://mobileapp.fuse-review-kawasaki.com/mobileracing/news/"
-	let schedule = "https://mobileapp.fuse-review-kawasaki.com/mobileracing/schedule"
-	let newsDetails = "https://mobileapp.fuse-review-kawasaki.com/MobileRacing/NewsDetails/33"
-	let privacy = "https://mobileapp.fuse-review-kawasaki.com/home/privacyPolicy"
+	let offers = "https://Kawasakimobileappapi.gofuse.com/mobiledealer/offers/"
+	let myDealer = "https://Kawasakimobileappapi.gofuse.com//mobiledealer/myDealer"
+	let myFav = "https://Kawasakimobileappapi.gofuse.com/userinfo/myfavoritevehicles/1/1"
+	let myOwned = "https://Kawasakimobileappapi.gofuse.com/userinfo/MyOwnedVehicles/1/1"
+	let exploreV = "https://Kawasakimobileappapi.gofuse.com/mobileProduct/explorevehicles"
+	let prodDetail = "https://Kawasakimobileappapi.gofuse.com/mobileProduct/ProductDetail/7300"
+	let news = "https://Kawasakimobileappapi.gofuse.com/mobileracing/news/"
+	let schedule = "https://Kawasakimobileappapi.gofuse.com/mobileracing/schedule"
+	let newsDetails = "https://Kawasakimobileappapi.gofuse.com/MobileRacing/NewsDetails/33"
+	let privacy = "https://Kawasakimobileappapi.gofuse.com/home/privacyPolicy"
 //	\(s.prefs.getAppID())/\(s.prefs.getPhID()
 	func sequeTop(sender: UIButton!){
 
 		switch currentSelectState {
-		case "racing":
-			//self.url = "https://mobileapp.fuse-review-kawasaki.com/mobileracing/\(s.prefs.getAppID())/\(s.prefs.getPhID())/news"
+		case "Racing":
+			//self.url = "https://Kawasakimobileappapi.gofuse.com/mobileracing/\(s.prefs.getAppID())/\(s.prefs.getPhID())/news"
 			self.performSegueWithIdentifier("toRaceResults", sender: self)
 		case "explore":
 			self.performSegueWithIdentifier("toRaceResults", sender: self)
 		case "myKawasaki":
 			if s.prefs.getHasFavorites(){
-				self.url  = "https://mobileapp.fuse-review-kawasaki.com/userinfo/myfavoritevehicles/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
+				self.url  = "https://Kawasakimobileappapi.gofuse.com/userinfo/myfavoritevehicles/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
 				self.performSegueWithIdentifier("toMyFav", sender: self)
 			}else{
 			self.oFav.showMessage()
 			}
-		default: print("32")
+		default: print("42")
 		}
 	}
 	
 	func sequeMiddle(sender: UIButton!){
 
 		switch currentSelectState {
-		case "racing":
-			self.url = "https://mobileapp.fuse-review-kawasaki.com/mobileracing/news/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
+		case "Racing":
+			self.url = "https://Kawasakimobileappapi.gofuse.com/mobileracing/news/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
 			self.performSegueWithIdentifier("toRaceResults", sender: self)
 		case "explore":
 			self.performSegueWithIdentifier("toConnect", sender: self)
 		case "myKawasaki":
 			if s.prefs.gethasOwned(){
-					self.url = "https://mobileapp.fuse-review-kawasaki.com/userinfo/myownedVehicles/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
+					self.url = "https://Kawasakimobileappapi.gofuse.com/userinfo/myownedVehicles/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
 					self.performSegueWithIdentifier("toMyOwned", sender: self)
 			}else{
 				self.oOwned.showMessage()
 			}
-		default: print("32")
+		default: print("42")
 		}
 	}
 	
 	func sequeButtom(sender: UIButton!){
 		switch currentSelectState {
-		case "racing":
-			self.url = "https://mobileapp.fuse-review-kawasaki.com/mobileracing/schedule/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
+		case "Racing":
+			self.url = "https://Kawasakimobileappapi.gofuse.com/mobileracing/schedule/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
 			self.performSegueWithIdentifier("toRaceResults", sender: self)
 		case "explore":
 			self.performSegueWithIdentifier("toHistory", sender: self)
 		case "myKawasaki":
 			if s.prefs.getprefDealer(){
-				self.url = "https://mobileapp.fuse-review-kawasaki.com/mobiledealer/myDealer/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
+				self.url = "https://Kawasakimobileappapi.gofuse.com/mobiledealer/myDealer/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
 				self.performSegueWithIdentifier("toMyDealer", sender: self)
 			}else{
 			self.oDealer.showMessage()
 			}
 			//	self.performSegueWithIdentifier("toRaceResults", sender: self)
-		default: print("32")
+		default: print("42")
 		}
 	}
-	
+	func getOffers(sender: AnyObject){
+		self.url = "https://Kawasakimobileappapi.gofuse.com/mobileDealer/Offers/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(s.prefs.getDealerID())"
+		print(url)
+		self.performSegueWithIdentifier("toDealerOffers", sender: self)
+	}
 
 	
 	
@@ -678,12 +667,18 @@ class LandingPageNew: UIViewController  {
 			let svc = segue.destinationViewController as! MyDealer
 			svc.passedURL = self.url
 		}
+		
+		if (segue.identifier == "toDealerOffers") {
+			let svc = segue.destinationViewController as! DealerOffers
+			svc.passedURL = self.url
+		}
 
 	}
 
 	func getLatest(){
-				let url = "https://mobileapp.fuse-review-kawasaki.com/mobileappapi/AuthenticateAppUser/\(s.prefs.getUsername())/\(s.prefs.getPassword())/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
-				//print(url)
+				let url = "https://Kawasakimobileappapi.gofuse.com/mobileappapi/AuthenticateAppUser/\(s.prefs.getUsername())/\(s.prefs.getPassword())/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
+			print(url)
+		print(s.prefs.getPassword())
 				let endpoint = NSURL(string: url)
 				if let data = NSData(contentsOfURL: endpoint!){
 					if let json: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)) as? NSDictionary, let items = json["Login"] as? NSArray {

@@ -60,6 +60,13 @@
 		1DDE3C621B73DD5E009506BA /* MyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDE3C611B73DD5E009506BA /* MyApi.swift */; };
 		1DE9B03C1B728ED8006C2556 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DE9B03B1B728ED8006C2556 /* data.plist */; };
 		1DE9B03E1B72B0BE006C2556 /* DownloadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */; };
+		1DEC07611BDF030B0068BA39 /* connect-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC07601BDF030B0068BA39 /* connect-image.png */; settings = {ASSET_TAGS = (); }; };
+		1DEC07631BDF03AB0068BA39 /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC07621BDF03AB0068BA39 /* connect.png */; settings = {ASSET_TAGS = (); }; };
+		1DEC07651BDF03EA0068BA39 /* how-to.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC07641BDF03EA0068BA39 /* how-to.png */; settings = {ASSET_TAGS = (); }; };
+		1DEC07671BDFD8210068BA39 /* DealerOffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC07661BDFD8210068BA39 /* DealerOffers.swift */; settings = {ASSET_TAGS = (); }; };
+		1DEC076B1BDFEC5A0068BA39 /* DealersDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC076A1BDFEC5A0068BA39 /* DealersDetail.swift */; settings = {ASSET_TAGS = (); }; };
+		1DEC076D1BE055C70068BA39 /* NoDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC076C1BE055C70068BA39 /* NoDealer.swift */; settings = {ASSET_TAGS = (); }; };
+		1DEC076F1BE0561B0068BA39 /* NoVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC076E1BE0561B0068BA39 /* NoVH.swift */; settings = {ASSET_TAGS = (); }; };
 		1DF0DFD81BB5C631001E33DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF0DFD71BB5C631001E33DD /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		1DF0DFDC1BB5F2C5001E33DD /* hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFDB1BB5F2C5001E33DD /* hexColor.swift */; settings = {ASSET_TAGS = (); }; };
 		1DF0DFDE1BB9ABCC001E33DD /* LandingPageNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFDD1BB9ABCC001E33DD /* LandingPageNew.swift */; settings = {ASSET_TAGS = (); }; };
@@ -141,6 +148,13 @@
 		1DDE3C611B73DD5E009506BA /* MyApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyApi.swift; sourceTree = "<group>"; };
 		1DE9B03B1B728ED8006C2556 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 		1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFile.swift; sourceTree = "<group>"; };
+		1DEC07601BDF030B0068BA39 /* connect-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-image.png"; sourceTree = "<group>"; };
+		1DEC07621BDF03AB0068BA39 /* connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connect.png; sourceTree = "<group>"; };
+		1DEC07641BDF03EA0068BA39 /* how-to.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "how-to.png"; sourceTree = "<group>"; };
+		1DEC07661BDFD8210068BA39 /* DealerOffers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealerOffers.swift; sourceTree = "<group>"; };
+		1DEC076A1BDFEC5A0068BA39 /* DealersDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealersDetail.swift; sourceTree = "<group>"; };
+		1DEC076C1BE055C70068BA39 /* NoDealer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDealer.swift; sourceTree = "<group>"; };
+		1DEC076E1BE0561B0068BA39 /* NoVH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoVH.swift; sourceTree = "<group>"; };
 		1DF0DFD71BB5C631001E33DD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1DF0DFDB1BB5F2C5001E33DD /* hexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hexColor.swift; sourceTree = "<group>"; };
 		1DF0DFDD1BB9ABCC001E33DD /* LandingPageNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageNew.swift; sourceTree = "<group>"; };
@@ -180,6 +194,8 @@
 				1D323B2C1BD5A39E00251A6B /* OopsDealer.swift */,
 				1D323B4A1BD807A200251A6B /* LoginPopUp.swift */,
 				1D323B441BD7197D00251A6B /* OopsFavVehicles.swift */,
+				1DEC076C1BE055C70068BA39 /* NoDealer.swift */,
+				1DEC076E1BE0561B0068BA39 /* NoVH.swift */,
 				1D323B2E1BD6AD9F00251A6B /* OopsVehicles.swift */,
 				1D323B301BD6B35700251A6B /* OopsOwned.swift */,
 				1D323B601BD9424A00251A6B /* Pref.swift */,
@@ -209,6 +225,8 @@
 				1D15EA931BDE71BC00120857 /* FoundBeaconProduct.swift */,
 				1D15EA991BDED94100120857 /* Promo.swift */,
 				1D323B3A1BD6E6ED00251A6B /* ExploreVehicles.swift */,
+				1DEC076A1BDFEC5A0068BA39 /* DealersDetail.swift */,
+				1DEC07661BDFD8210068BA39 /* DealerOffers.swift */,
 				1D323B3C1BD6E81400251A6B /* MyOwned.swift */,
 				1D323B421BD6FC6A00251A6B /* DealersVisited.swift */,
 				1D323B3E1BD6E83700251A6B /* MyFavorites.swift */,
@@ -286,6 +304,9 @@
 		1D7F86831B67FB1E001B6E1E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1DEC07641BDF03EA0068BA39 /* how-to.png */,
+				1DEC07621BDF03AB0068BA39 /* connect.png */,
+				1DEC07601BDF030B0068BA39 /* connect-image.png */,
 				1D15EA7F1BDDDD5800120857 /* cancel.png */,
 				1D15EA801BDDDD5800120857 /* ok-button.png */,
 				1D40A34F1BDACFF800598B26 /* Phone_Icon.png */,
@@ -399,11 +420,14 @@
 			files = (
 				1D323B171BCF1B7100251A6B /* Signika-Bold.otf in Resources */,
 				1D15EA821BDDDD5800120857 /* ok-button.png in Resources */,
+				1DEC07611BDF030B0068BA39 /* connect-image.png in Resources */,
+				1DEC07651BDF03EA0068BA39 /* how-to.png in Resources */,
 				1D15EA811BDDDD5800120857 /* cancel.png in Resources */,
 				1D323B631BD9902800251A6B /* video1.mp4 in Resources */,
 				1D40A3501BDACFF800598B26 /* Phone_Icon.png in Resources */,
 				1D323B361BD6E3B700251A6B /* Main.storyboard in Resources */,
 				1D323B181BCF1B7100251A6B /* Signika-Light.otf in Resources */,
+				1DEC07631BDF03AB0068BA39 /* connect.png in Resources */,
 				1D323B1A1BCF1B7100251A6B /* Signika-Semibold.otf in Resources */,
 				1D40A34A1BD9D07400598B26 /* Info.plist in Resources */,
 				1D7F86931B67FB1E001B6E1E /* LaunchScreen.xib in Resources */,
@@ -433,11 +457,13 @@
 				1D15EA921BDDE81400120857 /* VehiclesExplored.swift in Sources */,
 				1D7F86AD1B682C96001B6E1E /* Login.swift in Sources */,
 				1D323B3D1BD6E81400251A6B /* MyOwned.swift in Sources */,
+				1DEC076B1BDFEC5A0068BA39 /* DealersDetail.swift in Sources */,
 				1D323B381BD6E59000251A6B /* RacingSchedule.swift in Sources */,
 				1DE9B03E1B72B0BE006C2556 /* DownloadFile.swift in Sources */,
 				1D323B451BD7197D00251A6B /* OopsFavVehicles.swift in Sources */,
 				1DFE004D1BC59D940055A3F7 /* MyConnect.swift in Sources */,
 				1D15EA901BDDE81400120857 /* Usage.swift in Sources */,
+				1DEC07671BDFD8210068BA39 /* DealerOffers.swift in Sources */,
 				1D40A34E1BDAABB900598B26 /* ShowMyConnect.swift in Sources */,
 				1D323B611BD9424A00251A6B /* Pref.swift in Sources */,
 				1DFE00591BC7220B0055A3F7 /* CoreDataModel.swift in Sources */,
@@ -474,9 +500,11 @@
 				1DF0DFFA1BC2F6AA001E33DD /* BurgerMenu.swift in Sources */,
 				1DDE3C621B73DD5E009506BA /* MyApi.swift in Sources */,
 				1DA96FB01B967309009EE25D /* RaceResults.swift in Sources */,
+				1DEC076F1BE0561B0068BA39 /* NoVH.swift in Sources */,
 				1DA96F901B9503CE009EE25D /* ScrollViewContainer.swift in Sources */,
 				1D323B4F1BD82DBB00251A6B /* StateVaule.swift in Sources */,
 				1DB65EBF1B6AD53F003D350A /* Singlton.swift in Sources */,
+				1DEC076D1BE055C70068BA39 /* NoDealer.swift in Sources */,
 				1D15EA8E1BDDE81400120857 /* DealerHistory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,6 +660,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kawasaki.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Kawasaki Connect";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -647,6 +676,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kawasaki.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Kawasaki Connect";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

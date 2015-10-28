@@ -111,7 +111,7 @@ class BurgerMenu: UIView {
 		lineTop.image = UIImage(named: "line2")
 		textTop.addSubview(lineTop)
 		
-		
+
 		let buttonMiddle = UIButton()
 		buttonMiddle.frame = CGRectMake(buttonTop.frame.origin.x + (buttonTop.frame.width * 0.5)  , threeButtonXpos + 45, smButtonWidth, smButtonHeight)
 		buttonMiddle.setImage(UIImage(named: "KC_SplashPage_MainHexes_Iddle"), forState: .Normal)
@@ -168,6 +168,9 @@ class BurgerMenu: UIView {
 		topRightContainer.frame =  CGRectMake(rightMargin * 2, 140, logoutButton.frame.origin.x + logoutButton.frame.width - (rightMargin * 2) , self.frame.height * 0.3)
 		
 		let locateDealerView = UIView()
+		locateDealerView.userInteractionEnabled = true
+		let dealerLoc = UITapGestureRecognizer(target: self, action:"locateDealer:")
+		locateDealerView.addGestureRecognizer(dealerLoc)
 		locateDealerView.frame = CGRect(x: (self.frame.width - rightMargin) - screen.width * 0.5 , y: logoutButton.frame.origin.y + logoutButton.frame.height + 10, width: screen.width * 0.5, height: 40)
 		locateDealerView.userInteractionEnabled = true
 		self.addSubview(locateDealerView)
@@ -208,6 +211,7 @@ class BurgerMenu: UIView {
 		if !s.prefs.getValidUser(){
 			logoutButton.alpha = 0
 		}
+
 	}
 	
 	func openMenu(){
@@ -234,72 +238,40 @@ class BurgerMenu: UIView {
 		
 	}
 	
+	func locateDealer (sender: AnyObject){
+		s.currentStateOfV = 5
+		parentView?.navigationController?.popViewControllerAnimated(false)
+	}
 	func logOut(sender: AnyObject){
 		s.prefs.setValidUser(false)
 		parentView?.navigationController?.popViewControllerAnimated(true)
 	}
 	
 	func toKawasaki(sender:AnyObject){
-						UIApplication.sharedApplication().openURL(NSURL(string:"https://www.kawasaki.com")!)
+				UIApplication.sharedApplication().openURL(NSURL(string:"https://www.kawasaki.com")!)
 	}
+	
 	func goHome(sender: UITapGestureRecognizer){
 		s.currentStateOfV = 0
-			parentView?.navigationController?.popViewControllerAnimated(true)
+		parentView?.navigationController?.popToRootViewControllerAnimated(true)
 		
 	}
+	
 	func exploreVehicles(sender: AnyObject){
-		//parentView?.navigationController?.popViewControllerAnimated(false)
-		if pickView == 0{
-		(parentView as? YourHistory)?.passIn = 1
-			s.currentStateOfV = 2
-		}
-		if pickView == 1{
-		(parentView as? RaceResults)?.passIn = 1
-			s.currentStateOfV = 2
-		}else{
-			(parentView as? ShowMyConnect)?.passIn = 1
-			s.currentStateOfV = 2
-		}
-		parentView?.navigationController?.popViewControllerAnimated(true)
-		
-//		parentView?.navigationController?.popViewControllerAnimated(true)
-//		parentView.navigationController?.topViewController
-
+		s.currentStateOfV = 2
+		parentView?.navigationController?.popToRootViewControllerAnimated(true)
+	
 	}
 
 	func racing(sender: AnyObject){
-		//parentView?.navigationController?.popViewControllerAnimated(false)
-		if pickView == 0{
-			(parentView as? YourHistory)?.passIn = 2
-			s.currentStateOfV = 1
-		}
-		if pickView == 1{
-			(parentView as? RaceResults)?.passIn = 1
-			s.currentStateOfV = 1
+	
+		s.currentStateOfV = 1
+		parentView?.navigationController?.popToRootViewControllerAnimated(true)
 	}
-		else{
-			(parentView as? ShowMyConnect)?.passIn = 1
-			s.currentStateOfV = 1
-		}
-		parentView?.navigationController?.popViewControllerAnimated(true)
-
-		
-	}
+	
 	func myKawasaki(sender: AnyObject){
-		//parentView?.navigationController?.popViewControllerAnimated(false)
-		if pickView == 0{
-			(parentView as? YourHistory)?.passIn = 3
-			s.currentStateOfV = 3
-		}
-		if pickView == 1{
-			(parentView as? RaceResults)?.passIn = 1
-			s.currentStateOfV = 3
-		}
-		else{
-			(parentView as? ShowMyConnect)?.passIn = 1
-			s.currentStateOfV = 3
-		}
-		parentView?.navigationController?.popViewControllerAnimated(true)
+		s.currentStateOfV = 3
+		parentView?.navigationController?.popToRootViewControllerAnimated(true)
 
 		
 	}

@@ -101,7 +101,7 @@ class LoginPopUp: UIView,UITextFieldDelegate  {
 		mainContainer.addSubview(myContinue)
 		
 		let createAccount = UILabel()
-		let text = "Don't have a My Kawasaki account yet? \nCClick here to create one"
+		let text = "Don't have a My Kawasaki account yet? \nClick here to create one"
 		createAccount.numberOfLines = 2
 		let kText:NSMutableAttributedString = NSMutableAttributedString(string: text)
 		createAccount.userInteractionEnabled = true
@@ -177,8 +177,9 @@ class LoginPopUp: UIView,UITextFieldDelegate  {
 	func continueLoged(sender: UIButton){
 		
 		if let user = username.text, passwd = password.text {
-			let url = "https://mobileapp.fuse-review-kawasaki.com/mobileappapi/AuthenticateAppUser/\(user)/\(passwd)/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
-			//print(url)
+			
+			let url = "https://Kawasakimobileappapi.gofuse.com/mobileappapi/AuthenticateAppUser/\(user)/\(passwd)/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
+			print(url)
 			let endpoint = NSURL(string: url)
 			if let data = NSData(contentsOfURL: endpoint!){
 				if let json: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)) as? NSDictionary, let items = json["Login"] as? NSArray {
@@ -188,7 +189,6 @@ class LoginPopUp: UIView,UITextFieldDelegate  {
 							self.s.prefs.setHasFavorites(hasFav)
 							self.s.prefs.sethasOwned(hasOwned)
 							self.s.prefs.setprefDealer(hasPref)
-							//print(item)
 							if valid{
 								login()
 								s.prefs.username(user)
@@ -203,7 +203,7 @@ class LoginPopUp: UIView,UITextFieldDelegate  {
 
 	func login(){
 		s.prefs.setValidUser(true)
-		//print("faking login")
+
 		UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
 			self.alpha = 0
 			self.endEditing(true)

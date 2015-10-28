@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VisitedProducts: UIViewController, UIWebViewDelegate {
+class DealerOffers: UIViewController, UIWebViewDelegate {
 	
 	var screen = UIScreen.mainScreen().bounds
 	var racingHeader = UIView()
@@ -20,7 +20,7 @@ class VisitedProducts: UIViewController, UIWebViewDelegate {
 	var passedURL: String = ""
 	var passIn:Int = 0
 	var spinner = UIActivityIndicatorView()
-	var actInd: UIActivityIndicatorView = UIActivityIndicatorView()
+		var actInd: UIActivityIndicatorView = UIActivityIndicatorView()
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		burger.pickView = 1
@@ -53,20 +53,28 @@ class VisitedProducts: UIViewController, UIWebViewDelegate {
 		hamburger.addTarget(self, action: "openMenu:", forControlEvents: UIControlEvents.TouchUpInside)
 		racingHeader.addSubview(hamburger)
 		let headerText = UILabel()
-		let myText  = "Explored Vehicles"
+		
+		let myText  = "Dealer Offers"
 		headerText.textColor = UIColor.whiteColor()
 		let	myMutableString = NSMutableAttributedString(string: myText, attributes: [NSFontAttributeName:UIFont(name: "Signika-Light", size: 18.0)!])
-		myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.grayColor(), range: NSRange(location:8,length:9))
+		myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.grayColor(), range: NSRange(location:6,length:7))
 		headerText.attributedText = myMutableString
 		headerText.frame = CGRectMake(hamburger.frame.width + 35, 15, screen.width - hamburger.frame.width, 30)
 		racingHeader.addSubview(headerText)
 		
 		let url = NSURL (string: passedURL)
+		//print("passed url \(passedURL)")
 		
 		let requestObj = NSURLRequest(URL: url!)
 		racingWebView.frame = CGRectMake(0, racingHeader.frame.height, screen.width, screen.height)
 		racingWebView.loadRequest(requestObj);
 		racingWebView.backgroundColor = UIColor.blackColor()
+		
+		spinner.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+		spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+		spinner.contentMode = .Center
+		spinner.startAnimating()
+		//		self.view.addSubview(spinner)
 		
 		self.view.addSubview(racingHeader)
 		racingHeader.addSubview(hamburger)
@@ -74,19 +82,20 @@ class VisitedProducts: UIViewController, UIWebViewDelegate {
 		self.view.addSubview(racingWebView)
 		self.view.addSubview(fadeView)
 		self.view.addSubview(burger)
+	
 		actInd.frame = CGRectMake((screen.width * 0.5) - 20, (screen.height * 0.5) - 20, 40.0, 40.0);
 		actInd.hidesWhenStopped = true
 		actInd.activityIndicatorViewStyle =	UIActivityIndicatorViewStyle.WhiteLarge
 		self.view.addSubview(actInd)
+		
 	}
 	func webViewDidStartLoad(webView: UIWebView) {
-			actInd.startAnimating()
-		
+				actInd.startAnimating()
 		
 	}
 	
 	func webViewDidFinishLoad(webView: UIWebView) {
-		actInd.stopAnimating()
+	actInd.stopAnimating()
 		UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
 			self.fadeView.alpha = 0
 			}, completion: { finished in

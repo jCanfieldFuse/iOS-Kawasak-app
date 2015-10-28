@@ -67,7 +67,7 @@ class MyConnect: UIViewController  {
 
 		
 		mainImage.frame = CGRectMake(marginLeft, copyContainer.frame.origin.y + copyContainer.frame.height, copyContainer.frame.width - (marginLeft), screen.height * 0.4)
-		mainImage.image = UIImage(named: "connect-image.png")
+		mainImage.image = UIImage(named: "connect.png")
 		mainImage.contentMode = UIViewContentMode.ScaleAspectFit
 		
 		self.view.addSubview(mainImage)

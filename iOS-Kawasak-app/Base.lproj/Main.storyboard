@@ -54,14 +54,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFP-Yp-qqy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-691" y="3770"/>
+            <point key="canvasLocation" x="-637" y="3104"/>
         </scene>
         <!--Landing Page New-->
         <scene sceneID="h0r-h1-tDt">
             <objects>
                 <viewController storyboardIdentifier="LandingPageNew" id="F17-mo-Vj5" customClass="LandingPageNew" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7gU-bD-ZXf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -73,26 +73,12 @@
                         <segue destination="GLs-Dn-pBj" kind="push" identifier="toConnect" id="YV4-eu-Yc3"/>
                         <segue destination="uOb-PQ-AeM" kind="push" identifier="toMyOwned" id="dBK-JI-BWR"/>
                         <segue destination="wMb-FD-ILD" kind="push" identifier="toMyFav" id="kz4-cR-EGZ"/>
+                        <segue destination="M1T-hh-get" kind="push" identifier="toDealerOffers" id="05l-4Q-gt6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RdR-tl-cDv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-244" y="2422"/>
-        </scene>
-        <!--Dealer Welcome-->
-        <scene sceneID="I4Q-zo-kdO">
-            <objects>
-                <viewController storyboardIdentifier="DealerWelcome" id="f3K-b6-0Nx" customClass="DealerWelcome" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2c0-2h-qtC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="qEd-ms-iff"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S8j-5U-qos" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-244" y="3143"/>
+            <point key="canvasLocation" x="278" y="2422"/>
         </scene>
         <!--My Connect-->
         <scene sceneID="SgL-XV-XBH">
@@ -121,19 +107,18 @@
                     <navigationItem key="navigationItem" id="hbJ-mS-QHx"/>
                     <connections>
                         <segue destination="F17-mo-Vj5" kind="push" identifier="toNonDealerLanding" id="8kZ-FQ-k6F"/>
-                        <segue destination="f3K-b6-0Nx" kind="push" id="Kh1-Lj-iQu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhj-oe-6CO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-244" y="1341"/>
+            <point key="canvasLocation" x="-338" y="1273"/>
         </scene>
         <!--Your History-->
         <scene sceneID="I9f-nj-1Dc">
             <objects>
                 <viewController id="ukB-Me-XSa" customClass="YourHistory" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cdJ-g3-Y5O">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -142,19 +127,18 @@
                         <segue destination="QWx-RA-bL7" kind="push" identifier="toRaceResults" id="gj0-cC-NJ1"/>
                         <segue destination="g7u-L5-Yya" kind="push" identifier="toExploredVehicles" id="eq4-c0-vw2"/>
                         <segue destination="gZy-DC-v7M" kind="push" identifier="toDealersVisited" id="Hj9-yV-N38"/>
-                        <segue destination="F17-mo-Vj5" kind="push" identifier="toLanding" id="B2q-rh-l8g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAo-21-GqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="650" y="2146"/>
+            <point key="canvasLocation" x="1222" y="1396"/>
         </scene>
-        <!--Visited Dealers-->
+        <!--Visited Products-->
         <scene sceneID="c5c-es-wEl">
             <objects>
-                <viewController id="g7u-L5-Yya" customClass="VisitedDealers" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="g7u-L5-Yya" customClass="VisitedProducts" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sWr-TX-umh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -162,32 +146,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fTy-oZ-7HO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1568" y="2422"/>
+            <point key="canvasLocation" x="1853" y="1758"/>
+        </scene>
+        <!--Dealer Offers-->
+        <scene sceneID="gz6-FN-Oiy">
+            <objects>
+                <viewController id="M1T-hh-get" customClass="DealerOffers" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WhY-jH-cs2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0FD-2H-O0g"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uAb-gv-xzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-249" y="4254"/>
         </scene>
         <!--Show My Connect-->
         <scene sceneID="LdT-A4-8Xc">
             <objects>
                 <viewController id="GLs-Dn-pBj" customClass="ShowMyConnect" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ewn-SC-xs3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="HAe-Xm-Y67"/>
-                    <connections>
-                        <segue destination="F17-mo-Vj5" kind="push" identifier="toLanding" id="QD6-Ip-1Na"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bqu-aU-st7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="88" y="3868"/>
+            <point key="canvasLocation" x="236" y="4254"/>
         </scene>
         <!--My Owned-->
         <scene sceneID="2Jb-ju-FE3">
             <objects>
                 <viewController id="uOb-PQ-AeM" customClass="MyOwned" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S46-NO-qB1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -195,14 +191,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akc-2k-TMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="650" y="3552"/>
+            <point key="canvasLocation" x="1222" y="2902"/>
         </scene>
         <!--My Favorites-->
         <scene sceneID="k0r-nT-s8R">
             <objects>
                 <viewController id="wMb-FD-ILD" customClass="MyFavorites" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Jb-se-w52">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -210,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Gt-UX-0xz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="4224"/>
+            <point key="canvasLocation" x="782" y="4254"/>
         </scene>
         <!--My Dealer-->
         <scene sceneID="xE0-Pe-E3M">
@@ -227,37 +223,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aqp-NZ-XBL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077" y="4176"/>
+            <point key="canvasLocation" x="1222" y="3600"/>
+        </scene>
+        <!--Dealers Detail-->
+        <scene sceneID="DCz-gc-gFT">
+            <objects>
+                <viewController id="Tys-GE-ayI" customClass="DealersDetail" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I06-7C-U3B">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rui-Of-1yK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FIy-Nq-xFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1833" y="366"/>
         </scene>
         <!--Visited Dealers-->
         <scene sceneID="GRV-Fo-CJM">
             <objects>
                 <viewController id="gZy-DC-v7M" customClass="VisitedDealers" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Od-NX-YVt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="lqL-zO-lIt"/>
+                    <connections>
+                        <segue destination="aVz-yM-zAR" kind="push" identifier="toExplored" id="D2O-hC-UPE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yc5-WX-9AI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1577" y="1701"/>
+            <point key="canvasLocation" x="1853" y="1001"/>
         </scene>
         <!--Find Dealer-->
         <scene sceneID="lEa-3W-9ab">
             <objects>
                 <viewController storyboardIdentifier="FindDealer" id="isC-AR-imc" customClass="FindDealer" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="89N-yM-23U">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="1CX-O1-kcl"/>
+                    <connections>
+                        <segue destination="Tys-GE-ayI" kind="push" identifier="toDealerDetails" id="ll9-Nb-Fia"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nP3-CG-85n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="630" y="1461"/>
+            <point key="canvasLocation" x="1222" y="671"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Kt9-E1-WEr">
@@ -284,18 +301,15 @@
             <objects>
                 <viewController storyboardIdentifier="toRaceResults" id="QWx-RA-bL7" customClass="RaceResults" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JrP-bt-WvF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="avN-on-mrq"/>
-                    <connections>
-                        <segue destination="F17-mo-Vj5" kind="push" identifier="toLanding" id="pHx-TB-WB4"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGa-Px-dvl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="650" y="2875"/>
+            <point key="canvasLocation" x="1222" y="2187"/>
         </scene>
         <!--Settings-->
         <scene sceneID="hH6-JJ-3EC">
@@ -325,19 +339,32 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <segue destination="ZUL-K9-WlC" kind="push" identifier="toLegal" id="Hna-sz-6ia"/>
-                        <segue destination="F17-mo-Vj5" kind="push" identifier="toGenericDealer" id="3qe-dL-Eu7"/>
-                        <segue destination="f3K-b6-0Nx" kind="push" id="a82-Bh-XAY"/>
+                        <segue destination="F17-mo-Vj5" kind="push" identifier="toGenericDealer" animates="NO" id="3qe-dL-Eu7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNZ-SU-lq9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1028" y="2422"/>
         </scene>
+        <!--Dealers Detail-->
+        <scene sceneID="84N-EU-QdD">
+            <objects>
+                <viewController id="aVz-yM-zAR" customClass="DealersDetail" customModule="Kawasaki_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2O7-5b-zIg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Vhh-YD-JF1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1mM-3X-X0O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2345" y="992"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5FU-rF-xcy"/>
-        <segue reference="XEn-1F-Dz9"/>
-        <segue reference="a82-Bh-XAY"/>
+        <segue reference="3qe-dL-Eu7"/>
+        <segue reference="gj0-cC-NJ1"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.086274509799999996" green="0.63921568630000003" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
 </document>

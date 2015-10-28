@@ -19,6 +19,8 @@ class YourHistory: UIViewController  {
 	var coreData: CoreDataModel = CoreDataModel()
 	let c:hexColor = hexColor()
 	var passIn = 0
+	var de: NoDealer = NoDealer()
+	var vh: NoVH = NoVH()
 	var url = ""
 	override func viewDidLoad() {
 	//	self.navigationController?.navigationBarHidden = true
@@ -99,7 +101,7 @@ class YourHistory: UIViewController  {
 		let textTop = UILabel()
 		textTop.text = "Vehicles Explored"
 		textTop.frame =  CGRectMake(buttonTop.frame.width + 15, 5, textTop.intrinsicContentSize().width,	textTop.intrinsicContentSize().height)
-		let recognizer = UITapGestureRecognizer(target: self, action:"test:")
+		let recognizer = UITapGestureRecognizer(target: self, action:"vehiclesVisited:")
 		textTop.addGestureRecognizer(recognizer)
 		textTop.userInteractionEnabled = true
 		textTop.textColor = UIColor.whiteColor()
@@ -107,7 +109,6 @@ class YourHistory: UIViewController  {
 		topRightContainer.addSubview(textTop)
 		
 		let vehicles = coreData.getVehiclesExplored()
-		//print(vehicles.values)
 		let lineTop = UIImageView()
 		lineTop.frame = CGRectMake(0, textTop.frame.height + 5 , textTop.frame.width, 1)
 		lineTop.image = UIImage(named: "line2")
@@ -140,6 +141,8 @@ class YourHistory: UIViewController  {
 		
 		let textMiddle = UILabel()
 		textMiddle.text = "Dealers Visited"
+		let recognizerV = UITapGestureRecognizer(target: self, action:"dealersVisited:")
+		textTop.addGestureRecognizer(recognizerV)
 		textMiddle.frame =  CGRectMake(textTop.frame.origin.x + 20,  44, textMiddle.intrinsicContentSize().width, textMiddle.intrinsicContentSize().height)
 		textMiddle.textColor = UIColor.whiteColor()
 		textMiddle.textAlignment = NSTextAlignment.Right
@@ -170,23 +173,14 @@ class YourHistory: UIViewController  {
 		redCountBottom.textAlignment = NSTextAlignment.Center
 		redBottomView.addSubview(redCountBottom
 		)
-		
-		//	self.view.addSubview(burger)
+
+		self.view.addSubview(de)
+		self.view.addSubview(vh)
 		
 	}
-	/*
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		//print("dasdsa")
-		if (segue.identifier == "toLanding") {
-			let svc = segue.destinationViewController as! LandingPageNew
-			svc.dataPassed = passIn
-			
-			//print("passing data\(passIn)")
-		}
-	}*/
 
-	
-	override func viewWillAppear(animated: Bool) {
+
+	 	override func viewWillAppear(animated: Bool) {
 					self.view.addSubview(burger)
 	}
 	func openMenu(sender: UIButton!){
@@ -196,15 +190,24 @@ class YourHistory: UIViewController  {
 	
 	func vehiclesVisited(sender: AnyObject){
 		let vehicles = coreData.getVehiclesExplored()
-	
-		self.url = "https://mobileapp.fuse-review-kawasaki.com/mobileproduct/productslist/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(vehicles.values)"
-		self.performSegueWithIdentifier("toExploredVehicles", sender: self)
+		
+		if vehicles.count != 0{
+			self.url = "https://Kawasakimobileappapi.gofuse.com/mobileproduct/productslist/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(vehicles.values)"
+			self.performSegueWithIdentifier("toExploredVehicles", sender: self)
+		}else{
+				self.vh.showMessage()
+		}
+		
 	}
 	
 	func dealersVisited(sender: AnyObject){
 		let dealers = coreData.getDealersExploredCount()
-		self.url = "https://mobileapp.fuse-review-kawasaki.com/userinfo/dealersVisited/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(dealers.values)"
-  	self.performSegueWithIdentifier("toDealersVisited", sender: self)
+		if dealers.count != 0{
+		self.url = "https://mobileapp.fuse-review-kawasaki.com/mobileappapi/GetDealersDetails/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(dealers.values)"
+			self.performSegueWithIdentifier("toDealersVisited", sender: self)
+		}else{
+				self.de.showMessage()
+		}
 	}
 
 override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -213,7 +216,7 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		svc.passedURL = self.url
 	}
 	if (segue.identifier == "toExploredVehicles") {
-		let svc = segue.destinationViewController as! VisitedDealers
+		let svc = segue.destinationViewController as! VisitedProducts
 		svc.passedURL = self.url
 	}
 }
