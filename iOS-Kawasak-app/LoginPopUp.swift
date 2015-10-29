@@ -8,19 +8,21 @@
 
 import UIKit
 
-class LoginPopUp: UIView,UITextFieldDelegate  {
+class LoginPopUp: UIView, UITextFieldDelegate  {
 	var screen = UIScreen.mainScreen().bounds
 	let padding:CGFloat = 40
 	let topPadding:CGFloat = 10
 	let color:hexColor = hexColor()
 	let fontSize:CGFloat = 15
-	let username = UITextField()
+	let username: UITextField = UITextField()
 	let c:hexColor = hexColor()
 	var parentView:UIViewController!
 	let fadeCountainer = UIView()
 	let mainContainer = UIView()
 	let password = UITextField()
 	let s:Singleton = Singleton.sharedInstance
+	
+	
 	override func didMoveToSuperview() {
 		super.didMoveToSuperview()
 		
@@ -175,11 +177,10 @@ class LoginPopUp: UIView,UITextFieldDelegate  {
 	}
 	
 	func continueLoged(sender: UIButton){
-		
+					print("fff")		
 		if let user = username.text, passwd = password.text {
 			
 			let url = "https://Kawasakimobileappapi.gofuse.com/mobileappapi/AuthenticateAppUser/\(user)/\(passwd)/\(s.prefs.getAppID())/\(s.prefs.getPhID())"
-			print(url)
 			let endpoint = NSURL(string: url)
 			if let data = NSData(contentsOfURL: endpoint!){
 				if let json: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)) as? NSDictionary, let items = json["Login"] as? NSArray {
@@ -193,9 +194,17 @@ class LoginPopUp: UIView,UITextFieldDelegate  {
 								login()
 								s.prefs.username(user)
 								s.prefs.password(passwd)
+								print("what")
+							}else{
+							//	print("not valid")
+							//	bad.showMessage()
 							}
 						}
 					}
+				}else{
+					let alertView = UIAlertController(title: "Oops", message: "our username and or passeord you entered was incorrect", preferredStyle: .Alert)
+					alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+					parentView.presentViewController(alertView, animated: true, completion: nil)
 				}
 			}
 		}

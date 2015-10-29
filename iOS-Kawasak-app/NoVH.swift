@@ -40,7 +40,7 @@ class NoVH: UIView {
 		mainCountainer.addSubview(title)
 		
 		let body = UILabel()
-		body.text = "You have not explored any Vehicles"
+		body.text = "You have not explored any vehicles"
 		body.numberOfLines = 3
 		body.textAlignment = NSTextAlignment.Center
 		body.font = UIFont(name: "Signika-Light", size: 15)

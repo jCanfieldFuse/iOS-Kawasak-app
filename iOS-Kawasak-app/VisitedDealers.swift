@@ -112,6 +112,7 @@ class VisitedDealers: UIViewController, UITableViewDelegate, UITableViewDataSour
 			if let data = NSData(contentsOfURL: endpoint!){
 				if let json: NSDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)) as? NSDictionary, let items = json["DealerDetailList"] as? NSArray {
 					for item in items {
+						print(item)
 						let nbd: nearByDealer = nearByDealer()
 						if let name = item["DealerName"] as? String{
 							if let dealerID = item["DealerID"] as? String{
@@ -133,6 +134,7 @@ class VisitedDealers: UIViewController, UITableViewDelegate, UITableViewDataSour
 						}
 						self.nearBy.append(nbd)
 					}
+					print(self.nearBy)
 				self.tableList.reloadData()
 				self.actInd.stopAnimating()
 				}

@@ -7,46 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D0413CC1BC32A5300971B0A /* LoadingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0413CB1BC32A5300971B0A /* LoadingPage.swift */; settings = {ASSET_TAGS = (); }; };
-		1D15EA811BDDDD5800120857 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D15EA7F1BDDDD5800120857 /* cancel.png */; settings = {ASSET_TAGS = (); }; };
-		1D15EA821BDDDD5800120857 /* ok-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D15EA801BDDDD5800120857 /* ok-button.png */; settings = {ASSET_TAGS = (); }; };
-		1D15EA8B1BDDE81400120857 /* Beacons+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA831BDDE81400120857 /* Beacons+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		1D15EA8C1BDDE81400120857 /* Beacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA841BDDE81400120857 /* Beacons.swift */; settings = {ASSET_TAGS = (); }; };
-		1D15EA8D1BDDE81400120857 /* DealerHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA851BDDE81400120857 /* DealerHistory+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		1D15EA8E1BDDE81400120857 /* DealerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA861BDDE81400120857 /* DealerHistory.swift */; settings = {ASSET_TAGS = (); }; };
-		1D15EA8F1BDDE81400120857 /* Usage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA871BDDE81400120857 /* Usage+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		1D15EA901BDDE81400120857 /* Usage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA881BDDE81400120857 /* Usage.swift */; settings = {ASSET_TAGS = (); }; };
-		1D15EA911BDDE81400120857 /* VehiclesExplored+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA891BDDE81400120857 /* VehiclesExplored+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		1D15EA921BDDE81400120857 /* VehiclesExplored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA8A1BDDE81400120857 /* VehiclesExplored.swift */; settings = {ASSET_TAGS = (); }; };
-		1D15EA941BDE71BD00120857 /* FoundBeaconProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA931BDE71BC00120857 /* FoundBeaconProduct.swift */; settings = {ASSET_TAGS = (); }; };
-		1D15EA961BDE83E300120857 /* VisitedDealers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA951BDE83E300120857 /* VisitedDealers.swift */; settings = {ASSET_TAGS = (); }; };
-		1D15EA981BDE847100120857 /* VisitedProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA971BDE847100120857 /* VisitedProducts.swift */; settings = {ASSET_TAGS = (); }; };
-		1D15EA9A1BDED94100120857 /* Promo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA991BDED94100120857 /* Promo.swift */; settings = {ASSET_TAGS = (); }; };
-		1D15EA9C1BDEF49400120857 /* MyDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA9B1BDEF49400120857 /* MyDealer.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323AC41BCD866600251A6B /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323AC31BCD866600251A6B /* NavController.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323AC61BCED3F400251A6B /* MyLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323AC51BCED3F400251A6B /* MyLogin.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323B171BCF1B7100251A6B /* Signika-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B021BCF1B7100251A6B /* Signika-Bold.otf */; settings = {ASSET_TAGS = (); }; };
-		1D323B181BCF1B7100251A6B /* Signika-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B031BCF1B7100251A6B /* Signika-Light.otf */; settings = {ASSET_TAGS = (); }; };
-		1D323B191BCF1B7100251A6B /* Signika-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B041BCF1B7100251A6B /* Signika-Regular.otf */; settings = {ASSET_TAGS = (); }; };
-		1D323B1A1BCF1B7100251A6B /* Signika-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B051BCF1B7100251A6B /* Signika-Semibold.otf */; settings = {ASSET_TAGS = (); }; };
-		1D323B2D1BD5A39E00251A6B /* OopsDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B2C1BD5A39E00251A6B /* OopsDealer.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323B2F1BD6AD9F00251A6B /* OopsVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B2E1BD6AD9F00251A6B /* OopsVehicles.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323B311BD6B35700251A6B /* OopsOwned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B301BD6B35700251A6B /* OopsOwned.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323B361BD6E3B700251A6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B341BD6E3B700251A6B /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
-		1D323B381BD6E59000251A6B /* RacingSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B371BD6E59000251A6B /* RacingSchedule.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323B3B1BD6E6ED00251A6B /* ExploreVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B3A1BD6E6ED00251A6B /* ExploreVehicles.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323B3D1BD6E81400251A6B /* MyOwned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B3C1BD6E81400251A6B /* MyOwned.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323B3F1BD6E83700251A6B /* MyFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B3E1BD6E83700251A6B /* MyFavorites.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323B431BD6FC6A00251A6B /* DealersVisited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B421BD6FC6A00251A6B /* DealersVisited.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323B451BD7197D00251A6B /* OopsFavVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B441BD7197D00251A6B /* OopsFavVehicles.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323B4B1BD807A200251A6B /* LoginPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B4A1BD807A200251A6B /* LoginPopUp.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323B4F1BD82DBB00251A6B /* StateVaule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B4E1BD82DBB00251A6B /* StateVaule.swift */; settings = {ASSET_TAGS = (); }; };
-		1D323B611BD9424A00251A6B /* Pref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B601BD9424A00251A6B /* Pref.swift */; settings = {ASSET_TAGS = (); }; };
+		1D0413CC1BC32A5300971B0A /* LoadingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0413CB1BC32A5300971B0A /* LoadingPage.swift */; };
+		1D15EA811BDDDD5800120857 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D15EA7F1BDDDD5800120857 /* cancel.png */; };
+		1D15EA821BDDDD5800120857 /* ok-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D15EA801BDDDD5800120857 /* ok-button.png */; };
+		1D15EA8B1BDDE81400120857 /* Beacons+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA831BDDE81400120857 /* Beacons+CoreDataProperties.swift */; };
+		1D15EA8C1BDDE81400120857 /* Beacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA841BDDE81400120857 /* Beacons.swift */; };
+		1D15EA8D1BDDE81400120857 /* DealerHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA851BDDE81400120857 /* DealerHistory+CoreDataProperties.swift */; };
+		1D15EA8E1BDDE81400120857 /* DealerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA861BDDE81400120857 /* DealerHistory.swift */; };
+		1D15EA8F1BDDE81400120857 /* Usage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA871BDDE81400120857 /* Usage+CoreDataProperties.swift */; };
+		1D15EA901BDDE81400120857 /* Usage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA881BDDE81400120857 /* Usage.swift */; };
+		1D15EA911BDDE81400120857 /* VehiclesExplored+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA891BDDE81400120857 /* VehiclesExplored+CoreDataProperties.swift */; };
+		1D15EA921BDDE81400120857 /* VehiclesExplored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA8A1BDDE81400120857 /* VehiclesExplored.swift */; };
+		1D15EA941BDE71BD00120857 /* FoundBeaconProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA931BDE71BC00120857 /* FoundBeaconProduct.swift */; };
+		1D15EA961BDE83E300120857 /* VisitedDealers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA951BDE83E300120857 /* VisitedDealers.swift */; };
+		1D15EA981BDE847100120857 /* VisitedProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA971BDE847100120857 /* VisitedProducts.swift */; };
+		1D15EA9A1BDED94100120857 /* Promo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA991BDED94100120857 /* Promo.swift */; };
+		1D15EA9C1BDEF49400120857 /* MyDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D15EA9B1BDEF49400120857 /* MyDealer.swift */; };
+		1D323AC41BCD866600251A6B /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323AC31BCD866600251A6B /* NavController.swift */; };
+		1D323AC61BCED3F400251A6B /* MyLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323AC51BCED3F400251A6B /* MyLogin.swift */; };
+		1D323B171BCF1B7100251A6B /* Signika-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B021BCF1B7100251A6B /* Signika-Bold.otf */; };
+		1D323B181BCF1B7100251A6B /* Signika-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B031BCF1B7100251A6B /* Signika-Light.otf */; };
+		1D323B191BCF1B7100251A6B /* Signika-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B041BCF1B7100251A6B /* Signika-Regular.otf */; };
+		1D323B1A1BCF1B7100251A6B /* Signika-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B051BCF1B7100251A6B /* Signika-Semibold.otf */; };
+		1D323B2D1BD5A39E00251A6B /* OopsDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B2C1BD5A39E00251A6B /* OopsDealer.swift */; };
+		1D323B2F1BD6AD9F00251A6B /* OopsVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B2E1BD6AD9F00251A6B /* OopsVehicles.swift */; };
+		1D323B311BD6B35700251A6B /* OopsOwned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B301BD6B35700251A6B /* OopsOwned.swift */; };
+		1D323B361BD6E3B700251A6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B341BD6E3B700251A6B /* Main.storyboard */; };
+		1D323B381BD6E59000251A6B /* RacingSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B371BD6E59000251A6B /* RacingSchedule.swift */; };
+		1D323B3B1BD6E6ED00251A6B /* ExploreVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B3A1BD6E6ED00251A6B /* ExploreVehicles.swift */; };
+		1D323B3D1BD6E81400251A6B /* MyOwned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B3C1BD6E81400251A6B /* MyOwned.swift */; };
+		1D323B3F1BD6E83700251A6B /* MyFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B3E1BD6E83700251A6B /* MyFavorites.swift */; };
+		1D323B431BD6FC6A00251A6B /* DealersVisited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B421BD6FC6A00251A6B /* DealersVisited.swift */; };
+		1D323B451BD7197D00251A6B /* OopsFavVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B441BD7197D00251A6B /* OopsFavVehicles.swift */; };
+		1D323B4B1BD807A200251A6B /* LoginPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B4A1BD807A200251A6B /* LoginPopUp.swift */; };
+		1D323B611BD9424A00251A6B /* Pref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D323B601BD9424A00251A6B /* Pref.swift */; };
 		1D323B631BD9902800251A6B /* video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1D323B621BD9900C00251A6B /* video1.mp4 */; };
-		1D40A34A1BD9D07400598B26 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D40A3491BD9D07400598B26 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
-		1D40A34C1BD9DF4500598B26 /* GetBeacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D40A34B1BD9DF4500598B26 /* GetBeacons.swift */; settings = {ASSET_TAGS = (); }; };
-		1D40A34E1BDAABB900598B26 /* ShowMyConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D40A34D1BDAABB900598B26 /* ShowMyConnect.swift */; settings = {ASSET_TAGS = (); }; };
-		1D40A3501BDACFF800598B26 /* Phone_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D40A34F1BDACFF800598B26 /* Phone_Icon.png */; settings = {ASSET_TAGS = (); }; };
+		1D40A34A1BD9D07400598B26 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D40A3491BD9D07400598B26 /* Info.plist */; };
+		1D40A34C1BD9DF4500598B26 /* GetBeacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D40A34B1BD9DF4500598B26 /* GetBeacons.swift */; };
+		1D40A34E1BDAABB900598B26 /* ShowMyConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D40A34D1BDAABB900598B26 /* ShowMyConnect.swift */; };
+		1D40A3501BDACFF800598B26 /* Phone_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D40A34F1BDACFF800598B26 /* Phone_Icon.png */; };
 		1D7F86861B67FB1E001B6E1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86851B67FB1E001B6E1E /* AppDelegate.swift */; };
 		1D7F86891B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F86871B67FB1E001B6E1E /* iOS_Kawasak_app.xcdatamodeld */; };
 		1D7F86931B67FB1E001B6E1E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D7F86911B67FB1E001B6E1E /* LaunchScreen.xib */; };
@@ -60,24 +59,24 @@
 		1DDE3C621B73DD5E009506BA /* MyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDE3C611B73DD5E009506BA /* MyApi.swift */; };
 		1DE9B03C1B728ED8006C2556 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DE9B03B1B728ED8006C2556 /* data.plist */; };
 		1DE9B03E1B72B0BE006C2556 /* DownloadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */; };
-		1DEC07611BDF030B0068BA39 /* connect-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC07601BDF030B0068BA39 /* connect-image.png */; settings = {ASSET_TAGS = (); }; };
-		1DEC07631BDF03AB0068BA39 /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC07621BDF03AB0068BA39 /* connect.png */; settings = {ASSET_TAGS = (); }; };
-		1DEC07651BDF03EA0068BA39 /* how-to.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC07641BDF03EA0068BA39 /* how-to.png */; settings = {ASSET_TAGS = (); }; };
-		1DEC07671BDFD8210068BA39 /* DealerOffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC07661BDFD8210068BA39 /* DealerOffers.swift */; settings = {ASSET_TAGS = (); }; };
-		1DEC076B1BDFEC5A0068BA39 /* DealersDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC076A1BDFEC5A0068BA39 /* DealersDetail.swift */; settings = {ASSET_TAGS = (); }; };
-		1DEC076D1BE055C70068BA39 /* NoDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC076C1BE055C70068BA39 /* NoDealer.swift */; settings = {ASSET_TAGS = (); }; };
-		1DEC076F1BE0561B0068BA39 /* NoVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC076E1BE0561B0068BA39 /* NoVH.swift */; settings = {ASSET_TAGS = (); }; };
-		1DF0DFD81BB5C631001E33DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF0DFD71BB5C631001E33DD /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
-		1DF0DFDC1BB5F2C5001E33DD /* hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFDB1BB5F2C5001E33DD /* hexColor.swift */; settings = {ASSET_TAGS = (); }; };
-		1DF0DFDE1BB9ABCC001E33DD /* LandingPageNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFDD1BB9ABCC001E33DD /* LandingPageNew.swift */; settings = {ASSET_TAGS = (); }; };
-		1DF0DFF21BBC622D001E33DD /* DealerWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFF11BBC622D001E33DD /* DealerWelcome.swift */; settings = {ASSET_TAGS = (); }; };
-		1DF0DFF41BBC6328001E33DD /* LocateDealerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFF31BBC6328001E33DD /* LocateDealerHeader.swift */; settings = {ASSET_TAGS = (); }; };
-		1DF0DFFA1BC2F6AA001E33DD /* BurgerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFF91BC2F6AA001E33DD /* BurgerMenu.swift */; settings = {ASSET_TAGS = (); }; };
-		1DFE00491BC485000055A3F7 /* YourHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE00481BC485000055A3F7 /* YourHistory.swift */; settings = {ASSET_TAGS = (); }; };
-		1DFE004D1BC59D940055A3F7 /* MyConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE004C1BC59D940055A3F7 /* MyConnect.swift */; settings = {ASSET_TAGS = (); }; };
-		1DFE00511BC5D8A30055A3F7 /* Legal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE00501BC5D8A30055A3F7 /* Legal.swift */; settings = {ASSET_TAGS = (); }; };
-		1DFE00591BC7220B0055A3F7 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE00581BC7220B0055A3F7 /* CoreDataModel.swift */; settings = {ASSET_TAGS = (); }; };
-		1DFE005F1BC739EE0055A3F7 /* FindDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE005E1BC739EE0055A3F7 /* FindDealer.swift */; settings = {ASSET_TAGS = (); }; };
+		1DEC07611BDF030B0068BA39 /* connect-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC07601BDF030B0068BA39 /* connect-image.png */; };
+		1DEC07631BDF03AB0068BA39 /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC07621BDF03AB0068BA39 /* connect.png */; };
+		1DEC07651BDF03EA0068BA39 /* how-to.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC07641BDF03EA0068BA39 /* how-to.png */; };
+		1DEC07671BDFD8210068BA39 /* DealerOffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC07661BDFD8210068BA39 /* DealerOffers.swift */; };
+		1DEC076B1BDFEC5A0068BA39 /* DealersDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC076A1BDFEC5A0068BA39 /* DealersDetail.swift */; };
+		1DEC076D1BE055C70068BA39 /* NoDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC076C1BE055C70068BA39 /* NoDealer.swift */; };
+		1DEC076F1BE0561B0068BA39 /* NoVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC076E1BE0561B0068BA39 /* NoVH.swift */; };
+		1DF0DFD81BB5C631001E33DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF0DFD71BB5C631001E33DD /* Images.xcassets */; };
+		1DF0DFDC1BB5F2C5001E33DD /* hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFDB1BB5F2C5001E33DD /* hexColor.swift */; };
+		1DF0DFDE1BB9ABCC001E33DD /* LandingPageNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFDD1BB9ABCC001E33DD /* LandingPageNew.swift */; };
+		1DF0DFF21BBC622D001E33DD /* DealerWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFF11BBC622D001E33DD /* DealerWelcome.swift */; };
+		1DF0DFF41BBC6328001E33DD /* LocateDealerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFF31BBC6328001E33DD /* LocateDealerHeader.swift */; };
+		1DF0DFFA1BC2F6AA001E33DD /* BurgerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0DFF91BC2F6AA001E33DD /* BurgerMenu.swift */; };
+		1DFE00491BC485000055A3F7 /* YourHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE00481BC485000055A3F7 /* YourHistory.swift */; };
+		1DFE004D1BC59D940055A3F7 /* MyConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE004C1BC59D940055A3F7 /* MyConnect.swift */; };
+		1DFE00511BC5D8A30055A3F7 /* Legal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE00501BC5D8A30055A3F7 /* Legal.swift */; };
+		1DFE00591BC7220B0055A3F7 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE00581BC7220B0055A3F7 /* CoreDataModel.swift */; };
+		1DFE005F1BC739EE0055A3F7 /* FindDealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE005E1BC739EE0055A3F7 /* FindDealer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,7 +125,6 @@
 		1D323B441BD7197D00251A6B /* OopsFavVehicles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OopsFavVehicles.swift; sourceTree = "<group>"; };
 		1D323B4A1BD807A200251A6B /* LoginPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPopUp.swift; sourceTree = "<group>"; };
 		1D323B4C1BD819EF00251A6B /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
-		1D323B4E1BD82DBB00251A6B /* StateVaule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateVaule.swift; sourceTree = "<group>"; };
 		1D323B601BD9424A00251A6B /* Pref.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pref.swift; sourceTree = "<group>"; };
 		1D323B621BD9900C00251A6B /* video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.mp4; sourceTree = "<group>"; };
 		1D40A33F1BD9AB7300598B26 /* Kawasaki Connect.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kawasaki Connect.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -277,7 +275,6 @@
 				1D853B661B7180C5002B325B /* PlistRW.swift */,
 				1D323B391BD6E59A00251A6B /* webViews */,
 				1DF0DFDB1BB5F2C5001E33DD /* hexColor.swift */,
-				1D323B4E1BD82DBB00251A6B /* StateVaule.swift */,
 				1D40A34B1BD9DF4500598B26 /* GetBeacons.swift */,
 				1DE9B03D1B72B0BE006C2556 /* DownloadFile.swift */,
 				1D40A34D1BDAABB900598B26 /* ShowMyConnect.swift */,
@@ -502,7 +499,6 @@
 				1DA96FB01B967309009EE25D /* RaceResults.swift in Sources */,
 				1DEC076F1BE0561B0068BA39 /* NoVH.swift in Sources */,
 				1DA96F901B9503CE009EE25D /* ScrollViewContainer.swift in Sources */,
-				1D323B4F1BD82DBB00251A6B /* StateVaule.swift in Sources */,
 				1DB65EBF1B6AD53F003D350A /* Singlton.swift in Sources */,
 				1DEC076D1BE055C70068BA39 /* NoDealer.swift in Sources */,
 				1D15EA8E1BDDE81400120857 /* DealerHistory.swift in Sources */,

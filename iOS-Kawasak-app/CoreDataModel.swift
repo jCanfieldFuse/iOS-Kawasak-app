@@ -13,7 +13,6 @@ class CoreDataModel: NSObject {
 	
 	
 	func setLegal(name: Bool) {
-
  	let appDelegate =	UIApplication.sharedApplication().delegate as! AppDelegate
 		let managedContext = appDelegate.managedObjectContext!
 		let entity =  NSEntityDescription.entityForName("Usage", inManagedObjectContext: managedContext)

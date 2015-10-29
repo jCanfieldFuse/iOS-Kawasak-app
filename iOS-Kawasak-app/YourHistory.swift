@@ -203,7 +203,8 @@ class YourHistory: UIViewController  {
 	func dealersVisited(sender: AnyObject){
 		let dealers = coreData.getDealersExploredCount()
 		if dealers.count != 0{
-		self.url = "https://mobileapp.fuse-review-kawasaki.com/mobileappapi/GetDealersDetails/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(dealers.values)"
+		self.url = "https://Kawasakimobileappapi.gofuse.com/mobileappapi/GetDealersDetails/\(s.prefs.getAppID())/\(s.prefs.getPhID())/\(dealers.values)"
+			print(url)
 			self.performSegueWithIdentifier("toDealersVisited", sender: self)
 		}else{
 				self.de.showMessage()

@@ -26,6 +26,7 @@ class Singleton {
   var locationManager: LocManager = LocManager()
 	var prefs:Pref = Pref()
 	var navCheck = false
+	var locationOff = false
 //	var getListBeacon:GetBeacons = GetBeacons()
 	var currentStateOfV:Int = 0
 	var mainScreen: UIViewController? = nil

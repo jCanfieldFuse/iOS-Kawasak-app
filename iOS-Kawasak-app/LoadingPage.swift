@@ -33,7 +33,25 @@ class LoadingPage: UIViewController  {
 				
 			}
 		}
-		
+		/*
+		if s.locationOff{
+			print("main")
+			var alertController = UIAlertController (title: "Please turn on Notifications", message: "Go to Settings?", preferredStyle: .Alert)
+			
+			var settingsAction = UIAlertAction(title: "Settings", style: .Default) { (_) -> Void in
+				let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+				if let url = settingsUrl {
+					UIApplication.sharedApplication().openURL(url)
+				}
+			}
+			
+			var cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+			alertController.addAction(settingsAction)
+			alertController.addAction(cancelAction)
+			
+			presentViewController(alertController, animated: true, completion: nil);
+		}
+*/
 		if !s.prefs.isGeoTrak(){
 			s.locationManager.turnOffgeo()
 		}else{
@@ -48,6 +66,7 @@ class LoadingPage: UIViewController  {
 	}
 	
 	override func viewDidAppear(animated: Bool) {
+		print("landingf")
 		let legalAcc = legalAccept.getLegal() as! Int
 		if legalAcc == 1 {
 			

@@ -31,6 +31,7 @@ class BurgerMenu: UIView {
 	let c:hexColor = hexColor()
 	var s:Singleton! = Singleton.sharedInstance
 	var pickView = 0
+	let logDel:LoginPopUp = LoginPopUp()
 	override func didMoveToSuperview() {
 		super.didMoveToSuperview()
 		
@@ -51,7 +52,7 @@ class BurgerMenu: UIView {
 		self.addSubview(rightView)
 		rightView.alpha = 0
 	
-		
+
 		let closeBurgerV = UIView()
 		closeBurgerV.frame = CGRectMake(20, 20, 40, 40)
 
@@ -211,7 +212,7 @@ class BurgerMenu: UIView {
 		if !s.prefs.getValidUser(){
 			logoutButton.alpha = 0
 		}
-
+		self.addSubview(logDel)
 	}
 	
 	func openMenu(){
@@ -271,7 +272,13 @@ class BurgerMenu: UIView {
 	
 	func myKawasaki(sender: AnyObject){
 		s.currentStateOfV = 3
+		if s.prefs.getValidUser(){
 		parentView?.navigationController?.popToRootViewControllerAnimated(true)
+		}else{
+			self.logDel.showMessage()
+		}
+
+
 
 		
 	}

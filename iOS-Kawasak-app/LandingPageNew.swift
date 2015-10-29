@@ -173,6 +173,7 @@ class LandingPageNew: UIViewController  {
 		
 		MyKawButton.setTitle("My Kawasaki™", forState: UIControlState.Normal)
 		MyKawButton.titleLabel!.numberOfLines = 0
+		MyKawButton.titleLabel?.font = UIFont(name: "Signika-Light", size: fontSize)
 		MyKawButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
 		MyKawButton.titleEdgeInsets =  UIEdgeInsets(top:0 , left: 0, bottom: 0, right: 0)
 		MyKawButton.titleLabel?.textAlignment = .Center
@@ -256,7 +257,7 @@ class LandingPageNew: UIViewController  {
 		lineBottom.frame = CGRectMake(0, textBottom.frame.height - 10, textBottom.frame.width, 1)
 		lineBottom.image = UIImage(named: "line2")
 		textBottom.addSubview(lineBottom)
-		topRightContainer.frame = CGRectMake(screen.width + 50, (self.kawasakiButton.frame.origin.y + self.kawasakiButton.frame.width * 0.5)  + 15 - ((buttonBottom.frame.origin.y + buttonBottom.frame.height) * 0.5), screen.width, (buttonBottom.frame.origin.y + buttonBottom.frame.height))
+		topRightContainer.frame = CGRectMake(screen.width + 50, (self.kawasakiButton.frame.origin.y + self.kawasakiButton.frame.width * 0.5)  + 20 - ((buttonBottom.frame.origin.y + buttonBottom.frame.height) * 0.5), screen.width, (buttonBottom.frame.origin.y + buttonBottom.frame.height))
 
 		welcomeLabel.text = "Welcome!"
 		welcomeLabel.font = UIFont(name: "Signika-Bold", size: fontSize + 2)
@@ -319,12 +320,31 @@ class LandingPageNew: UIViewController  {
 
 		//goBack()
 			}
+			
 		}
-		
 		self.playerLayer.player!.play()
 		NSNotificationCenter.defaultCenter().addObserver(self, selector:"playVideo", name:
 			UIApplicationWillEnterForegroundNotification, object: nil)
 
+		if s.prefs.getTurnedOffLoc(){
+		
+			var alertController = UIAlertController (title: "Please turn on Notifications", message: "Go to Settings?", preferredStyle: .Alert)
+			
+			var settingsAction = UIAlertAction(title: "Settings", style: .Default) { (_) -> Void in
+				let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+				if let url = settingsUrl {
+					UIApplication.sharedApplication().openURL(url)
+				}
+			}
+			
+			var cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+			alertController.addAction(settingsAction)
+			alertController.addAction(cancelAction)
+			
+			presentViewController(alertController, animated: true, completion: nil);
+		}
+
+	
 	}
 
 	func updateDealerStatus(foundDealer: Bool){
@@ -376,6 +396,7 @@ class LandingPageNew: UIViewController  {
 	
 	override func viewDidAppear(animated: Bool) {
 	
+		
 		if s.prefs.hasSeenDealerBeacon(){
 			dealerName.alpha = 1
 			offerButton.alpha = 1
@@ -428,7 +449,7 @@ class LandingPageNew: UIViewController  {
 	func buttonsTop() {
 		UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
 			//	self.mainContainer.frame = CGRectMake(-400, 0, self.screen.width, self.screen.height)
-			self.kawasakiButton.frame = CGRectMake(-(self.bButtonWidth ) * 0.5, (self.screen.height * 0.5) - (self.halfButton! + 15), self.bButtonWidth , self.bButtonHeight )
+			self.kawasakiButton.frame = CGRectMake(-(self.bButtonWidth ) * 0.5, (self.screen.height * 0.5) - (self.halfButton! + 10), self.bButtonWidth , self.bButtonHeight )
 			self.racingButton.frame = CGRectMake((self.screen.width * 0.5) + (self.offset - 24), ((self.screen.height * 0.5) - self.buttonWidth) - (self.offset + 2), 0, 0)
 			self.exploreButton.frame = CGRectMake((self.screen.width * 0.5) + (self.halfButton! ), (self.screen.height * 0.5) - (self.halfButton! + 3), 0, 0)
 			self.MyKawButton.frame = CGRectMake((self.screen.width * 0.5) + (self.offset - 24), ((self.screen.height * 0.5) + (self.halfButton!)) - (self.offset + 4), 0, 0)
@@ -464,7 +485,7 @@ class LandingPageNew: UIViewController  {
 			self.topRightContainer.frame.origin.x = self.screen.width + 50
 			}, completion: { finished in
 				UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
-					self.kawasakiButton.frame = CGRectMake((self.buttonPos) - (self.halfButton! + 9), (self.screen.height * 0.5) - (self.halfButton! + 15), self.bButtonWidth  , self.bButtonHeight )
+					self.kawasakiButton.frame = CGRectMake((self.buttonPos) - (self.halfButton! + 9), (self.screen.height * 0.5) - (self.halfButton! + 10), self.bButtonWidth  , self.bButtonHeight )
 					self.racingButton.frame = CGRectMake((self.buttonPos) + (self.offset - 27) - self.leftOffset, ((self.screen.height * 0.5) - self.buttonWidth) - (self.offset + 11) - self.yOffest, self.buttonWidth, self.buttonHeight)
 					self.exploreButton.frame = CGRectMake((self.buttonPos) + (self.halfButton! ) - self.leftOffset, (self.screen.height * 0.5) - (self.halfButton! + 3) - self.yOffest, self.buttonWidth, self.buttonHeight)
 					self.MyKawButton.frame = CGRectMake((self.buttonPos) + (self.offset - 27) - self.leftOffset, ((self.screen.height * 0.5) + (self.halfButton!)) - (self.offset - 2 ) - self.yOffest, self.buttonWidth, self.buttonHeight)

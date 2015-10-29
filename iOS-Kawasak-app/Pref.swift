@@ -229,6 +229,25 @@ class Pref: AnyObject {
 		
 	}
 	
+	func hasTurnedOffLoc(value: Bool){
+		
+		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+		defaults.setObject(value, forKey: "OffLoc")
+		defaults.synchronize()
+	}
+	
+	func getTurnedOffLoc() -> Bool{
+		
+		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+		if let firstRun = defaults.objectForKey("OffLoc") as? Bool {
+			
+			return firstRun
+		}else{
+			
+			return false
+		}
+		
+	}
 	
 	func username(value: String){
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -239,6 +258,7 @@ class Pref: AnyObject {
 	func getUsername() -> String{
 		let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 		if let firstRun = defaults.objectForKey("username") as? String {
+			print(firstRun)
 			return firstRun
 		}else{
 			return ""
